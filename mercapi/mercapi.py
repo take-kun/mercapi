@@ -9,6 +9,8 @@ from jose import jws
 from jose.backends.ecdsa_backend import ECDSAECKey
 from jose.constants import ALGORITHMS
 
+from mercapi.requests import SearchRequestData
+
 
 class Mercapi:
     _api_endpoint = 'https://api.mercari.jp/v2/entities:search'
@@ -45,16 +47,9 @@ class Mercapi:
         return res.json()
 
     def _search(self, query: str) -> Request:
-        data = {"userId": "", "pageSize": 120, "pageToken": "", "searchSessionId": uuid.uuid4().hex,
-                "indexRouting": "INDEX_ROUTING_UNSPECIFIED", "thumbnailTypes": [],
-                "searchCondition": {"keyword": query, "excludeKeyword": "", "sort": "SORT_SCORE",
-                                    "order": "ORDER_DESC", "status": [], "sizeId": [], "categoryId": [], "brandId": [],
-                                    "sellerId": [], "priceMin": 0, "priceMax": 0, "itemConditionId": [],
-                                    "shippingPayerId": [], "shippingFromArea": [], "shippingMethod": [], "colorId": [],
-                                    "hasCoupon": False, "attributes": [], "itemTypes": [], "skuIds": []},
-                "defaultDatasets": [], "serviceFrom": "suruga"}
+        data = SearchRequestData(query)
         req = Request('POST', self._api_endpoint,
-                      json=data,
+                      json=data.data,
                       headers={'User-Agent': self._user_agent, 'X-Platform': 'web'}
                       )
         return self._prepare_request(req)
