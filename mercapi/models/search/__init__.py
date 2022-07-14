@@ -1,0 +1,1 @@
+from .search_result_item import SearchResultItem

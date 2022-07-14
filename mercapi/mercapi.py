@@ -9,6 +9,7 @@ from jose import jws
 from jose.backends.ecdsa_backend import ECDSAECKey
 from jose.constants import ALGORITHMS
 
+from mercapi.models.search.search_results import SearchResults
 from mercapi.requests import SearchRequestData
 
 
@@ -42,9 +43,10 @@ class Mercapi:
 
         return request
 
-    async def search(self, query: str) -> dict:
+    async def search(self, query: str) -> SearchResults:
         res = await self._client.send(self._search(query))
-        return res.json()
+        body = res.json()
+        return SearchResults.from_dict(body)
 
     def _search(self, query: str) -> Request:
         data = SearchRequestData(query)
