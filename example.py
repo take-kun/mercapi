@@ -6,7 +6,7 @@ from mercapi import Mercapi
 async def main():
     mercapi = Mercapi()
     results = await mercapi.search('sharpnel')
-    print(results.as_dict())
+    print(results.items[0].name, results.items[0].price)
 
 
 if __name__ == '__main__':
