@@ -37,11 +37,12 @@ class ResponseModel:
                 ) from e
 
         for raw_name, model_name, func in cls._optional_properties:
+            raw_property = None
             try:
                 raw_property = func(d)
-                model_properties[model_name] = raw_property
             except Exception as e:
                 cls._report_incorrect_optional(raw_name, d, e)
+            model_properties[model_name] = raw_property
 
         return cls(**model_properties)
 
@@ -73,6 +74,12 @@ class Extractors:
     @staticmethod
     def get_as(key: str, type_: Type[S]) -> ExtractorDef[S]:
         return lambda x: type_(x[key]) if key in x else None
+
+    M = TypeVar('M', bound=ResponseModel)
+
+    @staticmethod
+    def get_as_model(key: str, model: Type[M]) -> ExtractorDef[M]:
+        return lambda x: model.from_dict(x[key]) if key in x else None
 
     @staticmethod
     def get_with(key: str, mapper: Callable[[S], T]) -> ExtractorDef[T]:
