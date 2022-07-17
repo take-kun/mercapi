@@ -1,5 +1,6 @@
 import logging
 from datetime import datetime
+from types import ModuleType
 from typing import NamedTuple, Callable, List, TypeVar, Any, Type, Union
 
 from mercapi.util.errors import ParseAPIResponseError
@@ -79,6 +80,8 @@ class Extractors:
 
     @staticmethod
     def get_as_model(key: str, model: Type[M]) -> ExtractorDef[M]:
+        if type(model) == str:
+            model = Extractors.__import_class(model)
         return lambda x: model.from_dict(x[key]) if key in x else None
 
     @staticmethod
@@ -90,5 +93,18 @@ class Extractors:
         return lambda x: [mapper(i) for i in x[key]] if key in x else None
 
     @staticmethod
+    def get_list_of_model(key: str, model: Type[M]) -> ExtractorDef[List[M]]:
+        if type(model) == str:
+            model = Extractors.__import_class(model)
+        return lambda x: [model.from_dict(i) for i in x[key]] if key in x else None
+
+    @staticmethod
     def get_datetime(key: str) -> ExtractorDef[datetime]:
         return Extractors.get_with(key, lambda x: datetime.utcfromtimestamp(float(x)))
+
+    @staticmethod
+    def __import_class(model: str) -> ModuleType:
+        import importlib
+        module_name, class_name = model.rsplit('.', 1)
+        return importlib.import_module(module_name, class_name)
+

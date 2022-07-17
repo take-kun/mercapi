@@ -1,3 +1,6 @@
+from typing import List
+
+from mercapi.models.common import ItemCategory
 from mercapi.models.item.data import *
 
 
