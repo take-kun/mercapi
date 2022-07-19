@@ -1,9 +1,11 @@
 import logging
 from datetime import datetime
-from types import ModuleType
 from typing import NamedTuple, Callable, List, TypeVar, Any, Type, Union
 
 from mercapi.util.errors import ParseAPIResponseError
+
+
+RM = TypeVar('RM', bound='ResponseModel')
 
 
 class ResponseProperty(NamedTuple):
@@ -21,7 +23,7 @@ class ResponseModel:
         pass
 
     @classmethod
-    def from_dict(cls, d: dict):
+    def from_dict(cls, d: dict) -> RM:
         if cls == ResponseModel:
             raise TypeError('from_dict() class method is supposed to be called on ResponseModel subclasses providing '
                             'lists of properties')
@@ -103,8 +105,8 @@ class Extractors:
         return Extractors.get_with(key, lambda x: datetime.utcfromtimestamp(float(x)))
 
     @staticmethod
-    def __import_class(model: str) -> ModuleType:
+    def __import_class(model: str) -> Type[ResponseModel]:
         import importlib
         module_name, class_name = model.rsplit('.', 1)
-        return importlib.import_module(module_name, class_name)
+        return getattr(importlib.import_module(module_name), class_name)
 
