@@ -14,23 +14,29 @@ class ItemCategory(ResponseModel):
     ]
     _optional_properties = [
         ('display_order', 'display_order', Extractors.get('display_order')),
+        ('tab_order', 'tab_order', Extractors.get('tab_order')),
         ('parent_category_id', 'parent_category_id', Extractors.get('parent_category_id')),
         ('parent_category_name', 'parent_category_name', Extractors.get('parent_category_name')),
         ('root_category_id', 'root_category_id', Extractors.get('root_category_id')),
         ('root_category_name', 'root_category_name', Extractors.get('root_category_name')),
+        ('size_group_id', 'size_group_id', Extractors.get('size_group_id')),
+        ('brand_group_id', 'brand_group_id', Extractors.get('brand_group_id')),
     ]
 
-    def __init__(self, id_: int, name: str, display_order: int, parent_category_id: int,
+    def __init__(self, id_: int, name: str, tab_order: int, display_order: int, parent_category_id: int,
                  parent_category_name: str, root_category_id: int,
-                 root_category_name: str, children: List['ItemCategory']):
+                 root_category_name: str, size_group_id: int, brand_group_id: int, children: List['ItemCategory']):
         super().__init__()
         self.id_ = id_
         self.name = name
+        self.tab_order = tab_order
         self.display_order = display_order
         self.parent_category_id = parent_category_id
         self.parent_category_name = parent_category_name
         self.root_category_id = root_category_id
         self.root_category_name = root_category_name
+        self.size_group_id = size_group_id
+        self.brand_group_id = brand_group_id
         self.children = children
 
     @classmethod
@@ -45,17 +51,3 @@ class ItemCategory(ResponseModel):
         if not any(raw_name == 'child' for raw_name, _, _ in cls._optional_properties):
             cls._optional_properties.append(('child', 'children', Extractors.get_list_of_model('child', cls)))
         return super().from_dict(d)
-
-    @property
-    def parent_category(self):
-        if self.parent_category_id is not None and self.parent_category_name is not None:
-            return ItemCategory(**{'id_': self.parent_category_id, 'name': self.parent_category_name})
-        else:
-            return None
-
-    @property
-    def root_category(self):
-        if self.root_category_id is not None and self.root_category_name is not None:
-            return ItemCategory(**{'id_': self.root_category_id, 'name': self.root_category_name})
-        else:
-            return None
