@@ -1,6 +1,6 @@
 import random
 import uuid
-from typing import Optional
+from typing import Optional, List
 
 import httpx
 from ecdsa import SigningKey, NIST256p
@@ -34,13 +34,27 @@ class Mercapi:
         )
         return request
 
-    async def search(self, query: str) -> SearchResults:
-        res = await self._client.send(self._search(query))
+    async def search(self, query: str, categories: List[int] = [], brands: List[int] = [], sizes: List[int] = [],
+                     price_min: int = None, price_max: int = None, item_conditions: List[int] = [],
+                     shipping_payer: List[int] = [], colors: List[int] = [],
+                     shipping_methods: List[SearchRequestData.ShippingMethod] = [],
+                     status: List[SearchRequestData.Status] = []) -> SearchResults:
+        res = await self._client.send(self._search(
+            query, categories, brands, sizes, price_min, price_max, item_conditions, shipping_payer, colors,
+            shipping_methods, status
+        ))
         body = res.json()
         return SearchResults.from_dict(body)
 
-    def _search(self, query: str) -> Request:
-        data = SearchRequestData(query)
+    def _search(self, query: str, categories: List[int] = [], brands: List[int] = [], sizes: List[int] = [],
+                price_min: int = None, price_max: int = None, item_conditions: List[int] = [],
+                shipping_payer: List[int] = [], colors: List[int] = [],
+                shipping_methods: List[SearchRequestData.ShippingMethod] = [],
+                status: List[SearchRequestData.Status] = []) -> Request:
+        data = SearchRequestData(
+            query, categories, brands, sizes, price_min, price_max, item_conditions, shipping_payer,
+            colors, shipping_methods, status,
+        )
         req = Request('POST', 'https://api.mercari.jp/v2/entities:search',
                       json=data.data,
                       headers=self._headers
