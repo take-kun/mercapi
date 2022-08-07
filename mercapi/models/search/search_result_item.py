@@ -19,8 +19,8 @@ class SearchResultItem(ResponseModel):
         ('buyerId', 'buyer_id', Extractors.get('buyerId')),
         ('thumbnails', 'thumbnails', Extractors.get('thumbnails')),
         ('itemType', 'item_type', Extractors.get('itemType')),
-        ('itemConditionId', 'item_condition_id', Extractors.get('itemConditionId')),
-        ('shippingPayerId', 'shipping_payer_id', Extractors.get('shippingPayerId')),
+        ('itemConditionId', 'item_condition_id', Extractors.get_as('itemConditionId', int)),
+        ('shippingPayerId', 'shipping_payer_id', Extractors.get_as('shippingPayerId', int)),
     ]
 
     def __init__(self, id_: str, name: str, price: int, seller_id: str, status: str, created: datetime,
