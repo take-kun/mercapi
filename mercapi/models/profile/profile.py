@@ -1,5 +1,8 @@
 from datetime import datetime
+from typing import TYPE_CHECKING
 
+if TYPE_CHECKING:
+    from mercapi.models import Items
 from mercapi.models.base import Extractors, ResponseModel
 
 
@@ -94,3 +97,6 @@ class Profile(ResponseModel):
         self.current_point = current_point
         self.current_sales = current_sales
         self.is_organizational_user = is_organizational_user
+
+    async def items(self) -> 'Items':
+        return await self._mercapi.items(self.id_)
