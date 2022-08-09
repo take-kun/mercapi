@@ -1,8 +1,6 @@
 from typing import List, TypeVar
 
-from mercapi.models import ResponseModel
-from mercapi.models.base import Extractors
-
+from mercapi.models.base import Extractors, ResponseModel
 
 IC = TypeVar('IC', bound='ItemCategory')
 

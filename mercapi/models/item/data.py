@@ -1,7 +1,6 @@
 from datetime import datetime
 
-from mercapi.models import ResponseModel
-from mercapi.models.base import Extractors
+from mercapi.models.base import Extractors, ResponseModel
 
 
 class Seller(ResponseModel):

@@ -1,8 +1,9 @@
 from datetime import datetime
-from typing import List
+from typing import List, TYPE_CHECKING
 
-from mercapi.models import ResponseModel
-from mercapi.models.base import Extractors
+if TYPE_CHECKING:
+    from mercapi.models import Item
+from mercapi.models.base import Extractors, ResponseModel
 
 
 class SearchResultItem(ResponseModel):

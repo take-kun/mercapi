@@ -1,0 +1,44 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IldlQ3dFSnZwSUxTVzlzMElFTEo1TDg5b1RGZ1VIcExXY0hoOU02ZExFR2siLCJ5IjoiUVVvQU9ScjBJTkd1UmVsb3IxR2xTSUszUjJTWUpvS0FvelhrYnJzekxyWSJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE2NjAwODI3MTMsImp0aSI6IjBmNzUyNTgyLTljNTYtNWM3MS05ZjVkLWY0ZWU5MzZkYzA2MCIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdXNlcnMvZ2V0X3Byb2ZpbGU_dXNlcl9pZD0zNjIxNjQ3MDAmX3VzZXJfZm9ybWF0PXByb2ZpbGUiLCJodG0iOiJHRVQiLCJ1dWlkIjoiMzU0NzcxMmMtYWYzNC1kMzI3LTVjODgtOTI4Mjc0YTg4OTAyIn0.Jn2C5D7nkZOnIzBEG57yXrZ1ZW_CL3vKvMdFzH8zsEqQvYCeml4qgpOy1vkTgcd0AD8fSs0Jwk4NktcpdtOQyQ
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+      x-platform:
+      - web
+    method: GET
+    uri: https://api.mercari.jp/users/get_profile?user_id=362164700&_user_format=profile
+  response:
+    content: "{\"result\":\"OK\",\"data\":{\"id\":362164700,\"name\":\"nananao\",\"photo_url\":\"https://static.mercdn.net/images/member_photo_noimage.png\",\"photo_thumbnail_url\":\"https://static.mercdn.net/images/member_photo_noimage_thumb.png\",\"register_sms_confirmation\":\"yes\",\"ratings\":{\"good\":1030,\"normal\":3,\"bad\":0},\"polarized_ratings\":{\"good\":1033,\"bad\":0},\"num_ratings\":1033,\"star_rating_score\":5,\"is_followable\":true,\"is_blocked\":false,\"following_count\":2,\"follower_count\":11,\"kyc_type\":\"\",\"score\":1030,\"created\":1521901729,\"proper\":true,\"email\":\"\",\"phone_number\":\"\",\"introduction\":\"\u767A\u9001\u307E\u30671\u9031\u9593\u307B\u3069\u304A\u6642\u9593\u3092\u3044\u305F\u3060\u304F\u5834\u5408\u3082\u3042\u308A\u307E\u3059\u3002\\r\\n\u65E9\u3051\u308C\u3070\u7FCC\u65E5\u767A\u9001\u3082\u3042\u308A\u307E\u3059\u304C\u901A\u5E38\u5E73\u65E53\u65E5\u4EE5\u5185\u3067\u3059\u3002\\r\\n\u68B1\u5305\u6750\u306F\u518D\u5229\u7528\u54C1\u3067\u3059\u3002\\r\\n\u767A\u9001\u65B9\u6CD5\u3084\u65E9\u3081\u306F\u5E0C\u671B\u304C\u3042\u308C\u3070\u3054\u76F8\u8AC7\u4E0B\u3055\u3044\u3002\\n\u64AE\u5F71\u3084\u78BA\u8A8D\u306A\u3069\u624B\u9593\u306E\u304B\u304B\u308B\u4E8B\u306F\u304A\u65AD\u308A\u3059\u308B\u4E8B\u3082\u3042\u308A\u307E\u3059\u3002\\r\\n\u304A\u53D6\u5F15\u306B\u3066\u81F3\u3089\u306A\u3044\u70B9\u3082\u3042\u308A\u307E\u3059\u304C\u3088\u308D\u3057\u304F\u304A\u9858\u3044\u81F4\u3057\u307E\u3059\u3002\",\"iv_code\":\"\",\"is_official\":false,\"num_sell_items\":571,\"num_ticket\":0,\"bounce_mail_flag\":\"no\",\"is_following\":false,\"current_point\":0,\"current_sales\":0,\"is_organizational_user\":false,\"organizational_user_status\":\"\",\"tokushouhou_edit_url\":\"https://www.mercari.com/jp/\",\"tokushouhou_show_url\":\"https://www.mercari.com/jp/\",\"pp_edit_url\":\"https://www.mercari.com/jp/\",\"pp_show_url\":\"https://www.mercari.com/jp/\"},\"meta\":{}}\n"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1408'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 09 Aug 2022 22:05:14 GMT
+      Strict-Transport-Security:
+      - max-age=31557600
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google, 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Request-Id:
+      - f98de095-a130-4744-9e91-358a64a33375
+      X-Served-By:
+      - cache-hhn4065-HHN
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1

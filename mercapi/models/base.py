@@ -1,7 +1,9 @@
 import logging
 from datetime import datetime
-from typing import NamedTuple, Callable, List, TypeVar, Any, Type, Union
+from typing import NamedTuple, Callable, List, TypeVar, Any, Type, Union, TYPE_CHECKING
 
+if TYPE_CHECKING:
+    from mercapi import Mercapi
 from mercapi.util.errors import ParseAPIResponseError
 
 
@@ -15,6 +17,8 @@ class ResponseProperty(NamedTuple):
 
 
 class ResponseModel:
+
+    _mercapi: "Mercapi"
 
     _required_properties: List[ResponseProperty]
     _optional_properties: List[ResponseProperty]
@@ -48,6 +52,10 @@ class ResponseModel:
             model_properties[model_name] = raw_property
 
         return cls(**model_properties)
+
+    @classmethod
+    def set_mercapi(cls, m: "Mercapi") -> None:
+        cls._mercapi = m
 
     @classmethod
     def _report_incorrect_optional(cls, prop: str, response: dict, exc: Exception) -> None:

@@ -6,7 +6,8 @@ import httpx
 from ecdsa import SigningKey, NIST256p
 from httpx import Request
 
-from mercapi.models import SearchResults, Item
+from mercapi.models import SearchResults, Item, Profile
+from mercapi.models.base import ResponseModel
 from mercapi.requests import SearchRequestData
 from mercapi.util import jwt
 
@@ -22,6 +23,7 @@ class Mercapi:
         self._uuid = str(uuid.UUID(int=random.getrandbits(128)))
         self._key = SigningKey.generate(NIST256p)
         self._client = httpx.AsyncClient()
+        ResponseModel.set_mercapi(self)
 
     def _sign_request(self, request: Request) -> Request:
         request.headers['DPoP'] = jwt.generate_dpop(
@@ -71,4 +73,21 @@ class Mercapi:
 
     def _item(self, id_: str) -> Request:
         req = Request('GET', 'https://api.mercari.jp/items/get', params={'id': id_}, headers=self._headers)
+        return self._sign_request(req)
+
+    async def profile(self, id_: str) -> Optional[Profile]:
+        res = await self._client.send(self._profile(id_))
+        if res.status_code == 404:
+            return None
+
+        body = res.json()
+        return Profile.from_dict(body['data'])
+
+    def _profile(self, id_: str) -> Request:
+        req = Request(
+            'GET',
+            'https://api.mercari.jp/users/get_profile',
+            params={'user_id': id_, '_user_format': 'profile'},
+            headers=self._headers,
+        )
         return self._sign_request(req)
