@@ -6,7 +6,7 @@ import httpx
 from ecdsa import SigningKey, NIST256p
 from httpx import Request
 
-from mercapi.models import SearchResults, Item, Profile
+from mercapi.models import SearchResults, Item, Profile, Items
 from mercapi.models.base import ResponseModel
 from mercapi.requests import SearchRequestData
 from mercapi.util import jwt
@@ -88,6 +88,23 @@ class Mercapi:
             'GET',
             'https://api.mercari.jp/users/get_profile',
             params={'user_id': id_, '_user_format': 'profile'},
+            headers=self._headers,
+        )
+        return self._sign_request(req)
+
+    async def items(self, profile_id: str) -> Optional[Items]:
+        res = await self._client.send(self._items(profile_id))
+        if res.status_code == 404:
+            return None
+
+        body = res.json()
+        return Items.from_dict(body)
+
+    def _items(self, profile_id: str) -> Request:
+        req = Request(
+            'GET',
+            'https://api.mercari.jp/items/get_items',
+            params={'seller_id': profile_id, 'limit': 30, 'status': 'on_sale,trading,sold_out'},
             headers=self._headers,
         )
         return self._sign_request(req)
