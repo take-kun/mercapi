@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import List, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from mercapi.models import Item
+    from mercapi.models import Item, Profile
 from mercapi.models.base import Extractors, ResponseModel
 
 
@@ -40,3 +40,9 @@ class SearchResultItem(ResponseModel):
         self.item_type = item_type
         self.item_condition_id = item_condition_id
         self.shipping_payer_id = shipping_payer_id
+
+    async def full_item(self) -> 'Item':
+        return await self._mercapi.item(self.id_)
+
+    async def seller(self) -> 'Profile':
+        return await self._mercapi.profile(self.seller_id)
