@@ -1,4 +1,5 @@
 import uuid
+from dataclasses import dataclass, field
 from enum import Enum
 from typing import List
 
@@ -16,21 +17,29 @@ class SearchRequestData(RequestData):
         STATUS_SOLD_OUT = 2
         # STATUS_TRADING = 3
 
-    def __init__(self, query: str, categories: List[int] = [], brands: List[int] = [], sizes: List[int] = [],
-                 price_min: int = None, price_max: int = None, item_conditions: List[int] = [],
-                 shipping_payer: List[int] = [], colors: List[int] = [], shipping_methods: List[ShippingMethod] = [],
-                 status: List[Status] = []):
+    @dataclass
+    class SearchConditions:
+        query: str
+        categories: List[int] = field(default_factory=list)
+        brands: List[int] = field(default_factory=list)
+        sizes: List[int] = field(default_factory=list)
+        price_min: int = 0
+        price_max: int = 0
+        item_conditions: List[int] = field(default_factory=list)
+        shipping_payer: List[int] = field(default_factory=list)
+        colors: List[int] = field(default_factory=list)
+        shipping_methods: List['SearchRequestData.ShippingMethod'] = field(default_factory=list)
+        status: List['SearchRequestData.Status'] = field(default_factory=list)
+
+    def __init__(self, search_conditions: SearchConditions):
         super().__init__()
-        if price_min is None:
-            price_min = 0
-        if price_max is None:
-            price_max = 0
-        if shipping_methods:
-            shipping_methods = [i.name for i in shipping_methods]
-        if status:
-            status = [i.name for i in status]
-            if 'STATUS_SOLD_OUT' in status:
-                status.extend('STATUS_TRADING')
+        query, categories, brands, sizes, price_min, price_max, item_conditions, shipping_payer, colors =\
+            map(search_conditions.__dict__.get, ('query', 'categories', 'brands', 'sizes', 'price_min', 'price_max',
+                                                 'item_categories', 'shipping_payer', 'colors'))
+        shipping_methods = [i.name for i in search_conditions.shipping_methods]
+        status = [i.name for i in search_conditions.status]
+        if 'STATUS_SOLD_OUT' in status:
+            status.extend('STATUS_TRADING')
 
         self.data = {"userId": "", "pageSize": 120, "pageToken": "", "searchSessionId": uuid.uuid4().hex,
                      "indexRouting": "INDEX_ROUTING_UNSPECIFIED", "thumbnailTypes": [],

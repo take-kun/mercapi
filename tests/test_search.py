@@ -14,6 +14,8 @@ async def test_simple_search_query(m):
     assert item.price == 9444
     assert item.status == 'ITEM_STATUS_ON_SALE'
 
+    assert res.meta.num_found == 111
+
 
 @pytest.mark.asyncio
 @my_vcr.use_cassette()
