@@ -3,10 +3,13 @@ from vcr import VCR
 
 from mercapi import mercapi
 
-my_vcr = VCR(
-    cassette_library_dir="cassettes",
-    path_transformer=VCR.ensure_suffix(".yml"),
-)
+
+@pytest.fixture(scope="module")
+def vcr_config():
+    return {
+        "cassette_library_dir": "cassettes",
+        "path_transformer": VCR.ensure_suffix(".yml"),
+    }
 
 
 @pytest.fixture(scope="function")
