@@ -3,9 +3,9 @@ from mercapi.models.base import ResponseModel, Extractors
 
 class Meta(ResponseModel):
     _required_properties = [
-        ('nextPageToken', 'next_page_token', Extractors.get('nextPageToken')),
-        ('previousPageToken', 'prev_page_token', Extractors.get('previousPageToken')),
-        ('numFound', 'num_found', Extractors.get_as('numFound', int)),
+        ("nextPageToken", "next_page_token", Extractors.get("nextPageToken")),
+        ("previousPageToken", "prev_page_token", Extractors.get("previousPageToken")),
+        ("numFound", "num_found", Extractors.get_as("numFound", int)),
     ]
     _optional_properties = []
 

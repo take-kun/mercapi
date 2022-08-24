@@ -13,10 +13,12 @@ from mercapi.util import jwt
 
 
 class Mercapi:
-    _user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0'
+    _user_agent = (
+        "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
+    )
     _headers = {
-        'User-Agent': _user_agent,
-        'X-Platform': 'web',
+        "User-Agent": _user_agent,
+        "X-Platform": "web",
     }
 
     def __init__(self):
@@ -26,34 +28,56 @@ class Mercapi:
         ResponseModel.set_mercapi(self)
 
     def _sign_request(self, request: Request) -> Request:
-        request.headers['DPoP'] = jwt.generate_dpop(
+        request.headers["DPoP"] = jwt.generate_dpop(
             str(request.url),
             request.method,
             self._key,
             {
-                'uuid': self._uuid,
-            }
+                "uuid": self._uuid,
+            },
         )
         return request
 
-    async def search(self, query: str, categories: List[int] = [], brands: List[int] = [], sizes: List[int] = [],
-                     price_min: int = None, price_max: int = None, item_conditions: List[int] = [],
-                     shipping_payer: List[int] = [], colors: List[int] = [],
-                     shipping_methods: List[SearchRequestData.ShippingMethod] = [],
-                     status: List[SearchRequestData.Status] = []) -> SearchResults:
+    async def search(
+        self,
+        query: str,
+        categories: List[int] = [],
+        brands: List[int] = [],
+        sizes: List[int] = [],
+        price_min: int = None,
+        price_max: int = None,
+        item_conditions: List[int] = [],
+        shipping_payer: List[int] = [],
+        colors: List[int] = [],
+        shipping_methods: List[SearchRequestData.ShippingMethod] = [],
+        status: List[SearchRequestData.Status] = [],
+    ) -> SearchResults:
         request = SearchRequestData(
-            SearchRequestData.SearchConditions(query, categories, brands, sizes, price_min, price_max, item_conditions,
-                                               shipping_payer, colors, shipping_methods, status),
+            SearchRequestData.SearchConditions(
+                query,
+                categories,
+                brands,
+                sizes,
+                price_min,
+                price_max,
+                item_conditions,
+                shipping_payer,
+                colors,
+                shipping_methods,
+                status,
+            ),
         )
         res = await self._client.send(self._search(request))
         body = res.json()
         return SearchResults.from_dict(body)
 
     def _search(self, search_request_data: SearchRequestData) -> Request:
-        req = Request('POST', 'https://api.mercari.jp/v2/entities:search',
-                      json=search_request_data.data,
-                      headers=self._headers
-                      )
+        req = Request(
+            "POST",
+            "https://api.mercari.jp/v2/entities:search",
+            json=search_request_data.data,
+            headers=self._headers,
+        )
         return self._sign_request(req)
 
     async def item(self, id_: str) -> Optional[Item]:
@@ -62,10 +86,15 @@ class Mercapi:
             return None
 
         body = res.json()
-        return Item.from_dict(body['data'])
+        return Item.from_dict(body["data"])
 
     def _item(self, id_: str) -> Request:
-        req = Request('GET', 'https://api.mercari.jp/items/get', params={'id': id_}, headers=self._headers)
+        req = Request(
+            "GET",
+            "https://api.mercari.jp/items/get",
+            params={"id": id_},
+            headers=self._headers,
+        )
         return self._sign_request(req)
 
     async def profile(self, id_: str) -> Optional[Profile]:
@@ -74,13 +103,13 @@ class Mercapi:
             return None
 
         body = res.json()
-        return Profile.from_dict(body['data'])
+        return Profile.from_dict(body["data"])
 
     def _profile(self, id_: str) -> Request:
         req = Request(
-            'GET',
-            'https://api.mercari.jp/users/get_profile',
-            params={'user_id': id_, '_user_format': 'profile'},
+            "GET",
+            "https://api.mercari.jp/users/get_profile",
+            params={"user_id": id_, "_user_format": "profile"},
             headers=self._headers,
         )
         return self._sign_request(req)
@@ -95,9 +124,13 @@ class Mercapi:
 
     def _items(self, profile_id: str) -> Request:
         req = Request(
-            'GET',
-            'https://api.mercari.jp/items/get_items',
-            params={'seller_id': profile_id, 'limit': 30, 'status': 'on_sale,trading,sold_out'},
+            "GET",
+            "https://api.mercari.jp/items/get_items",
+            params={
+                "seller_id": profile_id,
+                "limit": 30,
+                "status": "on_sale,trading,sold_out",
+            },
             headers=self._headers,
         )
         return self._sign_request(req)

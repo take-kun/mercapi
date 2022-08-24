@@ -7,7 +7,7 @@ if TYPE_CHECKING:
 from mercapi.util.errors import ParseAPIResponseError
 
 
-RM = TypeVar('RM', bound='ResponseModel')
+RM = TypeVar("RM", bound="ResponseModel")
 
 
 class ResponseProperty(NamedTuple):
@@ -29,8 +29,10 @@ class ResponseModel:
     @classmethod
     def from_dict(cls, d: dict) -> RM:
         if cls == ResponseModel:
-            raise TypeError('from_dict() class method is supposed to be called on ResponseModel subclasses providing '
-                            'lists of properties')
+            raise TypeError(
+                "from_dict() class method is supposed to be called on ResponseModel subclasses providing "
+                "lists of properties"
+            )
 
         model_properties = {}
 
@@ -40,7 +42,7 @@ class ResponseModel:
                 model_properties[model_name] = raw_property
             except Exception as e:
                 raise ParseAPIResponseError(
-                    f'Failed to retrieve required {cls.__name__} property {raw_name} from the response'
+                    f"Failed to retrieve required {cls.__name__} property {raw_name} from the response"
                 ) from e
 
         for raw_name, model_name, func in cls._optional_properties:
@@ -58,11 +60,13 @@ class ResponseModel:
         cls._mercapi = m
 
     @classmethod
-    def _report_incorrect_optional(cls, prop: str, response: dict, exc: Exception) -> None:
+    def _report_incorrect_optional(
+        cls, prop: str, response: dict, exc: Exception
+    ) -> None:
         logging.warning(
-            f'Encountered optional response property {prop} that could not be parsed correctly.'
+            f"Encountered optional response property {prop} that could not be parsed correctly."
         )
-        logging.debug(f'Response body: {response}\nError: {exc}')
+        logging.debug(f"Response body: {response}\nError: {exc}")
 
 
 class Extractors:
@@ -73,20 +77,20 @@ class Extractors:
     in the response object (dict) and return None in such cases.
     """
 
-    T = TypeVar('T')
+    T = TypeVar("T")
     ExtractorDef = Callable[[dict], Union[T, None]]
 
     @staticmethod
     def get(key: str) -> ExtractorDef[Any]:
         return lambda x: x.get(key)
 
-    S = TypeVar('S', int, float, str)
+    S = TypeVar("S", int, float, str)
 
     @staticmethod
     def get_as(key: str, type_: Type[S]) -> ExtractorDef[S]:
         return lambda x: type_(x[key]) if key in x else None
 
-    M = TypeVar('M', bound=ResponseModel)
+    M = TypeVar("M", bound=ResponseModel)
 
     @staticmethod
     def get_as_model(key: str, model: Type[M]) -> ExtractorDef[M]:
@@ -115,6 +119,6 @@ class Extractors:
     @staticmethod
     def __import_class(model: str) -> Type[ResponseModel]:
         import importlib
-        module_name, class_name = model.rsplit('.', 1)
-        return getattr(importlib.import_module(module_name), class_name)
 
+        module_name, class_name = model.rsplit(".", 1)
+        return getattr(importlib.import_module(module_name), class_name)
