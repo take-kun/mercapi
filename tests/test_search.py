@@ -1,18 +1,29 @@
+from datetime import datetime
+
 import pytest
 
 
 @pytest.mark.asyncio
 @pytest.mark.vcr
 async def test_simple_search_query(m):
-    res = await m.search("sharpnel")
-    assert len(res.items) == 106
+    res = await m.search("完全網羅は無理でしたMix", categories=[75])
+    assert len(res.items) == 2
+    assert res.meta.num_found == 2
 
     item = res.items[0]
-    assert item.name == "【廃盤】DJ SHARPNEL シャープネルサウンドコレクション壱"
-    assert item.price == 9444
+    assert item.id_ == "m94786104879"
+    assert item.seller_id == "362164700"
+    assert item.buyer_id == ""
     assert item.status == "ITEM_STATUS_ON_SALE"
-
-    assert res.meta.num_found == 111
+    assert item.name == "DJ Sharpnel　完全網羅は無理でしたMix"
+    assert item.price == 4800
+    assert int(datetime.timestamp(item.created)) == 1652715351
+    assert int(datetime.timestamp(item.updated)) == 1661206795
+    assert len(item.thumbnails) == 1
+    assert item.thumbnails[0] == "https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m94786104879_1.jpg?1652715351"
+    assert item.item_type == "ITEM_TYPE_MERCARI"
+    assert item.item_condition_id == 3
+    assert item.shipping_payer_id == 2
 
 
 @pytest.mark.asyncio
@@ -53,8 +64,8 @@ async def test_search_with_min_price_and_max_price_filter(m):
 @pytest.mark.asyncio
 @pytest.mark.vcr
 async def test_search_fetch_full_item_from_result(m):
-    res = await m.search("sharpnel")
+    res = await m.search("完全網羅は無理でしたMix", categories=[75])
     item = res.items[0]
 
     full_item = await item.full_item()
-    assert full_item.id_ == "m29475719206"
+    assert full_item.id_ == "m94786104879"
