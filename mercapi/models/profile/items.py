@@ -6,7 +6,7 @@ from mercapi.models.base import ResponseModel, Extractors
 
 class Items(ResponseModel):
     _required_properties = [
-        ('data', 'items', Extractors.get_list_of_model('data', SearchResultItem)),
+        ("data", "items", Extractors.get_list_of_model("data", SearchResultItem)),
     ]
     _optional_properties = []
 
