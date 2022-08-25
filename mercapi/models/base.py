@@ -114,7 +114,7 @@ class Extractors:
 
     @staticmethod
     def get_datetime(key: str) -> ExtractorDef[datetime]:
-        return Extractors.get_with(key, lambda x: datetime.utcfromtimestamp(float(x)))
+        return Extractors.get_with(key, lambda x: datetime.fromtimestamp(float(x)))
 
     @staticmethod
     def __import_class(model: str) -> Type[ResponseModel]:
