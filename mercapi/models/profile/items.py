@@ -19,6 +19,8 @@ class SellerItem(ResponseModel):
         ("status", "status", Extractors.get("status")),
         ("name", "name", Extractors.get("name")),
         ("price", "price", Extractors.get("price")),
+    ]
+    _optional_properties = [
         ("thumbnails", "thumbnails", Extractors.get("thumbnails")),
         ("root_category_id", "root_category_id", Extractors.get("root_category_id")),
         ("num_likes", "num_likes", Extractors.get("num_likes")),
@@ -52,7 +54,6 @@ class SellerItem(ResponseModel):
         updated: datetime,
         item_category: ItemCategory,
         shipping_from_area: ShippingFromArea,
-        pager_id: str,
     ):
         self.id_ = id_
         self.seller_id = seller_id
@@ -67,7 +68,6 @@ class SellerItem(ResponseModel):
         self.updated = updated
         self.item_category = item_category
         self.shipping_from_area = shipping_from_area
-        self.pager_id = pager_id
 
 
 class Items(ResponseModel):
