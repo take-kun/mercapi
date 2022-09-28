@@ -7,7 +7,7 @@ from mercapi import mercapi
 @pytest.fixture(scope="module")
 def vcr_config():
     return {
-        "cassette_library_dir": "cassettes",
+        "cassette_library_dir": "tests/cassettes",
         "path_transformer": VCR.ensure_suffix(".yml"),
     }
 
