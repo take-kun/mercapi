@@ -16,8 +16,8 @@ async def test_items(m):
     assert item.name == "Reminiscences しんたろーアートワークス 画集 イラスト"
     assert item.price == 1600
     assert item.thumbnails == [
-            "https://static.mercdn.net/c!/w=240/thumb/photos/m62857872792_1.jpg?1663161407"
-        ]
+        "https://static.mercdn.net/c!/w=240/thumb/photos/m62857872792_1.jpg?1663161407"
+    ]
     assert item.root_category_id == 5
     assert item.num_likes == 0
     assert item.num_comments == 0

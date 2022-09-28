@@ -13,18 +13,21 @@ async def test_item(m):
     assert res.name == "DJ Sharpnel / PPPH!"
     assert res.price == 8000
     assert res.status == "sold_out"
-    assert res.description == "DJ Sharpnel\nPPPH! -Phat, Pinky, Powerful & Hard!!-\n\n名作ですね…(CD-R盤)\n\nDJ Sharpnel\nナードコア"
+    assert (
+        res.description
+        == "DJ Sharpnel\nPPPH! -Phat, Pinky, Powerful & Hard!!-\n\n名作ですね…(CD-R盤)\n\nDJ Sharpnel\nナードコア"
+    )
     assert res.photos == [
         "https://static.mercdn.net/item/detail/orig/photos/m12871737078_1.jpg?1654847197",
         "https://static.mercdn.net/item/detail/orig/photos/m12871737078_2.jpg?1654847197",
         "https://static.mercdn.net/item/detail/orig/photos/m12871737078_3.jpg?1654847197",
-        "https://static.mercdn.net/item/detail/orig/photos/m12871737078_4.jpg?1654847197"
+        "https://static.mercdn.net/item/detail/orig/photos/m12871737078_4.jpg?1654847197",
     ]
     assert res.photo_paths == [
         "photos/m12871737078_1.jpg",
         "photos/m12871737078_2.jpg",
         "photos/m12871737078_3.jpg",
-        "photos/m12871737078_4.jpg"
+        "photos/m12871737078_4.jpg",
     ]
     assert res.thumbnails == [
         "https://static.mercdn.net/c!/w=240/thumb/photos/m12871737078_1.jpg?1654847197"

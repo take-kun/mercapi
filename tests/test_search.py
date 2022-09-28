@@ -20,7 +20,10 @@ async def test_simple_search_query(m):
     assert int(datetime.timestamp(item.created)) == 1652715351
     assert int(datetime.timestamp(item.updated)) == 1661206795
     assert len(item.thumbnails) == 1
-    assert item.thumbnails[0] == "https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m94786104879_1.jpg?1652715351"
+    assert (
+        item.thumbnails[0]
+        == "https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m94786104879_1.jpg?1652715351"
+    )
     assert item.item_type == "ITEM_TYPE_MERCARI"
     assert item.item_condition_id == 3
     assert item.shipping_payer_id == 2

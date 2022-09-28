@@ -12,7 +12,10 @@ async def test_profile(m):
     assert res.name == "nananao"
     assert res.id_ == 362164700
     assert res.photo_url == "https://static.mercdn.net/images/member_photo_noimage.png"
-    assert res.photo_thumbnail_url == "https://static.mercdn.net/images/member_photo_noimage_thumb.png"
+    assert (
+        res.photo_thumbnail_url
+        == "https://static.mercdn.net/images/member_photo_noimage_thumb.png"
+    )
     assert res.register_sms_confirmation == "yes"
     assert res.ratings.good == 1049
     assert res.ratings.normal == 3
@@ -28,7 +31,10 @@ async def test_profile(m):
     assert res.score == 1049
     assert int(datetime.timestamp(res.created)) == 1521901729
     assert res.proper is True
-    assert res.introduction == "発送まで1週間ほどお時間をいただく場合もあります。\r\n梱包材は再利用品です。\r\n発送方法や早めは希望があればご相談下さい。\r\n撮影や確認など手間のかかる事はお断りする事もあります。\r\nお取引にて至らない点もありますがよろしくお願い致します。"
+    assert (
+        res.introduction
+        == "発送まで1週間ほどお時間をいただく場合もあります。\r\n梱包材は再利用品です。\r\n発送方法や早めは希望があればご相談下さい。\r\n撮影や確認など手間のかかる事はお断りする事もあります。\r\nお取引にて至らない点もありますがよろしくお願い致します。"
+    )
     assert res.is_official is False
     assert res.num_sell_items == 578
     assert res.num_ticket == 0
