@@ -108,3 +108,6 @@ venv.bak/
 
 # VSCode
 .vscode/
+
+# pdoc output
+html/
