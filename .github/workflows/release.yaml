@@ -11,6 +11,9 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
       - name: Build distributions
         uses: ./.github/workflows/build
 
