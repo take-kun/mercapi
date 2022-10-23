@@ -1,9 +1,7 @@
 name: Reusable build workflow
 
-on:
-  workflow_call:
-
-jobs:
+runs:
+  using: composite
   build:
     runs-on: "ubuntu-latest"
 
