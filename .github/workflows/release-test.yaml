@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Build distributions
-        uses: './.github/workflows/build.yaml'
+        uses: ./.github/workflows/build
 
       - name: Publish to TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1
