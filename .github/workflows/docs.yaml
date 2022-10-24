@@ -28,7 +28,7 @@ jobs:
         run: poetry install --only docs
 
       - name: Build docs
-        run: pdoc mercapi -o ./html
+        run: poetry run pdoc mercapi -o ./html
       
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
