@@ -1,4 +1,4 @@
-name: mercapi CI
+name: Tests
 
 on:
   - push

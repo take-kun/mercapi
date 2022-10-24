@@ -1,9 +1,11 @@
 name: Publish to PyPI
 
 on:
-  release:
-    types:
-      - 'released'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version
+        required: true
 
 jobs:
   publish_test:
@@ -21,3 +23,8 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
+
+      - name: Tag a commit
+        run: |
+          git tag ${{ env.VERSION }}
+          git push origin ${{ env.VERSION }}
