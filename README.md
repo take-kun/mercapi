@@ -1,3 +1,11 @@
+# mercapi
+
+![PyPI](https://img.shields.io/pypi/v/mercapi)
+[![Tests](https://github.com/take-kun/mercapi/actions/workflows/check.yaml/badge.svg?branch=main)](https://github.com/take-kun/mercapi/actions/workflows/check.yaml)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mercapi)
+
+[API Documentation](https://take-kun.github.io/mercapi/)
+
 ## What is Mercapi?
 
 Mercapi is a Python wrapper for *mercari.jp* API.
