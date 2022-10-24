@@ -1,0 +1,114 @@
+interactions:
+- request:
+    body: '{"userId": "", "pageSize": 120, "pageToken": "", "searchSessionId": "d2ec3af77bfd4a3588142681159d98a6",
+      "indexRouting": "INDEX_ROUTING_UNSPECIFIED", "thumbnailTypes": [], "searchCondition":
+      {"keyword": "\u5b8c\u5168\u7db2\u7f85\u306f\u7121\u7406\u3067\u3057\u305fMix",
+      "excludeKeyword": "", "sort": "SORT_SCORE", "order": "ORDER_DESC", "status":
+      [], "sizeId": [], "categoryId": [75], "brandId": [], "sellerId": [], "priceMin":
+      null, "priceMax": null, "itemConditionId": null, "shippingPayerId": [], "shippingFromArea":
+      [], "shippingMethod": [], "colorId": [], "hasCoupon": false, "attributes": [],
+      "itemTypes": [], "skuIds": []}, "defaultDatasets": [], "serviceFrom": "suruga"}'
+    headers:
+      content-length:
+      - '677'
+      content-type:
+      - application/json
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6ImdqSlIxWTQxdzVjdW4wTVRyV0V6YzZXYVZEZUM2NWM1clg2U2p5OWN5TzgiLCJ5IjoiU0ExSmpGek1CdFM2QUdaU0pSUjFQdmJpaUMwdExZTWZCS2NiZUg1ZFhXayJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE2NjE0NjIzMjYsImp0aSI6IjcyZDhkNGRiLTZhOTMtNGNhNC01ODFkLTdkMmQ4ZDg4OTIyMSIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiJmOGY1OTNmOS05ZDU2LTU0YzctY2M5Ny0zMTA4MzMzMGY3YzYifQ.NpkhmAYQ4xz4yaZexxmXTU316FUlFsX3271FnrbPaeFSB6EtL_0OZ4CYqMXxMa_04IXFiZU2VWULFCF1aNmY-A
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+      x-platform:
+      - web
+    method: POST
+    uri: https://api.mercari.jp/v2/entities:search
+  response:
+    content: "{\"items\":[{\"id\":\"m94786104879\",\"sellerId\":\"362164700\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_ON_SALE\",\"name\":\"DJ
+      Sharpnel\u3000\u5B8C\u5168\u7DB2\u7F85\u306F\u7121\u7406\u3067\u3057\u305FMix\",\"price\":\"4800\",\"created\":\"1652715351\",\"updated\":\"1661206795\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m94786104879_1.jpg?1652715351\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"3\",\"shippingPayerId\":\"2\"},{\"id\":\"m80045805465\",\"sellerId\":\"307960504\",\"buyerId\":\"478967183\",\"status\":\"ITEM_STATUS_SOLD_OUT\",\"name\":\"DJ
+      Sharpnel\u3000\u5B8C\u5168\u7DB2\u7F85\u306F\u7121\u7406\u3067\u3057\u305FMix\",\"price\":\"6666\",\"created\":\"1639429509\",\"updated\":\"1640848014\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m80045805465_1.jpg?1639429509\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"5\",\"shippingPayerId\":\"2\"}],\"meta\":{\"nextPageToken\":\"\",\"previousPageToken\":\"\",\"numFound\":\"2\"},\"components\":[{\"rowNumber\":\"0\",\"shallowFacet\":{}}]}\n"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '907'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 25 Aug 2022 21:18:46 GMT
+      Strict-Transport-Security:
+      - max-age=31557600
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google, 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Request-Id:
+      - ddf89f96-ec98-4ee9-8c06-e2e6b846a8ce
+      X-Served-By:
+      - cache-hhn4067-HHN
+    http_version: HTTP/1.1
+    status_code: 200
+- request:
+    body: ''
+    headers:
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6ImdqSlIxWTQxdzVjdW4wTVRyV0V6YzZXYVZEZUM2NWM1clg2U2p5OWN5TzgiLCJ5IjoiU0ExSmpGek1CdFM2QUdaU0pSUjFQdmJpaUMwdExZTWZCS2NiZUg1ZFhXayJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE2NjE0NjIzMjYsImp0aSI6IjVmMmQyN2M4LTBiNTktMzAzMi0yNzNiLTUxOWFhNDQwZWIwNCIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvaXRlbXMvZ2V0P2lkPW05NDc4NjEwNDg3OSIsImh0bSI6IkdFVCIsInV1aWQiOiJmOGY1OTNmOS05ZDU2LTU0YzctY2M5Ny0zMTA4MzMzMGY3YzYifQ.7VlA0wd1yyj3qNCGjhDSBd2FBpN9joSm7JVa8aADsgFQEUzGnqLUDgrauHzwy0gAm_th2fb3rgowJ9f4leUBGw
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+      x-platform:
+      - web
+    method: GET
+    uri: https://api.mercari.jp/items/get?id=m94786104879
+  response:
+    content: "{\"result\":\"OK\",\"data\":{\"id\":\"m94786104879\",\"seller\":{\"id\":362164700,\"name\":\"nananao\",\"photo_url\":\"https://static.mercdn.net/images/member_photo_noimage.png\",\"photo_thumbnail_url\":\"https://static.mercdn.net/images/member_photo_noimage_thumb.png\",\"register_sms_confirmation\":\"yes\",\"register_sms_confirmation_at\":\"2018-03-24
+      23:35:59\",\"created\":1521901729,\"num_sell_items\":578,\"ratings\":{\"good\":1049,\"normal\":3,\"bad\":0},\"num_ratings\":1052,\"score\":1049,\"is_official\":false,\"quick_shipper\":false,\"star_rating_score\":5},\"status\":\"on_sale\",\"name\":\"DJ
+      Sharpnel\u3000\u5B8C\u5168\u7DB2\u7F85\u306F\u7121\u7406\u3067\u3057\u305FMix\",\"price\":4800,\"description\":\"\u540C\u4EBA\u97F3\u697DCD
+      \u30B7\u30E3\u30FC\u30D7\u30CD\u30EB\u30B5\u30A6\u30F3\u30C9 SHARPNEL SOUND\\r\\n\\r\\n\u5024\u4E0B\u3052\u4E0D\u53EF\u3002\\r\\n\u52D5\u4F5C\u554F\u984C\u306A\u3057\u3002\\r\\nCD\u826F\u597D\u3001\u30B1\u30FC\u30B9\u3001\u5FAE\u50B7\u3001\u5FAE\u64E6\u308C\u3042\u308A\u3002\\r\\n\\r\\n\\r\\n\u7C21\u6613\u68B1\u5305\u3001\u518D\u5229\u7528\u54C1\u3084\u540C\u68B1\u3059\u308B\u5834\u5408\u3082\u3042\u308A\u3002\u30D7\u30C1\u30D7\u30C1\u68B1\u5305\u4E88\u5B9A\u3002\\r\\n\u90F5\u4FBF\u5C40\u304B\u30E4\u30DE\u30C8\u904B\u8F38\u767A\u9001\u4E88\u5B9A\u3002\\r\\n\u767A\u9001\u65E5\u6570\u306F\u9045\u3081\u306E\u76EE\u5B89\u3067\u65E9\u3081\u3092\u5FC3\u304C\u3051\u3066\u307E\u3059\u3002\",\"photos\":[\"https://static.mercdn.net/item/detail/orig/photos/m94786104879_1.jpg?1652715351\"],\"photo_paths\":[\"photos/m94786104879_1.jpg\"],\"thumbnails\":[\"https://static.mercdn.net/c!/w=240/thumb/photos/m94786104879_1.jpg?1652715351\"],\"item_category\":{\"id\":700,\"name\":\"\u305D\u306E\u4ED6\",\"display_order\":100,\"parent_category_id\":75,\"parent_category_name\":\"CD\",\"root_category_id\":5,\"root_category_name\":\"\u672C\u30FB\u97F3\u697D\u30FB\u30B2\u30FC\u30E0\"},\"item_condition\":{\"id\":3,\"name\":\"\u76EE\u7ACB\u3063\u305F\u50B7\u3084\u6C5A\u308C\u306A\u3057\"},\"colors\":[],\"shipping_payer\":{\"id\":2,\"name\":\"\u9001\u6599\u8FBC\u307F(\u51FA\u54C1\u8005\u8CA0\u62C5)\",\"code\":\"seller\"},\"shipping_method\":{\"id\":5,\"name\":\"\u672A\u5B9A\",\"is_deprecated\":\"no\"},\"shipping_from_area\":{\"id\":20,\"name\":\"\u9577\u91CE\u770C\"},\"shipping_duration\":{\"id\":3,\"name\":\"4~7\u65E5\u3067\u767A\u9001\",\"min_days\":4,\"max_days\":7},\"shipping_class\":{\"id\":0,\"fee\":0,\"icon_id\":0,\"pickup_fee\":0,\"shipping_fee\":0,\"total_fee\":0,\"is_pickup\":false},\"num_likes\":4,\"num_comments\":0,\"comments\":[],\"updated\":1661206795,\"created\":1652715351,\"pager_id\":5378612036,\"liked\":false,\"checksum\":\"74b73c145ee316084188ab62aeb7364f\",\"is_dynamic_shipping_fee\":false,\"application_attributes\":{},\"is_shop_item\":\"no\",\"hash_tags\":[],\"is_anonymous_shipping\":false,\"is_web_visible\":true,\"is_offerable\":false,\"is_organizational_user\":false,\"organizational_user_status\":\"\",\"is_stock_item\":false,\"is_cancelable\":true,\"shipped_by_worker\":false,\"additional_services\":[],\"has_additional_service\":false,\"has_like_list\":false,\"is_offerable_v2\":false},\"meta\":{}}\n"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - private,no-store,no-cache,must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 25 Aug 2022 21:18:47 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Set-Cookie:
+      - merCtx=""; HttpOnly
+      Strict-Transport-Security:
+      - max-age=31557600
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google, 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Envoy-Decorator-Operation:
+      - app-server.mercari-item-details-jp-prod.svc.cluster.local:10001/*
+      X-Envoy-Upstream-Service-Time:
+      - '112'
+      X-Request-Id:
+      - 5d910256-4220-40ba-91be-01808c6e28b3
+      X-Served-By:
+      - cache-hhn4067-HHN
+      transfer-encoding:
+      - chunked
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1

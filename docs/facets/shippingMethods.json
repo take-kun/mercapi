@@ -1,0 +1,304 @@
+{
+    "methods": [
+        {
+            "id": "1",
+            "name": "未定",
+            "payerId": "1",
+            "type": "buyer",
+            "images": [],
+            "isDeprecated": false
+        },
+        {
+            "id": "3",
+            "name": "クロネコヤマト",
+            "payerId": "1",
+            "type": "buyer",
+            "images": [],
+            "isDeprecated": false
+        },
+        {
+            "id": "4",
+            "name": "ゆうパック",
+            "payerId": "1",
+            "type": "buyer",
+            "images": [],
+            "isDeprecated": false
+        },
+        {
+            "id": "15",
+            "name": "ゆうメール",
+            "payerId": "1",
+            "type": "buyer",
+            "images": [],
+            "isDeprecated": false
+        },
+        {
+            "id": "2",
+            "name": "ポスパケット",
+            "payerId": "1",
+            "type": "buyer",
+            "images": [],
+            "isDeprecated": true
+        },
+        {
+            "id": "5",
+            "name": "未定",
+            "payerId": "2",
+            "type": "seller",
+            "images": [],
+            "isDeprecated": false
+        },
+        {
+            "id": "14",
+            "name": "らくらくメルカリ便",
+            "payerId": "2",
+            "type": "seller",
+            "images": [
+                {
+                    "deviceType": "normal_ios",
+                    "url": "https://static.mercdn.net/images/shipping_methods/ios/sp_ios_shipping_rakuraku_20220616.png?1601521200",
+                    "urlSelected": "https://static.mercdn.net/images/shipping_methods/ios/sp_ios_shipping_rakuraku_20220616.png?1601521200",
+                    "aspectRatio": 0.8281
+                },
+                {
+                    "deviceType": "large_ios",
+                    "url": "https://static.mercdn.net/images/shipping_methods/ios/tablet_ios_shipping_rakuraku_20220616.png?1601521200",
+                    "urlSelected": "https://static.mercdn.net/images/shipping_methods/ios/tablet_ios_shipping_rakuraku_20220616.png?1601521200",
+                    "aspectRatio": 0.4417
+                },
+                {
+                    "deviceType": "normal_android",
+                    "url": "https://static.mercdn.net/images/shipping_methods/android/sp_android_shipping_rakuraku_20220616.png?1601521200",
+                    "urlSelected": "https://static.mercdn.net/images/shipping_methods/android/sp_android_shipping_rakuraku_20220616.png?1601521200",
+                    "aspectRatio": 0.7167
+                },
+                {
+                    "deviceType": "large_android",
+                    "url": "https://static.mercdn.net/images/shipping_methods/android/tablet_android_shipping_rakuraku_20220616.png?1601521200",
+                    "urlSelected": "https://static.mercdn.net/images/shipping_methods/android/tablet_android_shipping_rakuraku_20220616.png?1601521200",
+                    "aspectRatio": 0.3359
+                },
+                {
+                    "deviceType": "gu_dark_sp_ja",
+                    "url": "https://static.mercdn.net/images/listing/shipping_methods/rakuraku/dark_sp_ja_20220616.png",
+                    "urlSelected": "https://static.mercdn.net/images/listing/shipping_methods/rakuraku/dark_sp_ja_20220616.png",
+                    "aspectRatio": 1
+                },
+                {
+                    "deviceType": "gu_dark_tablet_ja",
+                    "url": "https://static.mercdn.net/images/listing/shipping_methods/rakuraku/dark_tablet_ja_20220616.png",
+                    "urlSelected": "https://static.mercdn.net/images/listing/shipping_methods/rakuraku/dark_tablet_ja_20220616.png",
+                    "aspectRatio": 1
+                },
+                {
+                    "deviceType": "gu_light_sp_ja",
+                    "url": "https://static.mercdn.net/images/listing/shipping_methods/rakuraku/light_sp_ja_20220616.png",
+                    "urlSelected": "https://static.mercdn.net/images/listing/shipping_methods/rakuraku/light_sp_ja_20220616.png",
+                    "aspectRatio": 1
+                },
+                {
+                    "deviceType": "gu_light_tablet_ja",
+                    "url": "https://static.mercdn.net/images/listing/shipping_methods/rakuraku/light_tablet_ja_20220616.png",
+                    "urlSelected": "https://static.mercdn.net/images/listing/shipping_methods/rakuraku/light_tablet_ja_20220616.png",
+                    "aspectRatio": 1
+                }
+            ],
+            "isDeprecated": false
+        },
+        {
+            "id": "17",
+            "name": "ゆうゆうメルカリ便",
+            "payerId": "2",
+            "type": "seller",
+            "images": [
+                {
+                    "deviceType": "normal_ios",
+                    "url": "https://static.mercdn.net/images/shipping_methods/ios/sp_ios_shipping_yuyu_20220616.png?1619406000",
+                    "urlSelected": "https://static.mercdn.net/images/shipping_methods/ios/sp_ios_shipping_yuyu_20220616.png?1619406000",
+                    "aspectRatio": 0.9844
+                },
+                {
+                    "deviceType": "large_ios",
+                    "url": "https://static.mercdn.net/images/shipping_methods/ios/tablet_ios_shipping_yuyu_20220616.png?1619406000",
+                    "urlSelected": "https://static.mercdn.net/images/shipping_methods/ios/tablet_ios_shipping_yuyu_20220616.png?1619406000",
+                    "aspectRatio": 0.525
+                },
+                {
+                    "deviceType": "normal_android",
+                    "url": "https://static.mercdn.net/images/shipping_methods/android/sp_android_shipping_yuyu_20220616.png?1619406000",
+                    "urlSelected": "https://static.mercdn.net/images/shipping_methods/android/sp_android_shipping_yuyu_20220616.png?1619406000",
+                    "aspectRatio": 0.8
+                },
+                {
+                    "deviceType": "large_android",
+                    "url": "https://static.mercdn.net/images/shipping_methods/android/tablet_android_shipping_yuyu_20220616.png?1619406000",
+                    "urlSelected": "https://static.mercdn.net/images/shipping_methods/android/tablet_android_shipping_yuyu_20220616.png?1619406000",
+                    "aspectRatio": 0.375
+                },
+                {
+                    "deviceType": "gu_dark_sp_ja",
+                    "url": "https://static.mercdn.net/images/listing/shipping_methods/yuyu/dark_sp_ja_20220616.png",
+                    "urlSelected": "https://static.mercdn.net/images/listing/shipping_methods/yuyu/dark_sp_ja_20220616.png",
+                    "aspectRatio": 1
+                },
+                {
+                    "deviceType": "gu_dark_tablet_ja",
+                    "url": "https://static.mercdn.net/images/listing/shipping_methods/yuyu/dark_tablet_ja_20220616.png",
+                    "urlSelected": "https://static.mercdn.net/images/listing/shipping_methods/yuyu/dark_tablet_ja_20220616.png",
+                    "aspectRatio": 1
+                },
+                {
+                    "deviceType": "gu_light_sp_ja",
+                    "url": "https://static.mercdn.net/images/listing/shipping_methods/yuyu/light_sp_ja_20220616.png",
+                    "urlSelected": "https://static.mercdn.net/images/listing/shipping_methods/yuyu/light_sp_ja_20220616.png",
+                    "aspectRatio": 1
+                },
+                {
+                    "deviceType": "gu_light_tablet_ja",
+                    "url": "https://static.mercdn.net/images/listing/shipping_methods/yuyu/light_tablet_ja_20220616.png",
+                    "urlSelected": "https://static.mercdn.net/images/listing/shipping_methods/yuyu/light_tablet_ja_20220616.png",
+                    "aspectRatio": 1
+                }
+            ],
+            "isDeprecated": false
+        },
+        {
+            "id": "16",
+            "name": "梱包・発送たのメル便",
+            "payerId": "2",
+            "type": "seller",
+            "images": [
+                {
+                    "deviceType": "normal_ios",
+                    "url": "https://static.mercdn.net/images/shipping_methods/ios/sp_ios_shipping_tanomeru_20200928.png?1601262000",
+                    "urlSelected": "https://static.mercdn.net/images/shipping_methods/ios/sp_ios_shipping_tanomeru_20200928.png?1601262000",
+                    "aspectRatio": 0.6594
+                },
+                {
+                    "deviceType": "large_ios",
+                    "url": "https://static.mercdn.net/images/shipping_methods/ios/tablet_ios_shipping_tanomeru_20200928.png?1601262000",
+                    "urlSelected": "https://static.mercdn.net/images/shipping_methods/ios/tablet_ios_shipping_tanomeru_20200928.png?1601262000",
+                    "aspectRatio": 0.3517
+                },
+                {
+                    "deviceType": "normal_android",
+                    "url": "https://static.mercdn.net/images/shipping_methods/android/sp_android_shipping_tanomeru_20200928.png?1601262000",
+                    "urlSelected": "https://static.mercdn.net/images/shipping_methods/android/sp_android_shipping_tanomeru_20200928.png?1601262000",
+                    "aspectRatio": 0.5861
+                },
+                {
+                    "deviceType": "large_android",
+                    "url": "https://static.mercdn.net/images/shipping_methods/android/tablet_android_shipping_tanomeru_20200928.png?1601262000",
+                    "urlSelected": "https://static.mercdn.net/images/shipping_methods/android/tablet_android_shipping_tanomeru_20200928.png?1601262000",
+                    "aspectRatio": 0.2747
+                },
+                {
+                    "deviceType": "gu_dark_sp_ja",
+                    "url": "https://static.mercdn.net/images/listing/shipping_methods/tanomeru/dark_sp_ja.png",
+                    "urlSelected": "https://static.mercdn.net/images/listing/shipping_methods/tanomeru/dark_sp_ja.png",
+                    "aspectRatio": 1
+                },
+                {
+                    "deviceType": "gu_dark_tablet_ja",
+                    "url": "https://static.mercdn.net/images/listing/shipping_methods/tanomeru/dark_tablet_ja.png",
+                    "urlSelected": "https://static.mercdn.net/images/listing/shipping_methods/tanomeru/dark_tablet_ja.png",
+                    "aspectRatio": 1
+                },
+                {
+                    "deviceType": "gu_light_sp_ja",
+                    "url": "https://static.mercdn.net/images/listing/shipping_methods/tanomeru/light_sp_ja.png",
+                    "urlSelected": "https://static.mercdn.net/images/listing/shipping_methods/tanomeru/light_sp_ja.png",
+                    "aspectRatio": 1
+                },
+                {
+                    "deviceType": "gu_light_tablet_ja",
+                    "url": "https://static.mercdn.net/images/listing/shipping_methods/tanomeru/light_tablet_ja.png",
+                    "urlSelected": "https://static.mercdn.net/images/listing/shipping_methods/tanomeru/light_tablet_ja.png",
+                    "aspectRatio": 1
+                }
+            ],
+            "isDeprecated": false
+        },
+        {
+            "id": "6",
+            "name": "ゆうメール",
+            "payerId": "2",
+            "type": "seller",
+            "images": [],
+            "isDeprecated": false
+        },
+        {
+            "id": "8",
+            "name": "レターパック",
+            "payerId": "2",
+            "type": "seller",
+            "images": [],
+            "isDeprecated": false
+        },
+        {
+            "id": "9",
+            "name": "普通郵便(定形、定形外)",
+            "payerId": "2",
+            "type": "seller",
+            "images": [],
+            "isDeprecated": false
+        },
+        {
+            "id": "10",
+            "name": "クロネコヤマト",
+            "payerId": "2",
+            "type": "seller",
+            "images": [],
+            "isDeprecated": false
+        },
+        {
+            "id": "11",
+            "name": "ゆうパック",
+            "payerId": "2",
+            "type": "seller",
+            "images": [],
+            "isDeprecated": false
+        },
+        {
+            "id": "13",
+            "name": "クリックポスト",
+            "payerId": "2",
+            "type": "seller",
+            "images": [],
+            "isDeprecated": false
+        },
+        {
+            "id": "12",
+            "name": "はこBOON",
+            "payerId": "2",
+            "type": "seller",
+            "images": [],
+            "isDeprecated": true
+        },
+        {
+            "id": "7",
+            "name": "ゆうパケット",
+            "payerId": "2",
+            "type": "seller",
+            "images": [],
+            "isDeprecated": false
+        },
+        {
+            "id": "18",
+            "name": "らくらくメルカリ便",
+            "payerId": "2",
+            "type": "seller",
+            "images": [],
+            "isDeprecated": true
+        },
+        {
+            "id": "19",
+            "name": "あとよろメルカリ便",
+            "payerId": "2",
+            "type": "seller",
+            "images": [],
+            "isDeprecated": true
+        }
+    ],
+    "nextPageToken": ""
+}

@@ -1,0 +1,61 @@
+interactions:
+- request:
+    body: '{"userId": "", "pageSize": 120, "pageToken": "", "searchSessionId": "27f7a16cb8c741ee88a1db976a910a09",
+      "indexRouting": "INDEX_ROUTING_UNSPECIFIED", "thumbnailTypes": [], "searchCondition":
+      {"keyword": "sharpnel", "excludeKeyword": "", "sort": "SORT_SCORE", "order":
+      "ORDER_DESC", "status": [], "sizeId": [], "categoryId": [], "brandId": [], "sellerId":
+      [], "priceMin": 0, "priceMax": 0, "itemConditionId": [2], "shippingPayerId":
+      [], "shippingFromArea": [], "shippingMethod": [], "colorId": [], "hasCoupon":
+      false, "attributes": [], "itemTypes": [], "skuIds": []}, "defaultDatasets":
+      [], "serviceFrom": "suruga"}'
+    headers:
+      content-length:
+      - '613'
+      content-type:
+      - application/json
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IjlRcGZxQW9fZ1F0SHpHaXppa2x0VV80cVhzeEpBbW43Q2NiRXhLM0s2eGciLCJ5IjoiVFdsQm1vNWJjaGQ0MkRpdkZCdzBjZWtVUUNwVnZwUWNHUTdWbEhyVUxxMCJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE2NTk5MTM1MjQsImp0aSI6IjgzODU5OTcyLTNmY2MtN2NjMC04NTczLTI0NzlkYTUxMzY3NyIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiIzMDlkMjM5MC1kNDVjLTkxNzktMzNkNy01YjA4ZDIzYWIyZWMifQ.vJ8A4P8b1jiMv-0aT-gyUMP3Ayy8Cn_CJuBDfyoC4Gxjaq_y5mt8e_6ZZwCfIj-KdAfQQMrsPiOHVuCW0BgqLQ
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+      x-platform:
+      - web
+    method: POST
+    uri: https://api.mercari.jp/v2/entities:search
+  response:
+    content: "{\"items\":[{\"id\":\"m96483050341\",\"sellerId\":\"281683126\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_ON_SALE\",\"name\":\"\u3010\u5EC3\u76E4\u3011DJ
+      SHARPNEL \u30B7\u30E3\u30FC\u30D7\u30CD\u30EB\u30B5\u30A6\u30F3\u30C9\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u58F1\",\"price\":\"9444\",\"created\":\"1650268707\",\"updated\":\"1659684734\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m96483050341_1.jpg?1650268707\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"2\",\"shippingPayerId\":\"2\"},{\"id\":\"m53391667595\",\"sellerId\":\"884422914\",\"buyerId\":\"156802658\",\"status\":\"ITEM_STATUS_SOLD_OUT\",\"name\":\"\u300Cbeatmania
+      2DX 28 BISTROVER\u300DORIGINAL SO\u2026\",\"price\":\"5300\",\"created\":\"1658550950\",\"updated\":\"1659001596\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m53391667595_1.jpg?1658550950\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"2\",\"shippingPayerId\":\"2\"},{\"id\":\"m17912483153\",\"sellerId\":\"884422914\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_ON_SALE\",\"name\":\"\u300Cbeatmania
+      2DX 24 SINOBUZ\u300DORIGINAL SOUN\u2026\",\"price\":\"3699\",\"created\":\"1657904264\",\"updated\":\"1657940682\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m17912483153_1.jpg?1657904264\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"2\",\"shippingPayerId\":\"2\"},{\"id\":\"m51934313534\",\"sellerId\":\"100638590\",\"buyerId\":\"248627296\",\"status\":\"ITEM_STATUS_SOLD_OUT\",\"name\":\"DJ
+      SHARPNEL \u30A8\u30EC\u30AF\u30C8\u30FC\u30B7\u30E7\u30F3\",\"price\":\"2499\",\"created\":\"1634435275\",\"updated\":\"1640450121\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m51934313534_1.jpg?1634435275\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"2\",\"shippingPayerId\":\"2\"},{\"id\":\"m84117293347\",\"sellerId\":\"194545556\",\"buyerId\":\"512316267\",\"status\":\"ITEM_STATUS_SOLD_OUT\",\"name\":\"\u5EC3\u76E4
+      DJ SHARPNEL \u30A2\u30EB\u30D0\u30E0\u30BB\u30C3\u30C8\",\"price\":\"8000\",\"created\":\"1634297387\",\"updated\":\"1636002794\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m84117293347_1.jpg?1634297387\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"2\",\"shippingPayerId\":\"2\"},{\"id\":\"m22506405087\",\"sellerId\":\"384686908\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_ON_SALE\",\"name\":\"X-Treme
+      Hard Experience Vol.1\",\"price\":\"650\",\"created\":\"1587701540\",\"updated\":\"1612613130\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m22506405087_1.jpg?1587701540\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"2\",\"shippingPayerId\":\"2\"}],\"meta\":{\"nextPageToken\":\"\",\"previousPageToken\":\"\",\"numFound\":\"6\"},\"components\":[{\"rowNumber\":\"0\",\"shallowFacet\":{}}]}\n"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 07 Aug 2022 23:05:24 GMT
+      Strict-Transport-Security:
+      - max-age=31557600
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google, 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Request-Id:
+      - de76c47e-7332-426e-b561-938cc3243cd5
+      X-Served-By:
+      - cache-hhn4061-HHN
+      transfer-encoding:
+      - chunked
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1

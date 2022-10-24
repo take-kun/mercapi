@@ -1,0 +1,23 @@
+name: Publish to PyPI
+
+on:
+  release:
+    types:
+      - 'released'
+
+jobs:
+  publish_test:
+
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
+      - name: Build distributions
+        uses: ./.github/workflows/build
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}

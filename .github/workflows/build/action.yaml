@@ -1,0 +1,21 @@
+name: Reusable build workflow
+description: Use prepended with actions/checkout@v3 action to achieve built project package in dist directory
+
+runs:
+  using: composite
+  steps:
+    - name: Install poetry
+      shell: bash
+      run: pipx install poetry
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+        cache: poetry
+    - name: Install dependencies
+      shell: bash
+      run: poetry install
+    - name: Build distributions
+      shell: bash
+      run: poetry build
+
