@@ -26,6 +26,19 @@ class ResponseModel:
     def __init__(self, *args, **kwargs):
         pass
 
+    def keys(self):
+        return [
+            p.model_property_name
+            for p in self._required_properties + self._optional_properties
+        ]
+
+    def __getitem__(self, key):
+        if key not in self.keys():
+            raise IndexError(
+                f"{key} is not a valid member of {self.__class__.__name__}"
+            )
+        return getattr(self, key)
+
     @classmethod
     def from_dict(cls, d: dict) -> RM:
         if cls == ResponseModel:
