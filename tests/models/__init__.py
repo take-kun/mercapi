@@ -3,7 +3,7 @@ from typing import Optional
 from mercapi.models.base import ResponseModel, Extractors, ResponseProperty
 
 
-class TestModel(ResponseModel):
+class ModelTest(ResponseModel):
     _required_properties = [
         ResponseProperty("field_1", "field_1", Extractors.get("field_1")),
     ]

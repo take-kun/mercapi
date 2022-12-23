@@ -1,38 +1,42 @@
 from datetime import datetime
 from typing import List
 
-from mercapi.models.base import Extractors, ResponseModel
+from mercapi.models.base import Extractors, ResponseModel, ResponseProperty
 from mercapi.models.common import ItemCategory
 from mercapi.models.item.data import ShippingFromArea
 
 
 class SellerItem(ResponseModel):
     _required_properties = [
-        ("id", "id_", Extractors.get("id")),
-        (
+        ResponseProperty("id", "id_", Extractors.get("id")),
+        ResponseProperty(
             "seller",
             "seller_id",
             Extractors.get_with(
                 "seller_id", lambda x: str(x["id"]) if "id" in x else None
             ),
         ),
-        ("status", "status", Extractors.get("status")),
-        ("name", "name", Extractors.get("name")),
-        ("price", "price", Extractors.get("price")),
+        ResponseProperty("status", "status", Extractors.get("status")),
+        ResponseProperty("name", "name", Extractors.get("name")),
+        ResponseProperty("price", "price", Extractors.get("price")),
     ]
     _optional_properties = [
-        ("thumbnails", "thumbnails", Extractors.get("thumbnails")),
-        ("root_category_id", "root_category_id", Extractors.get("root_category_id")),
-        ("num_likes", "num_likes", Extractors.get("num_likes")),
-        ("num_comments", "num_comments", Extractors.get("num_comments")),
-        ("created", "created", Extractors.get_datetime("created")),
-        ("updated", "updated", Extractors.get_datetime("updated")),
-        (
+        ResponseProperty("thumbnails", "thumbnails", Extractors.get("thumbnails")),
+        ResponseProperty(
+            "root_category_id", "root_category_id", Extractors.get("root_category_id")
+        ),
+        ResponseProperty("num_likes", "num_likes", Extractors.get("num_likes")),
+        ResponseProperty(
+            "num_comments", "num_comments", Extractors.get("num_comments")
+        ),
+        ResponseProperty("created", "created", Extractors.get_datetime("created")),
+        ResponseProperty("updated", "updated", Extractors.get_datetime("updated")),
+        ResponseProperty(
             "item_category",
             "item_category",
             Extractors.get_as_model("item_category", ItemCategory),
         ),
-        (
+        ResponseProperty(
             "shipping_from_area",
             "shipping_from_area",
             Extractors.get_as_model("shipping_from_area", ShippingFromArea),
@@ -72,7 +76,9 @@ class SellerItem(ResponseModel):
 
 class Items(ResponseModel):
     _required_properties = [
-        ("data", "items", Extractors.get_list_of_model("data", SellerItem)),
+        ResponseProperty(
+            "data", "items", Extractors.get_list_of_model("data", SellerItem)
+        ),
     ]
     _optional_properties = []
 

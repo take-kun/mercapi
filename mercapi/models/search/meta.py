@@ -1,11 +1,15 @@
-from mercapi.models.base import ResponseModel, Extractors
+from mercapi.models.base import ResponseModel, Extractors, ResponseProperty
 
 
 class Meta(ResponseModel):
     _required_properties = [
-        ("nextPageToken", "next_page_token", Extractors.get("nextPageToken")),
-        ("previousPageToken", "prev_page_token", Extractors.get("previousPageToken")),
-        ("numFound", "num_found", Extractors.get_as("numFound", int)),
+        ResponseProperty(
+            "nextPageToken", "next_page_token", Extractors.get("nextPageToken")
+        ),
+        ResponseProperty(
+            "previousPageToken", "prev_page_token", Extractors.get("previousPageToken")
+        ),
+        ResponseProperty("numFound", "num_found", Extractors.get_as("numFound", int)),
     ]
     _optional_properties = []
 

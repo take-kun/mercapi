@@ -3,15 +3,15 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from mercapi.models import Items
-from mercapi.models.base import Extractors, ResponseModel
+from mercapi.models.base import Extractors, ResponseModel, ResponseProperty
 
 
 class Profile(ResponseModel):
     class Ratings(ResponseModel):
         _required_properties = [
-            ("good", "good", Extractors.get("good")),
-            ("normal", "normal", Extractors.get("normal")),
-            ("bad", "bad", Extractors.get("bad")),
+            ResponseProperty("good", "good", Extractors.get("good")),
+            ResponseProperty("normal", "normal", Extractors.get("normal")),
+            ResponseProperty("bad", "bad", Extractors.get("bad")),
         ]
         _optional_properties = []
 
@@ -23,8 +23,8 @@ class Profile(ResponseModel):
 
     class PolarizedRatings(ResponseModel):
         _required_properties = [
-            ("good", "good", Extractors.get("good")),
-            ("bad", "bad", Extractors.get("bad")),
+            ResponseProperty("good", "good", Extractors.get("good")),
+            ResponseProperty("bad", "bad", Extractors.get("bad")),
         ]
         _optional_properties = []
 
@@ -34,53 +34,73 @@ class Profile(ResponseModel):
             self.bad = bad
 
     _required_properties = [
-        ("id", "id_", Extractors.get("id")),
-        ("name", "name", Extractors.get("name")),
+        ResponseProperty("id", "id_", Extractors.get("id")),
+        ResponseProperty("name", "name", Extractors.get("name")),
     ]
 
     _optional_properties = [
-        ("photo_url", "photo_url", Extractors.get("photo_url")),
-        (
+        ResponseProperty("photo_url", "photo_url", Extractors.get("photo_url")),
+        ResponseProperty(
             "photo_thumbnail_url",
             "photo_thumbnail_url",
             Extractors.get("photo_thumbnail_url"),
         ),
-        (
+        ResponseProperty(
             "register_sms_confirmation",
             "register_sms_confirmation",
             Extractors.get("register_sms_confirmation"),
         ),
-        (
+        ResponseProperty(
             "ratings",
             "ratings",
             Extractors.get_with("ratings", lambda x: Profile.Ratings.from_dict(x)),
         ),
-        (
+        ResponseProperty(
             "polarized_ratings",
             "polarized_ratings",
             Extractors.get_with(
                 "polarized_ratings", lambda x: Profile.PolarizedRatings.from_dict(x)
             ),
         ),
-        ("num_ratings", "num_ratings", Extractors.get("num_ratings")),
-        ("star_rating_score", "star_rating_score", Extractors.get("star_rating_score")),
-        ("is_followable", "is_followable", Extractors.get("is_followable")),
-        ("is_blocked", "is_blocked", Extractors.get("is_blocked")),
-        ("following_count", "following_count", Extractors.get("following_count")),
-        ("follower_count", "follower_count", Extractors.get("follower_count")),
-        ("score", "score", Extractors.get("score")),
-        ("created", "created", Extractors.get_datetime("created")),
-        ("proper", "proper", Extractors.get("proper")),
-        ("introduction", "introduction", Extractors.get("introduction")),
-        ("is_official", "is_official", Extractors.get("is_official")),
-        ("num_sell_items", "num_sell_items", Extractors.get("num_sell_items")),
-        ("num_ticket", "num_ticket", Extractors.get("num_ticket")),
-        ("bounce_mail_flag", "bounce_mail_flag", Extractors.get("bounce_mail_flag")),
+        ResponseProperty("num_ratings", "num_ratings", Extractors.get("num_ratings")),
+        ResponseProperty(
+            "star_rating_score",
+            "star_rating_score",
+            Extractors.get("star_rating_score"),
+        ),
+        ResponseProperty(
+            "is_followable", "is_followable", Extractors.get("is_followable")
+        ),
+        ResponseProperty("is_blocked", "is_blocked", Extractors.get("is_blocked")),
+        ResponseProperty(
+            "following_count", "following_count", Extractors.get("following_count")
+        ),
+        ResponseProperty(
+            "follower_count", "follower_count", Extractors.get("follower_count")
+        ),
+        ResponseProperty("score", "score", Extractors.get("score")),
+        ResponseProperty("created", "created", Extractors.get_datetime("created")),
+        ResponseProperty("proper", "proper", Extractors.get("proper")),
+        ResponseProperty(
+            "introduction", "introduction", Extractors.get("introduction")
+        ),
+        ResponseProperty("is_official", "is_official", Extractors.get("is_official")),
+        ResponseProperty(
+            "num_sell_items", "num_sell_items", Extractors.get("num_sell_items")
+        ),
+        ResponseProperty("num_ticket", "num_ticket", Extractors.get("num_ticket")),
+        ResponseProperty(
+            "bounce_mail_flag", "bounce_mail_flag", Extractors.get("bounce_mail_flag")
+        ),
         # useless without authorization context
         # ('is_following', 'is_following', Extractors.get('is_following'))
-        ("current_point", "current_point", Extractors.get("current_point")),
-        ("current_sales", "current_sales", Extractors.get("current_sales")),
-        (
+        ResponseProperty(
+            "current_point", "current_point", Extractors.get("current_point")
+        ),
+        ResponseProperty(
+            "current_sales", "current_sales", Extractors.get("current_sales")
+        ),
+        ResponseProperty(
             "is_organizational_user",
             "is_organizational_user",
             Extractors.get("is_organizational_user"),

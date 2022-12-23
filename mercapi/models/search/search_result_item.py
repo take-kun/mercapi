@@ -3,29 +3,29 @@ from typing import List, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from mercapi.models import Item, Profile
-from mercapi.models.base import Extractors, ResponseModel
+from mercapi.models.base import Extractors, ResponseModel, ResponseProperty
 
 
 class SearchResultItem(ResponseModel):
     _required_properties = [
-        ("id", "id_", Extractors.get("id")),
-        ("name", "name", Extractors.get("name")),
-        ("price", "price", Extractors.get_as("price", int)),
+        ResponseProperty("id", "id_", Extractors.get("id")),
+        ResponseProperty("name", "name", Extractors.get("name")),
+        ResponseProperty("price", "price", Extractors.get_as("price", int)),
     ]
     _optional_properties = [
-        ("sellerId", "seller_id", Extractors.get("sellerId")),
-        ("status", "status", Extractors.get("status")),
-        ("created", "created", Extractors.get_datetime("created")),
-        ("updated", "updated", Extractors.get_datetime("updated")),
-        ("buyerId", "buyer_id", Extractors.get("buyerId")),
-        ("thumbnails", "thumbnails", Extractors.get("thumbnails")),
-        ("itemType", "item_type", Extractors.get("itemType")),
-        (
+        ResponseProperty("sellerId", "seller_id", Extractors.get("sellerId")),
+        ResponseProperty("status", "status", Extractors.get("status")),
+        ResponseProperty("created", "created", Extractors.get_datetime("created")),
+        ResponseProperty("updated", "updated", Extractors.get_datetime("updated")),
+        ResponseProperty("buyerId", "buyer_id", Extractors.get("buyerId")),
+        ResponseProperty("thumbnails", "thumbnails", Extractors.get("thumbnails")),
+        ResponseProperty("itemType", "item_type", Extractors.get("itemType")),
+        ResponseProperty(
             "itemConditionId",
             "item_condition_id",
             Extractors.get_as("itemConditionId", int),
         ),
-        (
+        ResponseProperty(
             "shippingPayerId",
             "shipping_payer_id",
             Extractors.get_as("shippingPayerId", int),
