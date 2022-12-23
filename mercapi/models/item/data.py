@@ -1,14 +1,14 @@
 from datetime import datetime
 
-from mercapi.models.base import Extractors, ResponseModel
+from mercapi.models.base import Extractors, ResponseModel, ResponseProperty
 
 
 class Seller(ResponseModel):
     class Ratings(ResponseModel):
         _required_properties = [
-            ("good", "good", Extractors.get("good")),
-            ("normal", "normal", Extractors.get("normal")),
-            ("bad", "bad", Extractors.get("bad")),
+            ResponseProperty("good", "good", Extractors.get("good")),
+            ResponseProperty("normal", "normal", Extractors.get("normal")),
+            ResponseProperty("bad", "bad", Extractors.get("bad")),
         ]
         _optional_properties = []
 
@@ -19,22 +19,22 @@ class Seller(ResponseModel):
             self.bad = bad
 
     _required_properties = [
-        ("id", "id_", Extractors.get("id")),
-        ("name", "name", Extractors.get("name")),
+        ResponseProperty("id", "id_", Extractors.get("id")),
+        ResponseProperty("name", "name", Extractors.get("name")),
     ]
     _optional_properties = [
-        ("photo_url", "photo", Extractors.get("photo_url")),
-        (
+        ResponseProperty("photo_url", "photo", Extractors.get("photo_url")),
+        ResponseProperty(
             "photo_thumbnail_url",
             "photo_thumbnail",
             Extractors.get("photo_thumbnail_url"),
         ),
-        (
+        ResponseProperty(
             "register_sms_confirmation",
             "register_sms_confirmation",
             Extractors.get("register_sms_confirmation"),
         ),
-        (
+        ResponseProperty(
             "register_sms_confirmation_at",
             "register_sms_confirmation_at",
             Extractors.get_with(
@@ -42,18 +42,26 @@ class Seller(ResponseModel):
                 lambda x: datetime.strptime(x, "%Y-%m-%d %H:%M:%S"),
             ),
         ),
-        ("created", "created", Extractors.get_datetime("created")),
-        ("num_sell_items", "num_sell_items", Extractors.get("num_sell_items")),
-        (
+        ResponseProperty("created", "created", Extractors.get_datetime("created")),
+        ResponseProperty(
+            "num_sell_items", "num_sell_items", Extractors.get("num_sell_items")
+        ),
+        ResponseProperty(
             "ratings",
             "ratings",
             Extractors.get_with("ratings", lambda x: Seller.Ratings.from_dict(x)),
         ),
-        ("num_ratings", "num_ratings", Extractors.get("num_ratings")),
-        ("score", "score", Extractors.get("score")),
-        ("is_official", "is_official", Extractors.get("is_official")),
-        ("quick_shipper", "quick_shipper", Extractors.get("quick_shipper")),
-        ("star_rating_score", "star_rating_score", Extractors.get("star_rating_score")),
+        ResponseProperty("num_ratings", "num_ratings", Extractors.get("num_ratings")),
+        ResponseProperty("score", "score", Extractors.get("score")),
+        ResponseProperty("is_official", "is_official", Extractors.get("is_official")),
+        ResponseProperty(
+            "quick_shipper", "quick_shipper", Extractors.get("quick_shipper")
+        ),
+        ResponseProperty(
+            "star_rating_score",
+            "star_rating_score",
+            Extractors.get("star_rating_score"),
+        ),
     ]
 
     def __init__(
@@ -92,8 +100,8 @@ class Seller(ResponseModel):
 
 class ItemCondition(ResponseModel):
     _required_properties = [
-        ("id", "id_", Extractors.get("id")),
-        ("name", "name", Extractors.get("name")),
+        ResponseProperty("id", "id_", Extractors.get("id")),
+        ResponseProperty("name", "name", Extractors.get("name")),
     ]
     _optional_properties = []
 
@@ -105,9 +113,11 @@ class ItemCondition(ResponseModel):
 
 class Color(ResponseModel):
     _required_properties = [
-        ("id", "id_", Extractors.get("id")),
-        ("name", "name", Extractors.get("name")),
-        ("rgb", "rgb", Extractors.get_with("rgb", lambda x: int(x[1:], 16))),
+        ResponseProperty("id", "id_", Extractors.get("id")),
+        ResponseProperty("name", "name", Extractors.get("name")),
+        ResponseProperty(
+            "rgb", "rgb", Extractors.get_with("rgb", lambda x: int(x[1:], 16))
+        ),
     ]
     _optional_properties = []
 
@@ -124,11 +134,11 @@ class Color(ResponseModel):
 
 class ShippingPayer(ResponseModel):
     _required_properties = [
-        ("id", "id_", Extractors.get("id")),
-        ("name", "name", Extractors.get("name")),
+        ResponseProperty("id", "id_", Extractors.get("id")),
+        ResponseProperty("name", "name", Extractors.get("name")),
     ]
     _optional_properties = [
-        ("code", "code", Extractors.get("code")),
+        ResponseProperty("code", "code", Extractors.get("code")),
     ]
 
     def __init__(self, id_: int, name: str, code: str):
@@ -140,11 +150,13 @@ class ShippingPayer(ResponseModel):
 
 class ShippingMethod(ResponseModel):
     _required_properties = [
-        ("id", "id_", Extractors.get("id")),
-        ("name", "name", Extractors.get("name")),
+        ResponseProperty("id", "id_", Extractors.get("id")),
+        ResponseProperty("name", "name", Extractors.get("name")),
     ]
     _optional_properties = [
-        ("is_deprecated", "is_deprecated", Extractors.get("is_deprecated")),
+        ResponseProperty(
+            "is_deprecated", "is_deprecated", Extractors.get("is_deprecated")
+        ),
     ]
 
     def __init__(self, id_: int, name: str, is_deprecated: str):
@@ -156,8 +168,8 @@ class ShippingMethod(ResponseModel):
 
 class ShippingFromArea(ResponseModel):
     _required_properties = [
-        ("id", "id_", Extractors.get("id")),
-        ("name", "name", Extractors.get("name")),
+        ResponseProperty("id", "id_", Extractors.get("id")),
+        ResponseProperty("name", "name", Extractors.get("name")),
     ]
     _optional_properties = []
 
@@ -169,10 +181,10 @@ class ShippingFromArea(ResponseModel):
 
 class ShippingDuration(ResponseModel):
     _required_properties = [
-        ("id", "id_", Extractors.get("id")),
-        ("name", "name", Extractors.get("name")),
-        ("min_days", "min_days", Extractors.get("min_days")),
-        ("max_days", "max_days", Extractors.get("max_days")),
+        ResponseProperty("id", "id_", Extractors.get("id")),
+        ResponseProperty("name", "name", Extractors.get("name")),
+        ResponseProperty("min_days", "min_days", Extractors.get("min_days")),
+        ResponseProperty("max_days", "max_days", Extractors.get("max_days")),
     ]
     _optional_properties = []
 
@@ -186,13 +198,15 @@ class ShippingDuration(ResponseModel):
 
 class ShippingClass(ResponseModel):
     _required_properties = [
-        ("id", "id_", Extractors.get("id")),
-        ("fee", "fee", Extractors.get("fee")),
-        ("icon_id", "icon_id", Extractors.get("icon_id")),
-        ("pickup_fee", "pickup_fee", Extractors.get("pickup_fee")),
-        ("shipping_fee", "shipping_fee", Extractors.get("shipping_fee")),
-        ("total_fee", "total_fee", Extractors.get("total_fee")),
-        ("is_pickup", "is_pickup", Extractors.get("is_pickup")),
+        ResponseProperty("id", "id_", Extractors.get("id")),
+        ResponseProperty("fee", "fee", Extractors.get("fee")),
+        ResponseProperty("icon_id", "icon_id", Extractors.get("icon_id")),
+        ResponseProperty("pickup_fee", "pickup_fee", Extractors.get("pickup_fee")),
+        ResponseProperty(
+            "shipping_fee", "shipping_fee", Extractors.get("shipping_fee")
+        ),
+        ResponseProperty("total_fee", "total_fee", Extractors.get("total_fee")),
+        ResponseProperty("is_pickup", "is_pickup", Extractors.get("is_pickup")),
     ]
     _optional_properties = []
 
@@ -219,12 +233,12 @@ class ShippingClass(ResponseModel):
 class Comment(ResponseModel):
     class User(ResponseModel):
         _required_properties = [
-            ("id", "id_", Extractors.get("id")),
-            ("name", "name", Extractors.get("name")),
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
         ]
         _optional_properties = [
-            ("photo_url", "photo", Extractors.get("photo_url")),
-            (
+            ResponseProperty("photo_url", "photo", Extractors.get("photo_url")),
+            ResponseProperty(
                 "photo_thumbnail_url",
                 "photo_thumbnail",
                 Extractors.get("photo_thumbnail_url"),
@@ -239,10 +253,10 @@ class Comment(ResponseModel):
             self.photo_thumbnail = photo_thumbnail
 
     _required_properties = [
-        ("id", "id_", Extractors.get("id")),
-        ("message", "message", Extractors.get("message")),
+        ResponseProperty("id", "id_", Extractors.get("id")),
+        ResponseProperty("message", "message", Extractors.get("message")),
     ]
     _optional_properties = [
-        ("user", "user", Extractors.get_as_model("user", User)),
-        ("created", "created", Extractors.get_datetime("created")),
+        ResponseProperty("user", "user", Extractors.get_as_model("user", User)),
+        ResponseProperty("created", "created", Extractors.get_datetime("created")),
     ]
