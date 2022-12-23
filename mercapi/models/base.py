@@ -1,6 +1,15 @@
 import logging
 from datetime import datetime
-from typing import NamedTuple, Callable, List, TypeVar, Any, Type, Union, TYPE_CHECKING
+from typing import (
+    NamedTuple,
+    Callable,
+    List,
+    TypeVar,
+    Any,
+    Type,
+    TYPE_CHECKING,
+    Optional,
+)
 
 if TYPE_CHECKING:
     from mercapi import Mercapi
@@ -8,12 +17,14 @@ from mercapi.util.errors import ParseAPIResponseError
 
 
 RM = TypeVar("RM", bound="ResponseModel")
+T = TypeVar("T")
+ExtractorDef = Callable[[dict], Optional[T]]
 
 
 class ResponseProperty(NamedTuple):
     raw_property_name: str
     model_property_name: str
-    extractor: Callable[[str], str]
+    extractor: ExtractorDef
 
 
 class ResponseModel:
@@ -49,22 +60,22 @@ class ResponseModel:
 
         model_properties = {}
 
-        for raw_name, model_name, func in cls._required_properties:
+        for prop in cls._required_properties:
             try:
-                raw_property = func(d)
-                model_properties[model_name] = raw_property
+                raw_property = prop.extractor(d)
+                model_properties[prop.model_property_name] = raw_property
             except Exception as e:
                 raise ParseAPIResponseError(
-                    f"Failed to retrieve required {cls.__name__} property {raw_name} from the response"
+                    f"Failed to retrieve required {cls.__name__} property {prop.raw_property_name} from the response"
                 ) from e
 
-        for raw_name, model_name, func in cls._optional_properties:
+        for prop in cls._optional_properties:
             raw_property = None
             try:
-                raw_property = func(d)
+                raw_property = prop.extractor(d)
             except Exception as e:
-                cls._report_incorrect_optional(raw_name, d, e)
-            model_properties[model_name] = raw_property
+                cls._report_incorrect_optional(prop.raw_property_name, d, e)
+            model_properties[prop.model_property_name] = raw_property
 
         return cls(**model_properties)
 
@@ -89,9 +100,6 @@ class Extractors:
     Each extractor function MUST handle lack of requested key
     in the response object (dict) and return None in such cases.
     """
-
-    T = TypeVar("T")
-    ExtractorDef = Callable[[dict], Union[T, None]]
 
     @staticmethod
     def get(key: str) -> ExtractorDef[Any]:
