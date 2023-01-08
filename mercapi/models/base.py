@@ -48,7 +48,10 @@ class ResponseModel:
             raise IndexError(
                 f"{key} is not a valid member of {self.__class__.__name__}"
             )
-        return getattr(self, key)
+        res = getattr(self, key)
+        if not issubclass(type(res), ResponseModel):
+            return res
+        return dict(res)
 
     @classmethod
     def from_dict(cls, d: dict) -> RM:
