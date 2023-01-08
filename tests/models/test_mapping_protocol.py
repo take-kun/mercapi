@@ -18,6 +18,12 @@ def test_retrieve_existing_optional_field():
     assert obj["field_2"] == field_2
 
 
+def test_retrieve_existing_empty_optional_field():
+    obj = ModelTest("foo", None)
+
+    assert obj["field_2"] is None
+
+
 def test_retrieve_non_existent_field_throw_exception():
     obj = ModelTest("foo", None)
 
