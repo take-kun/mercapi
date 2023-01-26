@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 from mercapi.models.base import ResponseModel, Extractors, ResponseProperty
 
@@ -46,3 +46,31 @@ class ModelTestB(ResponseModel):
         super().__init__()
         self.field_1 = field_1
         self.field_nested = field_nested
+
+
+class ModelTestC(ResponseModel):
+    _required_properties = [
+        ResponseProperty("field_1", "field_1", Extractors.get("field_1")),
+        ResponseProperty(
+            "list_nested",
+            "list_nested",
+            Extractors.get_list_of_model("list_nested", ModelTestBNested),
+        ),
+    ]
+    _optional_properties = []
+
+    def __init__(self, field_1: str, list_nested: List[ModelTestBNested]):
+        super().__init__()
+        self.field_1 = field_1
+        self.list_nested = list_nested
+
+
+class ModelTestD(ResponseModel):
+    _required_properties = [
+        ResponseProperty("list_a", "list_a", Extractors.get("list_a")),
+    ]
+    _optional_properties = []
+
+    def __init__(self, list_a: List[int]):
+        super().__init__()
+        self.list_a = list_a
