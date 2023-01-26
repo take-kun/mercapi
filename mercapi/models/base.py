@@ -49,6 +49,8 @@ class ResponseModel:
                 f"{key} is not a valid member of {self.__class__.__name__}"
             )
         res = getattr(self, key)
+        if isinstance(res, list):
+            return [dict(x) if issubclass(type(x), ResponseModel) else x for x in res]
         if not issubclass(type(res), ResponseModel):
             return res
         return dict(res)
