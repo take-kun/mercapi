@@ -574,6 +574,49 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
             ),
         ],
     ),
+    ItemCategory: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
+        ],
+        optional_properties=[
+            ResponseProperty(
+                "display_order", "display_order", Extractors.get("display_order")
+            ),
+            ResponseProperty("tab_order", "tab_order", Extractors.get("tab_order")),
+            ResponseProperty(
+                "parent_category_id",
+                "parent_category_id",
+                Extractors.get("parent_category_id"),
+            ),
+            ResponseProperty(
+                "parent_category_name",
+                "parent_category_name",
+                Extractors.get("parent_category_name"),
+            ),
+            ResponseProperty(
+                "root_category_id",
+                "root_category_id",
+                Extractors.get("root_category_id"),
+            ),
+            ResponseProperty(
+                "root_category_name",
+                "root_category_name",
+                Extractors.get("root_category_name"),
+            ),
+            ResponseProperty(
+                "size_group_id", "size_group_id", Extractors.get("size_group_id")
+            ),
+            ResponseProperty(
+                "brand_group_id", "brand_group_id", Extractors.get("brand_group_id")
+            ),
+            ResponseProperty(
+                "children",
+                "children",
+                Extractors.get_list_of_model("children", ItemCategory),
+            ),
+        ],
+    ),
 }
 
 RM = TypeVar("RM", bound=ResponseModel)
