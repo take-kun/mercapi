@@ -17,8 +17,9 @@ from mercapi.models.item.data import (
 )
 from mercapi.util.errors import ParseAPIResponseError
 from mercapi.models.base import ResponseModel
-from models import Items, Profile
+from models import Items, Profile, SearchResults, SearchResultItem
 from models.profile.items import SellerItem
+from models.search import Meta
 
 T = TypeVar("T")
 ExtractorDef = Callable[[dict], Optional[T]]
@@ -519,6 +520,59 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
             ResponseProperty("bad", "bad", Extractors.get("bad")),
         ],
         optional_properties=[],
+    ),
+    SearchResults: R(
+        required_properties=[
+            ResponseProperty("meta", "meta", Extractors.get_as_model("meta", Meta)),
+            ResponseProperty(
+                "items",
+                "items",
+                Extractors.get_list_of_model("items", SearchResultItem),
+            ),
+        ],
+        optional_properties=[],
+    ),
+    Meta: R(
+        required_properties=[
+            ResponseProperty(
+                "nextPageToken", "next_page_token", Extractors.get("nextPageToken")
+            ),
+            ResponseProperty(
+                "previousPageToken",
+                "prev_page_token",
+                Extractors.get("previousPageToken"),
+            ),
+            ResponseProperty(
+                "numFound", "num_found", Extractors.get_as("numFound", int)
+            ),
+        ],
+        optional_properties=[],
+    ),
+    SearchResultItem: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
+            ResponseProperty("price", "price", Extractors.get_as("price", int)),
+        ],
+        optional_properties=[
+            ResponseProperty("sellerId", "seller_id", Extractors.get("sellerId")),
+            ResponseProperty("status", "status", Extractors.get("status")),
+            ResponseProperty("created", "created", Extractors.get_datetime("created")),
+            ResponseProperty("updated", "updated", Extractors.get_datetime("updated")),
+            ResponseProperty("buyerId", "buyer_id", Extractors.get("buyerId")),
+            ResponseProperty("thumbnails", "thumbnails", Extractors.get("thumbnails")),
+            ResponseProperty("itemType", "item_type", Extractors.get("itemType")),
+            ResponseProperty(
+                "itemConditionId",
+                "item_condition_id",
+                Extractors.get_as("itemConditionId", int),
+            ),
+            ResponseProperty(
+                "shippingPayerId",
+                "shipping_payer_id",
+                Extractors.get_as("shippingPayerId", int),
+            ),
+        ],
     ),
 }
 
