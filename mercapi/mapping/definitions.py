@@ -17,7 +17,7 @@ from mercapi.models.item.data import (
 )
 from mercapi.util.errors import ParseAPIResponseError
 from mercapi.models.base import ResponseModel
-from models import Items
+from models import Items, Profile
 from models.profile.items import SellerItem
 
 T = TypeVar("T")
@@ -426,6 +426,99 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
                 Extractors.get_as_model("shipping_from_area", ShippingFromArea),
             ),
         ],
+    ),
+    Profile: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
+        ],
+        optional_properties=[
+            ResponseProperty("photo_url", "photo_url", Extractors.get("photo_url")),
+            ResponseProperty(
+                "photo_thumbnail_url",
+                "photo_thumbnail_url",
+                Extractors.get("photo_thumbnail_url"),
+            ),
+            ResponseProperty(
+                "register_sms_confirmation",
+                "register_sms_confirmation",
+                Extractors.get("register_sms_confirmation"),
+            ),
+            ResponseProperty(
+                "ratings",
+                "ratings",
+                Extractors.get_as_model("ratings", Profile.Ratings),
+            ),
+            ResponseProperty(
+                "polarized_ratings",
+                "polarized_ratings",
+                Extractors.get_as_model("polarized_ratings", Profile.PolarizedRatings),
+            ),
+            ResponseProperty(
+                "num_ratings", "num_ratings", Extractors.get("num_ratings")
+            ),
+            ResponseProperty(
+                "star_rating_score",
+                "star_rating_score",
+                Extractors.get("star_rating_score"),
+            ),
+            ResponseProperty(
+                "is_followable", "is_followable", Extractors.get("is_followable")
+            ),
+            ResponseProperty("is_blocked", "is_blocked", Extractors.get("is_blocked")),
+            ResponseProperty(
+                "following_count", "following_count", Extractors.get("following_count")
+            ),
+            ResponseProperty(
+                "follower_count", "follower_count", Extractors.get("follower_count")
+            ),
+            ResponseProperty("score", "score", Extractors.get("score")),
+            ResponseProperty("created", "created", Extractors.get_datetime("created")),
+            ResponseProperty("proper", "proper", Extractors.get("proper")),
+            ResponseProperty(
+                "introduction", "introduction", Extractors.get("introduction")
+            ),
+            ResponseProperty(
+                "is_official", "is_official", Extractors.get("is_official")
+            ),
+            ResponseProperty(
+                "num_sell_items", "num_sell_items", Extractors.get("num_sell_items")
+            ),
+            ResponseProperty("num_ticket", "num_ticket", Extractors.get("num_ticket")),
+            ResponseProperty(
+                "bounce_mail_flag",
+                "bounce_mail_flag",
+                Extractors.get("bounce_mail_flag"),
+            ),
+            # useless without authorization context
+            # ('is_following', 'is_following', Extractors.get('is_following'))
+            ResponseProperty(
+                "current_point", "current_point", Extractors.get("current_point")
+            ),
+            ResponseProperty(
+                "current_sales", "current_sales", Extractors.get("current_sales")
+            ),
+            ResponseProperty(
+                "is_organizational_user",
+                "is_organizational_user",
+                Extractors.get("is_organizational_user"),
+            ),
+        ],
+    ),
+    Profile.PolarizedRatings: R(
+        required_properties=[
+            ResponseProperty("good", "good", Extractors.get("good")),
+            ResponseProperty("bad", "bad", Extractors.get("bad")),
+        ],
+        optional_properties=[],
+    ),
+    Profile.Ratings: R(
+        required_properties=[
+            ResponseProperty("good", "good", Extractors.get("good")),
+            ResponseProperty("normal", "normal", Extractors.get("normal")),
+            ResponseProperty("bad", "bad", Extractors.get("bad")),
+        ],
+        optional_properties=[],
     ),
 }
 
