@@ -89,16 +89,15 @@ class Extractors:
 
 R = ResponseMappingDefinition
 
-
 mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
     Item: R(
-        [
+        required_properties=[
             ResponseProperty("id", "id_", Extractors.get("id")),
             ResponseProperty("status", "status", Extractors.get("status")),
             ResponseProperty("name", "name", Extractors.get("name")),
             ResponseProperty("price", "price", Extractors.get("price")),
         ],
-        [
+        optional_properties=[
             ResponseProperty(
                 "seller", "seller", Extractors.get_as_model("seller", Seller)
             ),
@@ -123,7 +122,7 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
             ResponseProperty(
                 "colors",
                 "colors",
-                Extractors.get_list_with("colors", lambda x: Color.from_dict(x)),
+                Extractors.get_list_of_model("colors", Color),
             ),
             ResponseProperty(
                 "shipping_payer",
@@ -157,7 +156,7 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
             ResponseProperty(
                 "comments",
                 "comments",
-                Extractors.get_list_with("comments", lambda x: Comment.from_dict(x)),
+                Extractors.get_list_of_model("comments", Comment),
             ),
             ResponseProperty("updated", "updated", Extractors.get_datetime("updated")),
             ResponseProperty("created", "created", Extractors.get_datetime("created")),
@@ -223,7 +222,162 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
                 "is_offerable_v2", "is_offerable_v2", Extractors.get("is_offerable_v2")
             ),
         ],
-    )
+    ),
+    Seller: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
+        ],
+        optional_properties=[
+            ResponseProperty("photo_url", "photo", Extractors.get("photo_url")),
+            ResponseProperty(
+                "photo_thumbnail_url",
+                "photo_thumbnail",
+                Extractors.get("photo_thumbnail_url"),
+            ),
+            ResponseProperty(
+                "register_sms_confirmation",
+                "register_sms_confirmation",
+                Extractors.get("register_sms_confirmation"),
+            ),
+            ResponseProperty(
+                "register_sms_confirmation_at",
+                "register_sms_confirmation_at",
+                Extractors.get_with(
+                    "register_sms_confirmation_at",
+                    lambda x: datetime.strptime(x, "%Y-%m-%d %H:%M:%S"),
+                ),
+            ),
+            ResponseProperty("created", "created", Extractors.get_datetime("created")),
+            ResponseProperty(
+                "num_sell_items", "num_sell_items", Extractors.get("num_sell_items")
+            ),
+            ResponseProperty(
+                "ratings",
+                "ratings",
+                Extractors.get_as_model("ratings", Seller.Ratings),
+            ),
+            ResponseProperty(
+                "num_ratings", "num_ratings", Extractors.get("num_ratings")
+            ),
+            ResponseProperty("score", "score", Extractors.get("score")),
+            ResponseProperty(
+                "is_official", "is_official", Extractors.get("is_official")
+            ),
+            ResponseProperty(
+                "quick_shipper", "quick_shipper", Extractors.get("quick_shipper")
+            ),
+            ResponseProperty(
+                "star_rating_score",
+                "star_rating_score",
+                Extractors.get("star_rating_score"),
+            ),
+        ],
+    ),
+    Seller.Ratings: R(
+        required_properties=[
+            ResponseProperty("good", "good", Extractors.get("good")),
+            ResponseProperty("normal", "normal", Extractors.get("normal")),
+            ResponseProperty("bad", "bad", Extractors.get("bad")),
+        ],
+        optional_properties=[],
+    ),
+    ItemCondition: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
+            ResponseProperty(
+                "rgb", "rgb", Extractors.get_with("rgb", lambda x: int(x[1:], 16))
+            ),
+        ],
+        optional_properties=[],
+    ),
+    Color: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
+            ResponseProperty(
+                "rgb", "rgb", Extractors.get_with("rgb", lambda x: int(x[1:], 16))
+            ),
+        ],
+        optional_properties=[],
+    ),
+    ShippingPayer: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
+        ],
+        optional_properties=[
+            ResponseProperty("code", "code", Extractors.get("code")),
+        ],
+    ),
+    ShippingMethod: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
+        ],
+        optional_properties=[
+            ResponseProperty(
+                "is_deprecated", "is_deprecated", Extractors.get("is_deprecated")
+            ),
+        ],
+    ),
+    ShippingFromArea: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
+        ],
+        optional_properties=[],
+    ),
+    ShippingDuration: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
+            ResponseProperty("min_days", "min_days", Extractors.get("min_days")),
+            ResponseProperty("max_days", "max_days", Extractors.get("max_days")),
+        ],
+        optional_properties=[],
+    ),
+    ShippingClass: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("fee", "fee", Extractors.get("fee")),
+            ResponseProperty("icon_id", "icon_id", Extractors.get("icon_id")),
+            ResponseProperty("pickup_fee", "pickup_fee", Extractors.get("pickup_fee")),
+            ResponseProperty(
+                "shipping_fee", "shipping_fee", Extractors.get("shipping_fee")
+            ),
+            ResponseProperty("total_fee", "total_fee", Extractors.get("total_fee")),
+            ResponseProperty("is_pickup", "is_pickup", Extractors.get("is_pickup")),
+        ],
+        optional_properties=[],
+    ),
+    Comment: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("message", "message", Extractors.get("message")),
+        ],
+        optional_properties=[
+            ResponseProperty(
+                "user", "user", Extractors.get_as_model("user", Comment.User)
+            ),
+            ResponseProperty("created", "created", Extractors.get_datetime("created")),
+        ],
+    ),
+    Comment.User: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
+        ],
+        optional_properties=[
+            ResponseProperty("photo_url", "photo", Extractors.get("photo_url")),
+            ResponseProperty(
+                "photo_thumbnail_url",
+                "photo_thumbnail",
+                Extractors.get("photo_thumbnail_url"),
+            ),
+        ],
+    ),
 }
 
 RM = TypeVar("RM", bound=ResponseModel)
