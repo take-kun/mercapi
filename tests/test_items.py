@@ -35,3 +35,12 @@ async def test_items(m):
     shipping_from_area = item.shipping_from_area
     assert shipping_from_area.id_ == 20
     assert shipping_from_area.name == "長野県"
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_items_fetch_full_item_from_seller_item(m):
+    items = await m.items("362164700")
+    res = await items.items[0].full_item()
+
+    assert res.id_ == "m77200069010"

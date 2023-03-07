@@ -5,6 +5,7 @@ from typing import List
 from mercapi.models.base import ResponseModel
 from mercapi.models.common import ItemCategory
 from mercapi.models.item.data import ShippingFromArea
+from models import Item
 
 
 @dataclass
@@ -22,6 +23,13 @@ class SellerItem(ResponseModel):
     updated: datetime
     item_category: ItemCategory
     shipping_from_area: ShippingFromArea
+
+    async def full_item(self) -> Item:
+        """Fetch full details of a listing (item).
+
+        Equivalent of :func:`~mercapi.Mercapi.item`
+        """
+        return await self._mercapi.item(self.id_)
 
 
 @dataclass
