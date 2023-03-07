@@ -2,7 +2,7 @@ import logging
 from datetime import datetime
 from typing import NamedTuple, List, Dict, TypeVar, Type, Any, Optional, Callable
 
-from mercapi.models import Item
+from mercapi.models import Item, Items, Profile, SearchResults, SearchResultItem
 from mercapi.models.common import ItemCategory
 from mercapi.models.item.data import (
     Seller,
@@ -17,9 +17,8 @@ from mercapi.models.item.data import (
 )
 from mercapi.util.errors import ParseAPIResponseError
 from mercapi.models.base import ResponseModel
-from models import Items, Profile, SearchResults, SearchResultItem
-from models.profile.items import SellerItem
-from models.search import Meta
+from mercapi.models.profile.items import SellerItem
+from mercapi.models.search import Meta
 
 T = TypeVar("T")
 ExtractorDef = Callable[[dict], Optional[T]]
@@ -289,9 +288,6 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
         required_properties=[
             ResponseProperty("id", "id_", Extractors.get("id")),
             ResponseProperty("name", "name", Extractors.get("name")),
-            ResponseProperty(
-                "rgb", "rgb", Extractors.get_with("rgb", lambda x: int(x[1:], 16))
-            ),
         ],
         optional_properties=[],
     ),
@@ -396,7 +392,7 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
                 "seller",
                 "seller_id",
                 Extractors.get_with(
-                    "seller_id", lambda x: str(x["id"]) if "id" in x else None
+                    "seller", lambda x: str(x["id"]) if "id" in x else None
                 ),
             ),
             ResponseProperty("status", "status", Extractors.get("status")),

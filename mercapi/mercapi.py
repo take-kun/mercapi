@@ -6,6 +6,7 @@ import httpx
 from ecdsa import SigningKey, NIST256p
 from httpx import Request
 
+from mercapi.mapping import map_to_class
 from mercapi.models import SearchResults, Item, Profile, Items
 from mercapi.models.base import ResponseModel
 from mercapi.requests import SearchRequestData
@@ -100,7 +101,7 @@ class Mercapi:
         )
         res = await self._client.send(self._search(request))
         body = res.json()
-        return SearchResults.from_dict(body)
+        return map_to_class(body, SearchResults)
 
     def _search(self, search_request_data: SearchRequestData) -> Request:
         req = Request(
@@ -123,7 +124,7 @@ class Mercapi:
             return None
 
         body = res.json()
-        return Item.from_dict(body["data"])
+        return map_to_class(body["data"], Item)
 
     def _item(self, id_: str) -> Request:
         req = Request(
@@ -146,7 +147,7 @@ class Mercapi:
             return None
 
         body = res.json()
-        return Profile.from_dict(body["data"])
+        return map_to_class(body["data"], Profile)
 
     def _profile(self, id_: str) -> Request:
         req = Request(
@@ -169,7 +170,7 @@ class Mercapi:
             return None
 
         body = res.json()
-        return Items.from_dict(body)
+        return map_to_class(body, Items)
 
     def _items(self, profile_id: str) -> Request:
         req = Request(

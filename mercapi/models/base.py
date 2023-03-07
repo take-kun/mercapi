@@ -1,4 +1,3 @@
-from dataclasses import dataclass, field
 from datetime import datetime
 from typing import (
     NamedTuple,
@@ -25,10 +24,13 @@ class ResponseProperty(NamedTuple):
     extractor: ExtractorDef
 
 
-@dataclass
 class ResponseModel:
 
-    _mercapi: "Mercapi" = field(init=False, repr=False, compare=False)
+    _mercapi: "Mercapi"
+
+    @classmethod
+    def set_mercapi(cls, mercapi: "Mercapi") -> None:
+        cls._mercapi = mercapi
 
 
 class Extractors:
