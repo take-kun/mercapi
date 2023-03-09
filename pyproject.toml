@@ -23,6 +23,7 @@ pytest-recording = "^0.12.1"
 pdoc = "^12.2.0"
 
 [tool.poetry.group.docs.dependencies]
+optional = true
 pdoc = "^12.2.0"
 
 [tool.poetry.group.lint.dependencies]
