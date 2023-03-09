@@ -28,7 +28,7 @@ jobs:
         run: poetry install --only lint
 
       - name: Check Linting
-        run: black --check mercapi/ tests/
+        run: poetry run black --check mercapi/ tests/
 
   test:
     name: Unit test
