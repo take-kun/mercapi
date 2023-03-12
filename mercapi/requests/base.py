@@ -1,6 +1,2 @@
-import json
-from collections import UserDict
-
-
-class RequestData(UserDict):
+class RequestData:
     pass

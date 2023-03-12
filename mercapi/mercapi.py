@@ -61,6 +61,7 @@ class Mercapi:
         colors: List[int] = [],
         shipping_methods: List[SearchRequestData.ShippingMethod] = [],
         status: List[SearchRequestData.Status] = [],
+        page_token: str = None,
     ) -> SearchResults:
         """Perform basic search and return list of items and metadata.
         This method reflects the action of using search bar at the top of the website.
@@ -82,6 +83,7 @@ class Mercapi:
         :param colors: filter results by colors (色)
         :param shipping_methods: filter results by available shipping methods (発送オプション)
         :param status: filter results by listing statuses (販売状況)
+        :param page_token: used for paging results, provided in the response data
         :return: List of search results (items) and metadata (e.g. total count)
         """
         request = SearchRequestData(
@@ -98,10 +100,18 @@ class Mercapi:
                 shipping_methods,
                 status,
             ),
+            page_token,
         )
+        res = await self._search_impl(request)
+        res._request = request
+        return res
+
+    async def _search_impl(self, request: SearchRequestData) -> SearchResults:
         res = await self._client.send(self._search(request))
         body = res.json()
-        return map_to_class(body, SearchResults)
+        res = map_to_class(body, SearchResults)
+        res._request = request
+        return res
 
     def _search(self, search_request_data: SearchRequestData) -> Request:
         req = Request(

@@ -1,11 +1,12 @@
 import uuid
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import List
+from typing import List, Optional, Dict, Any
 
 from mercapi.requests import RequestData
 
 
+@dataclass
 class SearchRequestData(RequestData):
     class ShippingMethod(Enum):
         SHIPPING_METHOD_ANONYMOUS = 1
@@ -33,61 +34,40 @@ class SearchRequestData(RequestData):
         )
         status: List["SearchRequestData.Status"] = field(default_factory=list)
 
-    def __init__(self, search_conditions: SearchConditions):
-        super().__init__()
-        (
-            query,
-            categories,
-            brands,
-            sizes,
-            price_min,
-            price_max,
-            item_conditions,
-            shipping_payer,
-            colors,
-        ) = map(
-            search_conditions.__dict__.get,
-            (
-                "query",
-                "categories",
-                "brands",
-                "sizes",
-                "price_min",
-                "price_max",
-                "item_categories",
-                "shipping_payer",
-                "colors",
-            ),
-        )
-        shipping_methods = [i.name for i in search_conditions.shipping_methods]
-        status = [i.name for i in search_conditions.status]
+    search_conditions: SearchConditions
+    page_token: Optional[str]
+
+    @property
+    def data(self) -> Dict[str, Any]:
+        shipping_methods = [i.name for i in self.search_conditions.shipping_methods]
+        status = [i.name for i in self.search_conditions.status]
         if "STATUS_SOLD_OUT" in status:
             status.extend("STATUS_TRADING")
 
-        self.data = {
+        return {
             "userId": "",
             "pageSize": 120,
-            "pageToken": "",
+            "pageToken": self.page_token or "",
             "searchSessionId": uuid.uuid4().hex,
             "indexRouting": "INDEX_ROUTING_UNSPECIFIED",
             "thumbnailTypes": [],
             "searchCondition": {
-                "keyword": query,
+                "keyword": self.search_conditions.query,
                 "excludeKeyword": "",
                 "sort": "SORT_SCORE",
                 "order": "ORDER_DESC",
                 "status": [],
-                "sizeId": sizes,
-                "categoryId": categories,
-                "brandId": brands,
+                "sizeId": self.search_conditions.sizes,
+                "categoryId": self.search_conditions.categories,
+                "brandId": self.search_conditions.brands,
                 "sellerId": [],
-                "priceMin": price_min,
-                "priceMax": price_max,
-                "itemConditionId": item_conditions,
-                "shippingPayerId": shipping_payer,
+                "priceMin": self.search_conditions.price_min,
+                "priceMax": self.search_conditions.price_max,
+                "itemConditionId": self.search_conditions.item_conditions,
+                "shippingPayerId": self.search_conditions.shipping_payer,
                 "shippingFromArea": [],
                 "shippingMethod": shipping_methods,
-                "colorId": colors,
+                "colorId": self.search_conditions.colors,
                 "hasCoupon": False,
                 "attributes": [],
                 "itemTypes": [],
