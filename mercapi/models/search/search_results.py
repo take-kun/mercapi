@@ -4,8 +4,8 @@ from typing import List
 
 from mercapi.models.base import ResponseModel
 from mercapi.models.search import SearchResultItem, Meta
-from requests import SearchRequestData
-from util.errors import IncorrectRequestError
+from mercapi.requests import SearchRequestData
+from mercapi.util.errors import IncorrectRequestError
 
 
 @dataclass

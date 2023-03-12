@@ -2,7 +2,7 @@ from datetime import datetime
 
 import pytest
 
-from util.errors import IncorrectRequestError
+from mercapi.util.errors import IncorrectRequestError
 
 
 @pytest.mark.asyncio
