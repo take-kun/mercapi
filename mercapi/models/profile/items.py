@@ -5,7 +5,7 @@ from typing import List
 from mercapi.models.base import ResponseModel
 from mercapi.models.common import ItemCategory
 from mercapi.models.item.data import ShippingFromArea
-from models import Item
+from mercapi.models import Item
 
 
 @dataclass
