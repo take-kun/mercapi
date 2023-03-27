@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import NamedTuple, List, Dict, TypeVar, Type, Any, Optional, Callable
 
 from mercapi.models import Item, Items, Profile, SearchResults, SearchResultItem
-from mercapi.models.common import ItemCategory
+from mercapi.models.common import ItemCategory, ItemCategorySummary
 from mercapi.models.item.data import (
     Seller,
     ItemCondition,
@@ -114,7 +114,7 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
             ResponseProperty(
                 "item_category",
                 "item_category",
-                Extractors.get_as_model("item_category", ItemCategory),
+                Extractors.get_as_model("item_category", ItemCategorySummary),
             ),
             ResponseProperty(
                 "item_condition",
@@ -415,7 +415,7 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
             ResponseProperty(
                 "item_category",
                 "item_category",
-                Extractors.get_as_model("item_category", ItemCategory),
+                Extractors.get_as_model("item_category", ItemCategorySummary),
             ),
             ResponseProperty(
                 "shipping_from_area",
@@ -610,6 +610,37 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
                 "children",
                 "children",
                 Extractors.get_list_of_model("children", ItemCategory),
+            ),
+        ],
+    ),
+    ItemCategorySummary: R(
+        required_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("name", "name", Extractors.get("name")),
+        ],
+        optional_properties=[
+            ResponseProperty(
+                "display_order", "display_order", Extractors.get("display_order")
+            ),
+            ResponseProperty(
+                "parent_category_id",
+                "parent_category_id",
+                Extractors.get("parent_category_id"),
+            ),
+            ResponseProperty(
+                "parent_category_name",
+                "parent_category_name",
+                Extractors.get("parent_category_name"),
+            ),
+            ResponseProperty(
+                "root_category_id",
+                "root_category_id",
+                Extractors.get("root_category_id"),
+            ),
+            ResponseProperty(
+                "root_category_name",
+                "root_category_name",
+                Extractors.get("root_category_name"),
             ),
         ],
     ),
