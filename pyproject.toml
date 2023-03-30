@@ -22,6 +22,9 @@ black = "^22.6.0"
 pytest-recording = "^0.12.1"
 pdoc = "^12.2.0"
 
+[tool.poetry.group.docs]
+optional = true
+
 [tool.poetry.group.docs.dependencies]
 pdoc = "^12.2.0"
 

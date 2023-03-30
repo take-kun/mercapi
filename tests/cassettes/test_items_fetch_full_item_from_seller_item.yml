@@ -1,0 +1,114 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IkpFelRQMFhSWTdFcHBDSThCWHRfTWFaM3R1cDdCS1RNMDBjem80NVlNbnciLCJ5IjoiaHB6dC1SYVUxUUc3ZnpqMEp1LVZ2cFA5aHJrYk0yX1FjT3NzZ0RsbzU4byJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE2NzgyMjQwMTUsImp0aSI6IjdjMmY0ZDRmLTExYjMtOWI3OC04M2ZiLTg1MmE0MDI4NThmMiIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvaXRlbXMvZ2V0X2l0ZW1zP3NlbGxlcl9pZD0zNjIxNjQ3MDAmbGltaXQ9MzAmc3RhdHVzPW9uX3NhbGUlMkN0cmFkaW5nJTJDc29sZF9vdXQiLCJodG0iOiJHRVQiLCJ1dWlkIjoiMWFlNDE3NjktMDE0MS0xNWMwLTg5YjQtYzdjYWYyZTJiMjA3In0.2wq0LVtPX_wmK-UmlxhusoEtOrVBPP7nMPo10q7VwcP_M0DcSbHO7xFSchmV7boSvZn8smfnAZKh6yNQcmUZyA
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+      x-platform:
+      - web
+    method: GET
+    uri: https://api.mercari.jp/items/get_items?seller_id=362164700&limit=30&status=on_sale%2Ctrading%2Csold_out
+  response:
+    content: "{\"result\":\"OK\",\"meta\":{\"has_next\":false},\"data\":[{\"id\":\"m77200069010\",\"seller\":{\"id\":362164700,\"name\":\"dont-use-this\"},\"status\":\"on_sale\",\"name\":\"\u30A8\u30D0\u30E9
+      \u834F\u539F\u88FD\u4F5C\u6240 \u30E9\u30A4\u30F3\u30DD\u30F3\u30D7 LPD LPSJ211
+      32LPSJ 6.25\",\"price\":48500,\"thumbnails\":[\"https://static.mercdn.net/c!/w=240/thumb/photos/m77200069010_1.jpg?1675848708\"],\"root_category_id\":10,\"num_likes\":0,\"num_comments\":0,\"created\":1675848708,\"updated\":1677585050,\"item_category\":{\"id\":118,\"name\":\"\u305D\u306E\u4ED6\",\"display_order\":0,\"parent_category_id\":0,\"parent_category_name\":\"\",\"root_category_id\":10,\"root_category_name\":\"\u305D\u306E\u4ED6\"},\"shipping_from_area\":{\"id\":10,\"name\":\"\u7FA4\u99AC\u770C\"},\"pager_id\":5448012107,\"liked\":false,\"item_pv\":0}]}\n"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '689'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 07 Mar 2023 21:20:16 GMT
+      Server:
+      - istio-envoy
+      Strict-Transport-Security:
+      - max-age=31557600
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google, 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Envoy-Decorator-Operation:
+      - prod-http-server.mercari-searchadapter-jp-prod.svc.cluster.local:10001/*
+      X-Envoy-Upstream-Service-Time:
+      - '36'
+      X-Request-Id:
+      - 154a2ccb-2200-43d2-9edc-727b0391dbe5
+      X-Served-By:
+      - cache-hhn-etou8220073-HHN
+    http_version: HTTP/1.1
+    status_code: 200
+- request:
+    body: ''
+    headers:
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IkpFelRQMFhSWTdFcHBDSThCWHRfTWFaM3R1cDdCS1RNMDBjem80NVlNbnciLCJ5IjoiaHB6dC1SYVUxUUc3ZnpqMEp1LVZ2cFA5aHJrYk0yX1FjT3NzZ0RsbzU4byJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE2NzgyMjQwMTYsImp0aSI6IjlmNzIzNWU1LTE1ZDYtNTA5NS03Nzg5LTY4OTkzMGJkZGM1OCIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvaXRlbXMvZ2V0P2lkPW03NzIwMDA2OTAxMCIsImh0bSI6IkdFVCIsInV1aWQiOiIxYWU0MTc2OS0wMTQxLTE1YzAtODliNC1jN2NhZjJlMmIyMDcifQ.rIfbRhQrtk2JeeiCKHKZe1NF8lWdkui6FqKFZD9BMAesqyV5Amn_IS-lLJ5NQrITtNmeEQVyx9eo1Kln1rnRKg
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+      x-platform:
+      - web
+    method: GET
+    uri: https://api.mercari.jp/items/get?id=m77200069010
+  response:
+    content: "{\"result\":\"OK\",\"data\":{\"id\":\"m77200069010\",\"seller\":{\"id\":362164700,\"name\":\"nananao\",\"photo_url\":\"https://static.mercdn.net/images/member_photo_noimage.png\",\"photo_thumbnail_url\":\"https://static.mercdn.net/images/member_photo_noimage_thumb.png\",\"register_sms_confirmation\":\"yes\",\"register_sms_confirmation_at\":\"2018-03-24
+      23:35:59\",\"created\":1521901729,\"num_sell_items\":640,\"ratings\":{\"good\":1217,\"normal\":3,\"bad\":0},\"num_ratings\":1220,\"score\":1217,\"is_official\":false,\"quick_shipper\":false,\"star_rating_score\":5},\"status\":\"on_sale\",\"name\":\"\u30A8\u30D0\u30E9
+      \u834F\u539F\u88FD\u4F5C\u6240 \u30E9\u30A4\u30F3\u30DD\u30F3\u30D7 LPD LPSJ211
+      32LPSJ 6.25\",\"price\":48500,\"description\":\"\u5024\u4E0B\u3052\u4E0D\u53EF\u3002\\n\\n\u30A8\u30D0\u30E9
+      \u834F\u539F\u88FD\u4F5C\u6240 LPSJ\u578B\u30E9\u30A4\u30F3\u30DD\u30F3\u30D7
+      LPD LPSJ211 32 60Hz \u4E09\u76F8200V\\n\u30A8\u30D0\u30E9 \u30A8\u30CF\u30E9
+      EBARA \u51B7\u6E29\u6C34 \u30E9\u30A4\u30F3\u30DD\u30F3\u30D7 32LPSJ\u578B \u958B\u5C01\u6E08\u307F\u672A\u4F7F\u7528\u54C1\\n\\n\u25A0\u4ED5\u69D8\\n\u30E1\u30FC\u30AB\u30FC
+      \ \u30A8\u30D0\u30E9 EBARA\\n\u540D\u79F0    \u30E9\u30A4\u30F3\u30DD\u30F3\u30D7\\n\u578B\u756A
+      \   32LPSJ 6.25\\n\u7279\u8A18    60Hz 0.25kw\\n\\n\\n\\n\u672A\u4F7F\u7528\u3067\u3059\u304C\u3001\u7BB1\u3084\u672C\u4F53\u306B\u5FAE\u7D30\u306A\u6C5A\u308C\u75DB\u307F\u304C\u898B\u3089\u308C\u307E\u3059\u3002\\n\u4F7F\u7528\u4E88\u5B9A\u3067\u3057\u305F\u304C\u4F7F\u308F\u305A\u3057\u307E\u3063\u3066\u307E\u3057\u305F\u3002\\n\u4ED8\u5C5E\u54C1\u306F\u753B\u50CF\u306B\u3042\u308B\u3082\u306E\u306E\u307F\u3067\u3059\u3002\\n\u52D5\u4F5C\u672A\u78BA\u8A8D\u306E\u305F\u3081\u52D5\u4F5C\u3084\u8A2D\u7F6E\u306A\u3069\u306F\u8CFC\u5165\u8005\u69D8\u306B\u3066\u3054\u78BA\u8A8D\u3092\u304A\u9858\u3044\u81F4\u3057\u307E\u3059\u3002\\n\u52D5\u4F5C\u4E0D\u826F\u304C\u751F\u3058\u305F\u969B\u306F\u843D\u672D\u8005\u69D8\u306B\u3066\u30E1\u30FC\u30AB\u30FC\u3084\u96FB\u6C17\u5E97\u3078\u304A\u554F\u3044\u5408\u308F\u305B\u9858\u3044\u307E\u3059\u3002\\n\\n\u68B1\u5305\u306F\u8F38\u9001\u7BB1(\u5199\u771F)\u306E\u307E\u307E\u304A\u9001\u308A\u3057\u307E\u3059\u3002\\n\u90F5\u4FBF\u5C40\u304B\u30E4\u30DE\u30C8\u904B\u8F38\u767A\u9001\u3002\",\"photos\":[\"https://static.mercdn.net/item/detail/orig/photos/m77200069010_1.jpg?1675848708\",\"https://static.mercdn.net/item/detail/orig/photos/m77200069010_2.jpg?1675848708\",\"https://static.mercdn.net/item/detail/orig/photos/m77200069010_3.jpg?1675848708\"],\"photo_paths\":[\"photos/m77200069010_1.jpg\",\"photos/m77200069010_2.jpg\",\"photos/m77200069010_3.jpg\"],\"thumbnails\":[\"https://static.mercdn.net/c!/w=240/thumb/photos/m77200069010_1.jpg?1675848708\"],\"item_category\":{\"id\":118,\"name\":\"\u305D\u306E\u4ED6\",\"display_order\":200,\"root_category_id\":10,\"root_category_name\":\"\u305D\u306E\u4ED6\"},\"item_condition\":{\"id\":1,\"name\":\"\u65B0\u54C1\u3001\u672A\u4F7F\u7528\"},\"colors\":[],\"shipping_payer\":{\"id\":2,\"name\":\"\u9001\u6599\u8FBC\u307F(\u51FA\u54C1\u8005\u8CA0\u62C5)\",\"code\":\"seller\"},\"shipping_method\":{\"id\":5,\"name\":\"\u672A\u5B9A\",\"is_deprecated\":\"no\"},\"shipping_from_area\":{\"id\":10,\"name\":\"\u7FA4\u99AC\u770C\"},\"shipping_duration\":{\"id\":3,\"name\":\"4~7\u65E5\u3067\u767A\u9001\",\"min_days\":4,\"max_days\":7},\"shipping_class\":{\"id\":0,\"fee\":0,\"icon_id\":0,\"pickup_fee\":0,\"shipping_fee\":0,\"total_fee\":0,\"is_pickup\":false},\"num_likes\":1,\"num_comments\":0,\"comments\":[],\"updated\":1677585050,\"created\":1675848708,\"pager_id\":5448012107,\"liked\":false,\"checksum\":\"25aaab977a3e984ac70aae1a2331c328\",\"is_dynamic_shipping_fee\":false,\"application_attributes\":{},\"is_shop_item\":\"no\",\"hash_tags\":[],\"is_anonymous_shipping\":false,\"is_web_visible\":true,\"is_offerable\":false,\"is_organizational_user\":false,\"organizational_user_status\":\"\",\"is_stock_item\":false,\"is_cancelable\":true,\"shipped_by_worker\":false,\"additional_services\":[],\"has_additional_service\":false,\"has_like_list\":false,\"is_offerable_v2\":false},\"meta\":{}}\n"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - private,no-store,no-cache,must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 07 Mar 2023 21:20:16 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - istio-envoy
+      Set-Cookie:
+      - merCtx=""; HttpOnly
+      Strict-Transport-Security:
+      - max-age=31557600
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google, 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Envoy-Decorator-Operation:
+      - app-server.mercari-item-details-jp-prod.svc.cluster.local:10001/*
+      X-Envoy-Upstream-Service-Time:
+      - '86'
+      X-Request-Id:
+      - f3a0b5ce-61d4-4563-b668-f290400d9c31
+      X-Served-By:
+      - cache-hhn-etou8220073-HHN
+      transfer-encoding:
+      - chunked
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1

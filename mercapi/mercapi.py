@@ -6,6 +6,7 @@ import httpx
 from ecdsa import SigningKey, NIST256p
 from httpx import Request
 
+from mercapi.mapping import map_to_class
 from mercapi.models import SearchResults, Item, Profile, Items
 from mercapi.models.base import ResponseModel
 from mercapi.requests import SearchRequestData
@@ -60,6 +61,7 @@ class Mercapi:
         colors: List[int] = [],
         shipping_methods: List[SearchRequestData.ShippingMethod] = [],
         status: List[SearchRequestData.Status] = [],
+        page_token: str = None,
     ) -> SearchResults:
         """Perform basic search and return list of items and metadata.
         This method reflects the action of using search bar at the top of the website.
@@ -81,6 +83,7 @@ class Mercapi:
         :param colors: filter results by colors (色)
         :param shipping_methods: filter results by available shipping methods (発送オプション)
         :param status: filter results by listing statuses (販売状況)
+        :param page_token: used for paging results, provided in the response data
         :return: List of search results (items) and metadata (e.g. total count)
         """
         request = SearchRequestData(
@@ -89,18 +92,26 @@ class Mercapi:
                 categories,
                 brands,
                 sizes,
-                price_min,
-                price_max,
+                price_min or 0,
+                price_max or 0,
                 item_conditions,
                 shipping_payer,
                 colors,
                 shipping_methods,
                 status,
             ),
+            page_token,
         )
+        res = await self._search_impl(request)
+        res._request = request
+        return res
+
+    async def _search_impl(self, request: SearchRequestData) -> SearchResults:
         res = await self._client.send(self._search(request))
         body = res.json()
-        return SearchResults.from_dict(body)
+        res = map_to_class(body, SearchResults)
+        res._request = request
+        return res
 
     def _search(self, search_request_data: SearchRequestData) -> Request:
         req = Request(
@@ -123,7 +134,7 @@ class Mercapi:
             return None
 
         body = res.json()
-        return Item.from_dict(body["data"])
+        return map_to_class(body["data"], Item)
 
     def _item(self, id_: str) -> Request:
         req = Request(
@@ -146,7 +157,7 @@ class Mercapi:
             return None
 
         body = res.json()
-        return Profile.from_dict(body["data"])
+        return map_to_class(body["data"], Profile)
 
     def _profile(self, id_: str) -> Request:
         req = Request(
@@ -169,7 +180,7 @@ class Mercapi:
             return None
 
         body = res.json()
-        return Items.from_dict(body)
+        return map_to_class(body, Items)
 
     def _items(self, profile_id: str) -> Request:
         req = Request(

@@ -2,6 +2,8 @@ from datetime import datetime
 
 import pytest
 
+from mercapi.util.errors import IncorrectRequestError
+
 
 @pytest.mark.asyncio
 @pytest.mark.vcr
@@ -72,3 +74,41 @@ async def test_search_fetch_full_item_from_result(m):
 
     full_item = await item.full_item()
     assert full_item.id_ == "m94786104879"
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_search_fetch_next_page(m):
+    res = await m.search("sharpnel")
+    res = await res.next_page()
+    item = res.items[0]
+
+    assert item.id_ == "m49788155901"
+    assert item.name == "beatmania IIDX 28 BISTROVER サウンドトラック"
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_search_fetch_prev_page(m):
+    res = await m.search("sharpnel", page_token="v1:1")
+    res = await res.prev_page()
+    item = res.items[0]
+
+    assert item.id_ == "m93879216403"
+    assert item.name == "DJ Sharpnel  アニメガバイト プレス版"
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_search_fetch_prev_page_on_first_page(m):
+    res = await m.search("sharpnel")
+    with pytest.raises(IncorrectRequestError):
+        await res.prev_page()
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_search_fetch_next_page_on_last_page(m):
+    res = await m.search("sharpnel mad breaks")
+    with pytest.raises(IncorrectRequestError):
+        await res.next_page()

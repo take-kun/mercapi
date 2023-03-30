@@ -1,0 +1,58 @@
+interactions:
+- request:
+    body: '{"userId": "", "pageSize": 120, "pageToken": "", "searchSessionId": "8e6021ef702048ffb5ba45e6be888c4e",
+      "indexRouting": "INDEX_ROUTING_UNSPECIFIED", "thumbnailTypes": [], "searchCondition":
+      {"keyword": "sharpnel mad breaks", "excludeKeyword": "", "sort": "SORT_SCORE",
+      "order": "ORDER_DESC", "status": [], "sizeId": [], "categoryId": [], "brandId":
+      [], "sellerId": [], "priceMin": null, "priceMax": null, "itemConditionId": [],
+      "shippingPayerId": [], "shippingFromArea": [], "shippingMethod": [], "colorId":
+      [], "hasCoupon": false, "attributes": [], "itemTypes": [], "skuIds": []}, "defaultDatasets":
+      [], "serviceFrom": "suruga"}'
+    headers:
+      content-length:
+      - '629'
+      content-type:
+      - application/json
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IlZEYTktd05ZWGs2WmZPX0V0ZmdIR2tEYmNzdV9MTk5xRzg4OXBHckR1THMiLCJ5IjoiSlV4RDI4NGNraGM0ckxiV0lRX3VaY0cwUDVzQkpZaDB0UVd2cDVqRGZiQSJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE2Nzg2NTM3NTgsImp0aSI6IjhlZGZjMjQ1LTNlMWYtODlmNS0wNDg1LWI5YjVmYTNhNTc3ZSIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiI0MzhmMDRkZS1hYTI1LTQ3ZDItOTFhNS0wYTNiNzg5ZWFjMGMifQ.pCQZEH4dRkGL31A4lVyKeomTJshAK04YMtYfeP9CNJAMV9o9PRGL52iL37lP_crBh5O7QAJmeGoLCKNAuWR84A
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+      x-platform:
+      - web
+    method: POST
+    uri: https://api.mercari.jp/v2/entities:search
+  response:
+    content: "{\"items\":[{\"id\":\"m14002428417\",\"sellerId\":\"492113432\",\"buyerId\":\"439352912\",\"status\":\"ITEM_STATUS_SOLD_OUT\",\"name\":\"DJ
+      SHARPNEL MAD BREAKS SRPC0019\",\"price\":\"6000\",\"created\":\"1674890026\",\"updated\":\"1675309171\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m14002428417_1.jpg?1674890026\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"3\",\"shippingPayerId\":\"2\",\"itemSizes\":[],\"itemBrand\":null,\"itemPromotions\":[],\"shopName\":\"\",\"itemSize\":null},{\"id\":\"m52059122418\",\"sellerId\":\"485869194\",\"buyerId\":\"727922035\",\"status\":\"ITEM_STATUS_SOLD_OUT\",\"name\":\"DJ
+      Sharpnel \u2013 Mad Breaks\",\"price\":\"6500\",\"created\":\"1670864714\",\"updated\":\"1676614286\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m52059122418_1.jpg?1670864714\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"5\",\"shippingPayerId\":\"2\",\"itemSizes\":[],\"itemBrand\":null,\"itemPromotions\":[],\"shopName\":\"\",\"itemSize\":null},{\"id\":\"m47830503106\",\"sellerId\":\"215200259\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_ON_SALE\",\"name\":\"DJ
+      Sharpnel \u2013 Mad Breaks = \u30DE\u30C3\u30C9\u30D6\u30EC\u30A4\u30AF\u30B9\",\"price\":\"12500\",\"created\":\"1669724932\",\"updated\":\"1671984510\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m47830503106_1.jpg?1669724932\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"3\",\"shippingPayerId\":\"2\",\"itemSizes\":[],\"itemBrand\":null,\"itemPromotions\":[],\"shopName\":\"\",\"itemSize\":null}],\"meta\":{\"nextPageToken\":\"\",\"previousPageToken\":\"\",\"numFound\":\"3\"},\"components\":[{\"rowNumber\":\"0\",\"shallowFacet\":{}}]}\n"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1517'
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 12 Mar 2023 20:42:39 GMT
+      Strict-Transport-Security:
+      - max-age=31557600
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google, 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Request-Id:
+      - d3273e6e-7da8-4e1e-9906-424f9abc767b
+      X-Served-By:
+      - cache-hhn-etou8220023-HHN
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1

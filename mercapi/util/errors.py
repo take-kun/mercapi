@@ -4,3 +4,7 @@ class MercapiError(BaseException):
 
 class ParseAPIResponseError(MercapiError):
     pass
+
+
+class IncorrectRequestError(MercapiError):
+    pass
