@@ -81,170 +81,55 @@
 
                         <label class="view-source-button" for="mod-profile-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a>
-</span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a>    <span class="kn">from</span> <span class="nn">mercapi.models</span> <span class="kn">import</span> <span class="n">Items</span>
-</span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a><span class="kn">from</span> <span class="nn">mercapi.models.base</span> <span class="kn">import</span> <span class="n">Extractors</span><span class="p">,</span> <span class="n">ResponseModel</span><span class="p">,</span> <span class="n">ResponseProperty</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a>
-</span><span id="L-8"><a href="#L-8"><span class="linenos">  8</span></a>
-</span><span id="L-9"><a href="#L-9"><span class="linenos">  9</span></a><span class="k">class</span> <span class="nc">Profile</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="L-10"><a href="#L-10"><span class="linenos"> 10</span></a>    <span class="k">class</span> <span class="nc">Ratings</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="L-11"><a href="#L-11"><span class="linenos"> 11</span></a>        <span class="n">_required_properties</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos"> 12</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;good&quot;</span><span class="p">)),</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos"> 13</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;normal&quot;</span><span class="p">)),</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos"> 14</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bad&quot;</span><span class="p">)),</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos"> 15</span></a>        <span class="p">]</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a>        <span class="n">_optional_properties</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>
-</span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a>        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">good</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">normal</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a>            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">good</span> <span class="o">=</span> <span class="n">good</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">normal</span> <span class="o">=</span> <span class="n">normal</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">bad</span> <span class="o">=</span> <span class="n">bad</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a>
-</span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a>    <span class="k">class</span> <span class="nc">PolarizedRatings</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a>        <span class="n">_required_properties</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;good&quot;</span><span class="p">)),</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bad&quot;</span><span class="p">)),</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a>        <span class="p">]</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a>        <span class="n">_optional_properties</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a>
-</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a>        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">good</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">good</span> <span class="o">=</span> <span class="n">good</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">bad</span> <span class="o">=</span> <span class="n">bad</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>
-</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a>    <span class="n">_required_properties</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;id_&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)),</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)),</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>    <span class="p">]</span>
-</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>
-</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>    <span class="n">_optional_properties</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;photo_url&quot;</span><span class="p">,</span> <span class="s2">&quot;photo_url&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;photo_url&quot;</span><span class="p">)),</span>
-</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a>            <span class="s2">&quot;photo_thumbnail_url&quot;</span><span class="p">,</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a>            <span class="s2">&quot;photo_thumbnail_url&quot;</span><span class="p">,</span>
-</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a>            <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;photo_thumbnail_url&quot;</span><span class="p">),</span>
-</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a>        <span class="p">),</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a>            <span class="s2">&quot;register_sms_confirmation&quot;</span><span class="p">,</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a>            <span class="s2">&quot;register_sms_confirmation&quot;</span><span class="p">,</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a>            <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;register_sms_confirmation&quot;</span><span class="p">),</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a>        <span class="p">),</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>            <span class="s2">&quot;ratings&quot;</span><span class="p">,</span>
-</span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a>            <span class="s2">&quot;ratings&quot;</span><span class="p">,</span>
-</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>            <span class="n">Extractors</span><span class="o">.</span><span class="n">get_with</span><span class="p">(</span><span class="s2">&quot;ratings&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Profile</span><span class="o">.</span><span class="n">Ratings</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a>        <span class="p">),</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>            <span class="s2">&quot;polarized_ratings&quot;</span><span class="p">,</span>
-</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>            <span class="s2">&quot;polarized_ratings&quot;</span><span class="p">,</span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>            <span class="n">Extractors</span><span class="o">.</span><span class="n">get_with</span><span class="p">(</span>
-</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>                <span class="s2">&quot;polarized_ratings&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Profile</span><span class="o">.</span><span class="n">PolarizedRatings</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a>            <span class="p">),</span>
-</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a>        <span class="p">),</span>
-</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;num_ratings&quot;</span><span class="p">,</span> <span class="s2">&quot;num_ratings&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_ratings&quot;</span><span class="p">)),</span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a>            <span class="s2">&quot;star_rating_score&quot;</span><span class="p">,</span>
-</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>            <span class="s2">&quot;star_rating_score&quot;</span><span class="p">,</span>
-</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>            <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;star_rating_score&quot;</span><span class="p">),</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>        <span class="p">),</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>            <span class="s2">&quot;is_followable&quot;</span><span class="p">,</span> <span class="s2">&quot;is_followable&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_followable&quot;</span><span class="p">)</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>        <span class="p">),</span>
-</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;is_blocked&quot;</span><span class="p">,</span> <span class="s2">&quot;is_blocked&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_blocked&quot;</span><span class="p">)),</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>            <span class="s2">&quot;following_count&quot;</span><span class="p">,</span> <span class="s2">&quot;following_count&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;following_count&quot;</span><span class="p">)</span>
-</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>        <span class="p">),</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>            <span class="s2">&quot;follower_count&quot;</span><span class="p">,</span> <span class="s2">&quot;follower_count&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;follower_count&quot;</span><span class="p">)</span>
-</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>        <span class="p">),</span>
-</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;score&quot;</span><span class="p">)),</span>
-</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;created&quot;</span><span class="p">,</span> <span class="s2">&quot;created&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get_datetime</span><span class="p">(</span><span class="s2">&quot;created&quot;</span><span class="p">)),</span>
-</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;proper&quot;</span><span class="p">,</span> <span class="s2">&quot;proper&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;proper&quot;</span><span class="p">)),</span>
-</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>            <span class="s2">&quot;introduction&quot;</span><span class="p">,</span> <span class="s2">&quot;introduction&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;introduction&quot;</span><span class="p">)</span>
-</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a>        <span class="p">),</span>
-</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;is_official&quot;</span><span class="p">,</span> <span class="s2">&quot;is_official&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_official&quot;</span><span class="p">)),</span>
-</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a>            <span class="s2">&quot;num_sell_items&quot;</span><span class="p">,</span> <span class="s2">&quot;num_sell_items&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_sell_items&quot;</span><span class="p">)</span>
-</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>        <span class="p">),</span>
-</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;num_ticket&quot;</span><span class="p">,</span> <span class="s2">&quot;num_ticket&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_ticket&quot;</span><span class="p">)),</span>
-</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>            <span class="s2">&quot;bounce_mail_flag&quot;</span><span class="p">,</span> <span class="s2">&quot;bounce_mail_flag&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bounce_mail_flag&quot;</span><span class="p">)</span>
-</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>        <span class="p">),</span>
-</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>        <span class="c1"># useless without authorization context</span>
-</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>        <span class="c1"># (&#39;is_following&#39;, &#39;is_following&#39;, Extractors.get(&#39;is_following&#39;))</span>
-</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>            <span class="s2">&quot;current_point&quot;</span><span class="p">,</span> <span class="s2">&quot;current_point&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;current_point&quot;</span><span class="p">)</span>
-</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>        <span class="p">),</span>
-</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>            <span class="s2">&quot;current_sales&quot;</span><span class="p">,</span> <span class="s2">&quot;current_sales&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;current_sales&quot;</span><span class="p">)</span>
-</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>        <span class="p">),</span>
-</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>            <span class="s2">&quot;is_organizational_user&quot;</span><span class="p">,</span>
-</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>            <span class="s2">&quot;is_organizational_user&quot;</span><span class="p">,</span>
-</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>            <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_organizational_user&quot;</span><span class="p">),</span>
-</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>        <span class="p">),</span>
-</span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a>    <span class="p">]</span>
-</span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>
-</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a>        <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a>        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>        <span class="n">photo_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>        <span class="n">photo_thumbnail_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>        <span class="n">register_sms_confirmation</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>        <span class="n">ratings</span><span class="p">:</span> <span class="n">Ratings</span><span class="p">,</span>
-</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a>        <span class="n">polarized_ratings</span><span class="p">:</span> <span class="n">PolarizedRatings</span><span class="p">,</span>
-</span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a>        <span class="n">num_ratings</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a>        <span class="n">star_rating_score</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a>        <span class="n">is_followable</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a>        <span class="n">is_blocked</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a>        <span class="n">following_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a>        <span class="n">follower_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a>        <span class="n">score</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>        <span class="n">created</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
-</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>        <span class="n">proper</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a>        <span class="n">introduction</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>        <span class="n">is_official</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>        <span class="n">num_sell_items</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a>        <span class="n">num_ticket</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a>        <span class="n">bounce_mail_flag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a>        <span class="n">current_point</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>        <span class="n">current_sales</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a>        <span class="n">is_organizational_user</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a>    <span class="p">):</span>
-</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">id_</span> <span class="o">=</span> <span class="n">id_</span>
-</span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-</span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">photo_url</span> <span class="o">=</span> <span class="n">photo_url</span>
-</span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">photo_thumbnail_url</span> <span class="o">=</span> <span class="n">photo_thumbnail_url</span>
-</span><span id="L-142"><a href="#L-142"><span class="linenos">142</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">register_sms_confirmation</span> <span class="o">=</span> <span class="n">register_sms_confirmation</span>
-</span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span> <span class="o">=</span> <span class="n">ratings</span>
-</span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">polarized_ratings</span> <span class="o">=</span> <span class="n">polarized_ratings</span>
-</span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_ratings</span> <span class="o">=</span> <span class="n">num_ratings</span>
-</span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">star_rating_score</span> <span class="o">=</span> <span class="n">star_rating_score</span>
-</span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_followable</span> <span class="o">=</span> <span class="n">is_followable</span>
-</span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_blocked</span> <span class="o">=</span> <span class="n">is_blocked</span>
-</span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">following_count</span> <span class="o">=</span> <span class="n">following_count</span>
-</span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">follower_count</span> <span class="o">=</span> <span class="n">follower_count</span>
-</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="n">score</span>
-</span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">created</span> <span class="o">=</span> <span class="n">created</span>
-</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">proper</span> <span class="o">=</span> <span class="n">proper</span>
-</span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">introduction</span> <span class="o">=</span> <span class="n">introduction</span>
-</span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_official</span> <span class="o">=</span> <span class="n">is_official</span>
-</span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_sell_items</span> <span class="o">=</span> <span class="n">num_sell_items</span>
-</span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_ticket</span> <span class="o">=</span> <span class="n">num_ticket</span>
-</span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">bounce_mail_flag</span> <span class="o">=</span> <span class="n">bounce_mail_flag</span>
-</span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">current_point</span> <span class="o">=</span> <span class="n">current_point</span>
-</span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">current_sales</span> <span class="o">=</span> <span class="n">current_sales</span>
-</span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_organizational_user</span> <span class="o">=</span> <span class="n">is_organizational_user</span>
-</span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a>
-</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Items&quot;</span><span class="p">:</span>
-</span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a>        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mercapi</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_</span><span class="p">)</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>    <span class="kn">from</span> <span class="nn">mercapi.models</span> <span class="kn">import</span> <span class="n">Items</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="kn">from</span> <span class="nn">mercapi.models.base</span> <span class="kn">import</span> <span class="n">ResponseModel</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="nd">@dataclass</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="k">class</span> <span class="nc">Profile</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="nd">@dataclass</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="k">class</span> <span class="nc">Ratings</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>        <span class="n">good</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>        <span class="n">normal</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>        <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>    <span class="nd">@dataclass</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>    <span class="k">class</span> <span class="nc">PolarizedRatings</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>        <span class="n">good</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>        <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>    <span class="n">photo_url</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>    <span class="n">photo_thumbnail_url</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>    <span class="n">register_sms_confirmation</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>    <span class="n">ratings</span><span class="p">:</span> <span class="n">Ratings</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>    <span class="n">polarized_ratings</span><span class="p">:</span> <span class="n">PolarizedRatings</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>    <span class="n">num_ratings</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>    <span class="n">star_rating_score</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>    <span class="n">is_followable</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>    <span class="n">is_blocked</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>    <span class="n">following_count</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>    <span class="n">follower_count</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>    <span class="n">score</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>    <span class="n">created</span><span class="p">:</span> <span class="n">datetime</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>    <span class="n">proper</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>    <span class="n">introduction</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>    <span class="n">is_official</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>    <span class="n">num_sell_items</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>    <span class="n">num_ticket</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>    <span class="n">bounce_mail_flag</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>    <span class="n">current_point</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>    <span class="n">current_sales</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>    <span class="n">is_organizational_user</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>
+</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Items&quot;</span><span class="p">:</span>
+</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a>        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mercapi</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -252,7 +137,8 @@
                 <section id="Profile">
                             <input id="Profile-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
-            
+                    <div class="decorator">@dataclass</div>
+
     <span class="def">class</span>
     <span class="name">Profile</span><wbr>(<span class="base"><a href="../base.html#ResponseModel">mercapi.models.base.ResponseModel</a></span>):
 
@@ -260,232 +146,60 @@
 
     </div>
     <a class="headerlink" href="#Profile"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Profile-10"><a href="#Profile-10"><span class="linenos"> 10</span></a><span class="k">class</span> <span class="nc">Profile</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="Profile-11"><a href="#Profile-11"><span class="linenos"> 11</span></a>    <span class="k">class</span> <span class="nc">Ratings</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="Profile-12"><a href="#Profile-12"><span class="linenos"> 12</span></a>        <span class="n">_required_properties</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="Profile-13"><a href="#Profile-13"><span class="linenos"> 13</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;good&quot;</span><span class="p">)),</span>
-</span><span id="Profile-14"><a href="#Profile-14"><span class="linenos"> 14</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;normal&quot;</span><span class="p">)),</span>
-</span><span id="Profile-15"><a href="#Profile-15"><span class="linenos"> 15</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bad&quot;</span><span class="p">)),</span>
-</span><span id="Profile-16"><a href="#Profile-16"><span class="linenos"> 16</span></a>        <span class="p">]</span>
-</span><span id="Profile-17"><a href="#Profile-17"><span class="linenos"> 17</span></a>        <span class="n">_optional_properties</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="Profile-18"><a href="#Profile-18"><span class="linenos"> 18</span></a>
-</span><span id="Profile-19"><a href="#Profile-19"><span class="linenos"> 19</span></a>        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">good</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">normal</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="Profile-20"><a href="#Profile-20"><span class="linenos"> 20</span></a>            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="Profile-21"><a href="#Profile-21"><span class="linenos"> 21</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">good</span> <span class="o">=</span> <span class="n">good</span>
-</span><span id="Profile-22"><a href="#Profile-22"><span class="linenos"> 22</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">normal</span> <span class="o">=</span> <span class="n">normal</span>
-</span><span id="Profile-23"><a href="#Profile-23"><span class="linenos"> 23</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">bad</span> <span class="o">=</span> <span class="n">bad</span>
-</span><span id="Profile-24"><a href="#Profile-24"><span class="linenos"> 24</span></a>
-</span><span id="Profile-25"><a href="#Profile-25"><span class="linenos"> 25</span></a>    <span class="k">class</span> <span class="nc">PolarizedRatings</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="Profile-26"><a href="#Profile-26"><span class="linenos"> 26</span></a>        <span class="n">_required_properties</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="Profile-27"><a href="#Profile-27"><span class="linenos"> 27</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;good&quot;</span><span class="p">)),</span>
-</span><span id="Profile-28"><a href="#Profile-28"><span class="linenos"> 28</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bad&quot;</span><span class="p">)),</span>
-</span><span id="Profile-29"><a href="#Profile-29"><span class="linenos"> 29</span></a>        <span class="p">]</span>
-</span><span id="Profile-30"><a href="#Profile-30"><span class="linenos"> 30</span></a>        <span class="n">_optional_properties</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="Profile-31"><a href="#Profile-31"><span class="linenos"> 31</span></a>
-</span><span id="Profile-32"><a href="#Profile-32"><span class="linenos"> 32</span></a>        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">good</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="Profile-33"><a href="#Profile-33"><span class="linenos"> 33</span></a>            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="Profile-34"><a href="#Profile-34"><span class="linenos"> 34</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">good</span> <span class="o">=</span> <span class="n">good</span>
-</span><span id="Profile-35"><a href="#Profile-35"><span class="linenos"> 35</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">bad</span> <span class="o">=</span> <span class="n">bad</span>
-</span><span id="Profile-36"><a href="#Profile-36"><span class="linenos"> 36</span></a>
-</span><span id="Profile-37"><a href="#Profile-37"><span class="linenos"> 37</span></a>    <span class="n">_required_properties</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="Profile-38"><a href="#Profile-38"><span class="linenos"> 38</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;id_&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)),</span>
-</span><span id="Profile-39"><a href="#Profile-39"><span class="linenos"> 39</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)),</span>
-</span><span id="Profile-40"><a href="#Profile-40"><span class="linenos"> 40</span></a>    <span class="p">]</span>
-</span><span id="Profile-41"><a href="#Profile-41"><span class="linenos"> 41</span></a>
-</span><span id="Profile-42"><a href="#Profile-42"><span class="linenos"> 42</span></a>    <span class="n">_optional_properties</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="Profile-43"><a href="#Profile-43"><span class="linenos"> 43</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;photo_url&quot;</span><span class="p">,</span> <span class="s2">&quot;photo_url&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;photo_url&quot;</span><span class="p">)),</span>
-</span><span id="Profile-44"><a href="#Profile-44"><span class="linenos"> 44</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-45"><a href="#Profile-45"><span class="linenos"> 45</span></a>            <span class="s2">&quot;photo_thumbnail_url&quot;</span><span class="p">,</span>
-</span><span id="Profile-46"><a href="#Profile-46"><span class="linenos"> 46</span></a>            <span class="s2">&quot;photo_thumbnail_url&quot;</span><span class="p">,</span>
-</span><span id="Profile-47"><a href="#Profile-47"><span class="linenos"> 47</span></a>            <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;photo_thumbnail_url&quot;</span><span class="p">),</span>
-</span><span id="Profile-48"><a href="#Profile-48"><span class="linenos"> 48</span></a>        <span class="p">),</span>
-</span><span id="Profile-49"><a href="#Profile-49"><span class="linenos"> 49</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-50"><a href="#Profile-50"><span class="linenos"> 50</span></a>            <span class="s2">&quot;register_sms_confirmation&quot;</span><span class="p">,</span>
-</span><span id="Profile-51"><a href="#Profile-51"><span class="linenos"> 51</span></a>            <span class="s2">&quot;register_sms_confirmation&quot;</span><span class="p">,</span>
-</span><span id="Profile-52"><a href="#Profile-52"><span class="linenos"> 52</span></a>            <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;register_sms_confirmation&quot;</span><span class="p">),</span>
-</span><span id="Profile-53"><a href="#Profile-53"><span class="linenos"> 53</span></a>        <span class="p">),</span>
-</span><span id="Profile-54"><a href="#Profile-54"><span class="linenos"> 54</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-55"><a href="#Profile-55"><span class="linenos"> 55</span></a>            <span class="s2">&quot;ratings&quot;</span><span class="p">,</span>
-</span><span id="Profile-56"><a href="#Profile-56"><span class="linenos"> 56</span></a>            <span class="s2">&quot;ratings&quot;</span><span class="p">,</span>
-</span><span id="Profile-57"><a href="#Profile-57"><span class="linenos"> 57</span></a>            <span class="n">Extractors</span><span class="o">.</span><span class="n">get_with</span><span class="p">(</span><span class="s2">&quot;ratings&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Profile</span><span class="o">.</span><span class="n">Ratings</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
-</span><span id="Profile-58"><a href="#Profile-58"><span class="linenos"> 58</span></a>        <span class="p">),</span>
-</span><span id="Profile-59"><a href="#Profile-59"><span class="linenos"> 59</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-60"><a href="#Profile-60"><span class="linenos"> 60</span></a>            <span class="s2">&quot;polarized_ratings&quot;</span><span class="p">,</span>
-</span><span id="Profile-61"><a href="#Profile-61"><span class="linenos"> 61</span></a>            <span class="s2">&quot;polarized_ratings&quot;</span><span class="p">,</span>
-</span><span id="Profile-62"><a href="#Profile-62"><span class="linenos"> 62</span></a>            <span class="n">Extractors</span><span class="o">.</span><span class="n">get_with</span><span class="p">(</span>
-</span><span id="Profile-63"><a href="#Profile-63"><span class="linenos"> 63</span></a>                <span class="s2">&quot;polarized_ratings&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Profile</span><span class="o">.</span><span class="n">PolarizedRatings</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span><span id="Profile-64"><a href="#Profile-64"><span class="linenos"> 64</span></a>            <span class="p">),</span>
-</span><span id="Profile-65"><a href="#Profile-65"><span class="linenos"> 65</span></a>        <span class="p">),</span>
-</span><span id="Profile-66"><a href="#Profile-66"><span class="linenos"> 66</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;num_ratings&quot;</span><span class="p">,</span> <span class="s2">&quot;num_ratings&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_ratings&quot;</span><span class="p">)),</span>
-</span><span id="Profile-67"><a href="#Profile-67"><span class="linenos"> 67</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-68"><a href="#Profile-68"><span class="linenos"> 68</span></a>            <span class="s2">&quot;star_rating_score&quot;</span><span class="p">,</span>
-</span><span id="Profile-69"><a href="#Profile-69"><span class="linenos"> 69</span></a>            <span class="s2">&quot;star_rating_score&quot;</span><span class="p">,</span>
-</span><span id="Profile-70"><a href="#Profile-70"><span class="linenos"> 70</span></a>            <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;star_rating_score&quot;</span><span class="p">),</span>
-</span><span id="Profile-71"><a href="#Profile-71"><span class="linenos"> 71</span></a>        <span class="p">),</span>
-</span><span id="Profile-72"><a href="#Profile-72"><span class="linenos"> 72</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-73"><a href="#Profile-73"><span class="linenos"> 73</span></a>            <span class="s2">&quot;is_followable&quot;</span><span class="p">,</span> <span class="s2">&quot;is_followable&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_followable&quot;</span><span class="p">)</span>
-</span><span id="Profile-74"><a href="#Profile-74"><span class="linenos"> 74</span></a>        <span class="p">),</span>
-</span><span id="Profile-75"><a href="#Profile-75"><span class="linenos"> 75</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;is_blocked&quot;</span><span class="p">,</span> <span class="s2">&quot;is_blocked&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_blocked&quot;</span><span class="p">)),</span>
-</span><span id="Profile-76"><a href="#Profile-76"><span class="linenos"> 76</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-77"><a href="#Profile-77"><span class="linenos"> 77</span></a>            <span class="s2">&quot;following_count&quot;</span><span class="p">,</span> <span class="s2">&quot;following_count&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;following_count&quot;</span><span class="p">)</span>
-</span><span id="Profile-78"><a href="#Profile-78"><span class="linenos"> 78</span></a>        <span class="p">),</span>
-</span><span id="Profile-79"><a href="#Profile-79"><span class="linenos"> 79</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-80"><a href="#Profile-80"><span class="linenos"> 80</span></a>            <span class="s2">&quot;follower_count&quot;</span><span class="p">,</span> <span class="s2">&quot;follower_count&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;follower_count&quot;</span><span class="p">)</span>
-</span><span id="Profile-81"><a href="#Profile-81"><span class="linenos"> 81</span></a>        <span class="p">),</span>
-</span><span id="Profile-82"><a href="#Profile-82"><span class="linenos"> 82</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;score&quot;</span><span class="p">)),</span>
-</span><span id="Profile-83"><a href="#Profile-83"><span class="linenos"> 83</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;created&quot;</span><span class="p">,</span> <span class="s2">&quot;created&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get_datetime</span><span class="p">(</span><span class="s2">&quot;created&quot;</span><span class="p">)),</span>
-</span><span id="Profile-84"><a href="#Profile-84"><span class="linenos"> 84</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;proper&quot;</span><span class="p">,</span> <span class="s2">&quot;proper&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;proper&quot;</span><span class="p">)),</span>
-</span><span id="Profile-85"><a href="#Profile-85"><span class="linenos"> 85</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-86"><a href="#Profile-86"><span class="linenos"> 86</span></a>            <span class="s2">&quot;introduction&quot;</span><span class="p">,</span> <span class="s2">&quot;introduction&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;introduction&quot;</span><span class="p">)</span>
-</span><span id="Profile-87"><a href="#Profile-87"><span class="linenos"> 87</span></a>        <span class="p">),</span>
-</span><span id="Profile-88"><a href="#Profile-88"><span class="linenos"> 88</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;is_official&quot;</span><span class="p">,</span> <span class="s2">&quot;is_official&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_official&quot;</span><span class="p">)),</span>
-</span><span id="Profile-89"><a href="#Profile-89"><span class="linenos"> 89</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-90"><a href="#Profile-90"><span class="linenos"> 90</span></a>            <span class="s2">&quot;num_sell_items&quot;</span><span class="p">,</span> <span class="s2">&quot;num_sell_items&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_sell_items&quot;</span><span class="p">)</span>
-</span><span id="Profile-91"><a href="#Profile-91"><span class="linenos"> 91</span></a>        <span class="p">),</span>
-</span><span id="Profile-92"><a href="#Profile-92"><span class="linenos"> 92</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;num_ticket&quot;</span><span class="p">,</span> <span class="s2">&quot;num_ticket&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_ticket&quot;</span><span class="p">)),</span>
-</span><span id="Profile-93"><a href="#Profile-93"><span class="linenos"> 93</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-94"><a href="#Profile-94"><span class="linenos"> 94</span></a>            <span class="s2">&quot;bounce_mail_flag&quot;</span><span class="p">,</span> <span class="s2">&quot;bounce_mail_flag&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bounce_mail_flag&quot;</span><span class="p">)</span>
-</span><span id="Profile-95"><a href="#Profile-95"><span class="linenos"> 95</span></a>        <span class="p">),</span>
-</span><span id="Profile-96"><a href="#Profile-96"><span class="linenos"> 96</span></a>        <span class="c1"># useless without authorization context</span>
-</span><span id="Profile-97"><a href="#Profile-97"><span class="linenos"> 97</span></a>        <span class="c1"># (&#39;is_following&#39;, &#39;is_following&#39;, Extractors.get(&#39;is_following&#39;))</span>
-</span><span id="Profile-98"><a href="#Profile-98"><span class="linenos"> 98</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-99"><a href="#Profile-99"><span class="linenos"> 99</span></a>            <span class="s2">&quot;current_point&quot;</span><span class="p">,</span> <span class="s2">&quot;current_point&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;current_point&quot;</span><span class="p">)</span>
-</span><span id="Profile-100"><a href="#Profile-100"><span class="linenos">100</span></a>        <span class="p">),</span>
-</span><span id="Profile-101"><a href="#Profile-101"><span class="linenos">101</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-102"><a href="#Profile-102"><span class="linenos">102</span></a>            <span class="s2">&quot;current_sales&quot;</span><span class="p">,</span> <span class="s2">&quot;current_sales&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;current_sales&quot;</span><span class="p">)</span>
-</span><span id="Profile-103"><a href="#Profile-103"><span class="linenos">103</span></a>        <span class="p">),</span>
-</span><span id="Profile-104"><a href="#Profile-104"><span class="linenos">104</span></a>        <span class="n">ResponseProperty</span><span class="p">(</span>
-</span><span id="Profile-105"><a href="#Profile-105"><span class="linenos">105</span></a>            <span class="s2">&quot;is_organizational_user&quot;</span><span class="p">,</span>
-</span><span id="Profile-106"><a href="#Profile-106"><span class="linenos">106</span></a>            <span class="s2">&quot;is_organizational_user&quot;</span><span class="p">,</span>
-</span><span id="Profile-107"><a href="#Profile-107"><span class="linenos">107</span></a>            <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_organizational_user&quot;</span><span class="p">),</span>
-</span><span id="Profile-108"><a href="#Profile-108"><span class="linenos">108</span></a>        <span class="p">),</span>
-</span><span id="Profile-109"><a href="#Profile-109"><span class="linenos">109</span></a>    <span class="p">]</span>
-</span><span id="Profile-110"><a href="#Profile-110"><span class="linenos">110</span></a>
-</span><span id="Profile-111"><a href="#Profile-111"><span class="linenos">111</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-</span><span id="Profile-112"><a href="#Profile-112"><span class="linenos">112</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="Profile-113"><a href="#Profile-113"><span class="linenos">113</span></a>        <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile-114"><a href="#Profile-114"><span class="linenos">114</span></a>        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile-115"><a href="#Profile-115"><span class="linenos">115</span></a>        <span class="n">photo_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile-116"><a href="#Profile-116"><span class="linenos">116</span></a>        <span class="n">photo_thumbnail_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile-117"><a href="#Profile-117"><span class="linenos">117</span></a>        <span class="n">register_sms_confirmation</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile-118"><a href="#Profile-118"><span class="linenos">118</span></a>        <span class="n">ratings</span><span class="p">:</span> <span class="n">Ratings</span><span class="p">,</span>
-</span><span id="Profile-119"><a href="#Profile-119"><span class="linenos">119</span></a>        <span class="n">polarized_ratings</span><span class="p">:</span> <span class="n">PolarizedRatings</span><span class="p">,</span>
-</span><span id="Profile-120"><a href="#Profile-120"><span class="linenos">120</span></a>        <span class="n">num_ratings</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile-121"><a href="#Profile-121"><span class="linenos">121</span></a>        <span class="n">star_rating_score</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile-122"><a href="#Profile-122"><span class="linenos">122</span></a>        <span class="n">is_followable</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="Profile-123"><a href="#Profile-123"><span class="linenos">123</span></a>        <span class="n">is_blocked</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="Profile-124"><a href="#Profile-124"><span class="linenos">124</span></a>        <span class="n">following_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile-125"><a href="#Profile-125"><span class="linenos">125</span></a>        <span class="n">follower_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile-126"><a href="#Profile-126"><span class="linenos">126</span></a>        <span class="n">score</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile-127"><a href="#Profile-127"><span class="linenos">127</span></a>        <span class="n">created</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
-</span><span id="Profile-128"><a href="#Profile-128"><span class="linenos">128</span></a>        <span class="n">proper</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="Profile-129"><a href="#Profile-129"><span class="linenos">129</span></a>        <span class="n">introduction</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile-130"><a href="#Profile-130"><span class="linenos">130</span></a>        <span class="n">is_official</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="Profile-131"><a href="#Profile-131"><span class="linenos">131</span></a>        <span class="n">num_sell_items</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile-132"><a href="#Profile-132"><span class="linenos">132</span></a>        <span class="n">num_ticket</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile-133"><a href="#Profile-133"><span class="linenos">133</span></a>        <span class="n">bounce_mail_flag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile-134"><a href="#Profile-134"><span class="linenos">134</span></a>        <span class="n">current_point</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile-135"><a href="#Profile-135"><span class="linenos">135</span></a>        <span class="n">current_sales</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile-136"><a href="#Profile-136"><span class="linenos">136</span></a>        <span class="n">is_organizational_user</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="Profile-137"><a href="#Profile-137"><span class="linenos">137</span></a>    <span class="p">):</span>
-</span><span id="Profile-138"><a href="#Profile-138"><span class="linenos">138</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="Profile-139"><a href="#Profile-139"><span class="linenos">139</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">id_</span> <span class="o">=</span> <span class="n">id_</span>
-</span><span id="Profile-140"><a href="#Profile-140"><span class="linenos">140</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-</span><span id="Profile-141"><a href="#Profile-141"><span class="linenos">141</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">photo_url</span> <span class="o">=</span> <span class="n">photo_url</span>
-</span><span id="Profile-142"><a href="#Profile-142"><span class="linenos">142</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">photo_thumbnail_url</span> <span class="o">=</span> <span class="n">photo_thumbnail_url</span>
-</span><span id="Profile-143"><a href="#Profile-143"><span class="linenos">143</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">register_sms_confirmation</span> <span class="o">=</span> <span class="n">register_sms_confirmation</span>
-</span><span id="Profile-144"><a href="#Profile-144"><span class="linenos">144</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span> <span class="o">=</span> <span class="n">ratings</span>
-</span><span id="Profile-145"><a href="#Profile-145"><span class="linenos">145</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">polarized_ratings</span> <span class="o">=</span> <span class="n">polarized_ratings</span>
-</span><span id="Profile-146"><a href="#Profile-146"><span class="linenos">146</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_ratings</span> <span class="o">=</span> <span class="n">num_ratings</span>
-</span><span id="Profile-147"><a href="#Profile-147"><span class="linenos">147</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">star_rating_score</span> <span class="o">=</span> <span class="n">star_rating_score</span>
-</span><span id="Profile-148"><a href="#Profile-148"><span class="linenos">148</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_followable</span> <span class="o">=</span> <span class="n">is_followable</span>
-</span><span id="Profile-149"><a href="#Profile-149"><span class="linenos">149</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_blocked</span> <span class="o">=</span> <span class="n">is_blocked</span>
-</span><span id="Profile-150"><a href="#Profile-150"><span class="linenos">150</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">following_count</span> <span class="o">=</span> <span class="n">following_count</span>
-</span><span id="Profile-151"><a href="#Profile-151"><span class="linenos">151</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">follower_count</span> <span class="o">=</span> <span class="n">follower_count</span>
-</span><span id="Profile-152"><a href="#Profile-152"><span class="linenos">152</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="n">score</span>
-</span><span id="Profile-153"><a href="#Profile-153"><span class="linenos">153</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">created</span> <span class="o">=</span> <span class="n">created</span>
-</span><span id="Profile-154"><a href="#Profile-154"><span class="linenos">154</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">proper</span> <span class="o">=</span> <span class="n">proper</span>
-</span><span id="Profile-155"><a href="#Profile-155"><span class="linenos">155</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">introduction</span> <span class="o">=</span> <span class="n">introduction</span>
-</span><span id="Profile-156"><a href="#Profile-156"><span class="linenos">156</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_official</span> <span class="o">=</span> <span class="n">is_official</span>
-</span><span id="Profile-157"><a href="#Profile-157"><span class="linenos">157</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_sell_items</span> <span class="o">=</span> <span class="n">num_sell_items</span>
-</span><span id="Profile-158"><a href="#Profile-158"><span class="linenos">158</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_ticket</span> <span class="o">=</span> <span class="n">num_ticket</span>
-</span><span id="Profile-159"><a href="#Profile-159"><span class="linenos">159</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">bounce_mail_flag</span> <span class="o">=</span> <span class="n">bounce_mail_flag</span>
-</span><span id="Profile-160"><a href="#Profile-160"><span class="linenos">160</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">current_point</span> <span class="o">=</span> <span class="n">current_point</span>
-</span><span id="Profile-161"><a href="#Profile-161"><span class="linenos">161</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">current_sales</span> <span class="o">=</span> <span class="n">current_sales</span>
-</span><span id="Profile-162"><a href="#Profile-162"><span class="linenos">162</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_organizational_user</span> <span class="o">=</span> <span class="n">is_organizational_user</span>
-</span><span id="Profile-163"><a href="#Profile-163"><span class="linenos">163</span></a>
-</span><span id="Profile-164"><a href="#Profile-164"><span class="linenos">164</span></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Items&quot;</span><span class="p">:</span>
-</span><span id="Profile-165"><a href="#Profile-165"><span class="linenos">165</span></a>        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mercapi</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Profile-11"><a href="#Profile-11"><span class="linenos">11</span></a><span class="nd">@dataclass</span>
+</span><span id="Profile-12"><a href="#Profile-12"><span class="linenos">12</span></a><span class="k">class</span> <span class="nc">Profile</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
+</span><span id="Profile-13"><a href="#Profile-13"><span class="linenos">13</span></a>    <span class="nd">@dataclass</span>
+</span><span id="Profile-14"><a href="#Profile-14"><span class="linenos">14</span></a>    <span class="k">class</span> <span class="nc">Ratings</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
+</span><span id="Profile-15"><a href="#Profile-15"><span class="linenos">15</span></a>        <span class="n">good</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-16"><a href="#Profile-16"><span class="linenos">16</span></a>        <span class="n">normal</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-17"><a href="#Profile-17"><span class="linenos">17</span></a>        <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-18"><a href="#Profile-18"><span class="linenos">18</span></a>
+</span><span id="Profile-19"><a href="#Profile-19"><span class="linenos">19</span></a>    <span class="nd">@dataclass</span>
+</span><span id="Profile-20"><a href="#Profile-20"><span class="linenos">20</span></a>    <span class="k">class</span> <span class="nc">PolarizedRatings</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
+</span><span id="Profile-21"><a href="#Profile-21"><span class="linenos">21</span></a>        <span class="n">good</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-22"><a href="#Profile-22"><span class="linenos">22</span></a>        <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-23"><a href="#Profile-23"><span class="linenos">23</span></a>
+</span><span id="Profile-24"><a href="#Profile-24"><span class="linenos">24</span></a>    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Profile-25"><a href="#Profile-25"><span class="linenos">25</span></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Profile-26"><a href="#Profile-26"><span class="linenos">26</span></a>    <span class="n">photo_url</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Profile-27"><a href="#Profile-27"><span class="linenos">27</span></a>    <span class="n">photo_thumbnail_url</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Profile-28"><a href="#Profile-28"><span class="linenos">28</span></a>    <span class="n">register_sms_confirmation</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Profile-29"><a href="#Profile-29"><span class="linenos">29</span></a>    <span class="n">ratings</span><span class="p">:</span> <span class="n">Ratings</span>
+</span><span id="Profile-30"><a href="#Profile-30"><span class="linenos">30</span></a>    <span class="n">polarized_ratings</span><span class="p">:</span> <span class="n">PolarizedRatings</span>
+</span><span id="Profile-31"><a href="#Profile-31"><span class="linenos">31</span></a>    <span class="n">num_ratings</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-32"><a href="#Profile-32"><span class="linenos">32</span></a>    <span class="n">star_rating_score</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-33"><a href="#Profile-33"><span class="linenos">33</span></a>    <span class="n">is_followable</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="Profile-34"><a href="#Profile-34"><span class="linenos">34</span></a>    <span class="n">is_blocked</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="Profile-35"><a href="#Profile-35"><span class="linenos">35</span></a>    <span class="n">following_count</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-36"><a href="#Profile-36"><span class="linenos">36</span></a>    <span class="n">follower_count</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-37"><a href="#Profile-37"><span class="linenos">37</span></a>    <span class="n">score</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-38"><a href="#Profile-38"><span class="linenos">38</span></a>    <span class="n">created</span><span class="p">:</span> <span class="n">datetime</span>
+</span><span id="Profile-39"><a href="#Profile-39"><span class="linenos">39</span></a>    <span class="n">proper</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="Profile-40"><a href="#Profile-40"><span class="linenos">40</span></a>    <span class="n">introduction</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Profile-41"><a href="#Profile-41"><span class="linenos">41</span></a>    <span class="n">is_official</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="Profile-42"><a href="#Profile-42"><span class="linenos">42</span></a>    <span class="n">num_sell_items</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-43"><a href="#Profile-43"><span class="linenos">43</span></a>    <span class="n">num_ticket</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-44"><a href="#Profile-44"><span class="linenos">44</span></a>    <span class="n">bounce_mail_flag</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Profile-45"><a href="#Profile-45"><span class="linenos">45</span></a>    <span class="n">current_point</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-46"><a href="#Profile-46"><span class="linenos">46</span></a>    <span class="n">current_sales</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile-47"><a href="#Profile-47"><span class="linenos">47</span></a>    <span class="n">is_organizational_user</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="Profile-48"><a href="#Profile-48"><span class="linenos">48</span></a>
+</span><span id="Profile-49"><a href="#Profile-49"><span class="linenos">49</span></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Items&quot;</span><span class="p">:</span>
+</span><span id="Profile-50"><a href="#Profile-50"><span class="linenos">50</span></a>        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mercapi</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_</span><span class="p">)</span>
 </span></pre></div>
 
 
     
 
                             <div id="Profile.__init__" class="classattr">
-                                        <input id="Profile.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
+                                <div class="attr function">
             
         <span class="name">Profile</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">id_</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">photo_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">photo_thumbnail_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">register_sms_confirmation</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">ratings</span><span class="p">:</span> <span class="n"><a href="#Profile.Ratings">mercapi.models.profile.profile.Profile.Ratings</a></span>,</span><span class="param">	<span class="n">polarized_ratings</span><span class="p">:</span> <span class="n"><a href="#Profile.PolarizedRatings">mercapi.models.profile.profile.Profile.PolarizedRatings</a></span>,</span><span class="param">	<span class="n">num_ratings</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">star_rating_score</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">is_followable</span><span class="p">:</span> <span class="nb">bool</span>,</span><span class="param">	<span class="n">is_blocked</span><span class="p">:</span> <span class="nb">bool</span>,</span><span class="param">	<span class="n">following_count</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">follower_count</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">score</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">created</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span>,</span><span class="param">	<span class="n">proper</span><span class="p">:</span> <span class="nb">bool</span>,</span><span class="param">	<span class="n">introduction</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">is_official</span><span class="p">:</span> <span class="nb">bool</span>,</span><span class="param">	<span class="n">num_sell_items</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">num_ticket</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">bounce_mail_flag</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">current_point</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">current_sales</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">is_organizational_user</span><span class="p">:</span> <span class="nb">bool</span></span>)</span>
 
-                <label class="view-source-button" for="Profile.__init__-view-source"><span>View Source</span></label>
-
+        
     </div>
     <a class="headerlink" href="#Profile.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Profile.__init__-111"><a href="#Profile.__init__-111"><span class="linenos">111</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-</span><span id="Profile.__init__-112"><a href="#Profile.__init__-112"><span class="linenos">112</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="Profile.__init__-113"><a href="#Profile.__init__-113"><span class="linenos">113</span></a>        <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile.__init__-114"><a href="#Profile.__init__-114"><span class="linenos">114</span></a>        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile.__init__-115"><a href="#Profile.__init__-115"><span class="linenos">115</span></a>        <span class="n">photo_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile.__init__-116"><a href="#Profile.__init__-116"><span class="linenos">116</span></a>        <span class="n">photo_thumbnail_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile.__init__-117"><a href="#Profile.__init__-117"><span class="linenos">117</span></a>        <span class="n">register_sms_confirmation</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile.__init__-118"><a href="#Profile.__init__-118"><span class="linenos">118</span></a>        <span class="n">ratings</span><span class="p">:</span> <span class="n">Ratings</span><span class="p">,</span>
-</span><span id="Profile.__init__-119"><a href="#Profile.__init__-119"><span class="linenos">119</span></a>        <span class="n">polarized_ratings</span><span class="p">:</span> <span class="n">PolarizedRatings</span><span class="p">,</span>
-</span><span id="Profile.__init__-120"><a href="#Profile.__init__-120"><span class="linenos">120</span></a>        <span class="n">num_ratings</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile.__init__-121"><a href="#Profile.__init__-121"><span class="linenos">121</span></a>        <span class="n">star_rating_score</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile.__init__-122"><a href="#Profile.__init__-122"><span class="linenos">122</span></a>        <span class="n">is_followable</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="Profile.__init__-123"><a href="#Profile.__init__-123"><span class="linenos">123</span></a>        <span class="n">is_blocked</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="Profile.__init__-124"><a href="#Profile.__init__-124"><span class="linenos">124</span></a>        <span class="n">following_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile.__init__-125"><a href="#Profile.__init__-125"><span class="linenos">125</span></a>        <span class="n">follower_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile.__init__-126"><a href="#Profile.__init__-126"><span class="linenos">126</span></a>        <span class="n">score</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile.__init__-127"><a href="#Profile.__init__-127"><span class="linenos">127</span></a>        <span class="n">created</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
-</span><span id="Profile.__init__-128"><a href="#Profile.__init__-128"><span class="linenos">128</span></a>        <span class="n">proper</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="Profile.__init__-129"><a href="#Profile.__init__-129"><span class="linenos">129</span></a>        <span class="n">introduction</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile.__init__-130"><a href="#Profile.__init__-130"><span class="linenos">130</span></a>        <span class="n">is_official</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="Profile.__init__-131"><a href="#Profile.__init__-131"><span class="linenos">131</span></a>        <span class="n">num_sell_items</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile.__init__-132"><a href="#Profile.__init__-132"><span class="linenos">132</span></a>        <span class="n">num_ticket</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile.__init__-133"><a href="#Profile.__init__-133"><span class="linenos">133</span></a>        <span class="n">bounce_mail_flag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="Profile.__init__-134"><a href="#Profile.__init__-134"><span class="linenos">134</span></a>        <span class="n">current_point</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile.__init__-135"><a href="#Profile.__init__-135"><span class="linenos">135</span></a>        <span class="n">current_sales</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="Profile.__init__-136"><a href="#Profile.__init__-136"><span class="linenos">136</span></a>        <span class="n">is_organizational_user</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-</span><span id="Profile.__init__-137"><a href="#Profile.__init__-137"><span class="linenos">137</span></a>    <span class="p">):</span>
-</span><span id="Profile.__init__-138"><a href="#Profile.__init__-138"><span class="linenos">138</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="Profile.__init__-139"><a href="#Profile.__init__-139"><span class="linenos">139</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">id_</span> <span class="o">=</span> <span class="n">id_</span>
-</span><span id="Profile.__init__-140"><a href="#Profile.__init__-140"><span class="linenos">140</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-</span><span id="Profile.__init__-141"><a href="#Profile.__init__-141"><span class="linenos">141</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">photo_url</span> <span class="o">=</span> <span class="n">photo_url</span>
-</span><span id="Profile.__init__-142"><a href="#Profile.__init__-142"><span class="linenos">142</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">photo_thumbnail_url</span> <span class="o">=</span> <span class="n">photo_thumbnail_url</span>
-</span><span id="Profile.__init__-143"><a href="#Profile.__init__-143"><span class="linenos">143</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">register_sms_confirmation</span> <span class="o">=</span> <span class="n">register_sms_confirmation</span>
-</span><span id="Profile.__init__-144"><a href="#Profile.__init__-144"><span class="linenos">144</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span> <span class="o">=</span> <span class="n">ratings</span>
-</span><span id="Profile.__init__-145"><a href="#Profile.__init__-145"><span class="linenos">145</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">polarized_ratings</span> <span class="o">=</span> <span class="n">polarized_ratings</span>
-</span><span id="Profile.__init__-146"><a href="#Profile.__init__-146"><span class="linenos">146</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_ratings</span> <span class="o">=</span> <span class="n">num_ratings</span>
-</span><span id="Profile.__init__-147"><a href="#Profile.__init__-147"><span class="linenos">147</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">star_rating_score</span> <span class="o">=</span> <span class="n">star_rating_score</span>
-</span><span id="Profile.__init__-148"><a href="#Profile.__init__-148"><span class="linenos">148</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_followable</span> <span class="o">=</span> <span class="n">is_followable</span>
-</span><span id="Profile.__init__-149"><a href="#Profile.__init__-149"><span class="linenos">149</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_blocked</span> <span class="o">=</span> <span class="n">is_blocked</span>
-</span><span id="Profile.__init__-150"><a href="#Profile.__init__-150"><span class="linenos">150</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">following_count</span> <span class="o">=</span> <span class="n">following_count</span>
-</span><span id="Profile.__init__-151"><a href="#Profile.__init__-151"><span class="linenos">151</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">follower_count</span> <span class="o">=</span> <span class="n">follower_count</span>
-</span><span id="Profile.__init__-152"><a href="#Profile.__init__-152"><span class="linenos">152</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="n">score</span>
-</span><span id="Profile.__init__-153"><a href="#Profile.__init__-153"><span class="linenos">153</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">created</span> <span class="o">=</span> <span class="n">created</span>
-</span><span id="Profile.__init__-154"><a href="#Profile.__init__-154"><span class="linenos">154</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">proper</span> <span class="o">=</span> <span class="n">proper</span>
-</span><span id="Profile.__init__-155"><a href="#Profile.__init__-155"><span class="linenos">155</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">introduction</span> <span class="o">=</span> <span class="n">introduction</span>
-</span><span id="Profile.__init__-156"><a href="#Profile.__init__-156"><span class="linenos">156</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_official</span> <span class="o">=</span> <span class="n">is_official</span>
-</span><span id="Profile.__init__-157"><a href="#Profile.__init__-157"><span class="linenos">157</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_sell_items</span> <span class="o">=</span> <span class="n">num_sell_items</span>
-</span><span id="Profile.__init__-158"><a href="#Profile.__init__-158"><span class="linenos">158</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_ticket</span> <span class="o">=</span> <span class="n">num_ticket</span>
-</span><span id="Profile.__init__-159"><a href="#Profile.__init__-159"><span class="linenos">159</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">bounce_mail_flag</span> <span class="o">=</span> <span class="n">bounce_mail_flag</span>
-</span><span id="Profile.__init__-160"><a href="#Profile.__init__-160"><span class="linenos">160</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">current_point</span> <span class="o">=</span> <span class="n">current_point</span>
-</span><span id="Profile.__init__-161"><a href="#Profile.__init__-161"><span class="linenos">161</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">current_sales</span> <span class="o">=</span> <span class="n">current_sales</span>
-</span><span id="Profile.__init__-162"><a href="#Profile.__init__-162"><span class="linenos">162</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_organizational_user</span> <span class="o">=</span> <span class="n">is_organizational_user</span>
-</span></pre></div>
-
-
+    
     
 
                             </div>
@@ -500,8 +214,8 @@
 
     </div>
     <a class="headerlink" href="#Profile.items"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Profile.items-164"><a href="#Profile.items-164"><span class="linenos">164</span></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Items&quot;</span><span class="p">:</span>
-</span><span id="Profile.items-165"><a href="#Profile.items-165"><span class="linenos">165</span></a>        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mercapi</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Profile.items-49"><a href="#Profile.items-49"><span class="linenos">49</span></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Items&quot;</span><span class="p">:</span>
+</span><span id="Profile.items-50"><a href="#Profile.items-50"><span class="linenos">50</span></a>        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mercapi</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -512,9 +226,7 @@
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt><a href="../base.html#ResponseModel">mercapi.models.base.ResponseModel</a></dt>
-                                <dd id="Profile.keys" class="function"><a href="../base.html#ResponseModel.keys">keys</a></dd>
-                <dd id="Profile.from_dict" class="function"><a href="../base.html#ResponseModel.from_dict">from_dict</a></dd>
-                <dd id="Profile.set_mercapi" class="function"><a href="../base.html#ResponseModel.set_mercapi">set_mercapi</a></dd>
+                                <dd id="Profile.set_mercapi" class="function"><a href="../base.html#ResponseModel.set_mercapi">set_mercapi</a></dd>
 
             </div>
                                 </dl>
@@ -523,7 +235,8 @@
                 <section id="Profile.Ratings">
                             <input id="Profile.Ratings-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
-            
+                    <div class="decorator">@dataclass</div>
+
     <span class="def">class</span>
     <span class="name">Profile.Ratings</span><wbr>(<span class="base"><a href="../base.html#ResponseModel">mercapi.models.base.ResponseModel</a></span>):
 
@@ -531,42 +244,25 @@
 
     </div>
     <a class="headerlink" href="#Profile.Ratings"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Profile.Ratings-11"><a href="#Profile.Ratings-11"><span class="linenos">11</span></a>    <span class="k">class</span> <span class="nc">Ratings</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="Profile.Ratings-12"><a href="#Profile.Ratings-12"><span class="linenos">12</span></a>        <span class="n">_required_properties</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="Profile.Ratings-13"><a href="#Profile.Ratings-13"><span class="linenos">13</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;good&quot;</span><span class="p">)),</span>
-</span><span id="Profile.Ratings-14"><a href="#Profile.Ratings-14"><span class="linenos">14</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;normal&quot;</span><span class="p">)),</span>
-</span><span id="Profile.Ratings-15"><a href="#Profile.Ratings-15"><span class="linenos">15</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bad&quot;</span><span class="p">)),</span>
-</span><span id="Profile.Ratings-16"><a href="#Profile.Ratings-16"><span class="linenos">16</span></a>        <span class="p">]</span>
-</span><span id="Profile.Ratings-17"><a href="#Profile.Ratings-17"><span class="linenos">17</span></a>        <span class="n">_optional_properties</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="Profile.Ratings-18"><a href="#Profile.Ratings-18"><span class="linenos">18</span></a>
-</span><span id="Profile.Ratings-19"><a href="#Profile.Ratings-19"><span class="linenos">19</span></a>        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">good</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">normal</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="Profile.Ratings-20"><a href="#Profile.Ratings-20"><span class="linenos">20</span></a>            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="Profile.Ratings-21"><a href="#Profile.Ratings-21"><span class="linenos">21</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">good</span> <span class="o">=</span> <span class="n">good</span>
-</span><span id="Profile.Ratings-22"><a href="#Profile.Ratings-22"><span class="linenos">22</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">normal</span> <span class="o">=</span> <span class="n">normal</span>
-</span><span id="Profile.Ratings-23"><a href="#Profile.Ratings-23"><span class="linenos">23</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">bad</span> <span class="o">=</span> <span class="n">bad</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Profile.Ratings-13"><a href="#Profile.Ratings-13"><span class="linenos">13</span></a>    <span class="nd">@dataclass</span>
+</span><span id="Profile.Ratings-14"><a href="#Profile.Ratings-14"><span class="linenos">14</span></a>    <span class="k">class</span> <span class="nc">Ratings</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
+</span><span id="Profile.Ratings-15"><a href="#Profile.Ratings-15"><span class="linenos">15</span></a>        <span class="n">good</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile.Ratings-16"><a href="#Profile.Ratings-16"><span class="linenos">16</span></a>        <span class="n">normal</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile.Ratings-17"><a href="#Profile.Ratings-17"><span class="linenos">17</span></a>        <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span>
 </span></pre></div>
 
 
     
 
                             <div id="Profile.Ratings.__init__" class="classattr">
-                                        <input id="Profile.Ratings.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
+                                <div class="attr function">
             
         <span class="name">Profile.Ratings</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">good</span><span class="p">:</span> <span class="nb">int</span>, </span><span class="param"><span class="n">normal</span><span class="p">:</span> <span class="nb">int</span>, </span><span class="param"><span class="n">bad</span><span class="p">:</span> <span class="nb">int</span></span>)</span>
 
-                <label class="view-source-button" for="Profile.Ratings.__init__-view-source"><span>View Source</span></label>
-
+        
     </div>
     <a class="headerlink" href="#Profile.Ratings.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Profile.Ratings.__init__-19"><a href="#Profile.Ratings.__init__-19"><span class="linenos">19</span></a>        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">good</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">normal</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="Profile.Ratings.__init__-20"><a href="#Profile.Ratings.__init__-20"><span class="linenos">20</span></a>            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="Profile.Ratings.__init__-21"><a href="#Profile.Ratings.__init__-21"><span class="linenos">21</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">good</span> <span class="o">=</span> <span class="n">good</span>
-</span><span id="Profile.Ratings.__init__-22"><a href="#Profile.Ratings.__init__-22"><span class="linenos">22</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">normal</span> <span class="o">=</span> <span class="n">normal</span>
-</span><span id="Profile.Ratings.__init__-23"><a href="#Profile.Ratings.__init__-23"><span class="linenos">23</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">bad</span> <span class="o">=</span> <span class="n">bad</span>
-</span></pre></div>
-
-
+    
     
 
                             </div>
@@ -574,9 +270,7 @@
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt><a href="../base.html#ResponseModel">mercapi.models.base.ResponseModel</a></dt>
-                                <dd id="Profile.Ratings.keys" class="function"><a href="../base.html#ResponseModel.keys">keys</a></dd>
-                <dd id="Profile.Ratings.from_dict" class="function"><a href="../base.html#ResponseModel.from_dict">from_dict</a></dd>
-                <dd id="Profile.Ratings.set_mercapi" class="function"><a href="../base.html#ResponseModel.set_mercapi">set_mercapi</a></dd>
+                                <dd id="Profile.Ratings.set_mercapi" class="function"><a href="../base.html#ResponseModel.set_mercapi">set_mercapi</a></dd>
 
             </div>
                                 </dl>
@@ -585,7 +279,8 @@
                 <section id="Profile.PolarizedRatings">
                             <input id="Profile.PolarizedRatings-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
-            
+                    <div class="decorator">@dataclass</div>
+
     <span class="def">class</span>
     <span class="name">Profile.PolarizedRatings</span><wbr>(<span class="base"><a href="../base.html#ResponseModel">mercapi.models.base.ResponseModel</a></span>):
 
@@ -593,39 +288,24 @@
 
     </div>
     <a class="headerlink" href="#Profile.PolarizedRatings"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Profile.PolarizedRatings-25"><a href="#Profile.PolarizedRatings-25"><span class="linenos">25</span></a>    <span class="k">class</span> <span class="nc">PolarizedRatings</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="Profile.PolarizedRatings-26"><a href="#Profile.PolarizedRatings-26"><span class="linenos">26</span></a>        <span class="n">_required_properties</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="Profile.PolarizedRatings-27"><a href="#Profile.PolarizedRatings-27"><span class="linenos">27</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;good&quot;</span><span class="p">)),</span>
-</span><span id="Profile.PolarizedRatings-28"><a href="#Profile.PolarizedRatings-28"><span class="linenos">28</span></a>            <span class="n">ResponseProperty</span><span class="p">(</span><span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="n">Extractors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bad&quot;</span><span class="p">)),</span>
-</span><span id="Profile.PolarizedRatings-29"><a href="#Profile.PolarizedRatings-29"><span class="linenos">29</span></a>        <span class="p">]</span>
-</span><span id="Profile.PolarizedRatings-30"><a href="#Profile.PolarizedRatings-30"><span class="linenos">30</span></a>        <span class="n">_optional_properties</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="Profile.PolarizedRatings-31"><a href="#Profile.PolarizedRatings-31"><span class="linenos">31</span></a>
-</span><span id="Profile.PolarizedRatings-32"><a href="#Profile.PolarizedRatings-32"><span class="linenos">32</span></a>        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">good</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="Profile.PolarizedRatings-33"><a href="#Profile.PolarizedRatings-33"><span class="linenos">33</span></a>            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="Profile.PolarizedRatings-34"><a href="#Profile.PolarizedRatings-34"><span class="linenos">34</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">good</span> <span class="o">=</span> <span class="n">good</span>
-</span><span id="Profile.PolarizedRatings-35"><a href="#Profile.PolarizedRatings-35"><span class="linenos">35</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">bad</span> <span class="o">=</span> <span class="n">bad</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Profile.PolarizedRatings-19"><a href="#Profile.PolarizedRatings-19"><span class="linenos">19</span></a>    <span class="nd">@dataclass</span>
+</span><span id="Profile.PolarizedRatings-20"><a href="#Profile.PolarizedRatings-20"><span class="linenos">20</span></a>    <span class="k">class</span> <span class="nc">PolarizedRatings</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
+</span><span id="Profile.PolarizedRatings-21"><a href="#Profile.PolarizedRatings-21"><span class="linenos">21</span></a>        <span class="n">good</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Profile.PolarizedRatings-22"><a href="#Profile.PolarizedRatings-22"><span class="linenos">22</span></a>        <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span>
 </span></pre></div>
 
 
     
 
                             <div id="Profile.PolarizedRatings.__init__" class="classattr">
-                                        <input id="Profile.PolarizedRatings.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
+                                <div class="attr function">
             
         <span class="name">Profile.PolarizedRatings</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">good</span><span class="p">:</span> <span class="nb">int</span>, </span><span class="param"><span class="n">bad</span><span class="p">:</span> <span class="nb">int</span></span>)</span>
 
-                <label class="view-source-button" for="Profile.PolarizedRatings.__init__-view-source"><span>View Source</span></label>
-
+        
     </div>
     <a class="headerlink" href="#Profile.PolarizedRatings.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Profile.PolarizedRatings.__init__-32"><a href="#Profile.PolarizedRatings.__init__-32"><span class="linenos">32</span></a>        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">good</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bad</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="Profile.PolarizedRatings.__init__-33"><a href="#Profile.PolarizedRatings.__init__-33"><span class="linenos">33</span></a>            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="Profile.PolarizedRatings.__init__-34"><a href="#Profile.PolarizedRatings.__init__-34"><span class="linenos">34</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">good</span> <span class="o">=</span> <span class="n">good</span>
-</span><span id="Profile.PolarizedRatings.__init__-35"><a href="#Profile.PolarizedRatings.__init__-35"><span class="linenos">35</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">bad</span> <span class="o">=</span> <span class="n">bad</span>
-</span></pre></div>
-
-
+    
     
 
                             </div>
@@ -633,9 +313,7 @@
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt><a href="../base.html#ResponseModel">mercapi.models.base.ResponseModel</a></dt>
-                                <dd id="Profile.PolarizedRatings.keys" class="function"><a href="../base.html#ResponseModel.keys">keys</a></dd>
-                <dd id="Profile.PolarizedRatings.from_dict" class="function"><a href="../base.html#ResponseModel.from_dict">from_dict</a></dd>
-                <dd id="Profile.PolarizedRatings.set_mercapi" class="function"><a href="../base.html#ResponseModel.set_mercapi">set_mercapi</a></dd>
+                                <dd id="Profile.PolarizedRatings.set_mercapi" class="function"><a href="../base.html#ResponseModel.set_mercapi">set_mercapi</a></dd>
 
             </div>
                                 </dl>

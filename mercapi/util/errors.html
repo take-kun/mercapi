@@ -42,6 +42,12 @@
                 </ul>
 
             </li>
+            <li>
+                    <a class="class" href="#IncorrectRequestError">IncorrectRequestError</a>
+                            <ul class="memberlist">
+                </ul>
+
+            </li>
     </ul>
 
 
@@ -63,12 +69,16 @@
 
                         <label class="view-source-button" for="mod-errors-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">1</span></a><span class="k">class</span> <span class="nc">MercapiError</span><span class="p">(</span><span class="ne">BaseException</span><span class="p">):</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos">2</span></a>    <span class="k">pass</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos">3</span></a>
-</span><span id="L-4"><a href="#L-4"><span class="linenos">4</span></a>
-</span><span id="L-5"><a href="#L-5"><span class="linenos">5</span></a><span class="k">class</span> <span class="nc">ParseAPIResponseError</span><span class="p">(</span><span class="n">MercapiError</span><span class="p">):</span>
-</span><span id="L-6"><a href="#L-6"><span class="linenos">6</span></a>    <span class="k">pass</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="k">class</span> <span class="nc">MercapiError</span><span class="p">(</span><span class="ne">BaseException</span><span class="p">):</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>    <span class="k">pass</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="k">class</span> <span class="nc">ParseAPIResponseError</span><span class="p">(</span><span class="n">MercapiError</span><span class="p">):</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>    <span class="k">pass</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="k">class</span> <span class="nc">IncorrectRequestError</span><span class="p">(</span><span class="n">MercapiError</span><span class="p">):</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>    <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -130,6 +140,37 @@
                                     <div><dt>builtins.BaseException</dt>
                                 <dd id="ParseAPIResponseError.__init__" class="function">BaseException</dd>
                 <dd id="ParseAPIResponseError.with_traceback" class="function">with_traceback</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="IncorrectRequestError">
+                            <input id="IncorrectRequestError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">IncorrectRequestError</span><wbr>(<span class="base"><a href="#MercapiError">MercapiError</a></span>):
+
+                <label class="view-source-button" for="IncorrectRequestError-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#IncorrectRequestError"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="IncorrectRequestError-10"><a href="#IncorrectRequestError-10"><span class="linenos">10</span></a><span class="k">class</span> <span class="nc">IncorrectRequestError</span><span class="p">(</span><span class="n">MercapiError</span><span class="p">):</span>
+</span><span id="IncorrectRequestError-11"><a href="#IncorrectRequestError-11"><span class="linenos">11</span></a>    <span class="k">pass</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Common base class for all exceptions</p>
+</div>
+
+
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>builtins.BaseException</dt>
+                                <dd id="IncorrectRequestError.__init__" class="function">BaseException</dd>
+                <dd id="IncorrectRequestError.with_traceback" class="function">with_traceback</dd>
 
             </div>
                                 </dl>
