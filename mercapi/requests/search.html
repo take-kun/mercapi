@@ -64,6 +64,36 @@
 
                         </li>
                         <li>
+                                <a class="class" href="#SearchRequestData.SortBy">SearchRequestData.SortBy</a>
+                                        <ul class="memberlist">
+                                    <li>
+                                            <a class="variable" href="#SearchRequestData.SortBy.SORT_SCORE">SORT_SCORE</a>
+                                    </li>
+                                    <li>
+                                            <a class="variable" href="#SearchRequestData.SortBy.SORT_CREATED_TIME">SORT_CREATED_TIME</a>
+                                    </li>
+                                    <li>
+                                            <a class="variable" href="#SearchRequestData.SortBy.SORT_PRICE">SORT_PRICE</a>
+                                    </li>
+                                    <li>
+                                            <a class="variable" href="#SearchRequestData.SortBy.SORT_NUM_LIKES">SORT_NUM_LIKES</a>
+                                    </li>
+                            </ul>
+
+                        </li>
+                        <li>
+                                <a class="class" href="#SearchRequestData.SortOrder">SearchRequestData.SortOrder</a>
+                                        <ul class="memberlist">
+                                    <li>
+                                            <a class="variable" href="#SearchRequestData.SortOrder.ORDER_DESC">ORDER_DESC</a>
+                                    </li>
+                                    <li>
+                                            <a class="variable" href="#SearchRequestData.SortOrder.ORDER_ASC">ORDER_ASC</a>
+                                    </li>
+                            </ul>
+
+                        </li>
+                        <li>
                                 <a class="class" href="#SearchRequestData.SearchConditions">SearchRequestData.SearchConditions</a>
                                         <ul class="memberlist">
                                     <li>
@@ -96,84 +126,117 @@
 
                         <label class="view-source-button" for="mod-search-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">import</span> <span class="nn">uuid</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
-</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="kn">from</span> <span class="nn">mercapi.requests</span> <span class="kn">import</span> <span class="n">RequestData</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="nd">@dataclass</span>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="k">class</span> <span class="nc">SearchRequestData</span><span class="p">(</span><span class="n">RequestData</span><span class="p">):</span>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>    <span class="k">class</span> <span class="nc">ShippingMethod</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>        <span class="n">SHIPPING_METHOD_ANONYMOUS</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>        <span class="n">SHIPPING_METHOD_JAPAN_POST</span> <span class="o">=</span> <span class="mi">2</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>        <span class="n">SHIPPING_METHOD_NO_OPTION</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>    <span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>        <span class="n">STATUS_ON_SALE</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>        <span class="n">STATUS_SOLD_OUT</span> <span class="o">=</span> <span class="mi">2</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="c1"># STATUS_TRADING = 3</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="nd">@dataclass</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>    <span class="k">class</span> <span class="nc">SearchConditions</span><span class="p">:</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>        <span class="n">query</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>        <span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>        <span class="n">brands</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>        <span class="n">sizes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>        <span class="n">price_min</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>        <span class="n">price_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>        <span class="n">item_conditions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>        <span class="n">shipping_payer</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>        <span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>        <span class="n">shipping_methods</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;SearchRequestData.ShippingMethod&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>            <span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>        <span class="p">)</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>        <span class="n">status</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;SearchRequestData.Status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>
-</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>    <span class="n">search_conditions</span><span class="p">:</span> <span class="n">SearchConditions</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>    <span class="n">page_token</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>
-</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>    <span class="nd">@property</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>        <span class="n">shipping_methods</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">shipping_methods</span><span class="p">]</span>
-</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>        <span class="n">status</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">status</span><span class="p">]</span>
-</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>        <span class="k">if</span> <span class="s2">&quot;STATUS_SOLD_OUT&quot;</span> <span class="ow">in</span> <span class="n">status</span><span class="p">:</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>            <span class="n">status</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="s2">&quot;STATUS_TRADING&quot;</span><span class="p">)</span>
-</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>
-</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>            <span class="s2">&quot;userId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a>            <span class="s2">&quot;pageSize&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a>            <span class="s2">&quot;pageToken&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_token</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a>            <span class="s2">&quot;searchSessionId&quot;</span><span class="p">:</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">,</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>            <span class="s2">&quot;indexRouting&quot;</span><span class="p">:</span> <span class="s2">&quot;INDEX_ROUTING_UNSPECIFIED&quot;</span><span class="p">,</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>            <span class="s2">&quot;thumbnailTypes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>            <span class="s2">&quot;searchCondition&quot;</span><span class="p">:</span> <span class="p">{</span>
-</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a>                <span class="s2">&quot;keyword&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">query</span><span class="p">,</span>
-</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a>                <span class="s2">&quot;excludeKeyword&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a>                <span class="s2">&quot;sort&quot;</span><span class="p">:</span> <span class="s2">&quot;SORT_SCORE&quot;</span><span class="p">,</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a>                <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;ORDER_DESC&quot;</span><span class="p">,</span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a>                <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a>                <span class="s2">&quot;sizeId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sizes</span><span class="p">,</span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a>                <span class="s2">&quot;categoryId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">categories</span><span class="p">,</span>
-</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>                <span class="s2">&quot;brandId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">brands</span><span class="p">,</span>
-</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a>                <span class="s2">&quot;sellerId&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a>                <span class="s2">&quot;priceMin&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">price_min</span><span class="p">,</span>
-</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a>                <span class="s2">&quot;priceMax&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">price_max</span><span class="p">,</span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a>                <span class="s2">&quot;itemConditionId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">item_conditions</span><span class="p">,</span>
-</span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a>                <span class="s2">&quot;shippingPayerId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">shipping_payer</span><span class="p">,</span>
-</span><span id="L-68"><a href="#L-68"><span class="linenos">68</span></a>                <span class="s2">&quot;shippingFromArea&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="L-69"><a href="#L-69"><span class="linenos">69</span></a>                <span class="s2">&quot;shippingMethod&quot;</span><span class="p">:</span> <span class="n">shipping_methods</span><span class="p">,</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos">70</span></a>                <span class="s2">&quot;colorId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">colors</span><span class="p">,</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos">71</span></a>                <span class="s2">&quot;hasCoupon&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-</span><span id="L-72"><a href="#L-72"><span class="linenos">72</span></a>                <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos">73</span></a>                <span class="s2">&quot;itemTypes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="L-74"><a href="#L-74"><span class="linenos">74</span></a>                <span class="s2">&quot;skuIds&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos">75</span></a>            <span class="p">},</span>
-</span><span id="L-76"><a href="#L-76"><span class="linenos">76</span></a>            <span class="s2">&quot;defaultDatasets&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="L-77"><a href="#L-77"><span class="linenos">77</span></a>            <span class="s2">&quot;serviceFrom&quot;</span><span class="p">:</span> <span class="s2">&quot;suruga&quot;</span><span class="p">,</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos">78</span></a>        <span class="p">}</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="kn">import</span> <span class="nn">logging</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a><span class="kn">import</span> <span class="nn">uuid</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a>
+</span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a><span class="kn">from</span> <span class="nn">mercapi.requests</span> <span class="kn">import</span> <span class="n">RequestData</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos">  8</span></a>
+</span><span id="L-9"><a href="#L-9"><span class="linenos">  9</span></a><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos"> 10</span></a>
+</span><span id="L-11"><a href="#L-11"><span class="linenos"> 11</span></a>
+</span><span id="L-12"><a href="#L-12"><span class="linenos"> 12</span></a><span class="nd">@dataclass</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos"> 13</span></a><span class="k">class</span> <span class="nc">SearchRequestData</span><span class="p">(</span><span class="n">RequestData</span><span class="p">):</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos"> 14</span></a>    <span class="k">class</span> <span class="nc">ShippingMethod</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos"> 15</span></a>        <span class="n">SHIPPING_METHOD_ANONYMOUS</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a>        <span class="n">SHIPPING_METHOD_JAPAN_POST</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>        <span class="n">SHIPPING_METHOD_NO_OPTION</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a>
+</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a>    <span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a>        <span class="n">STATUS_ON_SALE</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a>        <span class="n">STATUS_SOLD_OUT</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a>        <span class="c1"># STATUS_TRADING = 3</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a>
+</span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a>    <span class="k">class</span> <span class="nc">SortBy</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a>        <span class="n">SORT_SCORE</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a>        <span class="n">SORT_CREATED_TIME</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Correct order is not guaranteed</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a>        <span class="n">SORT_PRICE</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a>        <span class="n">SORT_NUM_LIKES</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a>
+</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a>    <span class="k">class</span> <span class="nc">SortOrder</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a>        <span class="n">ORDER_DESC</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>        <span class="n">ORDER_ASC</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>
+</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>    <span class="nd">@dataclass</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>    <span class="k">class</span> <span class="nc">SearchConditions</span><span class="p">:</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a>        <span class="n">query</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>        <span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>        <span class="n">brands</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>        <span class="n">sizes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>        <span class="n">price_min</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>        <span class="n">price_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a>        <span class="n">item_conditions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>        <span class="n">shipping_payer</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a>        <span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a>        <span class="n">shipping_methods</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;SearchRequestData.ShippingMethod&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a>            <span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a>        <span class="p">)</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a>        <span class="n">status</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;SearchRequestData.Status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a>        <span class="n">sort_by</span><span class="p">:</span> <span class="s2">&quot;SearchRequestData.SortBy&quot;</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a>        <span class="n">sort_order</span><span class="p">:</span> <span class="s2">&quot;SearchRequestData.SortOrder&quot;</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a>        <span class="n">exclude</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a>
+</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a>    <span class="n">search_conditions</span><span class="p">:</span> <span class="n">SearchConditions</span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>    <span class="n">page_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a>
+</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>    <span class="n">_allowed_sorting</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a>        <span class="p">(</span><span class="n">SortBy</span><span class="o">.</span><span class="n">SORT_SCORE</span><span class="p">,</span> <span class="n">SortOrder</span><span class="o">.</span><span class="n">ORDER_DESC</span><span class="p">),</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>        <span class="p">(</span><span class="n">SortBy</span><span class="o">.</span><span class="n">SORT_CREATED_TIME</span><span class="p">,</span> <span class="n">SortOrder</span><span class="o">.</span><span class="n">ORDER_DESC</span><span class="p">),</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>        <span class="p">(</span><span class="n">SortBy</span><span class="o">.</span><span class="n">SORT_PRICE</span><span class="p">,</span> <span class="n">SortOrder</span><span class="o">.</span><span class="n">ORDER_DESC</span><span class="p">),</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>        <span class="p">(</span><span class="n">SortBy</span><span class="o">.</span><span class="n">SORT_PRICE</span><span class="p">,</span> <span class="n">SortOrder</span><span class="o">.</span><span class="n">ORDER_ASC</span><span class="p">),</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>        <span class="p">(</span><span class="n">SortBy</span><span class="o">.</span><span class="n">SORT_NUM_LIKES</span><span class="p">,</span> <span class="n">SortOrder</span><span class="o">.</span><span class="n">ORDER_DESC</span><span class="p">),</span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>    <span class="p">]</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a>
+</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a>    <span class="nd">@property</span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a>    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>        <span class="n">shipping_methods</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">shipping_methods</span><span class="p">]</span>
+</span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a>        <span class="n">status</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">status</span><span class="p">]</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>        <span class="k">if</span> <span class="s2">&quot;STATUS_SOLD_OUT&quot;</span> <span class="ow">in</span> <span class="n">status</span><span class="p">:</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>            <span class="n">status</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="s2">&quot;STATUS_TRADING&quot;</span><span class="p">)</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>        <span class="k">if</span> <span class="p">(</span>
+</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sort_by</span><span class="p">,</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sort_order</span><span class="p">,</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>        <span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allowed_sorting</span><span class="p">:</span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>                <span class="sa">f</span><span class="s2">&quot;Parameter </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sort_by</span><span class="si">}</span><span class="s2"> used in conjugation with &quot;</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sort_order</span><span class="si">}</span><span class="s2"> is not supported by the official web-app. Proceed with caution.&quot;</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>            <span class="p">)</span>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>
+</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>            <span class="s2">&quot;userId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>            <span class="s2">&quot;pageSize&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
+</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>            <span class="s2">&quot;pageToken&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_token</span><span class="p">,</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>            <span class="s2">&quot;searchSessionId&quot;</span><span class="p">:</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">,</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>            <span class="s2">&quot;indexRouting&quot;</span><span class="p">:</span> <span class="s2">&quot;INDEX_ROUTING_UNSPECIFIED&quot;</span><span class="p">,</span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a>            <span class="s2">&quot;thumbnailTypes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>            <span class="s2">&quot;searchCondition&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a>                <span class="s2">&quot;keyword&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">query</span><span class="p">,</span>
+</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a>                <span class="s2">&quot;sort&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sort_by</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>                <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sort_order</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>                <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>                <span class="s2">&quot;sizeId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sizes</span><span class="p">,</span>
+</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>                <span class="s2">&quot;categoryId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">categories</span><span class="p">,</span>
+</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>                <span class="s2">&quot;brandId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">brands</span><span class="p">,</span>
+</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>                <span class="s2">&quot;sellerId&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>                <span class="s2">&quot;priceMin&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">price_min</span><span class="p">,</span>
+</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>                <span class="s2">&quot;priceMax&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">price_max</span><span class="p">,</span>
+</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>                <span class="s2">&quot;itemConditionId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">item_conditions</span><span class="p">,</span>
+</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>                <span class="s2">&quot;shippingPayerId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">shipping_payer</span><span class="p">,</span>
+</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>                <span class="s2">&quot;shippingFromArea&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>                <span class="s2">&quot;shippingMethod&quot;</span><span class="p">:</span> <span class="n">shipping_methods</span><span class="p">,</span>
+</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>                <span class="s2">&quot;colorId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">colors</span><span class="p">,</span>
+</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>                <span class="s2">&quot;hasCoupon&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>                <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>                <span class="s2">&quot;itemTypes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>                <span class="s2">&quot;skuIds&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>                <span class="s2">&quot;excludeKeyword&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">exclude</span><span class="p">,</span>
+</span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a>            <span class="p">},</span>
+</span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>            <span class="s2">&quot;defaultDatasets&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>            <span class="s2">&quot;serviceFrom&quot;</span><span class="p">:</span> <span class="s2">&quot;suruga&quot;</span><span class="p">,</span>
+</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
@@ -190,76 +253,106 @@
 
     </div>
     <a class="headerlink" href="#SearchRequestData"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="SearchRequestData-10"><a href="#SearchRequestData-10"><span class="linenos">10</span></a><span class="nd">@dataclass</span>
-</span><span id="SearchRequestData-11"><a href="#SearchRequestData-11"><span class="linenos">11</span></a><span class="k">class</span> <span class="nc">SearchRequestData</span><span class="p">(</span><span class="n">RequestData</span><span class="p">):</span>
-</span><span id="SearchRequestData-12"><a href="#SearchRequestData-12"><span class="linenos">12</span></a>    <span class="k">class</span> <span class="nc">ShippingMethod</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="SearchRequestData-13"><a href="#SearchRequestData-13"><span class="linenos">13</span></a>        <span class="n">SHIPPING_METHOD_ANONYMOUS</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span id="SearchRequestData-14"><a href="#SearchRequestData-14"><span class="linenos">14</span></a>        <span class="n">SHIPPING_METHOD_JAPAN_POST</span> <span class="o">=</span> <span class="mi">2</span>
-</span><span id="SearchRequestData-15"><a href="#SearchRequestData-15"><span class="linenos">15</span></a>        <span class="n">SHIPPING_METHOD_NO_OPTION</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span id="SearchRequestData-16"><a href="#SearchRequestData-16"><span class="linenos">16</span></a>
-</span><span id="SearchRequestData-17"><a href="#SearchRequestData-17"><span class="linenos">17</span></a>    <span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="SearchRequestData-18"><a href="#SearchRequestData-18"><span class="linenos">18</span></a>        <span class="n">STATUS_ON_SALE</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span id="SearchRequestData-19"><a href="#SearchRequestData-19"><span class="linenos">19</span></a>        <span class="n">STATUS_SOLD_OUT</span> <span class="o">=</span> <span class="mi">2</span>
-</span><span id="SearchRequestData-20"><a href="#SearchRequestData-20"><span class="linenos">20</span></a>        <span class="c1"># STATUS_TRADING = 3</span>
-</span><span id="SearchRequestData-21"><a href="#SearchRequestData-21"><span class="linenos">21</span></a>
-</span><span id="SearchRequestData-22"><a href="#SearchRequestData-22"><span class="linenos">22</span></a>    <span class="nd">@dataclass</span>
-</span><span id="SearchRequestData-23"><a href="#SearchRequestData-23"><span class="linenos">23</span></a>    <span class="k">class</span> <span class="nc">SearchConditions</span><span class="p">:</span>
-</span><span id="SearchRequestData-24"><a href="#SearchRequestData-24"><span class="linenos">24</span></a>        <span class="n">query</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="SearchRequestData-25"><a href="#SearchRequestData-25"><span class="linenos">25</span></a>        <span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData-26"><a href="#SearchRequestData-26"><span class="linenos">26</span></a>        <span class="n">brands</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData-27"><a href="#SearchRequestData-27"><span class="linenos">27</span></a>        <span class="n">sizes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData-28"><a href="#SearchRequestData-28"><span class="linenos">28</span></a>        <span class="n">price_min</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="SearchRequestData-29"><a href="#SearchRequestData-29"><span class="linenos">29</span></a>        <span class="n">price_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="SearchRequestData-30"><a href="#SearchRequestData-30"><span class="linenos">30</span></a>        <span class="n">item_conditions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData-31"><a href="#SearchRequestData-31"><span class="linenos">31</span></a>        <span class="n">shipping_payer</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData-32"><a href="#SearchRequestData-32"><span class="linenos">32</span></a>        <span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData-33"><a href="#SearchRequestData-33"><span class="linenos">33</span></a>        <span class="n">shipping_methods</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;SearchRequestData.ShippingMethod&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
-</span><span id="SearchRequestData-34"><a href="#SearchRequestData-34"><span class="linenos">34</span></a>            <span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span>
-</span><span id="SearchRequestData-35"><a href="#SearchRequestData-35"><span class="linenos">35</span></a>        <span class="p">)</span>
-</span><span id="SearchRequestData-36"><a href="#SearchRequestData-36"><span class="linenos">36</span></a>        <span class="n">status</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;SearchRequestData.Status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData-37"><a href="#SearchRequestData-37"><span class="linenos">37</span></a>
-</span><span id="SearchRequestData-38"><a href="#SearchRequestData-38"><span class="linenos">38</span></a>    <span class="n">search_conditions</span><span class="p">:</span> <span class="n">SearchConditions</span>
-</span><span id="SearchRequestData-39"><a href="#SearchRequestData-39"><span class="linenos">39</span></a>    <span class="n">page_token</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
-</span><span id="SearchRequestData-40"><a href="#SearchRequestData-40"><span class="linenos">40</span></a>
-</span><span id="SearchRequestData-41"><a href="#SearchRequestData-41"><span class="linenos">41</span></a>    <span class="nd">@property</span>
-</span><span id="SearchRequestData-42"><a href="#SearchRequestData-42"><span class="linenos">42</span></a>    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-</span><span id="SearchRequestData-43"><a href="#SearchRequestData-43"><span class="linenos">43</span></a>        <span class="n">shipping_methods</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">shipping_methods</span><span class="p">]</span>
-</span><span id="SearchRequestData-44"><a href="#SearchRequestData-44"><span class="linenos">44</span></a>        <span class="n">status</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">status</span><span class="p">]</span>
-</span><span id="SearchRequestData-45"><a href="#SearchRequestData-45"><span class="linenos">45</span></a>        <span class="k">if</span> <span class="s2">&quot;STATUS_SOLD_OUT&quot;</span> <span class="ow">in</span> <span class="n">status</span><span class="p">:</span>
-</span><span id="SearchRequestData-46"><a href="#SearchRequestData-46"><span class="linenos">46</span></a>            <span class="n">status</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="s2">&quot;STATUS_TRADING&quot;</span><span class="p">)</span>
-</span><span id="SearchRequestData-47"><a href="#SearchRequestData-47"><span class="linenos">47</span></a>
-</span><span id="SearchRequestData-48"><a href="#SearchRequestData-48"><span class="linenos">48</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="SearchRequestData-49"><a href="#SearchRequestData-49"><span class="linenos">49</span></a>            <span class="s2">&quot;userId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="SearchRequestData-50"><a href="#SearchRequestData-50"><span class="linenos">50</span></a>            <span class="s2">&quot;pageSize&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
-</span><span id="SearchRequestData-51"><a href="#SearchRequestData-51"><span class="linenos">51</span></a>            <span class="s2">&quot;pageToken&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_token</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="SearchRequestData-52"><a href="#SearchRequestData-52"><span class="linenos">52</span></a>            <span class="s2">&quot;searchSessionId&quot;</span><span class="p">:</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">,</span>
-</span><span id="SearchRequestData-53"><a href="#SearchRequestData-53"><span class="linenos">53</span></a>            <span class="s2">&quot;indexRouting&quot;</span><span class="p">:</span> <span class="s2">&quot;INDEX_ROUTING_UNSPECIFIED&quot;</span><span class="p">,</span>
-</span><span id="SearchRequestData-54"><a href="#SearchRequestData-54"><span class="linenos">54</span></a>            <span class="s2">&quot;thumbnailTypes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="SearchRequestData-55"><a href="#SearchRequestData-55"><span class="linenos">55</span></a>            <span class="s2">&quot;searchCondition&quot;</span><span class="p">:</span> <span class="p">{</span>
-</span><span id="SearchRequestData-56"><a href="#SearchRequestData-56"><span class="linenos">56</span></a>                <span class="s2">&quot;keyword&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">query</span><span class="p">,</span>
-</span><span id="SearchRequestData-57"><a href="#SearchRequestData-57"><span class="linenos">57</span></a>                <span class="s2">&quot;excludeKeyword&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="SearchRequestData-58"><a href="#SearchRequestData-58"><span class="linenos">58</span></a>                <span class="s2">&quot;sort&quot;</span><span class="p">:</span> <span class="s2">&quot;SORT_SCORE&quot;</span><span class="p">,</span>
-</span><span id="SearchRequestData-59"><a href="#SearchRequestData-59"><span class="linenos">59</span></a>                <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;ORDER_DESC&quot;</span><span class="p">,</span>
-</span><span id="SearchRequestData-60"><a href="#SearchRequestData-60"><span class="linenos">60</span></a>                <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="SearchRequestData-61"><a href="#SearchRequestData-61"><span class="linenos">61</span></a>                <span class="s2">&quot;sizeId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sizes</span><span class="p">,</span>
-</span><span id="SearchRequestData-62"><a href="#SearchRequestData-62"><span class="linenos">62</span></a>                <span class="s2">&quot;categoryId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">categories</span><span class="p">,</span>
-</span><span id="SearchRequestData-63"><a href="#SearchRequestData-63"><span class="linenos">63</span></a>                <span class="s2">&quot;brandId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">brands</span><span class="p">,</span>
-</span><span id="SearchRequestData-64"><a href="#SearchRequestData-64"><span class="linenos">64</span></a>                <span class="s2">&quot;sellerId&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="SearchRequestData-65"><a href="#SearchRequestData-65"><span class="linenos">65</span></a>                <span class="s2">&quot;priceMin&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">price_min</span><span class="p">,</span>
-</span><span id="SearchRequestData-66"><a href="#SearchRequestData-66"><span class="linenos">66</span></a>                <span class="s2">&quot;priceMax&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">price_max</span><span class="p">,</span>
-</span><span id="SearchRequestData-67"><a href="#SearchRequestData-67"><span class="linenos">67</span></a>                <span class="s2">&quot;itemConditionId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">item_conditions</span><span class="p">,</span>
-</span><span id="SearchRequestData-68"><a href="#SearchRequestData-68"><span class="linenos">68</span></a>                <span class="s2">&quot;shippingPayerId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">shipping_payer</span><span class="p">,</span>
-</span><span id="SearchRequestData-69"><a href="#SearchRequestData-69"><span class="linenos">69</span></a>                <span class="s2">&quot;shippingFromArea&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="SearchRequestData-70"><a href="#SearchRequestData-70"><span class="linenos">70</span></a>                <span class="s2">&quot;shippingMethod&quot;</span><span class="p">:</span> <span class="n">shipping_methods</span><span class="p">,</span>
-</span><span id="SearchRequestData-71"><a href="#SearchRequestData-71"><span class="linenos">71</span></a>                <span class="s2">&quot;colorId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">colors</span><span class="p">,</span>
-</span><span id="SearchRequestData-72"><a href="#SearchRequestData-72"><span class="linenos">72</span></a>                <span class="s2">&quot;hasCoupon&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-</span><span id="SearchRequestData-73"><a href="#SearchRequestData-73"><span class="linenos">73</span></a>                <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="SearchRequestData-74"><a href="#SearchRequestData-74"><span class="linenos">74</span></a>                <span class="s2">&quot;itemTypes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="SearchRequestData-75"><a href="#SearchRequestData-75"><span class="linenos">75</span></a>                <span class="s2">&quot;skuIds&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="SearchRequestData-76"><a href="#SearchRequestData-76"><span class="linenos">76</span></a>            <span class="p">},</span>
-</span><span id="SearchRequestData-77"><a href="#SearchRequestData-77"><span class="linenos">77</span></a>            <span class="s2">&quot;defaultDatasets&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="SearchRequestData-78"><a href="#SearchRequestData-78"><span class="linenos">78</span></a>            <span class="s2">&quot;serviceFrom&quot;</span><span class="p">:</span> <span class="s2">&quot;suruga&quot;</span><span class="p">,</span>
-</span><span id="SearchRequestData-79"><a href="#SearchRequestData-79"><span class="linenos">79</span></a>        <span class="p">}</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="SearchRequestData-13"><a href="#SearchRequestData-13"><span class="linenos"> 13</span></a><span class="nd">@dataclass</span>
+</span><span id="SearchRequestData-14"><a href="#SearchRequestData-14"><span class="linenos"> 14</span></a><span class="k">class</span> <span class="nc">SearchRequestData</span><span class="p">(</span><span class="n">RequestData</span><span class="p">):</span>
+</span><span id="SearchRequestData-15"><a href="#SearchRequestData-15"><span class="linenos"> 15</span></a>    <span class="k">class</span> <span class="nc">ShippingMethod</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="SearchRequestData-16"><a href="#SearchRequestData-16"><span class="linenos"> 16</span></a>        <span class="n">SHIPPING_METHOD_ANONYMOUS</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="SearchRequestData-17"><a href="#SearchRequestData-17"><span class="linenos"> 17</span></a>        <span class="n">SHIPPING_METHOD_JAPAN_POST</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="SearchRequestData-18"><a href="#SearchRequestData-18"><span class="linenos"> 18</span></a>        <span class="n">SHIPPING_METHOD_NO_OPTION</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span id="SearchRequestData-19"><a href="#SearchRequestData-19"><span class="linenos"> 19</span></a>
+</span><span id="SearchRequestData-20"><a href="#SearchRequestData-20"><span class="linenos"> 20</span></a>    <span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="SearchRequestData-21"><a href="#SearchRequestData-21"><span class="linenos"> 21</span></a>        <span class="n">STATUS_ON_SALE</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="SearchRequestData-22"><a href="#SearchRequestData-22"><span class="linenos"> 22</span></a>        <span class="n">STATUS_SOLD_OUT</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="SearchRequestData-23"><a href="#SearchRequestData-23"><span class="linenos"> 23</span></a>        <span class="c1"># STATUS_TRADING = 3</span>
+</span><span id="SearchRequestData-24"><a href="#SearchRequestData-24"><span class="linenos"> 24</span></a>
+</span><span id="SearchRequestData-25"><a href="#SearchRequestData-25"><span class="linenos"> 25</span></a>    <span class="k">class</span> <span class="nc">SortBy</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="SearchRequestData-26"><a href="#SearchRequestData-26"><span class="linenos"> 26</span></a>        <span class="n">SORT_SCORE</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="SearchRequestData-27"><a href="#SearchRequestData-27"><span class="linenos"> 27</span></a>        <span class="n">SORT_CREATED_TIME</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Correct order is not guaranteed</span>
+</span><span id="SearchRequestData-28"><a href="#SearchRequestData-28"><span class="linenos"> 28</span></a>        <span class="n">SORT_PRICE</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span id="SearchRequestData-29"><a href="#SearchRequestData-29"><span class="linenos"> 29</span></a>        <span class="n">SORT_NUM_LIKES</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span id="SearchRequestData-30"><a href="#SearchRequestData-30"><span class="linenos"> 30</span></a>
+</span><span id="SearchRequestData-31"><a href="#SearchRequestData-31"><span class="linenos"> 31</span></a>    <span class="k">class</span> <span class="nc">SortOrder</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="SearchRequestData-32"><a href="#SearchRequestData-32"><span class="linenos"> 32</span></a>        <span class="n">ORDER_DESC</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="SearchRequestData-33"><a href="#SearchRequestData-33"><span class="linenos"> 33</span></a>        <span class="n">ORDER_ASC</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="SearchRequestData-34"><a href="#SearchRequestData-34"><span class="linenos"> 34</span></a>
+</span><span id="SearchRequestData-35"><a href="#SearchRequestData-35"><span class="linenos"> 35</span></a>    <span class="nd">@dataclass</span>
+</span><span id="SearchRequestData-36"><a href="#SearchRequestData-36"><span class="linenos"> 36</span></a>    <span class="k">class</span> <span class="nc">SearchConditions</span><span class="p">:</span>
+</span><span id="SearchRequestData-37"><a href="#SearchRequestData-37"><span class="linenos"> 37</span></a>        <span class="n">query</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="SearchRequestData-38"><a href="#SearchRequestData-38"><span class="linenos"> 38</span></a>        <span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData-39"><a href="#SearchRequestData-39"><span class="linenos"> 39</span></a>        <span class="n">brands</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData-40"><a href="#SearchRequestData-40"><span class="linenos"> 40</span></a>        <span class="n">sizes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData-41"><a href="#SearchRequestData-41"><span class="linenos"> 41</span></a>        <span class="n">price_min</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="SearchRequestData-42"><a href="#SearchRequestData-42"><span class="linenos"> 42</span></a>        <span class="n">price_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="SearchRequestData-43"><a href="#SearchRequestData-43"><span class="linenos"> 43</span></a>        <span class="n">item_conditions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData-44"><a href="#SearchRequestData-44"><span class="linenos"> 44</span></a>        <span class="n">shipping_payer</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData-45"><a href="#SearchRequestData-45"><span class="linenos"> 45</span></a>        <span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData-46"><a href="#SearchRequestData-46"><span class="linenos"> 46</span></a>        <span class="n">shipping_methods</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;SearchRequestData.ShippingMethod&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+</span><span id="SearchRequestData-47"><a href="#SearchRequestData-47"><span class="linenos"> 47</span></a>            <span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span>
+</span><span id="SearchRequestData-48"><a href="#SearchRequestData-48"><span class="linenos"> 48</span></a>        <span class="p">)</span>
+</span><span id="SearchRequestData-49"><a href="#SearchRequestData-49"><span class="linenos"> 49</span></a>        <span class="n">status</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;SearchRequestData.Status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData-50"><a href="#SearchRequestData-50"><span class="linenos"> 50</span></a>        <span class="n">sort_by</span><span class="p">:</span> <span class="s2">&quot;SearchRequestData.SortBy&quot;</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="SearchRequestData-51"><a href="#SearchRequestData-51"><span class="linenos"> 51</span></a>        <span class="n">sort_order</span><span class="p">:</span> <span class="s2">&quot;SearchRequestData.SortOrder&quot;</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="SearchRequestData-52"><a href="#SearchRequestData-52"><span class="linenos"> 52</span></a>        <span class="n">exclude</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</span><span id="SearchRequestData-53"><a href="#SearchRequestData-53"><span class="linenos"> 53</span></a>
+</span><span id="SearchRequestData-54"><a href="#SearchRequestData-54"><span class="linenos"> 54</span></a>    <span class="n">search_conditions</span><span class="p">:</span> <span class="n">SearchConditions</span>
+</span><span id="SearchRequestData-55"><a href="#SearchRequestData-55"><span class="linenos"> 55</span></a>    <span class="n">page_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</span><span id="SearchRequestData-56"><a href="#SearchRequestData-56"><span class="linenos"> 56</span></a>
+</span><span id="SearchRequestData-57"><a href="#SearchRequestData-57"><span class="linenos"> 57</span></a>    <span class="n">_allowed_sorting</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="SearchRequestData-58"><a href="#SearchRequestData-58"><span class="linenos"> 58</span></a>        <span class="p">(</span><span class="n">SortBy</span><span class="o">.</span><span class="n">SORT_SCORE</span><span class="p">,</span> <span class="n">SortOrder</span><span class="o">.</span><span class="n">ORDER_DESC</span><span class="p">),</span>
+</span><span id="SearchRequestData-59"><a href="#SearchRequestData-59"><span class="linenos"> 59</span></a>        <span class="p">(</span><span class="n">SortBy</span><span class="o">.</span><span class="n">SORT_CREATED_TIME</span><span class="p">,</span> <span class="n">SortOrder</span><span class="o">.</span><span class="n">ORDER_DESC</span><span class="p">),</span>
+</span><span id="SearchRequestData-60"><a href="#SearchRequestData-60"><span class="linenos"> 60</span></a>        <span class="p">(</span><span class="n">SortBy</span><span class="o">.</span><span class="n">SORT_PRICE</span><span class="p">,</span> <span class="n">SortOrder</span><span class="o">.</span><span class="n">ORDER_DESC</span><span class="p">),</span>
+</span><span id="SearchRequestData-61"><a href="#SearchRequestData-61"><span class="linenos"> 61</span></a>        <span class="p">(</span><span class="n">SortBy</span><span class="o">.</span><span class="n">SORT_PRICE</span><span class="p">,</span> <span class="n">SortOrder</span><span class="o">.</span><span class="n">ORDER_ASC</span><span class="p">),</span>
+</span><span id="SearchRequestData-62"><a href="#SearchRequestData-62"><span class="linenos"> 62</span></a>        <span class="p">(</span><span class="n">SortBy</span><span class="o">.</span><span class="n">SORT_NUM_LIKES</span><span class="p">,</span> <span class="n">SortOrder</span><span class="o">.</span><span class="n">ORDER_DESC</span><span class="p">),</span>
+</span><span id="SearchRequestData-63"><a href="#SearchRequestData-63"><span class="linenos"> 63</span></a>    <span class="p">]</span>
+</span><span id="SearchRequestData-64"><a href="#SearchRequestData-64"><span class="linenos"> 64</span></a>
+</span><span id="SearchRequestData-65"><a href="#SearchRequestData-65"><span class="linenos"> 65</span></a>    <span class="nd">@property</span>
+</span><span id="SearchRequestData-66"><a href="#SearchRequestData-66"><span class="linenos"> 66</span></a>    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</span><span id="SearchRequestData-67"><a href="#SearchRequestData-67"><span class="linenos"> 67</span></a>        <span class="n">shipping_methods</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">shipping_methods</span><span class="p">]</span>
+</span><span id="SearchRequestData-68"><a href="#SearchRequestData-68"><span class="linenos"> 68</span></a>        <span class="n">status</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">status</span><span class="p">]</span>
+</span><span id="SearchRequestData-69"><a href="#SearchRequestData-69"><span class="linenos"> 69</span></a>        <span class="k">if</span> <span class="s2">&quot;STATUS_SOLD_OUT&quot;</span> <span class="ow">in</span> <span class="n">status</span><span class="p">:</span>
+</span><span id="SearchRequestData-70"><a href="#SearchRequestData-70"><span class="linenos"> 70</span></a>            <span class="n">status</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="s2">&quot;STATUS_TRADING&quot;</span><span class="p">)</span>
+</span><span id="SearchRequestData-71"><a href="#SearchRequestData-71"><span class="linenos"> 71</span></a>
+</span><span id="SearchRequestData-72"><a href="#SearchRequestData-72"><span class="linenos"> 72</span></a>        <span class="k">if</span> <span class="p">(</span>
+</span><span id="SearchRequestData-73"><a href="#SearchRequestData-73"><span class="linenos"> 73</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sort_by</span><span class="p">,</span>
+</span><span id="SearchRequestData-74"><a href="#SearchRequestData-74"><span class="linenos"> 74</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sort_order</span><span class="p">,</span>
+</span><span id="SearchRequestData-75"><a href="#SearchRequestData-75"><span class="linenos"> 75</span></a>        <span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allowed_sorting</span><span class="p">:</span>
+</span><span id="SearchRequestData-76"><a href="#SearchRequestData-76"><span class="linenos"> 76</span></a>            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+</span><span id="SearchRequestData-77"><a href="#SearchRequestData-77"><span class="linenos"> 77</span></a>                <span class="sa">f</span><span class="s2">&quot;Parameter </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sort_by</span><span class="si">}</span><span class="s2"> used in conjugation with &quot;</span>
+</span><span id="SearchRequestData-78"><a href="#SearchRequestData-78"><span class="linenos"> 78</span></a>                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sort_order</span><span class="si">}</span><span class="s2"> is not supported by the official web-app. Proceed with caution.&quot;</span>
+</span><span id="SearchRequestData-79"><a href="#SearchRequestData-79"><span class="linenos"> 79</span></a>            <span class="p">)</span>
+</span><span id="SearchRequestData-80"><a href="#SearchRequestData-80"><span class="linenos"> 80</span></a>
+</span><span id="SearchRequestData-81"><a href="#SearchRequestData-81"><span class="linenos"> 81</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="SearchRequestData-82"><a href="#SearchRequestData-82"><span class="linenos"> 82</span></a>            <span class="s2">&quot;userId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="SearchRequestData-83"><a href="#SearchRequestData-83"><span class="linenos"> 83</span></a>            <span class="s2">&quot;pageSize&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
+</span><span id="SearchRequestData-84"><a href="#SearchRequestData-84"><span class="linenos"> 84</span></a>            <span class="s2">&quot;pageToken&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_token</span><span class="p">,</span>
+</span><span id="SearchRequestData-85"><a href="#SearchRequestData-85"><span class="linenos"> 85</span></a>            <span class="s2">&quot;searchSessionId&quot;</span><span class="p">:</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">,</span>
+</span><span id="SearchRequestData-86"><a href="#SearchRequestData-86"><span class="linenos"> 86</span></a>            <span class="s2">&quot;indexRouting&quot;</span><span class="p">:</span> <span class="s2">&quot;INDEX_ROUTING_UNSPECIFIED&quot;</span><span class="p">,</span>
+</span><span id="SearchRequestData-87"><a href="#SearchRequestData-87"><span class="linenos"> 87</span></a>            <span class="s2">&quot;thumbnailTypes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="SearchRequestData-88"><a href="#SearchRequestData-88"><span class="linenos"> 88</span></a>            <span class="s2">&quot;searchCondition&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="SearchRequestData-89"><a href="#SearchRequestData-89"><span class="linenos"> 89</span></a>                <span class="s2">&quot;keyword&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">query</span><span class="p">,</span>
+</span><span id="SearchRequestData-90"><a href="#SearchRequestData-90"><span class="linenos"> 90</span></a>                <span class="s2">&quot;sort&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sort_by</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+</span><span id="SearchRequestData-91"><a href="#SearchRequestData-91"><span class="linenos"> 91</span></a>                <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sort_order</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+</span><span id="SearchRequestData-92"><a href="#SearchRequestData-92"><span class="linenos"> 92</span></a>                <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="SearchRequestData-93"><a href="#SearchRequestData-93"><span class="linenos"> 93</span></a>                <span class="s2">&quot;sizeId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">sizes</span><span class="p">,</span>
+</span><span id="SearchRequestData-94"><a href="#SearchRequestData-94"><span class="linenos"> 94</span></a>                <span class="s2">&quot;categoryId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">categories</span><span class="p">,</span>
+</span><span id="SearchRequestData-95"><a href="#SearchRequestData-95"><span class="linenos"> 95</span></a>                <span class="s2">&quot;brandId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">brands</span><span class="p">,</span>
+</span><span id="SearchRequestData-96"><a href="#SearchRequestData-96"><span class="linenos"> 96</span></a>                <span class="s2">&quot;sellerId&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="SearchRequestData-97"><a href="#SearchRequestData-97"><span class="linenos"> 97</span></a>                <span class="s2">&quot;priceMin&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">price_min</span><span class="p">,</span>
+</span><span id="SearchRequestData-98"><a href="#SearchRequestData-98"><span class="linenos"> 98</span></a>                <span class="s2">&quot;priceMax&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">price_max</span><span class="p">,</span>
+</span><span id="SearchRequestData-99"><a href="#SearchRequestData-99"><span class="linenos"> 99</span></a>                <span class="s2">&quot;itemConditionId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">item_conditions</span><span class="p">,</span>
+</span><span id="SearchRequestData-100"><a href="#SearchRequestData-100"><span class="linenos">100</span></a>                <span class="s2">&quot;shippingPayerId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">shipping_payer</span><span class="p">,</span>
+</span><span id="SearchRequestData-101"><a href="#SearchRequestData-101"><span class="linenos">101</span></a>                <span class="s2">&quot;shippingFromArea&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="SearchRequestData-102"><a href="#SearchRequestData-102"><span class="linenos">102</span></a>                <span class="s2">&quot;shippingMethod&quot;</span><span class="p">:</span> <span class="n">shipping_methods</span><span class="p">,</span>
+</span><span id="SearchRequestData-103"><a href="#SearchRequestData-103"><span class="linenos">103</span></a>                <span class="s2">&quot;colorId&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">colors</span><span class="p">,</span>
+</span><span id="SearchRequestData-104"><a href="#SearchRequestData-104"><span class="linenos">104</span></a>                <span class="s2">&quot;hasCoupon&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+</span><span id="SearchRequestData-105"><a href="#SearchRequestData-105"><span class="linenos">105</span></a>                <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="SearchRequestData-106"><a href="#SearchRequestData-106"><span class="linenos">106</span></a>                <span class="s2">&quot;itemTypes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="SearchRequestData-107"><a href="#SearchRequestData-107"><span class="linenos">107</span></a>                <span class="s2">&quot;skuIds&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="SearchRequestData-108"><a href="#SearchRequestData-108"><span class="linenos">108</span></a>                <span class="s2">&quot;excludeKeyword&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_conditions</span><span class="o">.</span><span class="n">exclude</span><span class="p">,</span>
+</span><span id="SearchRequestData-109"><a href="#SearchRequestData-109"><span class="linenos">109</span></a>            <span class="p">},</span>
+</span><span id="SearchRequestData-110"><a href="#SearchRequestData-110"><span class="linenos">110</span></a>            <span class="s2">&quot;defaultDatasets&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="SearchRequestData-111"><a href="#SearchRequestData-111"><span class="linenos">111</span></a>            <span class="s2">&quot;serviceFrom&quot;</span><span class="p">:</span> <span class="s2">&quot;suruga&quot;</span><span class="p">,</span>
+</span><span id="SearchRequestData-112"><a href="#SearchRequestData-112"><span class="linenos">112</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
@@ -268,7 +361,7 @@
                             <div id="SearchRequestData.__init__" class="classattr">
                                 <div class="attr function">
             
-        <span class="name">SearchRequestData</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">search_conditions</span><span class="p">:</span> <span class="n"><a href="#SearchRequestData.SearchConditions">mercapi.requests.search.SearchRequestData.SearchConditions</a></span>,</span><span class="param">	<span class="n">page_token</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></span>)</span>
+        <span class="name">SearchRequestData</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">search_conditions</span><span class="p">:</span> <span class="n"><a href="#SearchRequestData.SearchConditions">mercapi.requests.search.SearchRequestData.SearchConditions</a></span>,</span><span class="param">	<span class="n">page_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span></span>)</span>
 
         
     </div>
@@ -289,10 +382,10 @@
 
     </div>
     <a class="headerlink" href="#SearchRequestData.ShippingMethod"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="SearchRequestData.ShippingMethod-12"><a href="#SearchRequestData.ShippingMethod-12"><span class="linenos">12</span></a>    <span class="k">class</span> <span class="nc">ShippingMethod</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="SearchRequestData.ShippingMethod-13"><a href="#SearchRequestData.ShippingMethod-13"><span class="linenos">13</span></a>        <span class="n">SHIPPING_METHOD_ANONYMOUS</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span id="SearchRequestData.ShippingMethod-14"><a href="#SearchRequestData.ShippingMethod-14"><span class="linenos">14</span></a>        <span class="n">SHIPPING_METHOD_JAPAN_POST</span> <span class="o">=</span> <span class="mi">2</span>
-</span><span id="SearchRequestData.ShippingMethod-15"><a href="#SearchRequestData.ShippingMethod-15"><span class="linenos">15</span></a>        <span class="n">SHIPPING_METHOD_NO_OPTION</span> <span class="o">=</span> <span class="mi">3</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="SearchRequestData.ShippingMethod-15"><a href="#SearchRequestData.ShippingMethod-15"><span class="linenos">15</span></a>    <span class="k">class</span> <span class="nc">ShippingMethod</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="SearchRequestData.ShippingMethod-16"><a href="#SearchRequestData.ShippingMethod-16"><span class="linenos">16</span></a>        <span class="n">SHIPPING_METHOD_ANONYMOUS</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="SearchRequestData.ShippingMethod-17"><a href="#SearchRequestData.ShippingMethod-17"><span class="linenos">17</span></a>        <span class="n">SHIPPING_METHOD_JAPAN_POST</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="SearchRequestData.ShippingMethod-18"><a href="#SearchRequestData.ShippingMethod-18"><span class="linenos">18</span></a>        <span class="n">SHIPPING_METHOD_NO_OPTION</span> <span class="o">=</span> <span class="mi">3</span>
 </span></pre></div>
 
 
@@ -355,10 +448,10 @@
 
     </div>
     <a class="headerlink" href="#SearchRequestData.Status"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="SearchRequestData.Status-17"><a href="#SearchRequestData.Status-17"><span class="linenos">17</span></a>    <span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="SearchRequestData.Status-18"><a href="#SearchRequestData.Status-18"><span class="linenos">18</span></a>        <span class="n">STATUS_ON_SALE</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span id="SearchRequestData.Status-19"><a href="#SearchRequestData.Status-19"><span class="linenos">19</span></a>        <span class="n">STATUS_SOLD_OUT</span> <span class="o">=</span> <span class="mi">2</span>
-</span><span id="SearchRequestData.Status-20"><a href="#SearchRequestData.Status-20"><span class="linenos">20</span></a>        <span class="c1"># STATUS_TRADING = 3</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="SearchRequestData.Status-20"><a href="#SearchRequestData.Status-20"><span class="linenos">20</span></a>    <span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="SearchRequestData.Status-21"><a href="#SearchRequestData.Status-21"><span class="linenos">21</span></a>        <span class="n">STATUS_ON_SALE</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="SearchRequestData.Status-22"><a href="#SearchRequestData.Status-22"><span class="linenos">22</span></a>        <span class="n">STATUS_SOLD_OUT</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="SearchRequestData.Status-23"><a href="#SearchRequestData.Status-23"><span class="linenos">23</span></a>        <span class="c1"># STATUS_TRADING = 3</span>
 </span></pre></div>
 
 
@@ -399,6 +492,138 @@
                                 </dl>
                             </div>
                 </section>
+                <section id="SearchRequestData.SortBy">
+                            <input id="SearchRequestData.SortBy-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">SearchRequestData.SortBy</span><wbr>(<span class="base">enum.Enum</span>):
+
+                <label class="view-source-button" for="SearchRequestData.SortBy-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#SearchRequestData.SortBy"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="SearchRequestData.SortBy-25"><a href="#SearchRequestData.SortBy-25"><span class="linenos">25</span></a>    <span class="k">class</span> <span class="nc">SortBy</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="SearchRequestData.SortBy-26"><a href="#SearchRequestData.SortBy-26"><span class="linenos">26</span></a>        <span class="n">SORT_SCORE</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="SearchRequestData.SortBy-27"><a href="#SearchRequestData.SortBy-27"><span class="linenos">27</span></a>        <span class="n">SORT_CREATED_TIME</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Correct order is not guaranteed</span>
+</span><span id="SearchRequestData.SortBy-28"><a href="#SearchRequestData.SortBy-28"><span class="linenos">28</span></a>        <span class="n">SORT_PRICE</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span id="SearchRequestData.SortBy-29"><a href="#SearchRequestData.SortBy-29"><span class="linenos">29</span></a>        <span class="n">SORT_NUM_LIKES</span> <span class="o">=</span> <span class="mi">4</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>An enumeration.</p>
+</div>
+
+
+                            <div id="SearchRequestData.SortBy.SORT_SCORE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SORT_SCORE</span><span class="default_value"> = &lt;SortBy.SORT_SCORE: 1&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#SearchRequestData.SortBy.SORT_SCORE"></a>
+    
+    
+
+                            </div>
+                            <div id="SearchRequestData.SortBy.SORT_CREATED_TIME" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SORT_CREATED_TIME</span><span class="default_value"> = &lt;SortBy.SORT_CREATED_TIME: 2&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#SearchRequestData.SortBy.SORT_CREATED_TIME"></a>
+    
+    
+
+                            </div>
+                            <div id="SearchRequestData.SortBy.SORT_PRICE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SORT_PRICE</span><span class="default_value"> = &lt;SortBy.SORT_PRICE: 3&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#SearchRequestData.SortBy.SORT_PRICE"></a>
+    
+    
+
+                            </div>
+                            <div id="SearchRequestData.SortBy.SORT_NUM_LIKES" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SORT_NUM_LIKES</span><span class="default_value"> = &lt;SortBy.SORT_NUM_LIKES: 4&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#SearchRequestData.SortBy.SORT_NUM_LIKES"></a>
+    
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>enum.Enum</dt>
+                                <dd id="SearchRequestData.SortBy.name" class="variable">name</dd>
+                <dd id="SearchRequestData.SortBy.value" class="variable">value</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="SearchRequestData.SortOrder">
+                            <input id="SearchRequestData.SortOrder-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">SearchRequestData.SortOrder</span><wbr>(<span class="base">enum.Enum</span>):
+
+                <label class="view-source-button" for="SearchRequestData.SortOrder-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#SearchRequestData.SortOrder"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="SearchRequestData.SortOrder-31"><a href="#SearchRequestData.SortOrder-31"><span class="linenos">31</span></a>    <span class="k">class</span> <span class="nc">SortOrder</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="SearchRequestData.SortOrder-32"><a href="#SearchRequestData.SortOrder-32"><span class="linenos">32</span></a>        <span class="n">ORDER_DESC</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="SearchRequestData.SortOrder-33"><a href="#SearchRequestData.SortOrder-33"><span class="linenos">33</span></a>        <span class="n">ORDER_ASC</span> <span class="o">=</span> <span class="mi">2</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>An enumeration.</p>
+</div>
+
+
+                            <div id="SearchRequestData.SortOrder.ORDER_DESC" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ORDER_DESC</span><span class="default_value"> = &lt;SortOrder.ORDER_DESC: 1&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#SearchRequestData.SortOrder.ORDER_DESC"></a>
+    
+    
+
+                            </div>
+                            <div id="SearchRequestData.SortOrder.ORDER_ASC" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ORDER_ASC</span><span class="default_value"> = &lt;SortOrder.ORDER_ASC: 2&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#SearchRequestData.SortOrder.ORDER_ASC"></a>
+    
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>enum.Enum</dt>
+                                <dd id="SearchRequestData.SortOrder.name" class="variable">name</dd>
+                <dd id="SearchRequestData.SortOrder.value" class="variable">value</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
                 <section id="SearchRequestData.SearchConditions">
                             <input id="SearchRequestData.SearchConditions-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
@@ -411,21 +636,24 @@
 
     </div>
     <a class="headerlink" href="#SearchRequestData.SearchConditions"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="SearchRequestData.SearchConditions-22"><a href="#SearchRequestData.SearchConditions-22"><span class="linenos">22</span></a>    <span class="nd">@dataclass</span>
-</span><span id="SearchRequestData.SearchConditions-23"><a href="#SearchRequestData.SearchConditions-23"><span class="linenos">23</span></a>    <span class="k">class</span> <span class="nc">SearchConditions</span><span class="p">:</span>
-</span><span id="SearchRequestData.SearchConditions-24"><a href="#SearchRequestData.SearchConditions-24"><span class="linenos">24</span></a>        <span class="n">query</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="SearchRequestData.SearchConditions-25"><a href="#SearchRequestData.SearchConditions-25"><span class="linenos">25</span></a>        <span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData.SearchConditions-26"><a href="#SearchRequestData.SearchConditions-26"><span class="linenos">26</span></a>        <span class="n">brands</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData.SearchConditions-27"><a href="#SearchRequestData.SearchConditions-27"><span class="linenos">27</span></a>        <span class="n">sizes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData.SearchConditions-28"><a href="#SearchRequestData.SearchConditions-28"><span class="linenos">28</span></a>        <span class="n">price_min</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="SearchRequestData.SearchConditions-29"><a href="#SearchRequestData.SearchConditions-29"><span class="linenos">29</span></a>        <span class="n">price_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="SearchRequestData.SearchConditions-30"><a href="#SearchRequestData.SearchConditions-30"><span class="linenos">30</span></a>        <span class="n">item_conditions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData.SearchConditions-31"><a href="#SearchRequestData.SearchConditions-31"><span class="linenos">31</span></a>        <span class="n">shipping_payer</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData.SearchConditions-32"><a href="#SearchRequestData.SearchConditions-32"><span class="linenos">32</span></a>        <span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span id="SearchRequestData.SearchConditions-33"><a href="#SearchRequestData.SearchConditions-33"><span class="linenos">33</span></a>        <span class="n">shipping_methods</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;SearchRequestData.ShippingMethod&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
-</span><span id="SearchRequestData.SearchConditions-34"><a href="#SearchRequestData.SearchConditions-34"><span class="linenos">34</span></a>            <span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span>
-</span><span id="SearchRequestData.SearchConditions-35"><a href="#SearchRequestData.SearchConditions-35"><span class="linenos">35</span></a>        <span class="p">)</span>
-</span><span id="SearchRequestData.SearchConditions-36"><a href="#SearchRequestData.SearchConditions-36"><span class="linenos">36</span></a>        <span class="n">status</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;SearchRequestData.Status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="SearchRequestData.SearchConditions-35"><a href="#SearchRequestData.SearchConditions-35"><span class="linenos">35</span></a>    <span class="nd">@dataclass</span>
+</span><span id="SearchRequestData.SearchConditions-36"><a href="#SearchRequestData.SearchConditions-36"><span class="linenos">36</span></a>    <span class="k">class</span> <span class="nc">SearchConditions</span><span class="p">:</span>
+</span><span id="SearchRequestData.SearchConditions-37"><a href="#SearchRequestData.SearchConditions-37"><span class="linenos">37</span></a>        <span class="n">query</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="SearchRequestData.SearchConditions-38"><a href="#SearchRequestData.SearchConditions-38"><span class="linenos">38</span></a>        <span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData.SearchConditions-39"><a href="#SearchRequestData.SearchConditions-39"><span class="linenos">39</span></a>        <span class="n">brands</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData.SearchConditions-40"><a href="#SearchRequestData.SearchConditions-40"><span class="linenos">40</span></a>        <span class="n">sizes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData.SearchConditions-41"><a href="#SearchRequestData.SearchConditions-41"><span class="linenos">41</span></a>        <span class="n">price_min</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="SearchRequestData.SearchConditions-42"><a href="#SearchRequestData.SearchConditions-42"><span class="linenos">42</span></a>        <span class="n">price_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="SearchRequestData.SearchConditions-43"><a href="#SearchRequestData.SearchConditions-43"><span class="linenos">43</span></a>        <span class="n">item_conditions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData.SearchConditions-44"><a href="#SearchRequestData.SearchConditions-44"><span class="linenos">44</span></a>        <span class="n">shipping_payer</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData.SearchConditions-45"><a href="#SearchRequestData.SearchConditions-45"><span class="linenos">45</span></a>        <span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData.SearchConditions-46"><a href="#SearchRequestData.SearchConditions-46"><span class="linenos">46</span></a>        <span class="n">shipping_methods</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;SearchRequestData.ShippingMethod&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+</span><span id="SearchRequestData.SearchConditions-47"><a href="#SearchRequestData.SearchConditions-47"><span class="linenos">47</span></a>            <span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span>
+</span><span id="SearchRequestData.SearchConditions-48"><a href="#SearchRequestData.SearchConditions-48"><span class="linenos">48</span></a>        <span class="p">)</span>
+</span><span id="SearchRequestData.SearchConditions-49"><a href="#SearchRequestData.SearchConditions-49"><span class="linenos">49</span></a>        <span class="n">status</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;SearchRequestData.Status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</span><span id="SearchRequestData.SearchConditions-50"><a href="#SearchRequestData.SearchConditions-50"><span class="linenos">50</span></a>        <span class="n">sort_by</span><span class="p">:</span> <span class="s2">&quot;SearchRequestData.SortBy&quot;</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="SearchRequestData.SearchConditions-51"><a href="#SearchRequestData.SearchConditions-51"><span class="linenos">51</span></a>        <span class="n">sort_order</span><span class="p">:</span> <span class="s2">&quot;SearchRequestData.SortOrder&quot;</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="SearchRequestData.SearchConditions-52"><a href="#SearchRequestData.SearchConditions-52"><span class="linenos">52</span></a>        <span class="n">exclude</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 </span></pre></div>
 
 
@@ -434,7 +662,7 @@
                             <div id="SearchRequestData.SearchConditions.__init__" class="classattr">
                                 <div class="attr function">
             
-        <span class="name">SearchRequestData.SearchConditions</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">query</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">brands</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">sizes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">price_min</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>,</span><span class="param">	<span class="n">price_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>,</span><span class="param">	<span class="n">item_conditions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">shipping_payer</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">shipping_methods</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n"><a href="#SearchRequestData.ShippingMethod">mercapi.requests.search.SearchRequestData.ShippingMethod</a></span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">status</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n"><a href="#SearchRequestData.Status">mercapi.requests.search.SearchRequestData.Status</a></span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span></span>)</span>
+        <span class="name">SearchRequestData.SearchConditions</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">query</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">brands</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">sizes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">price_min</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>,</span><span class="param">	<span class="n">price_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>,</span><span class="param">	<span class="n">item_conditions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">shipping_payer</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">shipping_methods</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n"><a href="#SearchRequestData.ShippingMethod">mercapi.requests.search.SearchRequestData.ShippingMethod</a></span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">status</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n"><a href="#SearchRequestData.Status">mercapi.requests.search.SearchRequestData.Status</a></span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">sort_by</span><span class="p">:</span> <span class="n"><a href="#SearchRequestData.SortBy">mercapi.requests.search.SearchRequestData.SortBy</a></span> <span class="o">=</span> <span class="mi">1</span>,</span><span class="param">	<span class="n">sort_order</span><span class="p">:</span> <span class="n"><a href="#SearchRequestData.SortOrder">mercapi.requests.search.SearchRequestData.SortOrder</a></span> <span class="o">=</span> <span class="mi">1</span>,</span><span class="param">	<span class="n">exclude</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span></span>)</span>
 
         
     </div>

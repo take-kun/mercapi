@@ -238,16 +238,17 @@
 </span><span id="L-86"><a href="#L-86"><span class="linenos">86</span></a>
 </span><span id="L-87"><a href="#L-87"><span class="linenos">87</span></a><span class="nd">@dataclass</span>
 </span><span id="L-88"><a href="#L-88"><span class="linenos">88</span></a><span class="k">class</span> <span class="nc">Comment</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="L-89"><a href="#L-89"><span class="linenos">89</span></a>    <span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="L-90"><a href="#L-90"><span class="linenos">90</span></a>        <span class="n">id_</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="L-91"><a href="#L-91"><span class="linenos">91</span></a>        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-92"><a href="#L-92"><span class="linenos">92</span></a>        <span class="n">photo</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-93"><a href="#L-93"><span class="linenos">93</span></a>        <span class="n">photo_thumbnail</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-94"><a href="#L-94"><span class="linenos">94</span></a>
-</span><span id="L-95"><a href="#L-95"><span class="linenos">95</span></a>    <span class="n">id_</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="L-96"><a href="#L-96"><span class="linenos">96</span></a>    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-97"><a href="#L-97"><span class="linenos">97</span></a>    <span class="n">user</span><span class="p">:</span> <span class="n">User</span>
-</span><span id="L-98"><a href="#L-98"><span class="linenos">98</span></a>    <span class="n">created</span><span class="p">:</span> <span class="n">datetime</span>
+</span><span id="L-89"><a href="#L-89"><span class="linenos">89</span></a>    <span class="nd">@dataclass</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos">90</span></a>    <span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos">91</span></a>        <span class="n">id_</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-92"><a href="#L-92"><span class="linenos">92</span></a>        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-93"><a href="#L-93"><span class="linenos">93</span></a>        <span class="n">photo</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-94"><a href="#L-94"><span class="linenos">94</span></a>        <span class="n">photo_thumbnail</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-95"><a href="#L-95"><span class="linenos">95</span></a>
+</span><span id="L-96"><a href="#L-96"><span class="linenos">96</span></a>    <span class="n">id_</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-97"><a href="#L-97"><span class="linenos">97</span></a>    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-98"><a href="#L-98"><span class="linenos">98</span></a>    <span class="n">user</span><span class="p">:</span> <span class="n">User</span>
+</span><span id="L-99"><a href="#L-99"><span class="linenos">99</span></a>    <span class="n">created</span><span class="p">:</span> <span class="n">datetime</span>
 </span></pre></div>
 
 
@@ -684,18 +685,19 @@
 
     </div>
     <a class="headerlink" href="#Comment"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Comment-88"><a href="#Comment-88"><span class="linenos">88</span></a><span class="nd">@dataclass</span>
-</span><span id="Comment-89"><a href="#Comment-89"><span class="linenos">89</span></a><span class="k">class</span> <span class="nc">Comment</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="Comment-90"><a href="#Comment-90"><span class="linenos">90</span></a>    <span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="Comment-91"><a href="#Comment-91"><span class="linenos">91</span></a>        <span class="n">id_</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="Comment-92"><a href="#Comment-92"><span class="linenos">92</span></a>        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="Comment-93"><a href="#Comment-93"><span class="linenos">93</span></a>        <span class="n">photo</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="Comment-94"><a href="#Comment-94"><span class="linenos">94</span></a>        <span class="n">photo_thumbnail</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="Comment-95"><a href="#Comment-95"><span class="linenos">95</span></a>
-</span><span id="Comment-96"><a href="#Comment-96"><span class="linenos">96</span></a>    <span class="n">id_</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="Comment-97"><a href="#Comment-97"><span class="linenos">97</span></a>    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="Comment-98"><a href="#Comment-98"><span class="linenos">98</span></a>    <span class="n">user</span><span class="p">:</span> <span class="n">User</span>
-</span><span id="Comment-99"><a href="#Comment-99"><span class="linenos">99</span></a>    <span class="n">created</span><span class="p">:</span> <span class="n">datetime</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Comment-88"><a href="#Comment-88"><span class="linenos"> 88</span></a><span class="nd">@dataclass</span>
+</span><span id="Comment-89"><a href="#Comment-89"><span class="linenos"> 89</span></a><span class="k">class</span> <span class="nc">Comment</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
+</span><span id="Comment-90"><a href="#Comment-90"><span class="linenos"> 90</span></a>    <span class="nd">@dataclass</span>
+</span><span id="Comment-91"><a href="#Comment-91"><span class="linenos"> 91</span></a>    <span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
+</span><span id="Comment-92"><a href="#Comment-92"><span class="linenos"> 92</span></a>        <span class="n">id_</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Comment-93"><a href="#Comment-93"><span class="linenos"> 93</span></a>        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Comment-94"><a href="#Comment-94"><span class="linenos"> 94</span></a>        <span class="n">photo</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Comment-95"><a href="#Comment-95"><span class="linenos"> 95</span></a>        <span class="n">photo_thumbnail</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Comment-96"><a href="#Comment-96"><span class="linenos"> 96</span></a>
+</span><span id="Comment-97"><a href="#Comment-97"><span class="linenos"> 97</span></a>    <span class="n">id_</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Comment-98"><a href="#Comment-98"><span class="linenos"> 98</span></a>    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Comment-99"><a href="#Comment-99"><span class="linenos"> 99</span></a>    <span class="n">user</span><span class="p">:</span> <span class="n">User</span>
+</span><span id="Comment-100"><a href="#Comment-100"><span class="linenos">100</span></a>    <span class="n">created</span><span class="p">:</span> <span class="n">datetime</span>
 </span></pre></div>
 
 
@@ -726,7 +728,8 @@
                 <section id="Comment.User">
                             <input id="Comment.User-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
-            
+                    <div class="decorator">@dataclass</div>
+
     <span class="def">class</span>
     <span class="name">Comment.User</span><wbr>(<span class="base"><a href="../base.html#ResponseModel">mercapi.models.base.ResponseModel</a></span>):
 
@@ -734,11 +737,12 @@
 
     </div>
     <a class="headerlink" href="#Comment.User"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Comment.User-90"><a href="#Comment.User-90"><span class="linenos">90</span></a>    <span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
-</span><span id="Comment.User-91"><a href="#Comment.User-91"><span class="linenos">91</span></a>        <span class="n">id_</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="Comment.User-92"><a href="#Comment.User-92"><span class="linenos">92</span></a>        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="Comment.User-93"><a href="#Comment.User-93"><span class="linenos">93</span></a>        <span class="n">photo</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="Comment.User-94"><a href="#Comment.User-94"><span class="linenos">94</span></a>        <span class="n">photo_thumbnail</span><span class="p">:</span> <span class="nb">str</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Comment.User-90"><a href="#Comment.User-90"><span class="linenos">90</span></a>    <span class="nd">@dataclass</span>
+</span><span id="Comment.User-91"><a href="#Comment.User-91"><span class="linenos">91</span></a>    <span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">ResponseModel</span><span class="p">):</span>
+</span><span id="Comment.User-92"><a href="#Comment.User-92"><span class="linenos">92</span></a>        <span class="n">id_</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Comment.User-93"><a href="#Comment.User-93"><span class="linenos">93</span></a>        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Comment.User-94"><a href="#Comment.User-94"><span class="linenos">94</span></a>        <span class="n">photo</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Comment.User-95"><a href="#Comment.User-95"><span class="linenos">95</span></a>        <span class="n">photo_thumbnail</span><span class="p">:</span> <span class="nb">str</span>
 </span></pre></div>
 
 
@@ -747,7 +751,7 @@
                             <div id="Comment.User.__init__" class="classattr">
                                 <div class="attr function">
             
-        <span class="name">Comment.User</span><span class="signature pdoc-code condensed">()</span>
+        <span class="name">Comment.User</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">id_</span><span class="p">:</span> <span class="nb">int</span>, </span><span class="param"><span class="n">name</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">photo</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">photo_thumbnail</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
 
         
     </div>
