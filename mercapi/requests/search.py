@@ -33,6 +33,7 @@ class SearchRequestData(RequestData):
             default_factory=list
         )
         status: List["SearchRequestData.Status"] = field(default_factory=list)
+        exclude: str = ""
 
     search_conditions: SearchConditions
     page_token: Optional[str]
@@ -53,7 +54,6 @@ class SearchRequestData(RequestData):
             "thumbnailTypes": [],
             "searchCondition": {
                 "keyword": self.search_conditions.query,
-                "excludeKeyword": "",
                 "sort": "SORT_SCORE",
                 "order": "ORDER_DESC",
                 "status": [],
@@ -72,6 +72,7 @@ class SearchRequestData(RequestData):
                 "attributes": [],
                 "itemTypes": [],
                 "skuIds": [],
+                "excludeKeyword": self.search_conditions.exclude,
             },
             "defaultDatasets": [],
             "serviceFrom": "suruga",
