@@ -3,6 +3,7 @@ from datetime import datetime
 import pytest
 
 from mercapi.util.errors import IncorrectRequestError
+from mercapi.requests import SearchRequestData
 
 
 @pytest.mark.asyncio
@@ -112,3 +113,24 @@ async def test_search_fetch_next_page_on_last_page(m):
     res = await m.search("sharpnel mad breaks")
     with pytest.raises(IncorrectRequestError):
         await res.next_page()
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_search_sort_by_price_asc(m):
+    res = await m.search(
+        "sharpnel",
+        sort_by=SearchRequestData.SortBy.SORT_PRICE,
+        sort_order=SearchRequestData.SortOrder.ORDER_ASC,
+    )
+    prices = [i.price for i in res.items]
+
+    for a, b in zip(prices, prices[1:]):
+        assert a <= b
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_search_exclude_keywords(m):
+    res = await m.search("sharpnel", exclude="beatmania")
+    assert all("beatmania" not in i.name.lower() for i in res.items)

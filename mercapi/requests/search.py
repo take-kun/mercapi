@@ -1,9 +1,12 @@
+import logging
 import uuid
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import List, Optional, Dict, Any
+from typing import List, Dict, Any
 
 from mercapi.requests import RequestData
+
+log = logging.getLogger(__name__)
 
 
 @dataclass
@@ -17,6 +20,16 @@ class SearchRequestData(RequestData):
         STATUS_ON_SALE = 1
         STATUS_SOLD_OUT = 2
         # STATUS_TRADING = 3
+
+    class SortBy(Enum):
+        SORT_SCORE = 1
+        SORT_CREATED_TIME = 2  # Correct order is not guaranteed
+        SORT_PRICE = 3
+        SORT_NUM_LIKES = 4
+
+    class SortOrder(Enum):
+        ORDER_DESC = 1
+        ORDER_ASC = 2
 
     @dataclass
     class SearchConditions:
@@ -33,9 +46,20 @@ class SearchRequestData(RequestData):
             default_factory=list
         )
         status: List["SearchRequestData.Status"] = field(default_factory=list)
+        sort_by: "SearchRequestData.SortBy" = 1
+        sort_order: "SearchRequestData.SortOrder" = 1
+        exclude: str = ""
 
     search_conditions: SearchConditions
-    page_token: Optional[str]
+    page_token: str = ""
+
+    _allowed_sorting = [
+        (SortBy.SORT_SCORE, SortOrder.ORDER_DESC),
+        (SortBy.SORT_CREATED_TIME, SortOrder.ORDER_DESC),
+        (SortBy.SORT_PRICE, SortOrder.ORDER_DESC),
+        (SortBy.SORT_PRICE, SortOrder.ORDER_ASC),
+        (SortBy.SORT_NUM_LIKES, SortOrder.ORDER_DESC),
+    ]
 
     @property
     def data(self) -> Dict[str, Any]:
@@ -44,18 +68,26 @@ class SearchRequestData(RequestData):
         if "STATUS_SOLD_OUT" in status:
             status.extend("STATUS_TRADING")
 
+        if (
+            self.search_conditions.sort_by,
+            self.search_conditions.sort_order,
+        ) not in self._allowed_sorting:
+            log.warning(
+                f"Parameter {self.search_conditions.sort_by} used in conjugation with "
+                f"{self.search_conditions.sort_order} is not supported by the official web-app. Proceed with caution."
+            )
+
         return {
             "userId": "",
             "pageSize": 120,
-            "pageToken": self.page_token or "",
+            "pageToken": self.page_token,
             "searchSessionId": uuid.uuid4().hex,
             "indexRouting": "INDEX_ROUTING_UNSPECIFIED",
             "thumbnailTypes": [],
             "searchCondition": {
                 "keyword": self.search_conditions.query,
-                "excludeKeyword": "",
-                "sort": "SORT_SCORE",
-                "order": "ORDER_DESC",
+                "sort": self.search_conditions.sort_by.name,
+                "order": self.search_conditions.sort_order.name,
                 "status": [],
                 "sizeId": self.search_conditions.sizes,
                 "categoryId": self.search_conditions.categories,
@@ -72,6 +104,7 @@ class SearchRequestData(RequestData):
                 "attributes": [],
                 "itemTypes": [],
                 "skuIds": [],
+                "excludeKeyword": self.search_conditions.exclude,
             },
             "defaultDatasets": [],
             "serviceFrom": "suruga",

@@ -57,3 +57,33 @@ async def test_item(m):
     seller = res.seller
     assert seller.id_ == 485869194
     assert seller.name == "adieusos"
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_item_with_comments(m):
+    res = await m.item("m70888717210")
+    assert res is not None
+
+    assert len(res.comments) == 2
+    comment = res.comments[0]
+
+    assert comment.id_ == 6811421532913173640
+    assert comment.message == "びすこあ(プロフを読んでね)様\n値下げ了承しました。\n値下げ＆専用に変更致しますのでしばらくお待ちください。"
+    assert int(datetime.timestamp(comment.created)) == 1675072827
+
+    user = comment.user
+    assert user.id_ == 492113432
+    assert user.name == "ヨシカズ(プロフ読んでね)"
+    assert user.photo == "https://static.mercdn.net/members/492113432.jpg?1672566263"
+    assert (
+        user.photo_thumbnail
+        == "https://static.mercdn.net/thumb/members/492113432.jpg?1672566263"
+    )
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_item_not_found(m):
+    res = await m.item("m00000000000")
+    assert res is None
