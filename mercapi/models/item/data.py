@@ -86,6 +86,7 @@ class ShippingClass(ResponseModel):
 
 @dataclass
 class Comment(ResponseModel):
+    @dataclass
     class User(ResponseModel):
         id_: int
         name: str
