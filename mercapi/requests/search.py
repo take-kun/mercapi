@@ -1,8 +1,8 @@
+import logging
 import uuid
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import List, Optional, Dict, Any
-import logging
+from typing import List, Dict, Any
 
 from mercapi.requests import RequestData
 
@@ -51,7 +51,7 @@ class SearchRequestData(RequestData):
         exclude: str = ""
 
     search_conditions: SearchConditions
-    page_token: Optional[str]
+    page_token: str = ""
 
     _allowed_sorting = [
         (SortBy.SORT_SCORE, SortOrder.ORDER_DESC),
@@ -80,7 +80,7 @@ class SearchRequestData(RequestData):
         return {
             "userId": "",
             "pageSize": 120,
-            "pageToken": self.page_token or "",
+            "pageToken": self.page_token,
             "searchSessionId": uuid.uuid4().hex,
             "indexRouting": "INDEX_ROUTING_UNSPECIFIED",
             "thumbnailTypes": [],
