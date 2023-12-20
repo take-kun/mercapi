@@ -51,9 +51,12 @@ class Mercapi:
     async def search(
         self,
         query: str,
+        *,
         categories: List[int] = [],
         brands: List[int] = [],
         sizes: List[int] = [],
+        sort_by: SearchRequestData.SortBy = SearchRequestData.SortBy.SORT_SCORE,
+        sort_order: SearchRequestData.SortOrder = SearchRequestData.SortOrder.ORDER_DESC,
         price_min: int = None,
         price_max: int = None,
         item_conditions: List[int] = [],
@@ -62,7 +65,7 @@ class Mercapi:
         shipping_methods: List[SearchRequestData.ShippingMethod] = [],
         status: List[SearchRequestData.Status] = [],
         page_token: str = None,
-        exclude: str = "",
+        exclude: str = None,
     ) -> SearchResults:
         """Perform basic search and return list of items and metadata.
         This method reflects the action of using search bar at the top of the website.
@@ -77,6 +80,8 @@ class Mercapi:
         :param categories: filter results by categories (カテゴリー)
         :param brands: filter results by brands (ブランド)
         :param sizes: filter results by sizes (サイズ)
+        :param sort_by: sort results by specified criteria (おすすめ順)
+        :param sort_order: sort results in specified order (おすすめ順)
         :param price_min: set results minimum price (価格, first textbox)
         :param price_max: set results maximum price (価格, second textbox)
         :param item_conditions: filter results by conditions  (商品の状態)
@@ -85,8 +90,8 @@ class Mercapi:
         :param shipping_methods: filter results by available shipping methods (発送オプション)
         :param status: filter results by listing statuses (販売状況)
         :param page_token: used for paging results, provided in the response data
+        :param exclude: Exclude items matching to string (除外キーワード)
         :return: List of search results (items) and metadata (e.g. total count)
-        :exclude: Exclude items matching to string
         """
         request = SearchRequestData(
             SearchRequestData.SearchConditions(
@@ -101,6 +106,8 @@ class Mercapi:
                 colors,
                 shipping_methods,
                 status,
+                sort_by,
+                sort_order,
                 exclude,
             ),
             page_token,
