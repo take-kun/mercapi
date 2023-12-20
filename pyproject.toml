@@ -29,7 +29,7 @@ optional = true
 pdoc = "^12.2.0"
 
 [tool.poetry.group.lint.dependencies]
-black = "^22.6.0"
+black = "22.6.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
