@@ -1,0 +1,57 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IjZqYldvMC1EeENQZmdKNFZ6aWZOQlBWWE9leG1sUTNfZnhtWlk2TjhVZHciLCJ5IjoiRGZmTVo2X2NEbHhMVzhrVDFhMDZSaDFwb1FVdzFaVzg5OVY4Z0gxVGxiNCJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3MDMxMTEwMzksImp0aSI6IjYwYzQ3MDYyLTRjZGItNTk1Mi04OGJkLWNiMzU0YzU2NGRmMyIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvaXRlbXMvZ2V0P2lkPW0wMDAwMDAwMDAwMCIsImh0bSI6IkdFVCIsInV1aWQiOiI1NzMzZjIxYy1iZTM4LWViOGEtZTA3Yi0zMWRkYTc2MGEwYTcifQ.RGcaB5gImDKiTu5hr0I4J1yE6ofVls-f1Bzbf8ezO9H1QNYJP9fgd2PK-ssevDzk8KR-mwoOo4pcTdJgInbdIg
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+      x-platform:
+      - web
+    method: GET
+    uri: https://api.mercari.jp/items/get?id=m00000000000
+  response:
+    content: "{\"result\":\"error\",\"errors\":[{\"code\":\"RecordNotFoundException\",\"message\":\"\u898B\u3064\u304B\u308A\u307E\u305B\u3093\u3067\u3057\u305F\"}],\"meta\":{}}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 838b4afe08f33bcb-WAW
+      Cache-Control:
+      - private,no-store,no-cache,must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 20 Dec 2023 22:23:59 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=OKz4dVzIf4_edp1AwVvY4hOjeFx9pciYGq.QmMlWudw-1703111039-1-AZLUTJOmD7AMFdynXQr7r0zSQWLbkgYR6lDQRpSXmiXadCBfwbpJmkOMjvDsXIzf8FKoSBRm/hO7Y9CpXz+faoc=;
+        path=/; expires=Wed, 20-Dec-23 22:53:59 GMT; domain=.api.mercari.jp; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      pragma:
+      - no-cache
+      set-cookie:
+      - merCtx=""; HttpOnly
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-envoy-decorator-operation:
+      - app-server.mercari-item-details-jp-prod.svc.cluster.local:10001/*
+      x-envoy-upstream-service-time:
+      - '7'
+      x-request-id:
+      - 1da6ba83-be07-4b2e-a616-e070acf21af6
+    http_version: HTTP/1.1
+    status_code: 404
+version: 1
