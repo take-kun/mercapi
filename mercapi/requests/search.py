@@ -6,7 +6,6 @@ import logging
 
 from mercapi.requests import RequestData
 
-
 log = logging.getLogger(__name__)
 
 
@@ -24,7 +23,7 @@ class SearchRequestData(RequestData):
 
     class SortBy(Enum):
         SORT_SCORE = 1
-        SORT_CREATED_TIME = 2
+        SORT_CREATED_TIME = 2  # Correct order is not guaranteed
         SORT_PRICE = 3
         SORT_NUM_LIKES = 4
 
@@ -69,10 +68,13 @@ class SearchRequestData(RequestData):
         if "STATUS_SOLD_OUT" in status:
             status.extend("STATUS_TRADING")
 
-        if (self.search_conditions.sort_by, self.search_conditions.sort_order) not in self._allowed_sorting:
+        if (
+            self.search_conditions.sort_by,
+            self.search_conditions.sort_order,
+        ) not in self._allowed_sorting:
             log.warning(
-                f"Parameter {self.search_conditions.sort_by} used in cojuction with {self.search_conditions.sort_order}"
-                 "is not supported by the official web-app. Proceed with caution."
+                f"Parameter {self.search_conditions.sort_by} used in conjugation with "
+                f"{self.search_conditions.sort_order} is not supported by the official web-app. Proceed with caution."
             )
 
         return {

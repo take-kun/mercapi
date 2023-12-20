@@ -127,17 +127,3 @@ async def test_search_sort_by_price_asc(m):
 
     for a, b in zip(prices, prices[1:]):
         assert a <= b
-
-
-@pytest.mark.asyncio
-@pytest.mark.vcr
-async def test_search_sort_by_created_time_desc(m):
-    res = await m.search(
-        "sharpnel",
-        sort_by=SearchRequestData.SortBy.SORT_CREATED_TIME,
-        sort_order=SearchRequestData.SortOrder.ORDER_DESC,
-    )
-    c_times = [i.created for i in res.items]
-
-    for a, b in zip(c_times, c_times[1:]):
-        assert a >= b
