@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mercapi"
-version = "0.3.0"
+version = "0.4.0"
 description = "Python API for querying and browsing mercari.jp"
 authors = ["take-kun <109226194+take-kun@users.noreply.github.com>"]
 license = "MIT"
