@@ -62,6 +62,7 @@ class Mercapi:
         shipping_methods: List[SearchRequestData.ShippingMethod] = [],
         status: List[SearchRequestData.Status] = [],
         page_token: str = None,
+        exclude: str = "",
     ) -> SearchResults:
         """Perform basic search and return list of items and metadata.
         This method reflects the action of using search bar at the top of the website.
@@ -85,6 +86,7 @@ class Mercapi:
         :param status: filter results by listing statuses (販売状況)
         :param page_token: used for paging results, provided in the response data
         :return: List of search results (items) and metadata (e.g. total count)
+        :exclude: Exclude items matching to string
         """
         request = SearchRequestData(
             SearchRequestData.SearchConditions(
@@ -99,6 +101,7 @@ class Mercapi:
                 colors,
                 shipping_methods,
                 status,
+                exclude,
             ),
             page_token,
         )
