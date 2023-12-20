@@ -1,0 +1,60 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IklqN2NNcHI3V0E2V0NuRlpFc2ZqOFBLZGVXTnJkNEFrekV2QzQ5TDc0OGciLCJ5IjoiTVJpdWNoSW54VWVHdnB4M0pla2syQ3VHaTcybFlld2pSOWtGRG5RMVBUbyJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3MDMxMTEwMzgsImp0aSI6IjllODI3OTczLWY2Y2MtMmQ1NS01MzNkLWMwYzBmZTg3MTI1MSIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvaXRlbXMvZ2V0P2lkPW03MDg4ODcxNzIxMCIsImh0bSI6IkdFVCIsInV1aWQiOiI3MDYzNDkzOS1iNTEyLTc4YTUtODM3NS1jOWU1ZGU3ZGNjYTQifQ.5pcFbCSuT4SDljmVnfN3-CEZh7PCJQfn9UKC7SoceC_cYc3dG0pqOFgAxVj_DPvifFGmAePR5caWNFqk28p_5Q
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+      x-platform:
+      - web
+    method: GET
+    uri: https://api.mercari.jp/items/get?id=m70888717210
+  response:
+    content: "{\"result\":\"OK\",\"data\":{\"id\":\"m70888717210\",\"seller\":{\"id\":492113432,\"name\":\"\u30E8\u30B7\u30AB\u30BA(\u30D7\u30ED\u30D5\u8AAD\u3093\u3067\u306D)\",\"photo_url\":\"https://static.mercdn.net/members/492113432.jpg?1672566263\",\"photo_thumbnail_url\":\"https://static.mercdn.net/thumb/members/492113432.jpg?1672566263\",\"register_sms_confirmation\":\"yes\",\"register_sms_confirmation_at\":\"2022-12-31
+      07:42:09\",\"created\":1672440129,\"num_sell_items\":106,\"ratings\":{\"good\":143,\"normal\":0,\"bad\":0},\"num_ratings\":143,\"score\":143,\"is_official\":false,\"quick_shipper\":false,\"star_rating_score\":5},\"buyer\":{\"id\":737458319,\"name\":\"*\",\"register_sms_confirmation\":\"yes\"},\"status\":\"sold_out\",\"name\":\"\u65E5\u672C\u570B\u6C11
+      BORDERLESS JAP-0106\",\"price\":5000,\"description\":\"\u3073\u3059\u3053\u3042(\u30D7\u30ED\u30D5\u3092\u8AAD\u3093\u3067\u306D)\u69D8\u5C02\u7528\u3067\u3059\u306E\u3067\u4ED6\u306E\u30E6\u30FC\u30B6\u69D8\u306E\u5FA1\u5165\u672D\u306F\u5FA1\u9060\u616E\u306D\u304C\u3044\u307E\u3059\u3002\\n\\n\\n#\\ny05k\\nLOU\\ntabemonm\\nnull500\\nm1dy\\ndoly\\n\u8D64\u57CE\u30A8\u30F3\u30BF\u30FC\u30D7\u30E9\u30A4\u30BA\\nDJ
+      SHARPNEL\",\"photos\":[\"https://static.mercdn.net/item/detail/orig/photos/m70888717210_1.jpg?1675073767\",\"https://static.mercdn.net/item/detail/orig/photos/m70888717210_2.jpg?1674890646\",\"https://static.mercdn.net/item/detail/orig/photos/m70888717210_3.jpg?1674890646\"],\"photo_paths\":[\"photos/m70888717210_1.jpg\",\"photos/m70888717210_2.jpg\",\"photos/m70888717210_3.jpg\"],\"thumbnails\":[\"https://static.mercdn.net/c!/w=240/thumb/photos/m70888717210_1.jpg?1675073767\"],\"item_category\":{\"id\":700,\"name\":\"\u305D\u306E\u4ED6\",\"display_order\":100,\"parent_category_id\":75,\"parent_category_name\":\"CD\",\"root_category_id\":5,\"root_category_name\":\"\u672C\u30FB\u97F3\u697D\u30FB\u30B2\u30FC\u30E0\"},\"item_category_ntiers\":{\"id\":700,\"name\":\"\u305D\u306E\u4ED6\",\"display_order\":100,\"parent_category_id\":75,\"parent_category_name\":\"CD\",\"root_category_id\":5,\"root_category_name\":\"\u672C\u30FB\u97F3\u697D\u30FB\u30B2\u30FC\u30E0\"},\"parent_categories_ntiers\":[{\"id\":5,\"name\":\"\u672C\u30FB\u97F3\u697D\u30FB\u30B2\u30FC\u30E0\",\"display_order\":0},{\"id\":75,\"name\":\"CD\",\"display_order\":0}],\"item_condition\":{\"id\":3,\"name\":\"\u76EE\u7ACB\u3063\u305F\u50B7\u3084\u6C5A\u308C\u306A\u3057\"},\"colors\":[],\"shipping_payer\":{\"id\":2,\"name\":\"\u9001\u6599\u8FBC\u307F(\u51FA\u54C1\u8005\u8CA0\u62C5)\",\"code\":\"seller\"},\"shipping_method\":{\"id\":14,\"name\":\"\u3089\u304F\u3089\u304F\u30E1\u30EB\u30AB\u30EA\u4FBF\",\"is_deprecated\":\"no\"},\"shipping_from_area\":{\"id\":27,\"name\":\"\u5927\u962A\u5E9C\"},\"shipping_duration\":{\"id\":3,\"name\":\"4~7\u65E5\u3067\u767A\u9001\",\"min_days\":4,\"max_days\":7},\"shipping_class\":{\"id\":1,\"name\":\"\u30CD\u30B3\u30DD\u30B9\",\"description\":\"\u30CD\u30B3\u30DD\u30B9\",\"fee\":210,\"carrier\":\"yamato\",\"carrier_display_name\":\"\u30E4\u30DE\u30C8\u904B\u8F38\",\"request_class_display_name\":\"\u30CD\u30B3\u30DD\u30B9\",\"icon_id\":0,\"pickup_fee\":0,\"shipping_fee\":210,\"total_fee\":210,\"is_pickup\":false},\"num_likes\":2,\"num_comments\":2,\"comments\":[{\"id\":6811421532913173640,\"user\":{\"id\":492113432,\"name\":\"\u30E8\u30B7\u30AB\u30BA(\u30D7\u30ED\u30D5\u8AAD\u3093\u3067\u306D)\",\"photo_url\":\"https://static.mercdn.net/members/492113432.jpg?1672566263\",\"photo_thumbnail_url\":\"https://static.mercdn.net/thumb/members/492113432.jpg?1672566263\"},\"message\":\"\u3073\u3059\u3053\u3042(\u30D7\u30ED\u30D5\u3092\u8AAD\u3093\u3067\u306D)\u69D8\\n\u5024\u4E0B\u3052\u4E86\u627F\u3057\u307E\u3057\u305F\u3002\\n\u5024\u4E0B\u3052\uFF06\u5C02\u7528\u306B\u5909\u66F4\u81F4\u3057\u307E\u3059\u306E\u3067\u3057\u3070\u3089\u304F\u304A\u5F85\u3061\u304F\u3060\u3055\u3044\u3002\",\"created\":1675072827},{\"id\":4862041989661732352,\"user\":{\"id\":737458319,\"name\":\"\u3073\u3059\u3053\u3042(\u30D7\u30ED\u30D5\u3092\u8AAD\u3093\u3067\u306D)\",\"photo_url\":\"https://static.mercdn.net/members/737458319.jpg?1538650363\",\"photo_thumbnail_url\":\"https://static.mercdn.net/thumb/members/737458319.jpg?1538650363\"},\"message\":\"\u521D\u3081\u307E\u3057\u3066\u3002\u5546\u54C1\u306E\u8CFC\u5165\u3092\u691C\u8A0E\u3057\u3066\u3044\u307E\u3059\u3002\\r\\n5000\u5186\u306B\u304A\u5024\u4E0B\u3052\u3057\u3066\u3044\u305F\u3060\u304F\u3053\u3068\u306F\u53EF\u80FD\u3067\u3057\u3087\u3046\u304B\uFF1F\\r\\n\u3088\u308D\u3057\u304F\u304A\u9858\u3044\u3044\u305F\u3057\u307E\u3059\u3002\",\"created\":1675070644}],\"updated\":1675338566,\"created\":1674890646,\"pager_id\":5445137921,\"liked\":false,\"checksum\":\"760c2bf47a735f0407bd73fb0cb48f90\",\"is_dynamic_shipping_fee\":false,\"application_attributes\":{},\"is_shop_item\":\"no\",\"hash_tags\":[],\"is_anonymous_shipping\":true,\"is_web_visible\":true,\"is_offerable\":false,\"is_organizational_user\":false,\"organizational_user_status\":\"\",\"is_stock_item\":false,\"is_cancelable\":true,\"shipped_by_worker\":false,\"transaction_evidence\":{\"id\":1367627679,\"status\":\"done\"},\"additional_services\":[],\"has_additional_service\":false,\"has_like_list\":false,\"is_offerable_v2\":false,\"is_dismissed\":false},\"meta\":{}}\n"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 838b4afb38e3354b-WAW
+      Cache-Control:
+      - private,no-store,no-cache,must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 20 Dec 2023 22:23:59 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=Err919le.7wNypQXO1ITe4LnmGDbcnLkcSROLHKNNDI-1703111039-1-ASTVFeAcPFpMp5gu1Y0dkXCL4JA0d/k9lnBX3JIhBjlQyy2Nd0pvAl8DrSpCEpCIk6xDG6BX2r7tkeOf/iPs84U=;
+        path=/; expires=Wed, 20-Dec-23 22:53:59 GMT; domain=.api.mercari.jp; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      pragma:
+      - no-cache
+      set-cookie:
+      - merCtx=""; HttpOnly
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-envoy-decorator-operation:
+      - app-server.mercari-item-details-jp-prod.svc.cluster.local:10001/*
+      x-envoy-upstream-service-time:
+      - '49'
+      x-request-id:
+      - bbf67b96-e2af-4514-9539-f068693dc629
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1
