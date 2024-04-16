@@ -69,7 +69,7 @@
 
                         <label class="view-source-button" for="mod-errors-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="k">class</span> <span class="nc">MercapiError</span><span class="p">(</span><span class="ne">BaseException</span><span class="p">):</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="k">class</span> <span class="nc">MercapiError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>    <span class="k">pass</span>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a>
 </span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a>
@@ -88,27 +88,30 @@
 <div class="attr class">
             
     <span class="def">class</span>
-    <span class="name">MercapiError</span><wbr>(<span class="base">builtins.BaseException</span>):
+    <span class="name">MercapiError</span><wbr>(<span class="base">builtins.Exception</span>):
 
                 <label class="view-source-button" for="MercapiError-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#MercapiError"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MercapiError-2"><a href="#MercapiError-2"><span class="linenos">2</span></a><span class="k">class</span> <span class="nc">MercapiError</span><span class="p">(</span><span class="ne">BaseException</span><span class="p">):</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MercapiError-2"><a href="#MercapiError-2"><span class="linenos">2</span></a><span class="k">class</span> <span class="nc">MercapiError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 </span><span id="MercapiError-3"><a href="#MercapiError-3"><span class="linenos">3</span></a>    <span class="k">pass</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Common base class for all exceptions</p>
+            <div class="docstring"><p>Common base class for all non-exit exceptions.</p>
 </div>
 
 
                             <div class="inherited">
                                 <h5>Inherited Members</h5>
                                 <dl>
-                                    <div><dt>builtins.BaseException</dt>
-                                <dd id="MercapiError.__init__" class="function">BaseException</dd>
-                <dd id="MercapiError.with_traceback" class="function">with_traceback</dd>
+                                    <div><dt>builtins.Exception</dt>
+                                <dd id="MercapiError.__init__" class="function">Exception</dd>
+
+            </div>
+            <div><dt>builtins.BaseException</dt>
+                                <dd id="MercapiError.with_traceback" class="function">with_traceback</dd>
 
             </div>
                                 </dl>
@@ -130,16 +133,19 @@
 </span></pre></div>
 
 
-            <div class="docstring"><p>Common base class for all exceptions</p>
+            <div class="docstring"><p>Common base class for all non-exit exceptions.</p>
 </div>
 
 
                             <div class="inherited">
                                 <h5>Inherited Members</h5>
                                 <dl>
-                                    <div><dt>builtins.BaseException</dt>
-                                <dd id="ParseAPIResponseError.__init__" class="function">BaseException</dd>
-                <dd id="ParseAPIResponseError.with_traceback" class="function">with_traceback</dd>
+                                    <div><dt>builtins.Exception</dt>
+                                <dd id="ParseAPIResponseError.__init__" class="function">Exception</dd>
+
+            </div>
+            <div><dt>builtins.BaseException</dt>
+                                <dd id="ParseAPIResponseError.with_traceback" class="function">with_traceback</dd>
 
             </div>
                                 </dl>
@@ -161,16 +167,19 @@
 </span></pre></div>
 
 
-            <div class="docstring"><p>Common base class for all exceptions</p>
+            <div class="docstring"><p>Common base class for all non-exit exceptions.</p>
 </div>
 
 
                             <div class="inherited">
                                 <h5>Inherited Members</h5>
                                 <dl>
-                                    <div><dt>builtins.BaseException</dt>
-                                <dd id="IncorrectRequestError.__init__" class="function">BaseException</dd>
-                <dd id="IncorrectRequestError.with_traceback" class="function">with_traceback</dd>
+                                    <div><dt>builtins.Exception</dt>
+                                <dd id="IncorrectRequestError.__init__" class="function">Exception</dd>
+
+            </div>
+            <div><dt>builtins.BaseException</dt>
+                                <dd id="IncorrectRequestError.with_traceback" class="function">with_traceback</dd>
 
             </div>
                                 </dl>
