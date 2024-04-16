@@ -1,4 +1,4 @@
-class MercapiError(BaseException):
+class MercapiError(Exception):
     pass
 
 
