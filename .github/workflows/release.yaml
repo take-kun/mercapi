@@ -26,5 +26,5 @@ jobs:
 
       - name: Tag a commit
         run: |
-          git tag ${{ env.VERSION }}
-          git push origin ${{ env.VERSION }}
+          git tag ${{ inputs.version }}
+          git push origin ${{ inputs.version }}
