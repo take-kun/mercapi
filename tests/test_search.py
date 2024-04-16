@@ -134,3 +134,10 @@ async def test_search_sort_by_price_asc(m):
 async def test_search_exclude_keywords(m):
     res = await m.search("sharpnel", exclude="beatmania")
     assert all("beatmania" not in i.name.lower() for i in res.items)
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_search_filter_by_status_on_sale(m):
+    res = await m.search("sharpnel", status=[SearchRequestData.Status.STATUS_ON_SALE])
+    assert all(i.status == "ITEM_STATUS_ON_SALE" for i in res.items)
