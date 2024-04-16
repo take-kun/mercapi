@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 
 from mercapi.models import Item
 from mercapi.models.base import ResponseModel
@@ -21,7 +21,7 @@ class SellerItem(ResponseModel):
     num_comments: int
     created: datetime
     updated: datetime
-    item_category: ItemCategorySummary
+    item_category: Optional[ItemCategorySummary]
     shipping_from_area: ShippingFromArea
 
     async def full_item(self) -> Item:

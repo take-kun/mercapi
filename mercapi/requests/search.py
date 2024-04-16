@@ -88,7 +88,7 @@ class SearchRequestData(RequestData):
                 "keyword": self.search_conditions.query,
                 "sort": self.search_conditions.sort_by.name,
                 "order": self.search_conditions.sort_order.name,
-                "status": [],
+                "status": status,
                 "sizeId": self.search_conditions.sizes,
                 "categoryId": self.search_conditions.categories,
                 "brandId": self.search_conditions.brands,
