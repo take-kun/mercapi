@@ -20,7 +20,7 @@ async def main():
     full_item = await item.full_item()
     print(full_item.description)
 
-    item = await m.item('m90925725213')
+    item = await m.item('m64017471338')
     print(item.description)
 
 
