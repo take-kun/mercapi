@@ -1,8 +1,10 @@
 import random
+import typing
 import uuid
 from typing import Optional, List
 
 import httpx
+from httpx._types import ProxiesTypes
 from ecdsa import SigningKey, NIST256p
 from httpx import Request
 
@@ -22,19 +24,28 @@ class Mercapi:
 
     **Avoid instantiating this class more than once in a single runtime.**
     """
+    
+    def __init__(
+        self,
+        *,
+        proxies: typing.Optional[ProxiesTypes] = None,
+        user_agent: str = (
+            "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
+        ),
+    ):
+        """initialize
 
-    _user_agent = (
-        "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
-    )
-    _headers = {
-        "User-Agent": _user_agent,
-        "X-Platform": "web",
-    }
-
-    def __init__(self):
+        :param proxies: Proxy. ex) {"http://": "http://localhost:8080", "https://": "http://localhost:8080"}
+        :param user_agent: User-Agent
+        """
+        self._headers = {
+            "User-Agent": user_agent,
+            "X-Platform": "web",
+        }
+        
         self._uuid = str(uuid.UUID(int=random.getrandbits(128)))
         self._key = SigningKey.generate(NIST256p)
-        self._client = httpx.AsyncClient()
+        self._client = httpx.AsyncClient(proxies=proxies)
         ResponseModel.set_mercapi(self)
 
     def _sign_request(self, request: Request) -> Request:
