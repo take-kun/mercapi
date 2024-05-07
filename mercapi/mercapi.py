@@ -23,7 +23,7 @@ class Mercapi:
 
     **Avoid instantiating this class more than once in a single runtime.**
     """
-    
+
     def __init__(
         self,
         *,
@@ -44,7 +44,7 @@ class Mercapi:
             "User-Agent": user_agent,
             "X-Platform": "web",
         }
-        
+
         self._uuid = str(uuid.UUID(int=random.getrandbits(128)))
         self._key = SigningKey.generate(NIST256p)
         self._client = httpx.AsyncClient(proxies=proxies)
