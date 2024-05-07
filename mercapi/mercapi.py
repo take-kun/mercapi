@@ -1,5 +1,4 @@
 import random
-import typing
 import uuid
 from typing import Optional, List
 
@@ -28,16 +27,19 @@ class Mercapi:
     def __init__(
         self,
         *,
-        proxies: typing.Optional[ProxiesTypes] = None,
-        user_agent: str = (
-            "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
-        ),
+        proxies: Optional[ProxiesTypes] = None,
+        user_agent: Optional[str] = None,
     ):
         """initialize
 
-        :param proxies: Proxy. ex) {"http://": "http://localhost:8080", "https://": "http://localhost:8080"}
+        :param proxies: Once the proxy is configured, the IP address of the access source can be changed. (e.g. {"http://": "http://example.com:1234", "https://": "http://example.com:1234"})
         :param user_agent: User-Agent
         """
+        if not user_agent:
+            user_agent = (
+                "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
+            )
+
         self._headers = {
             "User-Agent": user_agent,
             "X-Platform": "web",
