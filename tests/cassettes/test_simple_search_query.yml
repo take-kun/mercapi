@@ -1,57 +1,64 @@
 interactions:
 - request:
-    body: '{"userId": "", "pageSize": 120, "pageToken": "", "searchSessionId": "13106b7e2b594162b5cfa8b46cb3221b",
+    body: '{"userId": "", "pageSize": 120, "pageToken": null, "searchSessionId": "8079e8d77e654fa0b16f0dde2f8e77f1",
       "indexRouting": "INDEX_ROUTING_UNSPECIFIED", "thumbnailTypes": [], "searchCondition":
-      {"keyword": "\u5b8c\u5168\u7db2\u7f85\u306f\u7121\u7406\u3067\u3057\u305fMix",
-      "excludeKeyword": "", "sort": "SORT_SCORE", "order": "ORDER_DESC", "status":
+      {"keyword": "cyclick", "sort": "SORT_SCORE", "order": "ORDER_DESC", "status":
       [], "sizeId": [], "categoryId": [75], "brandId": [], "sellerId": [], "priceMin":
-      null, "priceMax": null, "itemConditionId": null, "shippingPayerId": [], "shippingFromArea":
+      0, "priceMax": 0, "itemConditionId": [], "shippingPayerId": [], "shippingFromArea":
       [], "shippingMethod": [], "colorId": [], "hasCoupon": false, "attributes": [],
-      "itemTypes": [], "skuIds": []}, "defaultDatasets": [], "serviceFrom": "suruga"}'
+      "itemTypes": [], "skuIds": [], "excludeKeyword": null}, "defaultDatasets": [],
+      "serviceFrom": "suruga"}'
     headers:
       content-length:
-      - '677'
+      - '617'
       content-type:
       - application/json
       dpop:
-      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6Ilc5NldNSm1mSndsLVhJLWkwU2FpY1JZNGJRYktRWWh1VkhNVXV2dXFoNEEiLCJ5IjoiWV9OcTlKczdicHU0MjZhd0htWU04V2lUYnNMM2gyRHQ5d3oxYVplNFprNCJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE2NjE0NjIzMjQsImp0aSI6IjA0ZmFjNTA2LTNhOWQtMDkwOS01MzViLTg4MWVmMGUxN2RhMSIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiI3Zjg4ZTI2Zi04MDdjLTkxYTMtMmVlZC0zZTcxNmQ5ZWE4NmMifQ.4Qo7TBoG_Gwv3HhXbaImR2XHI4gBQ-cCDNsItKiFZTTT_q2ISeGqSiT8psBepz3Hf5A1bF_3f635L8415l8_0A
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6InBFVUFxaERFV1ppZHRxbVpZSGpIZTdON3RmQTVkSlBLSDZOQW9yQ0VzckUiLCJ5IjoiQUplZGNtbGU3NlV1RzdMUWFVUm5panY3N0VkYm1Nem5laU10TVhsZHRpVSJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3MTk2MDQzMjUsImp0aSI6IjdmZmJmZGY0LTg4ODMtNWMwOS0xYzhkLTBkNGE1YWQ1M2RiNyIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiI1ZGRhOGY1Yy01NjVkLTMyNmYtMGJlOS00YzdiNGU4M2RlYzgifQ.Uf1qloj4msXmJ0gvSRl9UcS-b8P81zkwmBuw7s2dOcDxVshpsjg7H91jam9HfLwUrhRLWbt1bzfXAPGTPI8iuQ
       host:
       - api.mercari.jp
       user-agent:
-      - Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/125.0.0.0 Safari/537.3
       x-platform:
       - web
     method: POST
     uri: https://api.mercari.jp/v2/entities:search
   response:
-    content: "{\"items\":[{\"id\":\"m94786104879\",\"sellerId\":\"362164700\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_ON_SALE\",\"name\":\"DJ
-      Sharpnel\u3000\u5B8C\u5168\u7DB2\u7F85\u306F\u7121\u7406\u3067\u3057\u305FMix\",\"price\":\"4800\",\"created\":\"1652715351\",\"updated\":\"1661206795\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m94786104879_1.jpg?1652715351\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"3\",\"shippingPayerId\":\"2\"},{\"id\":\"m80045805465\",\"sellerId\":\"307960504\",\"buyerId\":\"478967183\",\"status\":\"ITEM_STATUS_SOLD_OUT\",\"name\":\"DJ
-      Sharpnel\u3000\u5B8C\u5168\u7DB2\u7F85\u306F\u7121\u7406\u3067\u3057\u305FMix\",\"price\":\"6666\",\"created\":\"1639429509\",\"updated\":\"1640848014\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m80045805465_1.jpg?1639429509\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"5\",\"shippingPayerId\":\"2\"}],\"meta\":{\"nextPageToken\":\"\",\"previousPageToken\":\"\",\"numFound\":\"2\"},\"components\":[{\"rowNumber\":\"0\",\"shallowFacet\":{}}]}\n"
+    content: "{\"meta\":{\"nextPageToken\":\"\",\"previousPageToken\":\"\",\"numFound\":\"3\"},\"items\":[{\"id\":\"m78767763061\",\"sellerId\":\"721974225\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_ON_SALE\",\"name\":\"DJ
+      SHARPNEL Cyclick CD (SRPC-0026)\",\"price\":\"23000\",\"created\":\"1718383194\",\"updated\":\"1719548737\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m78767763061_1.jpg?1718383194\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"3\",\"shippingPayerId\":\"2\",\"itemSizes\":[],\"itemBrand\":null,\"itemPromotions\":[],\"shopName\":\"\",\"itemSize\":null,\"shippingMethodId\":\"17\",\"categoryId\":\"700\",\"isNoPrice\":false,\"title\":\"\",\"isLiked\":false},{\"id\":\"m94338609985\",\"sellerId\":\"276747051\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_ON_SALE\",\"name\":\"CYCLICK
+      CONTROL - UPSHFT SHOWCASE\",\"price\":\"800\",\"created\":\"1693961420\",\"updated\":\"1719111120\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m94338609985_1.jpg?1693961420\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"3\",\"shippingPayerId\":\"2\",\"itemSizes\":[],\"itemBrand\":null,\"itemPromotions\":[],\"shopName\":\"\",\"itemSize\":null,\"shippingMethodId\":\"14\",\"categoryId\":\"700\",\"isNoPrice\":false,\"title\":\"\",\"isLiked\":false},{\"id\":\"m47678535871\",\"sellerId\":\"163964109\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_SOLD_OUT\",\"name\":\"(\u30B8\u30E3\u30F3\u30AF)DJ
+      SHARPNEL CYCLICK\",\"price\":\"1000\",\"created\":\"1688951830\",\"updated\":\"1689075651\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m47678535871_1.jpg?1688951830\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"6\",\"shippingPayerId\":\"2\",\"itemSizes\":[],\"itemBrand\":null,\"itemPromotions\":[],\"shopName\":\"\",\"itemSize\":null,\"shippingMethodId\":\"14\",\"categoryId\":\"700\",\"isNoPrice\":false,\"title\":\"\",\"isLiked\":false}],\"components\":[],\"searchCondition\":null,\"searchConditionId\":\"\"}\n"
     headers:
-      Accept-Ranges:
-      - bytes
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 89b0371cde9ebfda-WAW
       Connection:
       - keep-alive
-      Content-Length:
-      - '907'
       Content-Type:
       - application/json
       Date:
-      - Thu, 25 Aug 2022 21:18:46 GMT
+      - Fri, 28 Jun 2024 19:52:06 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=I5RH1uoPi_XwkmmifsjYfVraElR99QKqVyzuSUVpMjk-1719604326-1.0.1.1-DWBFpw_6MMTxr_nYvOxs9SEwxHi5htul2PBbw9lISzQ9oKBWD_Yt9S4j39A8ccHiY9NRUaVF99_grXJdl0gj.A;
+        path=/; expires=Fri, 28-Jun-24 20:22:06 GMT; domain=.api.mercari.jp; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=w_VtkIVGZZIjRL2DwUhBQUVv0Yo5EUq8tmcCYUe6UwY-1719604326230-0.0.1.1-604800000;
+        path=/; domain=.api.mercari.jp; HttpOnly; Secure; SameSite=None
       Strict-Transport-Security:
-      - max-age=31557600
-      Vary:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      vary:
+      - Origin
       - Accept-Encoding
-      Via:
-      - 1.1 google, 1.1 varnish
-      X-Cache:
-      - MISS
-      X-Cache-Hits:
-      - '0'
-      X-Request-Id:
-      - b6e6c4fe-87a4-4f4e-bd86-590040cfa56d
-      X-Served-By:
-      - cache-hhn4052-HHN
+      via:
+      - 1.1 google
+      x-request-id:
+      - c7c0bcc3-bba3-45f1-879e-ef5b77f3fcb5
     http_version: HTTP/1.1
     status_code: 200
 version: 1
