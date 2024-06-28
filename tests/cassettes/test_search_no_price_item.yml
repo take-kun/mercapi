@@ -1,0 +1,61 @@
+interactions:
+- request:
+    body: '{"userId": "", "pageSize": 120, "pageToken": null, "searchSessionId": "d4d94be77cda499fbe57109ce33dd47f",
+      "indexRouting": "INDEX_ROUTING_UNSPECIFIED", "thumbnailTypes": [], "searchCondition":
+      {"keyword": "beatmaniaIIDX RED TRAXX", "sort": "SORT_SCORE", "order": "ORDER_DESC",
+      "status": [], "sizeId": [], "categoryId": [], "brandId": [], "sellerId": [],
+      "priceMin": 0, "priceMax": 0, "itemConditionId": [], "shippingPayerId": [],
+      "shippingFromArea": [], "shippingMethod": [], "colorId": [], "hasCoupon": false,
+      "attributes": [], "itemTypes": [], "skuIds": [], "excludeKeyword": null}, "defaultDatasets":
+      [], "serviceFrom": "suruga"}'
+    headers:
+      content-length:
+      - '631'
+      content-type:
+      - application/json
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6Ikp1LWxEWUVyUGo1QXlFRlhoUXNyaldydDNMQWlzQVJKTXN5Z0VOQjdsMjAiLCJ5IjoiZDBPWnBRUkZtYnFla1FFVkhpM2hhRnd6LUYtaEk2THdIQTVaRGx0cU1MWSJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3MTk2MDMwOTksImp0aSI6ImY2NGFjZjg1LTYwMTgtYjgwNi05ZmNmLWM2NDI5MjQxOTdmMiIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiJhNGU0OTQwYi1jNzAxLWY5ZWItNjVhMi1hNTg1M2M4OTdjMzQifQ.3G-pwcqLW2kDCx9NJ-y5-3kyysnA_8nezWcjHYu1VC-8NMwukQ9c3UkAdoU09HtQrDWbOGBZ5NO1rYVoJxKPwA
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+      x-platform:
+      - web
+    method: POST
+    uri: https://api.mercari.jp/v2/entities:search
+  response:
+    content: "{\"meta\":{\"nextPageToken\":\"\",\"previousPageToken\":\"\",\"numFound\":\"1\"},\"items\":[{\"id\":\"m92358406176\",\"sellerId\":\"307145838\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_ON_SALE\",\"name\":\"\u3010\u975E\u58F2\u54C1\u3011beatmaniaIIDX
+      RED TRAXX\",\"price\":\"9999999\",\"created\":\"1719574855\",\"updated\":\"1719576521\",\"thumbnails\":[\"https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m92358406176_1.jpg?1719574855\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"1\",\"shippingPayerId\":\"2\",\"itemSizes\":[],\"itemBrand\":null,\"itemPromotions\":[],\"shopName\":\"\",\"itemSize\":null,\"shippingMethodId\":\"14\",\"categoryId\":\"1163\",\"isNoPrice\":true,\"title\":\"\",\"isLiked\":false}],\"components\":[],\"searchCondition\":null,\"searchConditionId\":\"\"}\n"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 89b0192b5aa9c400-WAW
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 28 Jun 2024 19:31:39 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=X5xml0P3I6BxE5jogfFxFazWMs5MzR6o4YIDsjFEFPg-1719603099-1.0.1.1-bsKBi0R7lNN0WhTItusExa8wTZ45ErSpbGb_t6V9rcOuQO5k59sRj7DfmGd1rNeb9LLwgJ4er24sIgK5K8igXg;
+        path=/; expires=Fri, 28-Jun-24 20:01:39 GMT; domain=.api.mercari.jp; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=EFDLDdEqPJfZ.G12MfzRejFvQ3NCBdKZPRCpqcZIL_c-1719603099788-0.0.1.1-604800000;
+        path=/; domain=.api.mercari.jp; HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-request-id:
+      - 99899f32-243a-4ace-9ed2-442b563b46f9
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1

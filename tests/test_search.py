@@ -140,3 +140,14 @@ async def test_search_exclude_keywords(m):
 async def test_search_filter_by_status_on_sale(m):
     res = await m.search("sharpnel", status=[SearchRequestData.Status.STATUS_ON_SALE])
     assert all(i.status == "ITEM_STATUS_ON_SALE" for i in res.items)
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_search_no_price_item(m):
+    res = await m.search("beatmaniaIIDX RED TRAXX")
+    item = res.items[0]
+    assert item.id_ == "m92358406176"
+    assert item.is_no_price
+    assert item.price == 9999999
+    assert item.real_price is None

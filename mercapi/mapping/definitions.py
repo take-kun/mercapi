@@ -567,6 +567,17 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
                 "shipping_payer_id",
                 Extractors.get_as("shippingPayerId", int),
             ),
+            ResponseProperty(
+                "shippingMethodId",
+                "shipping_method_id",
+                Extractors.get_as("shippingMethodId", int),
+            ),
+            ResponseProperty(
+                "categoryId",
+                "category_id",
+                Extractors.get_as("categoryId", int),
+            ),
+            ResponseProperty("isNoPrice", "is_no_price", Extractors.get("isNoPrice")),
         ],
     ),
     ItemCategory: R(
