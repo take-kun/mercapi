@@ -16,7 +16,6 @@ async def test_simple_search_query(m):
     item = res.items[0]
     assert item.id_ == "m94786104879"
     assert item.seller_id == "362164700"
-    assert item.buyer_id == ""
     assert item.status == "ITEM_STATUS_ON_SALE"
     assert item.name == "DJ Sharpnel　完全網羅は無理でしたMix"
     assert item.price == 4800

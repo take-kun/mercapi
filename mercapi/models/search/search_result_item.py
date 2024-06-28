@@ -16,7 +16,6 @@ class SearchResultItem(ResponseModel):
     status: str
     created: datetime
     updated: datetime
-    buyer_id: str
     thumbnails: List[str]
     item_type: str
     item_condition_id: int
