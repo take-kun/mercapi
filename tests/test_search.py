@@ -9,27 +9,29 @@ from mercapi.requests import SearchRequestData
 @pytest.mark.asyncio
 @pytest.mark.vcr
 async def test_simple_search_query(m):
-    res = await m.search("完全網羅は無理でしたMix", categories=[75])
-    assert len(res.items) == 2
-    assert res.meta.num_found == 2
+    res = await m.search("cyclick", categories=[75])
+    assert len(res.items) == 3
+    assert res.meta.num_found == 3
 
     item = res.items[0]
-    assert item.id_ == "m94786104879"
-    assert item.seller_id == "362164700"
-    assert item.buyer_id == ""
+    assert item.id_ == "m78767763061"
+    assert item.seller_id == "721974225"
     assert item.status == "ITEM_STATUS_ON_SALE"
-    assert item.name == "DJ Sharpnel　完全網羅は無理でしたMix"
-    assert item.price == 4800
-    assert int(datetime.timestamp(item.created)) == 1652715351
-    assert int(datetime.timestamp(item.updated)) == 1661206795
+    assert item.name == "DJ SHARPNEL Cyclick CD (SRPC-0026)"
+    assert item.price == 23000
+    assert int(datetime.timestamp(item.created)) == 1718383194
+    assert int(datetime.timestamp(item.updated)) == 1719548737
     assert len(item.thumbnails) == 1
     assert (
         item.thumbnails[0]
-        == "https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m94786104879_1.jpg?1652715351"
+        == "https://static.mercdn.net/c!/w=240,f=webp/thumb/photos/m78767763061_1.jpg?1718383194"
     )
     assert item.item_type == "ITEM_TYPE_MERCARI"
     assert item.item_condition_id == 3
     assert item.shipping_payer_id == 2
+    assert item.shipping_method_id == 17
+    assert item.category_id == 700
+    assert not item.is_no_price
 
 
 @pytest.mark.asyncio
@@ -141,3 +143,14 @@ async def test_search_exclude_keywords(m):
 async def test_search_filter_by_status_on_sale(m):
     res = await m.search("sharpnel", status=[SearchRequestData.Status.STATUS_ON_SALE])
     assert all(i.status == "ITEM_STATUS_ON_SALE" for i in res.items)
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_search_no_price_item(m):
+    res = await m.search("beatmaniaIIDX RED TRAXX")
+    item = res.items[0]
+    assert item.id_ == "m92358406176"
+    assert item.is_no_price
+    assert item.price == 9999999
+    assert item.real_price is None

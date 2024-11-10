@@ -66,7 +66,7 @@ class SearchRequestData(RequestData):
         shipping_methods = [i.name for i in self.search_conditions.shipping_methods]
         status = [i.name for i in self.search_conditions.status]
         if "STATUS_SOLD_OUT" in status:
-            status.extend("STATUS_TRADING")
+            status.extend(["STATUS_TRADING"])
 
         if (
             self.search_conditions.sort_by,

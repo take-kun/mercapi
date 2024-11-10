@@ -555,7 +555,6 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
             ResponseProperty("status", "status", Extractors.get("status")),
             ResponseProperty("created", "created", Extractors.get_datetime("created")),
             ResponseProperty("updated", "updated", Extractors.get_datetime("updated")),
-            ResponseProperty("buyerId", "buyer_id", Extractors.get("buyerId")),
             ResponseProperty("thumbnails", "thumbnails", Extractors.get("thumbnails")),
             ResponseProperty("itemType", "item_type", Extractors.get("itemType")),
             ResponseProperty(
@@ -568,6 +567,17 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
                 "shipping_payer_id",
                 Extractors.get_as("shippingPayerId", int),
             ),
+            ResponseProperty(
+                "shippingMethodId",
+                "shipping_method_id",
+                Extractors.get_as("shippingMethodId", int),
+            ),
+            ResponseProperty(
+                "categoryId",
+                "category_id",
+                Extractors.get_as("categoryId", int),
+            ),
+            ResponseProperty("isNoPrice", "is_no_price", Extractors.get("isNoPrice")),
         ],
     ),
     ItemCategory: R(
