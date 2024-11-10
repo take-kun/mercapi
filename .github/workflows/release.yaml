@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build distributions
         uses: ./.github/workflows/build
@@ -26,5 +26,6 @@ jobs:
 
       - name: Tag a commit
         run: |
-          git tag ${{ inputs.version }}
-          git push origin ${{ inputs.version }}
+          echo "TAG=v${{ inputs.version }}" >> $GITHUB_ENV
+          git tag $TAG
+          git push origin $TAG
