@@ -12,6 +12,13 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
+    permissions:
+      id-token: write
+
+    environment:
+      name: pypi
+      url: https://pypi.org/project/mercapi/
+
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
@@ -21,8 +28,6 @@ jobs:
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
 
       - name: Tag a commit
         run: |
