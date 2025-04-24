@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import List, TYPE_CHECKING, Optional
+from typing import List, TYPE_CHECKING, Optional, Union
+
+from mercapi.models.product import Product
 
 if TYPE_CHECKING:
     from mercapi.models import Item, Profile
@@ -24,7 +26,9 @@ class SearchResultItem(ResponseModel):
     category_id: int
     is_no_price: bool  # price==9999999 if True
 
-    async def full_item(self) -> "Item":
+    async def full_item(self) -> Union["Item", "Product"]:
+        if self.item_type == "ITEM_TYPE_BEYOND":
+            return await self._mercapi.product(self.id_)
         return await self._mercapi.item(self.id_)
 
     async def seller(self) -> "Profile":
