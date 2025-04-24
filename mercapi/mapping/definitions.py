@@ -15,6 +15,7 @@ from mercapi.models.item.data import (
     ShippingClass,
     Comment,
 )
+from mercapi.models.product import Product, ProductDetail
 from mercapi.util.errors import ParseAPIResponseError
 from mercapi.models.base import ResponseModel
 from mercapi.models.profile.items import SellerItem
@@ -78,7 +79,11 @@ class Extractors:
         return lambda x: [map_to_class(i, model) for i in x[key]] if key in x else None
 
     @staticmethod
-    def get_datetime(key: str) -> ExtractorDef[datetime]:
+    def get_datetime_from_iso(key: str) -> ExtractorDef[datetime]:
+        return Extractors.get_with(key, lambda x: datetime.fromisoformat(x))
+
+    @staticmethod
+    def get_datetime_from_timestamp(key: str) -> ExtractorDef[datetime]:
         return Extractors.get_with(key, lambda x: datetime.fromtimestamp(float(x)))
 
     @staticmethod
@@ -160,8 +165,12 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
                 "comments",
                 Extractors.get_list_of_model("comments", Comment),
             ),
-            ResponseProperty("updated", "updated", Extractors.get_datetime("updated")),
-            ResponseProperty("created", "created", Extractors.get_datetime("created")),
+            ResponseProperty(
+                "updated", "updated", Extractors.get_datetime_from_timestamp("updated")
+            ),
+            ResponseProperty(
+                "created", "created", Extractors.get_datetime_from_timestamp("created")
+            ),
             ResponseProperty("pager_id", "pager_id", Extractors.get("pager_id")),
             ResponseProperty("liked", "liked", Extractors.get("liked")),
             ResponseProperty("checksum", "checksum", Extractors.get("checksum")),
@@ -250,7 +259,9 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
                     lambda x: datetime.strptime(x, "%Y-%m-%d %H:%M:%S"),
                 ),
             ),
-            ResponseProperty("created", "created", Extractors.get_datetime("created")),
+            ResponseProperty(
+                "created", "created", Extractors.get_datetime_from_timestamp("created")
+            ),
             ResponseProperty(
                 "num_sell_items", "num_sell_items", Extractors.get("num_sell_items")
             ),
@@ -360,7 +371,9 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
             ResponseProperty(
                 "user", "user", Extractors.get_as_model("user", Comment.User)
             ),
-            ResponseProperty("created", "created", Extractors.get_datetime("created")),
+            ResponseProperty(
+                "created", "created", Extractors.get_datetime_from_timestamp("created")
+            ),
         ],
     ),
     Comment.User: R(
@@ -410,8 +423,12 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
             ResponseProperty(
                 "num_comments", "num_comments", Extractors.get("num_comments")
             ),
-            ResponseProperty("created", "created", Extractors.get_datetime("created")),
-            ResponseProperty("updated", "updated", Extractors.get_datetime("updated")),
+            ResponseProperty(
+                "created", "created", Extractors.get_datetime_from_timestamp("created")
+            ),
+            ResponseProperty(
+                "updated", "updated", Extractors.get_datetime_from_timestamp("updated")
+            ),
             ResponseProperty(
                 "item_category",
                 "item_category",
@@ -470,7 +487,9 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
                 "follower_count", "follower_count", Extractors.get("follower_count")
             ),
             ResponseProperty("score", "score", Extractors.get("score")),
-            ResponseProperty("created", "created", Extractors.get_datetime("created")),
+            ResponseProperty(
+                "created", "created", Extractors.get_datetime_from_timestamp("created")
+            ),
             ResponseProperty("proper", "proper", Extractors.get("proper")),
             ResponseProperty(
                 "introduction", "introduction", Extractors.get("introduction")
@@ -553,8 +572,12 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
         optional_properties=[
             ResponseProperty("sellerId", "seller_id", Extractors.get("sellerId")),
             ResponseProperty("status", "status", Extractors.get("status")),
-            ResponseProperty("created", "created", Extractors.get_datetime("created")),
-            ResponseProperty("updated", "updated", Extractors.get_datetime("updated")),
+            ResponseProperty(
+                "created", "created", Extractors.get_datetime_from_timestamp("created")
+            ),
+            ResponseProperty(
+                "updated", "updated", Extractors.get_datetime_from_timestamp("updated")
+            ),
             ResponseProperty("thumbnails", "thumbnails", Extractors.get("thumbnails")),
             ResponseProperty("itemType", "item_type", Extractors.get("itemType")),
             ResponseProperty(
@@ -653,6 +676,275 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
                 Extractors.get("root_category_name"),
             ),
         ],
+    ),
+    Product: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty("name", "name", Extractors.get("name")),
+            ResponseProperty("price", "price", Extractors.get("price")),
+            ResponseProperty(
+                "productDetail",
+                "product_detail",
+                Extractors.get_as_model("productDetail", ProductDetail),
+            ),
+        ],
+        optional_properties=[
+            ResponseProperty(
+                "displayName", "display_name", Extractors.get("displayName")
+            ),
+            ResponseProperty("thumbnail", "thumbnail", Extractors.get("thumbnail")),
+            ResponseProperty(
+                "createTime",
+                "create_time",
+                Extractors.get_datetime_from_iso("createTime"),
+            ),
+            ResponseProperty(
+                "updateTime",
+                "update_time",
+                Extractors.get_datetime_from_iso("updateTime"),
+            ),
+            ResponseProperty(
+                "productTags", "product_tags", Extractors.get("productTags")
+            ),
+            ResponseProperty("attributes", "attributes", Extractors.get("attributes")),
+        ],
+    ),
+    ProductDetail: ResponseMappingDefinition(
+        required_properties=[],
+        optional_properties=[
+            ResponseProperty(
+                "shop", "shop", Extractors.get_as_model("shop", ProductDetail.Shop)
+            ),
+            ResponseProperty("photos", "photos", Extractors.get("photos")),
+            ResponseProperty(
+                "description", "description", Extractors.get("description")
+            ),
+            ResponseProperty(
+                "categories",
+                "categories",
+                Extractors.get_list_of_model("categories", ProductDetail.Category),
+            ),
+            ResponseProperty(
+                "brand", "brand", Extractors.get_as_model("brand", ProductDetail.Brand)
+            ),
+            ResponseProperty(
+                "condition",
+                "condition",
+                Extractors.get_as_model("condition", ProductDetail.Condition),
+            ),
+            ResponseProperty(
+                "shippingMethod",
+                "shipping_method",
+                Extractors.get_as_model("shippingMethod", ProductDetail.ShippingMethod),
+            ),
+            ResponseProperty(
+                "shippingPayer",
+                "shipping_payer",
+                Extractors.get_as_model("shippingPayer", ProductDetail.ShippingPayer),
+            ),
+            ResponseProperty(
+                "shippingDuration",
+                "shipping_duration",
+                Extractors.get_as_model(
+                    "shippingDuration", ProductDetail.ShippingDuration
+                ),
+            ),
+            ResponseProperty(
+                "shippingFromArea",
+                "shipping_from_area",
+                Extractors.get_as_model(
+                    "shippingFromArea", ProductDetail.ShippingFromArea
+                ),
+            ),
+            ResponseProperty(
+                "productStats",
+                "product_stats",
+                Extractors.get_as_model("productStats", ProductDetail.ProductStats),
+            ),
+            ResponseProperty("promotions", "promotions", Extractors.get("promotions")),
+            ResponseProperty(
+                "timeSaleDetails",
+                "time_sale_details",
+                Extractors.get("timeSaleDetails"),
+            ),
+            ResponseProperty(
+                "variants",
+                "variants",
+                Extractors.get_list_of_model("variants", ProductDetail.Variant),
+            ),
+            ResponseProperty(
+                "shippingFeeConfig",
+                "shipping_fee_config",
+                Extractors.get("shippingFeeConfig"),
+            ),
+            ResponseProperty(
+                "variationGrouping",
+                "variation_grouping",
+                Extractors.get("variationGrouping"),
+            ),
+        ],
+    ),
+    ProductDetail.Shop: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty("name", "name", Extractors.get("name")),
+            ResponseProperty(
+                "displayName", "display_name", Extractors.get("displayName")
+            ),
+        ],
+        optional_properties=[
+            ResponseProperty("thumbnail", "thumbnail", Extractors.get("thumbnail")),
+            ResponseProperty(
+                "shopStats",
+                "shop_stats",
+                Extractors.get_as_model("shopStats", ProductDetail.ShopStats),
+            ),
+            ResponseProperty(
+                "allowDirectMessage",
+                "allow_direct_message",
+                Extractors.get("allowDirectMessage"),
+            ),
+            ResponseProperty(
+                "shopItems",
+                "shop_items",
+                Extractors.get_list_of_model("shopItems", ProductDetail.ShopItem),
+            ),
+            ResponseProperty(
+                "isInboundXb", "is_inbound_xb", Extractors.get("isInboundXb")
+            ),
+        ],
+    ),
+    ProductDetail.ShopStats: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty("shopId", "shop_id", Extractors.get("shopId")),
+            ResponseProperty("score", "score", Extractors.get("score")),
+            ResponseProperty(
+                "reviewCount", "review_count", Extractors.get("reviewCount")
+            ),
+        ],
+        optional_properties=[],
+    ),
+    ProductDetail.ShopItem: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty("productId", "product_id", Extractors.get("productId")),
+            ResponseProperty(
+                "displayName", "display_name", Extractors.get("displayName")
+            ),
+            ResponseProperty("price", "price", Extractors.get("price")),
+        ],
+        optional_properties=[
+            ResponseProperty("thumbnail", "thumbnail", Extractors.get("thumbnail")),
+            ResponseProperty(
+                "productTags", "product_tags", Extractors.get("productTags")
+            ),
+        ],
+    ),
+    ProductDetail.Category: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty("categoryId", "category_id", Extractors.get("categoryId")),
+            ResponseProperty(
+                "displayName", "display_name", Extractors.get("displayName")
+            ),
+            ResponseProperty("parentId", "parent_id", Extractors.get("parentId")),
+            ResponseProperty("rootId", "root_id", Extractors.get("rootId")),
+            ResponseProperty("hasChild", "has_child", Extractors.get("hasChild")),
+        ],
+        optional_properties=[],
+    ),
+    ProductDetail.Brand: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty("brandId", "brand_id", Extractors.get("brandId")),
+            ResponseProperty(
+                "displayName", "display_name", Extractors.get("displayName")
+            ),
+        ],
+        optional_properties=[],
+    ),
+    ProductDetail.Condition: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty(
+                "displayName", "display_name", Extractors.get("displayName")
+            ),
+        ],
+        optional_properties=[],
+    ),
+    ProductDetail.ShippingMethod: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty(
+                "shippingMethodId",
+                "shipping_method_id",
+                Extractors.get("shippingMethodId"),
+            ),
+            ResponseProperty(
+                "displayName", "display_name", Extractors.get("displayName")
+            ),
+            ResponseProperty(
+                "isAnonymous", "is_anonymous", Extractors.get("isAnonymous")
+            ),
+        ],
+        optional_properties=[],
+    ),
+    ProductDetail.ShippingPayer: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty(
+                "shippingPayerId",
+                "shipping_payer_id",
+                Extractors.get("shippingPayerId"),
+            ),
+            ResponseProperty(
+                "displayName", "display_name", Extractors.get("displayName")
+            ),
+            ResponseProperty("code", "code", Extractors.get("code")),
+        ],
+        optional_properties=[],
+    ),
+    ProductDetail.ShippingDuration: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty(
+                "shippingDurationId",
+                "shipping_duration_id",
+                Extractors.get("shippingDurationId"),
+            ),
+            ResponseProperty(
+                "displayName", "display_name", Extractors.get("displayName")
+            ),
+            ResponseProperty("minDays", "min_days", Extractors.get("minDays")),
+            ResponseProperty("maxDays", "max_days", Extractors.get("maxDays")),
+        ],
+        optional_properties=[],
+    ),
+    ProductDetail.ShippingFromArea: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty(
+                "shippingAreaCode",
+                "shipping_area_code",
+                Extractors.get("shippingAreaCode"),
+            ),
+            ResponseProperty(
+                "displayName", "display_name", Extractors.get("displayName")
+            ),
+        ],
+        optional_properties=[],
+    ),
+    ProductDetail.ProductStats: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty("productId", "product_id", Extractors.get("productId")),
+            ResponseProperty("score", "score", Extractors.get("score")),
+            ResponseProperty(
+                "reviewCount", "review_count", Extractors.get("reviewCount")
+            ),
+            ResponseProperty("likesCount", "likes_count", Extractors.get("likesCount")),
+        ],
+        optional_properties=[],
+    ),
+    ProductDetail.Variant: ResponseMappingDefinition(
+        required_properties=[
+            ResponseProperty("variantId", "variant_id", Extractors.get("variantId")),
+            ResponseProperty(
+                "displayName", "display_name", Extractors.get("displayName")
+            ),
+            ResponseProperty("quantity", "quantity", Extractors.get("quantity")),
+            ResponseProperty("size", "size", Extractors.get("size")),
+        ],
+        optional_properties=[],
     ),
 }
 

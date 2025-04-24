@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6Ik40dlA3NWZEbXRFV01KcVZMbmpXbFdwaDNOc2J3YXRqUWs1Wm81Sl8zTE0iLCJ5IjoiMlB4NHVrQTM4NUV6U21rcUxhUXFYYjkyTFpEQzYyT2RxMEVmMV9WaXVyMCJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3NDU1MjYxMzUsImp0aSI6IjhkMjQ0NWI5LWI5NWQtMTFkMi02NTI3LWQ1YThlOTZjN2M2YSIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjEvbWFya2V0cGxhY2VzL3Nob3BzL3Byb2R1Y3RzL3VVNEFoaW5yNnJHTkZMTllRcGE5RTc_dmlldz1GVUxMJmltYWdlVHlwZT1KUEVHIiwiaHRtIjoiR0VUIiwidXVpZCI6ImFjZWM3ZGI0LTFiMmMtNzFlNi1hMWI2LWFjYjg3Yjk2MjcwNiJ9.ZZvhkxtogut5q8VUmZVudMaWaC2j22lxDkTweI9BUmTKtN6AjHl_p4EYnKK6sxaroifonjSvGw1QoQ9mS9pbEA
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/125.0.0.0 Safari/537.3
+      x-platform:
+      - web
+    method: GET
+    uri: https://api.mercari.jp/v1/marketplaces/shops/products/uU4Ahinr6rGNFLNYQpa9E7?view=FULL&imageType=JPEG
+  response:
+    content: "{\"name\":\"uU4Ahinr6rGNFLNYQpa9E7\",\"displayName\":\"\u3010PS2\u3011Beatmania
+      \u2161DX 16 EMPRESS + PREMIUM BEST \u30BD\u30D5\u30C8\u306E\u307F \u30D3\u30FC\u30C8\u30DE\u30CB\u30A2\",\"productTags\":[],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/5VX9LCnEfBdm3hvv97sAXT.jpg@jpg\",\"price\":\"6300\",\"createTime\":\"2025-04-15T14:09:35Z\",\"updateTime\":\"2025-04-21T04:49:54Z\",\"attributes\":[],\"productDetail\":{\"shop\":{\"name\":\"wkkCxHU3Rx8WqyZ77YgMaF\",\"displayName\":\"\u76F4\u6C5F\u5802@\u30BF\u30A4\u30E0\u30BB\u30FC\u30EB\u5546\u54C1\u306F\u540C\u68B1\u4E0D\u53EF\",\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/bj8nXES3x7KFcGRJqeZrD6.jpg@jpg\",\"shopStats\":{\"shopId\":\"wkkCxHU3Rx8WqyZ77YgMaF\",\"score\":5,\"reviewCount\":\"7437\"},\"allowDirectMessage\":true,\"shopItems\":[{\"productId\":\"Qv25jGNXs8rvT5mBiX5RD\",\"displayName\":\"SDBB\u30B7\u30E7\u30C3\u30D7\u69D8\u5C02\u7528\",\"productTags\":[\"sold_out\"],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/x2C6aGnE8LTzzSreTdrtAe.jpg@jpg\",\"price\":\"3100\"},{\"productId\":\"YPRukgBqBkX3DtWqDP3j97\",\"displayName\":\"\u304A\u3082\u3061\u69D8\u5C02\u7528\",\"productTags\":[\"sold_out\"],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/uRVuYnCWqc4TVWXCQS6AnA.jpg@jpg\",\"price\":\"3500\"},{\"productId\":\"UA3EKQrsHUqCtpNqJiLpoN\",\"displayName\":\"coto\u69D8\u5C02\u7528\",\"productTags\":[\"sold_out\"],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/Vx7sQaAd3cpE7vr6txyjeJ.jpg@jpg\",\"price\":\"2100\"},{\"productId\":\"35zmAgZyf5gMSmD4kvSyzm\",\"displayName\":\"18\u69D8\u5C02\u7528\",\"productTags\":[\"sold_out\"],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/obUBN9h44Tmm57DrRD2Z84.jpg@jpg\",\"price\":\"1100\"},{\"productId\":\"Dkm5uDxu9i3RwyNEg5C2p5\",\"displayName\":\"\u3010PS4\u3011PROTOTYPE
+      BIOHAZARD BUNDLE \u5317\u7C73\u7248 \u96E3\u3042\u308A \u30D0\u30A4\u30AA\u30CF\u30B6\u30FC\u30C9\",\"productTags\":[],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/tmjib83Ymj7LH9vPeePrJa.jpg@jpg\",\"price\":\"18000\"},{\"productId\":\"piqJUwtnRv8YHVQGwA7zuh\",\"displayName\":\"Air-edge\u69D8\u5C02\u7528\",\"productTags\":[\"sold_out\"],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/siCvpBcNdoPP8JnHwV3z73.jpg@jpg\",\"price\":\"450\"}],\"isInboundXb\":false},\"photos\":[\"https://assets.mercari-shops-static.com/-/large/plain/5VX9LCnEfBdm3hvv97sAXT.jpg@jpg\",\"https://assets.mercari-shops-static.com/-/large/plain/ksZGwqpDmyFfYZTGDcWDTK.jpg@jpg\",\"https://assets.mercari-shops-static.com/-/large/plain/DaTyMLx7at6i2qZ94kZ6bB.jpg@jpg\"],\"description\":\"\u52D5\u4F5C\u78BA\u8A8D\u6E08\u307F\u3002\u30BD\u30D5\u30C8\u306E\u307F\\n\\n\u7DE9\u885D\u6750\u306A\u3057\u306E\u68B1\u5305\u3068\u306A\u308A\u307E\u3059(\u5E0C\u671B\u3055\u308C\u3066\u3082\u5165\u308C\u308B\u4E8B\u306F\u51FA\u6765\u307E\u305B\u3093)\\n\\n\u4E2D\u53E4\u54C1\u306E\u70BA\u30D7\u30ED\u30C0\u30AF\u30C8\u30B3\u30FC\u30C9\u7B49\u306F\u5168\u3066\u4F7F\u7528\u6E08\u307F\u3068\u304A\u8003\u3048\u4E0B\u3055\u3044\u3002\\n\\n\u540C\u68B1\u3092\u5E0C\u671B\u3055\u308C\u308B\u65B9\u306F+1\u54C1\u306B\u3064\u304D200\u5186\u304A\u5024\u5F15\u304D\u3055\u305B\u3066\u9802\u304D\u307E\u3059\u306E\u3067\u3001\u8CFC\u5165\u524D\u306B\u8CEA\u554F\u306B\u3066\u304A\u9858\u3044\u3057\u307E\u3059\u3002\\n(\u4F46\u3057\u3001\u304A\u5024\u5F15\u306F+3\u54C1\u307E\u3067\u3068\u306A\u308A\u307E\u3059)\\n\\n\u57FA\u672C\u7684\u306B\u306F\u7121\u8A00\u53D6\u5F15\u3067\u53D6\u5F15\u30E1\u30C3\u30BB\u30FC\u30B8\u306F\u4F55\u304B\u30C8\u30E9\u30D6\u30EB\u3084\u8981\u671B\u304C\u3042\u3063\u305F\u5834\u5408\u306E\u307F\u5BFE\u5FDC\u3057\u307E\u3059\u3002\\n\\n#\u76F4\u6C5F\u5802\",\"categories\":[{\"categoryId\":\"7145\",\"displayName\":\"\u30BD\u30D5\u30C8\",\"parentId\":\"7136\",\"rootId\":\"1328\",\"hasChild\":false},{\"categoryId\":\"7136\",\"displayName\":\"\u30D7\u30EC\u30A4\u30B9\u30C6\u30FC\u30B7\u30E7\u30F32(PS2)\",\"parentId\":\"7135\",\"rootId\":\"1328\",\"hasChild\":true},{\"categoryId\":\"7135\",\"displayName\":\"\u305D\u306E\u4ED6\u6A5F\u7A2E\",\"parentId\":\"76\",\"rootId\":\"1328\",\"hasChild\":true},{\"categoryId\":\"76\",\"displayName\":\"\u30C6\u30EC\u30D3\u30B2\u30FC\u30E0\",\"parentId\":\"1328\",\"rootId\":\"1328\",\"hasChild\":true},{\"categoryId\":\"1328\",\"displayName\":\"\u30B2\u30FC\u30E0\u30FB\u304A\u3082\u3061\u3083\u30FB\u30B0\u30C3\u30BA\",\"parentId\":\"1328\",\"rootId\":\"1328\",\"hasChild\":true}],\"brand\":{\"brandId\":\"3267\",\"displayName\":\"\u30D7\u30EC\u30A4\u30B9\u30C6\u30FC\u30B7\u30E7\u30F32\"},\"condition\":{\"displayName\":\"\u3084\u3084\u50B7\u3084\u6C5A\u308C\u3042\u308A\"},\"shippingMethod\":{\"shippingMethodId\":\"3\",\"displayName\":\"\u3089\u304F\u3089\u304F\u30E1\u30EB\u30AB\u30EA\u4FBF\",\"isAnonymous\":true},\"shippingPayer\":{\"shippingPayerId\":\"1\",\"displayName\":\"\u9001\u6599\u8FBC\u307F(\u51FA\u54C1\u8005\u8CA0\u62C5)\",\"code\":\"SELLER\"},\"shippingDuration\":{\"shippingDurationId\":\"2\",\"displayName\":\"2\u301C3\u65E5\u3067\u767A\u9001\",\"minDays\":2,\"maxDays\":3},\"shippingFromArea\":{\"shippingAreaCode\":\"jp33\",\"displayName\":\"\u5CA1\u5C71\u770C\"},\"promotions\":[],\"productStats\":{\"productId\":\"uU4Ahinr6rGNFLNYQpa9E7\",\"score\":0,\"reviewCount\":0,\"likesCount\":1},\"timeSaleDetails\":null,\"variants\":[{\"variantId\":\"VmcgXM63ZjRAQdzxi4X8Ja\",\"displayName\":\"\",\"quantity\":\"1\",\"size\":\"\"}],\"shippingFeeConfig\":null,\"variationGrouping\":null}}\n"
+    headers:
+      CF-RAY:
+      - 93584fca0e030206-WAW
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 24 Apr 2025 20:22:15 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=c0kWYujt1XI6ADBKvy8b2ng1xNe1SBg0ryjKaQI.1CM-1745526135-1.0.1.1-XOP3YvXx47XFbTJAuyhw.c84TeohUkZV058KbKVxb0Ud4YrAcmyZQx9nEq7kRFRke3TndHQ01MWDstnjVx7yUL2GKHF8LunV2DN50W6xN6I;
+        path=/; expires=Thu, 24-Apr-25 20:52:15 GMT; domain=.api.mercari.jp; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=vmWkRYYfseX.yVfqcAUx7zlUlmUhjLkMbdpgzQ.Cxm8-1745526135665-0.0.1.1-604800000;
+        path=/; domain=.api.mercari.jp; HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-request-id:
+      - 109407a9-0d77-41ae-93e5-6ab7b9a96d5c
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1
