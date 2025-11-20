@@ -5,7 +5,7 @@ from typing import List, TYPE_CHECKING, Optional
 if TYPE_CHECKING:
     from mercapi.models import Item, Profile
 from mercapi.models.base import ResponseModel
-
+from mercapi.models.search import Auction
 
 @dataclass
 class SearchResultItem(ResponseModel):
@@ -23,6 +23,7 @@ class SearchResultItem(ResponseModel):
     shipping_method_id: int
     category_id: int
     is_no_price: bool  # price==9999999 if True
+    auction: Auction
 
     async def full_item(self) -> "Item":
         return await self._mercapi.item(self.id_)

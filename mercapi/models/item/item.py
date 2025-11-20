@@ -14,6 +14,7 @@ from mercapi.models.item.data import (
     Color,
     Seller,
     Comment,
+    AuctionInfo,
 )
 
 
@@ -62,3 +63,4 @@ class Item(ResponseModel):
     has_additional_service: bool
     has_like_list: bool
     is_offerable_v2: bool
+    auction_info: AuctionInfo
