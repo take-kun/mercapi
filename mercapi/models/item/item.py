@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 
 from mercapi.models.base import ResponseModel
 from mercapi.models.common import ItemCategorySummary
@@ -63,4 +63,4 @@ class Item(ResponseModel):
     has_additional_service: bool
     has_like_list: bool
     is_offerable_v2: bool
-    auction_info: AuctionInfo
+    auction_info: Optional[AuctionInfo]

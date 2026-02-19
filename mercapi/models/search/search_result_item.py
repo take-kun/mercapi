@@ -5,10 +5,17 @@ from typing import List, TYPE_CHECKING, Optional
 if TYPE_CHECKING:
     from mercapi.models import Item, Profile
 from mercapi.models.base import ResponseModel
-from mercapi.models.search import Auction
 
 @dataclass
 class SearchResultItem(ResponseModel):
+
+    @dataclass
+    class Auction(ResponseModel):
+        id_: str
+        bid_deadline: datetime
+        total_bid: int
+        highest_bid: int
+
     id_: str
     name: str
     price: int

@@ -2,7 +2,7 @@ import logging
 from datetime import datetime
 from typing import NamedTuple, List, Dict, TypeVar, Type, Any, Optional, Callable
 
-from mercapi.models import Item, Items, Profile, SearchResults, SearchResultItem, Auction
+from mercapi.models import Item, Items, Profile, SearchResults, SearchResultItem
 from mercapi.models.common import ItemCategory, ItemCategorySummary
 from mercapi.models.item.data import (
     Seller,
@@ -235,6 +235,8 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
             ResponseProperty("id", "id_", Extractors.get("id")),
             ResponseProperty("start_time", "start_time", Extractors.get_datetime("start_time")),
             ResponseProperty("expected_end_time", "expected_end_time", Extractors.get_datetime("expected_end_time")),
+            ResponseProperty("bid_deadline_duration_seconds", "bid_deadline_duration_seconds", Extractors.get("bid_deadline_duration_seconds")),
+            ResponseProperty("bid_total_duration_seconds", "bid_total_duration_seconds", Extractors.get("bid_total_duration_seconds")),
             ResponseProperty("total_bids", "total_bids", Extractors.get_as("total_bids", int)),
             ResponseProperty("initial_price", "initial_price", Extractors.get_as("initial_price", int)),
             ResponseProperty("highest_bid", "highest_bid", Extractors.get_as("highest_bid", int)),
@@ -598,11 +600,11 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
             ResponseProperty(
                 "auction",
                 "auction",
-                Extractors.get_as_model("auction", Auction),
+                Extractors.get_as_model("auction", SearchResultItem.Auction),
             ),
         ],
     ),
-    Auction: R(
+    SearchResultItem.Auction: R(
         required_properties=[],
         optional_properties=[
             ResponseProperty("id", "id_", Extractors.get("id")),
