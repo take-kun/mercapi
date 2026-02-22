@@ -222,6 +222,7 @@ class Mercapi:
             params={
                 "seller_id": profile_id,
                 "limit": 30,
+                "with_auction": True,
                 "status": "on_sale,trading,sold_out",
             },
             headers=self._headers,
