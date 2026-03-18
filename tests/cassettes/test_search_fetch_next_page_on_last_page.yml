@@ -55,4 +55,72 @@ interactions:
       - cache-hhn-etou8220023-HHN
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: '{"userId": "", "config": {"responseToggles": ["QUERY_SUGGESTION_WEB_1"]},
+      "pageSize": 120, "pageToken": "", "searchSessionId": "43cb6f802b3b4b6ca64fd65ff54e34e5",
+      "source": "BaseSerp", "indexRouting": "INDEX_ROUTING_UNSPECIFIED", "thumbnailTypes":
+      [], "searchCondition": {"keyword": "sharpnel mad breaks", "excludeKeyword":
+      "", "sort": "SORT_SCORE", "order": "ORDER_DESC", "status": [], "sizeId": [],
+      "categoryId": [], "brandId": [], "sellerId": [], "priceMin": 0, "priceMax":
+      0, "itemConditionId": [], "shippingPayerId": [], "shippingFromArea": [], "shippingMethod":
+      [], "colorId": [], "hasCoupon": false, "attributes": [], "itemTypes": [], "skuIds":
+      [], "shopIds": [], "excludeShippingMethodIds": []}, "serviceFrom": "suruga",
+      "withItemBrand": true, "withItemSize": false, "withItemPromotions": true, "withItemSizes":
+      true, "withShopname": false, "useDynamicAttribute": true, "withSuggestedItems":
+      true, "withOfferPricePromotion": true, "withProductSuggest": true, "withParentProducts":
+      false, "withProductArticles": true, "withSearchConditionId": false, "withAuction":
+      true, "laplaceDeviceUuid": "b1ecc4c4ad8c4d619bff456a17181a8e"}'
+    headers:
+      content-length:
+      - '1134'
+      content-type:
+      - application/json
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6Ik9TbS1vVllmRUx6akdyMzZZOElpc2NRZnBVVVBENWhGUUVfV25waUFJQ3MiLCJ5IjoiTnM1MFYzVVFuTFgyV1FMV0Y0UGk1UG9aY3RkR3NnMGtFcWNaakdWSDRCRSJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3NzE3OTAzNjEsImp0aSI6IjNkYTVhZjdkLTU4ZmQtNDAzYy05NjFjLTIzNmI0NWZmNTUxMyIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiI4YjY2Yjc1My03M2UyLTI5NTYtYjFjYi0zZGY0ZjFkMjYxZTgifQ.49FK6mcrR1EG_JgbavO49kT_zwr3u1fkAwD9fg32auIiwjn-qAoVHo1_zyyx3VI5wrsT-bdV7xSz_P5kowB99g
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/125.0.0.0 Safari/537.3
+      x-platform:
+      - web
+    method: POST
+    uri: https://api.mercari.jp/v2/entities:search
+  response:
+    content: "{\"meta\":{\"nextPageToken\":\"\",\"previousPageToken\":\"\",\"numFound\":\"2\",\"properties\":[]},\"items\":[{\"id\":\"m91333057050\",\"sellerId\":\"760050342\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_ON_SALE\",\"name\":\"MAD
+      BREAKS DJ SHARPNEL \u30D7\u30EC\u30B9\u76E4\\u0026CD-R\u76E4\",\"price\":\"55000\",\"created\":\"1764148609\",\"updated\":\"1764148609\",\"thumbnails\":[\"https://static.mercdn.net/thumb/item/webp/m91333057050_1.jpg?1764148609\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"3\",\"shippingPayerId\":\"2\",\"itemSizes\":[],\"itemBrand\":null,\"itemPromotions\":[],\"shopName\":\"\",\"itemSize\":null,\"shippingMethodId\":\"14\",\"categoryId\":\"694\",\"isNoPrice\":false,\"title\":\"\",\"isLiked\":false,\"photos\":[{\"uri\":\"https://static.mercdn.net/item/detail/webp/photos/m91333057050_1.jpg?1764148609\"}],\"auction\":null,\"shop\":null},{\"id\":\"m19724608333\",\"sellerId\":\"687207235\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_SOLD_OUT\",\"name\":\"DJ
+      SHARPNEL MAD BREAKS\",\"price\":\"13800\",\"created\":\"1741429956\",\"updated\":\"1741774037\",\"thumbnails\":[\"https://static.mercdn.net/thumb/item/webp/m19724608333_1.jpg?1741429956\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"4\",\"shippingPayerId\":\"2\",\"itemSizes\":[],\"itemBrand\":null,\"itemPromotions\":[],\"shopName\":\"\",\"itemSize\":null,\"shippingMethodId\":\"17\",\"categoryId\":\"700\",\"isNoPrice\":false,\"title\":\"\",\"isLiked\":false,\"photos\":[{\"uri\":\"https://static.mercdn.net/item/detail/webp/photos/m19724608333_1.jpg?1741429956\"}],\"auction\":null,\"shop\":null}],\"components\":[{\"rowNumber\":\"-1\",\"querySuggest\":{\"suggestFacets\":{\"facets\":[{\"facetId\":\"1\\u001faXRlbV9jb25kaXRpb25faWQfMw==\",\"displayNamesMap\":{\"ja\":\"\u76EE\u7ACB\u3063\u305F\u50B7\u3084\u6C5A\u308C\u306A\u3057\"},\"searchableValue\":\"3\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"item_condition_id\"},{\"facetId\":\"1\\u001faXRlbV9jb25kaXRpb25faWQfNA==\",\"displayNamesMap\":{\"ja\":\"\u3084\u3084\u50B7\u3084\u6C5A\u308C\u3042\u308A\"},\"searchableValue\":\"4\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"item_condition_id\"},{\"facetId\":\"1\\u001fcHJpY2VfbWluHzEzODAw\",\"displayNamesMap\":{\"ja\":\"\xA513,800~\"},\"searchableValue\":\"13800\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"price_min\"},{\"facetId\":\"1\\u001faXRlbV90eXBlcx9tZXJjYXJp\",\"displayNamesMap\":{\"ja\":\"\u500B\u4EBA\"},\"searchableValue\":\"mercari\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"item_types\"},{\"facetId\":\"1\\u001fcHJpY2VfbWF4HzEzODAw\",\"displayNamesMap\":{\"ja\":\"~\xA513,800\"},\"searchableValue\":\"13800\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"price_max\"},{\"facetId\":\"1\\u001fc2hpcHBpbmdfcGF5ZXJfaWQfMg==\",\"displayNamesMap\":{\"ja\":\"\u9001\u6599\u8FBC\u307F(\u51FA\u54C1\u8005\u8CA0\u62C5)\"},\"searchableValue\":\"2\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"shipping_payer_id\"}]}}},{\"rowNumber\":\"0\",\"engagementArea\":{\"empty\":{}}}],\"searchCondition\":{\"keyword\":\"sharpnel
+      mad breaks\",\"excludeKeyword\":\"\",\"sort\":\"SORT_SCORE\",\"order\":\"ORDER_DESC\",\"status\":[],\"sizeId\":[],\"categoryId\":[],\"brandId\":[],\"sellerId\":[],\"priceMin\":0,\"priceMax\":0,\"itemConditionId\":[],\"shippingPayerId\":[],\"shippingFromArea\":[],\"shippingMethod\":[],\"colorId\":[],\"hasCoupon\":false,\"createdAfterDate\":\"0\",\"createdBeforeDate\":\"0\",\"attributes\":[],\"itemTypes\":[],\"skuIds\":[],\"shopIds\":[],\"promotionValidAt\":null,\"excludeShippingMethodIds\":[]},\"searchConditionId\":\"\"}\n"
+    headers:
+      CF-RAY:
+      - 9d2110424f32722f-WAW
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 22 Feb 2026 19:59:22 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=uG2.xKiAGrNK6Q9Z5sPn6rz6CSu6sltQnbwNcCiAhOQ-1771790362-1.0.1.1-0bpSLZjf.vhqdcOPEQKydakmr8H4f3inq8.as77fiWtoHl7g5SlO_metPd32rNQOZnunLbyt6H4atqdIoDRXuD.Z2oSZyQAX8watxYCLm.g;
+        path=/; expires=Sun, 22-Feb-26 20:29:22 GMT; domain=.api.mercari.jp; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=FvvpjdWTslulNLLTtZQbkeFFSUKn8JJpAwLvUHaGpWE-1771790362409-0.0.1.1-604800000;
+        path=/; domain=.api.mercari.jp; HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-request-id:
+      - 36e13e9a-d463-4ffb-ac12-d880bb15d337
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1
