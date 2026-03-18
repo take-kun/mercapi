@@ -163,7 +163,16 @@ class Mercapi:
         req = Request(
             "GET",
             "https://api.mercari.jp/items/get",
-            params={"id": id_},
+            params={
+                "id": id_,
+                "include_item_attributes": True,
+                "include_product_page_component": True,
+                "include_non_ui_item_attributes": True,
+                "include_donation": True,
+                "include_item_attributes_sections": True,
+                "include_auction": True,
+                "country_code": "JP",
+            },
             headers=self._headers,
         )
         return self._sign_request(req)
@@ -212,6 +221,7 @@ class Mercapi:
             params={
                 "seller_id": profile_id,
                 "limit": 30,
+                "with_auction": True,
                 "status": "on_sale,trading,sold_out",
             },
             headers=self._headers,

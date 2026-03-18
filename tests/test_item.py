@@ -30,7 +30,7 @@ async def test_item(m):
         "photos/m12871737078_4.jpg",
     ]
     assert res.thumbnails == [
-        "https://static.mercdn.net/c!/w=240/thumb/photos/m12871737078_1.jpg?1654847197"
+        "https://static.mercdn.net/thumb/item/jpeg/m12871737078_1.jpg?1654847197"
     ]
     assert res.num_likes == 1
     assert res.num_comments == 0
@@ -56,7 +56,7 @@ async def test_item(m):
 
     seller = res.seller
     assert seller.id_ == 485869194
-    assert seller.name == "adieusos"
+    assert seller.name == "sos"
 
 
 @pytest.mark.asyncio
@@ -74,11 +74,14 @@ async def test_item_with_comments(m):
 
     user = comment.user
     assert user.id_ == 492113432
-    assert user.name == "ヨシカズ(プロフ読んでね)"
-    assert user.photo == "https://static.mercdn.net/members/492113432.jpg?1672566263"
+    assert user.name == "ヨシカズ"
+    assert (
+        user.photo
+        == "https://static.mercdn.net/members/resized/webp/492113432.jpg?1672566263"
+    )
     assert (
         user.photo_thumbnail
-        == "https://static.mercdn.net/thumb/members/492113432.jpg?1672566263"
+        == "https://static.mercdn.net/thumb/members/webp/492113432.jpg?1672566263"
     )
 
 

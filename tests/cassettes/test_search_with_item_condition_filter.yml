@@ -58,4 +58,71 @@ interactions:
       - chunked
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: '{"userId": "", "config": {"responseToggles": ["QUERY_SUGGESTION_WEB_1"]},
+      "pageSize": 120, "pageToken": "", "searchSessionId": "6d7a9d8319054e9bbfbd83756ae66492",
+      "source": "BaseSerp", "indexRouting": "INDEX_ROUTING_UNSPECIFIED", "thumbnailTypes":
+      [], "searchCondition": {"keyword": "sharpnel", "excludeKeyword": "", "sort":
+      "SORT_SCORE", "order": "ORDER_DESC", "status": [], "sizeId": [], "categoryId":
+      [], "brandId": [], "sellerId": [], "priceMin": 0, "priceMax": 0, "itemConditionId":
+      [2], "shippingPayerId": [], "shippingFromArea": [], "shippingMethod": [], "colorId":
+      [], "hasCoupon": false, "attributes": [], "itemTypes": [], "skuIds": [], "shopIds":
+      [], "excludeShippingMethodIds": []}, "serviceFrom": "suruga", "withItemBrand":
+      true, "withItemSize": false, "withItemPromotions": true, "withItemSizes": true,
+      "withShopname": false, "useDynamicAttribute": true, "withSuggestedItems": true,
+      "withOfferPricePromotion": true, "withProductSuggest": true, "withParentProducts":
+      false, "withProductArticles": true, "withSearchConditionId": false, "withAuction":
+      true, "laplaceDeviceUuid": "404844faf58c462dabbfa37548cba288"}'
+    headers:
+      content-length:
+      - '1124'
+      content-type:
+      - application/json
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IlhPUzBlZ2dUZkRPYmJRNk1FSGRPMWttZ0NQcUJMRks1bV9obE9aeHo0bGsiLCJ5IjoidDNydVktVG5SQmZjNVZsVVlTQnUyaDVOMHNuUGJqRkxYUGd6Zk1tSm5idyJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3NzE3OTAzNTYsImp0aSI6IjFlZjc0NmQ4LTEwNzEtMDliZi04MjU5LWI5OTM1OTdkODM4NCIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiJmM2E5NGFkZC03MmI5LWQ2YjEtMWRmNy1lYmUyOWQ3YTU4MmIifQ.bk708KWmPl8EaT-t9JpkJ6fVhtfHNagPzHUhFjnZNK6JMKpNu3Gaw0Zz8p0rQLjhdkXJKBhKDM5PHXcavI2Kvw
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/125.0.0.0 Safari/537.3
+      x-platform:
+      - web
+    method: POST
+    uri: https://api.mercari.jp/v2/entities:search
+  response:
+    content: "{\"meta\":{\"nextPageToken\":\"\",\"previousPageToken\":\"\",\"numFound\":\"1\",\"properties\":[]},\"items\":[{\"id\":\"m64206754216\",\"sellerId\":\"925725842\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_SOLD_OUT\",\"name\":\"\u540C\u4EBA\u97F3\u697DCD
+      \u5EC3\u76E4\u30EC\u30A2 \u30AA\u30BF\u30AF\u30AA\u30FC\u30D0\u30FC\u30AF\u30ED\u30C3\u30AF\u30B921SHARPNEL
+      SOUND\",\"price\":\"10799\",\"created\":\"1758871471\",\"updated\":\"1770986073\",\"thumbnails\":[\"https://static.mercdn.net/thumb/item/webp/m64206754216_1.jpg?1758871471\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"2\",\"shippingPayerId\":\"2\",\"itemSizes\":[],\"itemBrand\":null,\"itemPromotions\":[],\"shopName\":\"\",\"itemSize\":null,\"shippingMethodId\":\"17\",\"categoryId\":\"700\",\"isNoPrice\":false,\"title\":\"\",\"isLiked\":false,\"photos\":[{\"uri\":\"https://static.mercdn.net/item/detail/webp/photos/m64206754216_1.jpg?1758871471\"}],\"auction\":null,\"shop\":null}],\"components\":[{\"rowNumber\":\"-1\",\"querySuggest\":{\"suggestFacets\":{\"facets\":[{\"facetId\":\"1\\u001faXRlbV9jb25kaXRpb25faWQfMw==\",\"displayNamesMap\":{\"ja\":\"\u76EE\u7ACB\u3063\u305F\u50B7\u3084\u6C5A\u308C\u306A\u3057\"},\"searchableValue\":\"3\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"item_condition_id\"},{\"facetId\":\"1\\u001faXRlbV9jb25kaXRpb25faWQfNA==\",\"displayNamesMap\":{\"ja\":\"\u3084\u3084\u50B7\u3084\u6C5A\u308C\u3042\u308A\"},\"searchableValue\":\"4\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"item_condition_id\"},{\"facetId\":\"1\\u001fcHJpY2VfbWluHzEwNzk5\",\"displayNamesMap\":{\"ja\":\"\xA510,799~\"},\"searchableValue\":\"10799\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"price_min\"},{\"facetId\":\"1\\u001faXRlbV90eXBlcx9tZXJjYXJp\",\"displayNamesMap\":{\"ja\":\"\u500B\u4EBA\"},\"searchableValue\":\"mercari\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"item_types\"},{\"facetId\":\"1\\u001fcHJpY2VfbWF4HzEwNzk5\",\"displayNamesMap\":{\"ja\":\"~\xA510,799\"},\"searchableValue\":\"10799\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"price_max\"},{\"facetId\":\"1\\u001fc2hpcHBpbmdfcGF5ZXJfaWQfMg==\",\"displayNamesMap\":{\"ja\":\"\u9001\u6599\u8FBC\u307F(\u51FA\u54C1\u8005\u8CA0\u62C5)\"},\"searchableValue\":\"2\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"shipping_payer_id\"}]}}},{\"rowNumber\":\"0\",\"engagementArea\":{\"empty\":{}}},{\"rowNumber\":\"1\",\"suggestedItems\":{\"searchRequest\":{\"userId\":\"\",\"pageSize\":120,\"pageToken\":\"\",\"searchSessionId\":\"a3221e63-e0ca-47c8-a66b-7b72f76e6293\",\"indexRouting\":\"INDEX_ROUTING_UNSPECIFIED\",\"thumbnailTypes\":[],\"searchCondition\":{\"keyword\":\"sharpnel\",\"excludeKeyword\":\"\",\"sort\":\"SORT_SCORE\",\"order\":\"ORDER_DESC\",\"status\":[\"STATUS_ON_SALE\"],\"sizeId\":[],\"categoryId\":[],\"brandId\":[],\"sellerId\":[],\"priceMin\":0,\"priceMax\":0,\"itemConditionId\":[],\"shippingPayerId\":[],\"shippingFromArea\":[],\"shippingMethod\":[],\"colorId\":[],\"hasCoupon\":false,\"createdAfterDate\":\"0\",\"createdBeforeDate\":\"0\",\"attributes\":[],\"itemTypes\":[],\"skuIds\":[],\"shopIds\":[],\"promotionValidAt\":null,\"excludeShippingMethodIds\":[]},\"searchType\":\"SEARCH_TYPE_MERCARI\",\"defaultDatasets\":[],\"serviceFrom\":\"\",\"withItemSizes\":true,\"withItemBrand\":true,\"withItemPromotions\":false,\"withShopname\":false,\"withItemSize\":false,\"useDynamicAttribute\":false,\"withSuggestedItems\":false,\"withProductSuggest\":false,\"withOfferPricePromotion\":true,\"disableEventLogging\":false,\"trackTotalHits\":0,\"withSearchConditionId\":false,\"searchConditionId\":\"\",\"itemTitleType\":\"ITEM_TITLE_UNSPECIFIED\",\"withIsLiked\":false,\"withProductArticles\":false,\"withParentProducts\":false,\"withAuction\":false,\"laplaceDeviceUuid\":\"\",\"source\":\"\",\"config\":null}}}],\"searchCondition\":{\"keyword\":\"sharpnel\",\"excludeKeyword\":\"\",\"sort\":\"SORT_SCORE\",\"order\":\"ORDER_DESC\",\"status\":[],\"sizeId\":[],\"categoryId\":[],\"brandId\":[],\"sellerId\":[],\"priceMin\":0,\"priceMax\":0,\"itemConditionId\":[2],\"shippingPayerId\":[],\"shippingFromArea\":[],\"shippingMethod\":[],\"colorId\":[],\"hasCoupon\":false,\"createdAfterDate\":\"0\",\"createdBeforeDate\":\"0\",\"attributes\":[],\"itemTypes\":[],\"skuIds\":[],\"shopIds\":[],\"promotionValidAt\":null,\"excludeShippingMethodIds\":[]},\"searchConditionId\":\"\"}\n"
+    headers:
+      CF-RAY:
+      - 9d2110229d19f499-WAW
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 22 Feb 2026 19:59:17 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=mJ7NKQ_XkdHWTAkItw61iS6zwvYoR1Sp58PXDAKxG18-1771790357-1.0.1.1-eCWUgiy49Msf32abZTcOvIksCbX9HsAzmRM5nJTeM.XHD7KnPMGVKWlyVGmtZSaKrf1nA04AMQzhLbnjNUKvYBw0dli85SdNWfG.JbQVQ0A;
+        path=/; expires=Sun, 22-Feb-26 20:29:17 GMT; domain=.api.mercari.jp; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=GZ_ZMnb11oa6qC1xho.NLXwib.k_hSOWocthGVx3yKw-1771790357310-0.0.1.1-604800000;
+        path=/; domain=.api.mercari.jp; HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-request-id:
+      - 0ae4158e-2d46-41da-b9ed-b05a17448c22
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1

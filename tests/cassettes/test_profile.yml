@@ -41,4 +41,56 @@ interactions:
       - cache-fra19138-FRA
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: ''
+    headers:
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6InpSa0lCd2hzeHJ6R2NtMlNFbHJhcEtjMjFJX19RU19VTGlVdGkzMmttZm8iLCJ5IjoiWVh0MkZBeE9TOHVZeGRibWc4QzNhck5ab3RuQS15cDZTb3lpdWxmUzJZQSJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3NzE3OTAzNTYsImp0aSI6IjgyNWQ0ZmYxLTVkZGQtNTU2Mi1mMmJjLTA5YWViNzczNWFiNyIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdXNlcnMvZ2V0X3Byb2ZpbGU_dXNlcl9pZD0zNjIxNjQ3MDAmX3VzZXJfZm9ybWF0PXByb2ZpbGUiLCJodG0iOiJHRVQiLCJ1dWlkIjoiYmUzZDJkZDUtYjM3Ni1kYzEyLWM4NzYtNjA0MGFjYzUxZWNmIn0.vEvnVblHK3f5UgCz7Yn6uxpEmCbntifNfqkm3gHciyCqQN24S09z2rOw0mnNIjxG3hCM5gLaPmkssNHM-5sAwg
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/125.0.0.0 Safari/537.3
+      x-platform:
+      - web
+    method: GET
+    uri: https://api.mercari.jp/users/get_profile?user_id=362164700&_user_format=profile
+  response:
+    content: "{\"result\":\"OK\",\"data\":{\"id\":362164700,\"name\":\"nananao\",\"photo_url\":\"https://static.mercdn.net/images/member_photo_noimage.png\",\"photo_thumbnail_url\":\"https://static.mercdn.net/images/member_photo_noimage_thumb.png\",\"register_sms_confirmation\":\"yes\",\"ratings\":{\"good\":2654,\"normal\":3,\"bad\":1},\"polarized_ratings\":{\"good\":2657,\"bad\":1},\"num_ratings\":2658,\"star_rating_score\":5,\"is_followable\":true,\"is_following_requester\":false,\"is_blocked\":false,\"following_count\":0,\"follower_count\":47,\"kyc_type\":\"\",\"score\":2653,\"created\":1521901729,\"proper\":true,\"email\":\"\",\"bounce_mail_flag\":\"no\",\"phone_number\":\"\",\"has_detach_phone_number\":false,\"introduction\":\"\u5373\u8CFC\u5165\u53EF\u3002\u6642\u9593\u77ED\u7E2E\u306E\u305F\u3081\u7121\u8A00\u53D6\u5F15\u53EF\u3002\uFF08\u8A55\u4FA1\u306E\u307F\u5FC5\u9808\uFF09\\n\u6700\u77ED\u767A\u9001\u306E\u305F\u3081\u767A\u9001\u65B9\u6CD5\u3092\u672A\u5B9A\u3068\u3057\u3066\u307E\u3059\u3002\\r\\n\u767A\u9001\u307E\u30671\u9031\u9593\u307B\u3069\u304A\u6642\u9593\u3092\u3044\u305F\u3060\u304F\u5834\u5408\u3082\u3042\u308A\u307E\u3059\u3002\\r\\n\u68B1\u5305\u6750\u306F\u518D\u5229\u7528\u54C1\u3082\u3042\u308A\u3001\u540C\u68B1\u3082\u3042\u308A\u307E\u3059\u3002\\r\\n\u767A\u9001\u65B9\u6CD5\u3084\u65E9\u3081\u5E0C\u671B\u306F\u3054\u76F8\u8AC7\u4E0B\u3055\u3044\u3002\\r\\n\u64AE\u5F71\u3084\u78BA\u8A8D\u306A\u3069\u624B\u9593\u306E\u304B\u304B\u308B\u4E8B\u306F\u304A\u65AD\u308A\u3059\u308B\u4E8B\u3082\u3042\u308A\u307E\u3059\u3002\\r\\n\u304A\u53D6\u5F15\u306B\u3066\u81F3\u3089\u306A\u3044\u70B9\u3082\u3042\u308A\u307E\u3059\u304C\u3088\u308D\u3057\u304F\u304A\u9858\u3044\u81F4\u3057\u307E\u3059\u3002\",\"iv_code\":\"\",\"is_official\":false,\"num_sell_items\":1705,\"num_ticket\":0,\"hide_profile\":false,\"is_verified_proxy\":false,\"is_following\":false,\"current_point\":0,\"current_sales\":0,\"is_organizational_user\":false,\"organizational_user_status\":\"\",\"tokushouhou_edit_url\":\"https://www.mercari.com/jp/\",\"tokushouhou_show_url\":\"https://www.mercari.com/jp/\",\"pp_edit_url\":\"https://www.mercari.com/jp/\",\"pp_show_url\":\"https://www.mercari.com/jp/\"},\"meta\":{}}\n"
+    headers:
+      CF-RAY:
+      - 9d21101d6eaab601-WAW
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sun, 22 Feb 2026 19:59:16 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=7zDehjdf_NAY3IoLWzGIgSfmMZYJMfaN0DXSiK07JO4-1771790356-1.0.1.1-cn_aMgmqI_bQNEmJID.GyxNdBIFJu44x4AB.K_BCgBhjARyHKe5VAqeq9alQEVBlgtJq45wilINaVSD_8TyU7UbKJKLREq_vh5PPA..JjnI;
+        path=/; expires=Sun, 22-Feb-26 20:29:16 GMT; domain=.api.mercari.jp; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=_iXmw0LyX6v_PD9BwOXTfkTSDEqheAJ.h2ouxV6P0mg-1771790356371-0.0.1.1-604800000;
+        path=/; domain=.api.mercari.jp; HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-envoy-decorator-operation:
+      - http-server.mercari-user-social-jp-prod.svc.cluster.local:10001/*
+      x-envoy-upstream-service-time:
+      - '35'
+      x-request-id:
+      - af0c346d-4dac-494d-b804-c1f583cde493
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1
