@@ -3,7 +3,6 @@ import uuid
 from typing import Optional, List
 
 import httpx
-from httpx._types import ProxiesTypes
 from ecdsa import SigningKey, NIST256p
 from httpx import Request
 
@@ -27,13 +26,13 @@ class Mercapi:
     def __init__(
         self,
         *,
-        proxies: Optional[ProxiesTypes] = None,
         user_agent: Optional[str] = None,
+        httpx_client: Optional[httpx.AsyncClient] = None,
     ):
         """initialize
 
-        :param proxies: Once the proxy is configured, the IP address of the access source can be changed. (e.g. {"http://": "http://example.com:1234", "https://": "http://example.com:1234"})
-        :param user_agent: User-Agent
+        :param user_agent: Custom User-Agent HTTP header sent in outgoing requests
+        :param httpx_client: User-provided httpx client, new httpx.AsyncClient will be created if not provided
         """
         if not user_agent:
             user_agent = (
@@ -48,7 +47,7 @@ class Mercapi:
 
         self._uuid = str(uuid.UUID(int=random.getrandbits(128)))
         self._key = SigningKey.generate(NIST256p)
-        self._client = httpx.AsyncClient(proxies=proxies)
+        self._client = httpx_client or httpx.AsyncClient()
         ResponseModel.set_mercapi(self)
 
     def _sign_request(self, request: Request) -> Request:
