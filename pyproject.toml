@@ -12,7 +12,7 @@ keywords = ["api", "scraping"]
 python = "^3.10"
 python-jose = {extras = ["cryptography"], version = "^3.5.0"}
 ecdsa = "^0.19.1"
-httpx = "^0.27.2"
+httpx = "^0.28.1"
 
 [tool.poetry.group.dev.dependencies]
 vcrpy = "^4.4.0"
