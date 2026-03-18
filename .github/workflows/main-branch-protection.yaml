@@ -1,0 +1,24 @@
+name: "Main Branch Protection"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check_branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source branch name
+        run: |
+          # github.head_ref is the source branch in a PR
+          SRC_BRANCH=${{ github.head_ref }}
+          
+          if [[ "$SRC_BRANCH" == "develop" ]] || [[ "$SRC_BRANCH" =~ ^release/.* ]]; then
+            echo "✅ Branch $SRC_BRANCH is allowed."
+            exit 0
+          else
+            echo "❌ Merges to main are only allowed from 'develop' or 'release/*'."
+            echo "Your source branch is: $SRC_BRANCH"
+            exit 1
+          fi
