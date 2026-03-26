@@ -61,4 +61,71 @@ interactions:
       - c7c0bcc3-bba3-45f1-879e-ef5b77f3fcb5
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: '{"userId": "", "config": {"responseToggles": ["QUERY_SUGGESTION_WEB_1"]},
+      "pageSize": 120, "pageToken": "", "searchSessionId": "6db3b3a48cdc44e09f4127179e811cf2",
+      "source": "BaseSerp", "indexRouting": "INDEX_ROUTING_UNSPECIFIED", "thumbnailTypes":
+      [], "searchCondition": {"keyword": "cyclick", "excludeKeyword": "", "sort":
+      "SORT_SCORE", "order": "ORDER_DESC", "status": [], "sizeId": [], "categoryId":
+      [75], "brandId": [], "sellerId": [], "priceMin": 0, "priceMax": 0, "itemConditionId":
+      [], "shippingPayerId": [], "shippingFromArea": [], "shippingMethod": [], "colorId":
+      [], "hasCoupon": false, "attributes": [], "itemTypes": [], "skuIds": [], "shopIds":
+      [], "excludeShippingMethodIds": []}, "serviceFrom": "suruga", "withItemBrand":
+      true, "withItemSize": false, "withItemPromotions": true, "withItemSizes": true,
+      "withShopname": false, "useDynamicAttribute": true, "withSuggestedItems": true,
+      "withOfferPricePromotion": true, "withProductSuggest": true, "withParentProducts":
+      false, "withProductArticles": true, "withSearchConditionId": false, "withAuction":
+      true, "laplaceDeviceUuid": "8f33e820cb1b44dcb2021fbe3a16a1cb"}'
+    headers:
+      content-length:
+      - '1124'
+      content-type:
+      - application/json
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IkFPRTNUNFZJMS1xcWd1M1JwNVptR1pTejZpclZEUkNMX3hINXhWMTNoYUEiLCJ5IjoiYXB6RVNmTTV3Sm4yMXZoNnRfWkxFcTNmV1lDSmFCeGx6QUVRZU13eG5WcyJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3NzE3OTAzNTYsImp0aSI6IjIyNDBiNDNkLWFjYjctNGJhYy1iYzIxLTEzYWIxMWJjM2Q1NCIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiI5MzhkNmY5Mi0wNDRjLTNmODItZjM1NC01YzUyY2IzM2ZjMGIifQ.hgiZSA7jBAcgRLV1hHjH-HQhvywxeyTF8b32xH4mpyenC8Y5vtqTYeVIlPHts7e4r8wsa_QCFEj4CR7410uZvg
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/125.0.0.0 Safari/537.3
+      x-platform:
+      - web
+    method: POST
+    uri: https://api.mercari.jp/v2/entities:search
+  response:
+    content: "{\"meta\":{\"nextPageToken\":\"\",\"previousPageToken\":\"\",\"numFound\":\"2\",\"properties\":[]},\"items\":[{\"id\":\"m31445272497\",\"sellerId\":\"721974225\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_ON_SALE\",\"name\":\"DJ
+      SHARPNEL Cyclick(SRPC-0026)\",\"price\":\"70000\",\"created\":\"1761358367\",\"updated\":\"1768192928\",\"thumbnails\":[\"https://static.mercdn.net/thumb/item/webp/m31445272497_1.jpg?1761358367\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"3\",\"shippingPayerId\":\"2\",\"itemSizes\":[],\"itemBrand\":null,\"itemPromotions\":[],\"shopName\":\"\",\"itemSize\":null,\"shippingMethodId\":\"17\",\"categoryId\":\"700\",\"isNoPrice\":false,\"title\":\"\",\"isLiked\":false,\"photos\":[{\"uri\":\"https://static.mercdn.net/item/detail/webp/photos/m31445272497_1.jpg?1761358367\"}],\"auction\":null,\"shop\":null},{\"id\":\"m94338609985\",\"sellerId\":\"276747051\",\"buyerId\":\"\",\"status\":\"ITEM_STATUS_ON_SALE\",\"name\":\"CYCLICK
+      CONTROL - UPSHFT SHOWCASE\",\"price\":\"800\",\"created\":\"1693961420\",\"updated\":\"1721860193\",\"thumbnails\":[\"https://static.mercdn.net/thumb/item/webp/m94338609985_1.jpg?1693961420\"],\"itemType\":\"ITEM_TYPE_MERCARI\",\"itemConditionId\":\"3\",\"shippingPayerId\":\"2\",\"itemSizes\":[],\"itemBrand\":null,\"itemPromotions\":[],\"shopName\":\"\",\"itemSize\":null,\"shippingMethodId\":\"14\",\"categoryId\":\"700\",\"isNoPrice\":false,\"title\":\"\",\"isLiked\":false,\"photos\":[{\"uri\":\"https://static.mercdn.net/item/detail/webp/photos/m94338609985_1.jpg?1693961420\"}],\"auction\":null,\"shop\":null}],\"components\":[{\"rowNumber\":\"-1\",\"querySuggest\":{\"suggestFacets\":{\"facets\":[{\"facetId\":\"1\\u001faXRlbV9jb25kaXRpb25faWQfMw==\",\"displayNamesMap\":{\"ja\":\"\u76EE\u7ACB\u3063\u305F\u50B7\u3084\u6C5A\u308C\u306A\u3057\"},\"searchableValue\":\"3\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"item_condition_id\"},{\"facetId\":\"1\\u001faXRlbV9jb25kaXRpb25faWQfNA==\",\"displayNamesMap\":{\"ja\":\"\u3084\u3084\u50B7\u3084\u6C5A\u308C\u3042\u308A\"},\"searchableValue\":\"4\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"item_condition_id\"},{\"facetId\":\"1\\u001fcHJpY2VfbWluHzgwMA==\",\"displayNamesMap\":{\"ja\":\"\xA5800~\"},\"searchableValue\":\"800\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"price_min\"},{\"facetId\":\"1\\u001faXRlbV90eXBlcx9tZXJjYXJp\",\"displayNamesMap\":{\"ja\":\"\u500B\u4EBA\"},\"searchableValue\":\"mercari\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"item_types\"},{\"facetId\":\"1\\u001fcHJpY2VfbWF4HzgwMA==\",\"displayNamesMap\":{\"ja\":\"~\xA5800\"},\"searchableValue\":\"800\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"price_max\"},{\"facetId\":\"1\\u001fc2hpcHBpbmdfcGF5ZXJfaWQfMg==\",\"displayNamesMap\":{\"ja\":\"\u9001\u6599\u8FBC\u307F(\u51FA\u54C1\u8005\u8CA0\u62C5)\"},\"searchableValue\":\"2\",\"leaf\":true,\"selected\":false,\"metadata\":null,\"selectedState\":\"FACET_SELECTED_STATE_UNSPECIFIED\",\"parentPath\":null,\"nestedFacets\":null,\"searchableKey\":\"shipping_payer_id\"}]}}},{\"rowNumber\":\"0\",\"engagementArea\":{\"empty\":{}}},{\"rowNumber\":\"1\",\"suggestedItems\":{\"searchRequest\":{\"userId\":\"\",\"pageSize\":120,\"pageToken\":\"\",\"searchSessionId\":\"bc07e08c-61cb-44ec-b607-f3bdc8e6cdd9\",\"indexRouting\":\"INDEX_ROUTING_UNSPECIFIED\",\"thumbnailTypes\":[],\"searchCondition\":{\"keyword\":\"cyclick\",\"excludeKeyword\":\"\",\"sort\":\"SORT_SCORE\",\"order\":\"ORDER_DESC\",\"status\":[\"STATUS_ON_SALE\"],\"sizeId\":[],\"categoryId\":[],\"brandId\":[],\"sellerId\":[],\"priceMin\":0,\"priceMax\":0,\"itemConditionId\":[],\"shippingPayerId\":[],\"shippingFromArea\":[],\"shippingMethod\":[],\"colorId\":[],\"hasCoupon\":false,\"createdAfterDate\":\"0\",\"createdBeforeDate\":\"0\",\"attributes\":[],\"itemTypes\":[],\"skuIds\":[],\"shopIds\":[],\"promotionValidAt\":null,\"excludeShippingMethodIds\":[]},\"searchType\":\"SEARCH_TYPE_MERCARI\",\"defaultDatasets\":[],\"serviceFrom\":\"\",\"withItemSizes\":true,\"withItemBrand\":true,\"withItemPromotions\":false,\"withShopname\":false,\"withItemSize\":false,\"useDynamicAttribute\":false,\"withSuggestedItems\":false,\"withProductSuggest\":false,\"withOfferPricePromotion\":true,\"disableEventLogging\":false,\"trackTotalHits\":0,\"withSearchConditionId\":false,\"searchConditionId\":\"\",\"itemTitleType\":\"ITEM_TITLE_UNSPECIFIED\",\"withIsLiked\":false,\"withProductArticles\":false,\"withParentProducts\":false,\"withAuction\":false,\"laplaceDeviceUuid\":\"\",\"source\":\"\",\"config\":null}}}],\"searchCondition\":{\"keyword\":\"cyclick\",\"excludeKeyword\":\"\",\"sort\":\"SORT_SCORE\",\"order\":\"ORDER_DESC\",\"status\":[],\"sizeId\":[],\"categoryId\":[75],\"brandId\":[],\"sellerId\":[],\"priceMin\":0,\"priceMax\":0,\"itemConditionId\":[],\"shippingPayerId\":[],\"shippingFromArea\":[],\"shippingMethod\":[],\"colorId\":[],\"hasCoupon\":false,\"createdAfterDate\":\"0\",\"createdBeforeDate\":\"0\",\"attributes\":[],\"itemTypes\":[],\"skuIds\":[],\"shopIds\":[],\"promotionValidAt\":null,\"excludeShippingMethodIds\":[]},\"searchConditionId\":\"\"}\n"
+    headers:
+      CF-RAY:
+      - 9d21101f8ea9de10-WAW
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 22 Feb 2026 19:59:16 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=xbM.Ln3FL9o5z7jEjmL7r1fN4ZV7QLMDSPe1dbR47Wg-1771790356-1.0.1.1-eAKFQ9Qmi78N52J1Cy.nBy2yMkpOcbW6imRCXLWDSOizv8lAmPYqqX4djFy2TyDE.NYTtHCukkvyAk6Y19cgb8EBXA_aB7ajoRTb_KQ62uc;
+        path=/; expires=Sun, 22-Feb-26 20:29:16 GMT; domain=.api.mercari.jp; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=T9QaZ1bOO8SpYIvTPY4JFEk0EbYkmaZHcuM4UJeutkE-1771790356846-0.0.1.1-604800000;
+        path=/; domain=.api.mercari.jp; HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-request-id:
+      - 63254e69-4c84-44fa-862c-19bf1ce2be0e
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1
