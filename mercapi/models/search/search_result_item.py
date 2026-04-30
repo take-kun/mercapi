@@ -8,9 +8,9 @@ if TYPE_CHECKING:
     from mercapi.models import Item, Profile
 from mercapi.models.base import ResponseModel
 
+
 @dataclass
 class SearchResultItem(ResponseModel):
-
     @dataclass
     class Auction(ResponseModel):
         id_: str

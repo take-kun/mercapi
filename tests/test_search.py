@@ -168,4 +168,3 @@ async def test_search_auction(m):
     assert auction.highest_bid == 25200
     assert auction.total_bid == 2
     assert int(datetime.timestamp(auction.bid_deadline)) == 1771588328
-    

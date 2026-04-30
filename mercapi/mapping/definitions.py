@@ -234,7 +234,9 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
                 "is_offerable_v2", "is_offerable_v2", Extractors.get("is_offerable_v2")
             ),
             ResponseProperty(
-                "auction_info", "auction_info", Extractors.get_as_model("auction_info", AuctionInfo)
+                "auction_info",
+                "auction_info",
+                Extractors.get_as_model("auction_info", AuctionInfo),
             ),
         ],
     ),
@@ -242,15 +244,39 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
         required_properties=[],
         optional_properties=[
             ResponseProperty("id", "id_", Extractors.get("id")),
-            ResponseProperty("start_time", "start_time", Extractors.get_datetime("start_time")),
-            ResponseProperty("expected_end_time", "expected_end_time", Extractors.get_datetime("expected_end_time")),
-            ResponseProperty("bid_deadline_duration_seconds", "bid_deadline_duration_seconds", Extractors.get("bid_deadline_duration_seconds")),
-            ResponseProperty("bid_total_duration_seconds", "bid_total_duration_seconds", Extractors.get("bid_total_duration_seconds")),
-            ResponseProperty("total_bids", "total_bids", Extractors.get_as("total_bids", int)),
-            ResponseProperty("initial_price", "initial_price", Extractors.get_as("initial_price", int)),
-            ResponseProperty("highest_bid", "highest_bid", Extractors.get_as("highest_bid", int)),
+            ResponseProperty(
+                "start_time", "start_time", Extractors.get_datetime("start_time")
+            ),
+            ResponseProperty(
+                "expected_end_time",
+                "expected_end_time",
+                Extractors.get_datetime("expected_end_time"),
+            ),
+            ResponseProperty(
+                "bid_deadline_duration_seconds",
+                "bid_deadline_duration_seconds",
+                Extractors.get("bid_deadline_duration_seconds"),
+            ),
+            ResponseProperty(
+                "bid_total_duration_seconds",
+                "bid_total_duration_seconds",
+                Extractors.get("bid_total_duration_seconds"),
+            ),
+            ResponseProperty(
+                "total_bids", "total_bids", Extractors.get_as("total_bids", int)
+            ),
+            ResponseProperty(
+                "initial_price",
+                "initial_price",
+                Extractors.get_as("initial_price", int),
+            ),
+            ResponseProperty(
+                "highest_bid", "highest_bid", Extractors.get_as("highest_bid", int)
+            ),
             ResponseProperty("state", "state", Extractors.get("state")),
-            ResponseProperty("auction_type", "auction_type", Extractors.get("auction_type")),
+            ResponseProperty(
+                "auction_type", "auction_type", Extractors.get("auction_type")
+            ),
         ],
     ),
     Seller: R(
@@ -631,12 +657,20 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
         required_properties=[],
         optional_properties=[
             ResponseProperty("id", "id_", Extractors.get("id")),
-            ResponseProperty("bidDeadline", "bid_deadline",
-                                         Extractors.get_with("bidDeadline", lambda x: datetime.fromisoformat(
-                                             x.replace("Z", "+00:00")
-                                         ))),
-            ResponseProperty("totalBid", "total_bid", Extractors.get_as("totalBid", int)),
-            ResponseProperty("highestBid", "highest_bid", Extractors.get_as("highestBid", int)),
+            ResponseProperty(
+                "bidDeadline",
+                "bid_deadline",
+                Extractors.get_with(
+                    "bidDeadline",
+                    lambda x: datetime.fromisoformat(x.replace("Z", "+00:00")),
+                ),
+            ),
+            ResponseProperty(
+                "totalBid", "total_bid", Extractors.get_as("totalBid", int)
+            ),
+            ResponseProperty(
+                "highestBid", "highest_bid", Extractors.get_as("highestBid", int)
+            ),
         ],
     ),
     ItemCategory: R(
