@@ -13,19 +13,19 @@ async def test_product(m):
     assert (
         res.display_name == "【PS2】Beatmania ⅡDX 16 EMPRESS + PREMIUM BEST ソフトのみ ビートマニア"
     )
-    assert res.product_tags == []
+    assert res.product_tags == ["sold_out"]
     assert (
         res.thumbnail
         == "https://assets.mercari-shops-static.com/-/small/plain/5VX9LCnEfBdm3hvv97sAXT.jpg@jpg"
     )
-    assert res.price == "6300"
+    assert res.price == "6000"
     assert res.create_time == datetime(2025, 4, 15, 14, 9, 35, tzinfo=timezone.utc)
-    assert res.update_time == datetime(2025, 4, 21, 4, 49, 54, tzinfo=timezone.utc)
+    assert res.update_time == datetime(2025, 11, 10, 1, 27, 53, tzinfo=timezone.utc)
     assert res.attributes == []
 
     detail = res.product_detail
     assert detail.shop.name == "wkkCxHU3Rx8WqyZ77YgMaF"
-    assert detail.shop.display_name == "直江堂@タイムセール商品は同梱不可"
+    assert detail.shop.display_name == "直江堂"
     assert (
         detail.shop.thumbnail
         == "https://assets.mercari-shops-static.com/-/small/plain/bj8nXES3x7KFcGRJqeZrD6.jpg@jpg"
@@ -36,18 +36,18 @@ async def test_product(m):
     shop_stats = detail.shop.shop_stats
     assert shop_stats.shop_id == "wkkCxHU3Rx8WqyZ77YgMaF"
     assert shop_stats.score == 5
-    assert shop_stats.review_count == "7437"
+    assert shop_stats.review_count == "13218"
 
     assert len(detail.shop.shop_items) == 6
     shop_item = detail.shop.shop_items[0]
-    assert shop_item.product_id == "Qv25jGNXs8rvT5mBiX5RD"
-    assert shop_item.display_name == "SDBBショップ様専用"
-    assert shop_item.product_tags == ["sold_out"]
+    assert shop_item.product_id == "2JNjPJcJbwq5wwaQoiyLxY"
+    assert shop_item.display_name == "【Switch】アパシー 鳴神学園七不思議"
+    assert shop_item.product_tags == []
     assert (
         shop_item.thumbnail
-        == "https://assets.mercari-shops-static.com/-/small/plain/x2C6aGnE8LTzzSreTdrtAe.jpg@jpg"
+        == "https://assets.mercari-shops-static.com/-/small/plain/2JNcuRYCz6PH8q2Hug9kT7.jpg@jpg"
     )
-    assert shop_item.price == "3100"
+    assert shop_item.price == "2800"
 
     assert detail.photos == [
         "https://assets.mercari-shops-static.com/-/large/plain/5VX9LCnEfBdm3hvv97sAXT.jpg@jpg",
@@ -68,13 +68,13 @@ async def test_product(m):
     assert category.has_child is False
 
     assert detail.brand.brand_id == "3267"
-    assert detail.brand.display_name == "プレイステーション2"
+    assert detail.brand.display_name == "PlayStation2"
 
     assert detail.condition.display_name == "やや傷や汚れあり"
 
-    assert detail.shipping_method.shipping_method_id == "3"
-    assert detail.shipping_method.display_name == "らくらくメルカリ便"
-    assert detail.shipping_method.is_anonymous is True
+    assert detail.shipping_method.shipping_method_id == "6"
+    assert detail.shipping_method.display_name == "クロネコヤマト"
+    assert detail.shipping_method.is_anonymous is False
 
     assert detail.shipping_payer.shipping_payer_id == "1"
     assert detail.shipping_payer.display_name == "送料込み(出品者負担)"
@@ -92,11 +92,11 @@ async def test_product(m):
     assert stats.product_id == "uU4Ahinr6rGNFLNYQpa9E7"
     assert stats.score == 0
     assert stats.review_count == 0
-    assert stats.likes_count == 1
+    assert stats.likes_count == 5
 
     assert len(detail.variants) == 1
     variant = detail.variants[0]
     assert variant.variant_id == "VmcgXM63ZjRAQdzxi4X8Ja"
     assert variant.display_name == ""
-    assert variant.quantity == "1"
+    assert variant.quantity == "0"
     assert variant.size == ""
