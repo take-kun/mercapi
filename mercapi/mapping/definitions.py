@@ -14,6 +14,7 @@ from mercapi.models.item.data import (
     ShippingDuration,
     ShippingClass,
     Comment,
+    AuctionInfo,
 )
 from mercapi.util.errors import ParseAPIResponseError
 from mercapi.models.base import ResponseModel
@@ -223,6 +224,24 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
             ResponseProperty(
                 "is_offerable_v2", "is_offerable_v2", Extractors.get("is_offerable_v2")
             ),
+            ResponseProperty(
+                "auction_info", "auction_info", Extractors.get_as_model("auction_info", AuctionInfo)
+            ),
+        ],
+    ),
+    AuctionInfo: R(
+        required_properties=[],
+        optional_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("start_time", "start_time", Extractors.get_datetime("start_time")),
+            ResponseProperty("expected_end_time", "expected_end_time", Extractors.get_datetime("expected_end_time")),
+            ResponseProperty("bid_deadline_duration_seconds", "bid_deadline_duration_seconds", Extractors.get("bid_deadline_duration_seconds")),
+            ResponseProperty("bid_total_duration_seconds", "bid_total_duration_seconds", Extractors.get("bid_total_duration_seconds")),
+            ResponseProperty("total_bids", "total_bids", Extractors.get_as("total_bids", int)),
+            ResponseProperty("initial_price", "initial_price", Extractors.get_as("initial_price", int)),
+            ResponseProperty("highest_bid", "highest_bid", Extractors.get_as("highest_bid", int)),
+            ResponseProperty("state", "state", Extractors.get("state")),
+            ResponseProperty("auction_type", "auction_type", Extractors.get("auction_type")),
         ],
     ),
     Seller: R(
@@ -578,6 +597,23 @@ mapping_definitions: Dict[Type[ResponseModel], ResponseMappingDefinition] = {
                 Extractors.get_as("categoryId", int),
             ),
             ResponseProperty("isNoPrice", "is_no_price", Extractors.get("isNoPrice")),
+            ResponseProperty(
+                "auction",
+                "auction",
+                Extractors.get_as_model("auction", SearchResultItem.Auction),
+            ),
+        ],
+    ),
+    SearchResultItem.Auction: R(
+        required_properties=[],
+        optional_properties=[
+            ResponseProperty("id", "id_", Extractors.get("id")),
+            ResponseProperty("bidDeadline", "bid_deadline",
+                                         Extractors.get_with("bidDeadline", lambda x: datetime.fromisoformat(
+                                             x.replace("Z", "+00:00")
+                                         ))),
+            ResponseProperty("totalBid", "total_bid", Extractors.get_as("totalBid", int)),
+            ResponseProperty("highestBid", "highest_bid", Extractors.get_as("highestBid", int)),
         ],
     ),
     ItemCategory: R(
@@ -690,7 +726,7 @@ def map_to_class(
     for prop in mapping_definition.optional_properties:
         raw_prop = None
         try:
-            raw_prop = prop.extractor(response)
+            raw_prop = prop.extractor(response) if response is not None else None
         except Exception as exc:
             _report_incorrect_optional(prop.raw_property_name, response, exc)
         init_properties[prop.model_property_name] = raw_prop

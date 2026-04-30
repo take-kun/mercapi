@@ -6,9 +6,16 @@ if TYPE_CHECKING:
     from mercapi.models import Item, Profile
 from mercapi.models.base import ResponseModel
 
-
 @dataclass
 class SearchResultItem(ResponseModel):
+
+    @dataclass
+    class Auction(ResponseModel):
+        id_: str
+        bid_deadline: datetime
+        total_bid: int
+        highest_bid: int
+
     id_: str
     name: str
     price: int
@@ -23,6 +30,7 @@ class SearchResultItem(ResponseModel):
     shipping_method_id: int
     category_id: int
     is_no_price: bool  # price==9999999 if True
+    auction: Auction
 
     async def full_item(self) -> "Item":
         return await self._mercapi.item(self.id_)
