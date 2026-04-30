@@ -90,3 +90,22 @@ async def test_item_with_comments(m):
 async def test_item_not_found(m):
     res = await m.item("m00000000000")
     assert res is None
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_item_auction(m):
+    res = await m.item("m16944912747")
+    assert res is not None
+    auction = res.auction_info
+    assert auction is not None
+    assert auction.id_ == "19862621"
+    assert int(datetime.timestamp(auction.start_time)) == 1771463740
+    assert int(datetime.timestamp(auction.end_time)) == 1771588328
+    assert auction.bid_deadline_duration_seconds == 54105
+    assert auction.bid_total_duration_seconds == 86400
+    assert auction.total_bids == 2
+    assert auction.initial_price == 25000
+    assert auction.highest_bid == 25200
+    assert auction.state == "STATE_ONGOING"
+    assert auction.auction_type == "AUCTION_TYPE_NORMAL"

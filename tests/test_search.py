@@ -154,3 +154,18 @@ async def test_search_no_price_item(m):
     assert item.is_no_price
     assert item.price == 9999999
     assert item.real_price is None
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_search_auction(m):
+    res = await m.search("metamorphose")
+    item = res.items[3]
+    assert item.id_ == "m16944912747"
+
+    auction = item.auction
+    assert auction is not None
+    assert auction.highest_bid == 25200
+    assert auction.total_bid == 2
+    assert int(datetime.timestamp(auction.bid_deadline)) == 1771588328
+    

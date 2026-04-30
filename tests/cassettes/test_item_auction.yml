@@ -1,0 +1,67 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IldETU5MakdMNFV0V3Y0V1B4dFhRaWxKTHRsektEUS1Ld3F5Y1pDeE5FTWMiLCJ5IjoiTFlnc3pHUHRHMmhzd00zUG5iclZLbUNkMWkxNnkxRUhUb0ZGVThtQmpJayJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3NzE1MzYzODksImp0aSI6IjBmMmZhYjFkLTNmMTctZTcwNS04M2RmLWNjZjNiZWE5YjhlMyIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvaXRlbXMvZ2V0P2lkPW0xNjk0NDkxMjc0NyIsImh0bSI6IkdFVCIsInV1aWQiOiJlMTkxMzIyNC1iMDAyLTIwYTItNDA5MS01N2MyNzhlY2RmMzEifQ.dKtuZ8lO62PTBII1FCXDcWIZp2PFQAghc27bEl9rhOow7a4Hl7RwgCEv1kZ9l_GH-H6TFJF_-i_gzF5TLhwNmQ
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/125.0.0.0 Safari/537.3
+      x-platform:
+      - web
+    method: GET
+    uri: https://api.mercari.jp/items/get?id=m16944912747
+  response:
+    content: "{\"result\":\"OK\",\"data\":{\"id\":\"m16944912747\",\"seller\":{\"id\":176645710,\"name\":\"\u3082\u3061\u3054\u3081\",\"photo_url\":\"https://static.mercdn.net/members/resized/webp/176645710.jpg?1649003197\",\"photo_thumbnail_url\":\"https://static.mercdn.net/thumb/members/webp/176645710.jpg?1649003197\",\"register_sms_confirmation\":\"yes\",\"register_sms_confirmation_at\":\"2023-05-28
+      20:37:09\",\"created\":1486831926,\"num_sell_items\":376,\"ratings\":{\"good\":805,\"normal\":0,\"bad\":3},\"num_ratings\":808,\"score\":802,\"is_official\":false,\"quick_shipper\":false,\"is_followable\":true,\"is_blocked\":false,\"is_inactive\":false,\"star_rating_score\":5},\"status\":\"on_sale\",\"name\":\"Metamorphose
+      \u79D8\u5BC6\u306E\u8ABF\u9999\u5BA4 JSK \u9ED2\u7CFB \u901A\u5E38\u30B5\u30A4\u30BA
+      \u6700\u7D42\u5024\u4E0B\u3052\",\"price\":25200,\"description\":\"1\u56DE\u7740\u7528\u3001\u5373\u8CFC\u5165\u53EF\",\"photos\":[\"https://static.mercdn.net/item/detail/orig/photos/m16944912747_1.jpg?1770338386\",\"https://static.mercdn.net/item/detail/orig/photos/m16944912747_2.jpg?1770338386\"],\"photo_paths\":[\"photos/m16944912747_1.jpg\",\"photos/m16944912747_2.jpg\"],\"thumbnails\":[\"https://static.mercdn.net/thumb/item/jpeg/m16944912747_1.jpg?1770338386\"],\"item_category\":{\"id\":15,\"name\":\"\u30EF\u30F3\u30D4\u30FC\u30B9\",\"display_order\":5,\"parent_category_id\":1,\"parent_category_name\":\"\u30EC\u30C7\u30A3\u30FC\u30B9\",\"root_category_id\":3088,\"root_category_name\":\"\u30D5\u30A1\u30C3\u30B7\u30E7\u30F3\"},\"item_category_ntiers\":{\"id\":1451,\"name\":\"\u30CE\u30FC\u30B9\u30EA\u30FC\u30D6\",\"display_order\":3,\"parent_category_id\":173,\"parent_category_name\":\"\u3072\u3056\u4E08\u30EF\u30F3\u30D4\u30FC\u30B9\",\"root_category_id\":3088,\"root_category_name\":\"\u30D5\u30A1\u30C3\u30B7\u30E7\u30F3\",\"size_group_id\":1,\"brand_group_id\":1},\"parent_categories_ntiers\":[{\"id\":3088,\"name\":\"\u30D5\u30A1\u30C3\u30B7\u30E7\u30F3\",\"display_order\":0},{\"id\":1,\"name\":\"\u30EC\u30C7\u30A3\u30FC\u30B9\",\"display_order\":0},{\"id\":15,\"name\":\"\u30EF\u30F3\u30D4\u30FC\u30B9\",\"display_order\":0},{\"id\":173,\"name\":\"\u3072\u3056\u4E08\u30EF\u30F3\u30D4\u30FC\u30B9\",\"display_order\":0}],\"item_condition\":{\"id\":2,\"name\":\"\u672A\u4F7F\u7528\u306B\u8FD1\u3044\",\"subname\":\"\u6570\u56DE\u4F7F\u7528\u3057\u3001\u3042\u307E\u308A\u4F7F\u7528\u611F\u304C\u306A\u3044\"},\"item_size\":{\"id\":7,\"name\":\"FREE
+      SIZE\"},\"item_brand\":{\"id\":1223,\"name\":\"metamorphose temps de fille\",\"sub_name\":\"metamorphose
+      temps de fille\"},\"colors\":[],\"shipping_payer\":{\"id\":2,\"name\":\"\u9001\u6599\u8FBC\u307F(\u51FA\u54C1\u8005\u8CA0\u62C5)\",\"code\":\"seller\"},\"shipping_method\":{\"id\":14,\"name\":\"\u3089\u304F\u3089\u304F\u30E1\u30EB\u30AB\u30EA\u4FBF\",\"is_deprecated\":\"no\"},\"shipping_from_area\":{\"id\":99,\"name\":\"\u672A\u5B9A\"},\"shipping_duration\":{\"id\":3,\"name\":\"4~7\u65E5\u3067\u767A\u9001\",\"min_days\":4,\"max_days\":7},\"shipping_class\":{\"id\":0,\"fee\":0,\"icon_id\":0,\"pickup_fee\":0,\"shipping_fee\":0,\"total_fee\":0,\"is_pickup\":false},\"num_likes\":17,\"num_comments\":1,\"registered_prices_count\":0,\"comments\":[{\"id\":989064535844689282,\"user\":{\"id\":176645710,\"name\":\"\u3082\u3061\u3054\u3081\",\"photo_url\":\"https://static.mercdn.net/members/resized/webp/176645710.jpg?1649003197\",\"photo_thumbnail_url\":\"https://static.mercdn.net/thumb/members/webp/176645710.jpg?1649003197\"},\"message\":\"\u65E9\u304F\u58F2\u308A\u5207\u308A\u305F\u3044\u305F\u3081\u3001\u6700\u5F8C\u306E\u304A\u5024\u4E0B\u3052\u3067\u3059\u3002\u660E\u65E5\u4EE5\u964D\u3044\u3044\u306D\u6570\u306E\u307F\u5897\u3048\u308B\u3088\u3046\u3067\u3057\u305F\u3089\u3001500\u5186\u305A\u3064\u5024\u4E0A\u3052\u3055\u305B\u3066\u9802\u304D\u307E\u3059\u3002\",\"created\":1771266909}],\"updated\":1771513480,\"created\":1770338386,\"pager_id\":5731481141,\"liked\":false,\"checksum\":\"40d4b59d040f87739b0c84585914dc68\",\"is_dynamic_shipping_fee\":false,\"application_attributes\":{},\"is_shop_item\":\"no\",\"hash_tags\":[],\"is_anonymous_shipping\":true,\"is_web_visible\":true,\"is_offerable\":false,\"is_organizational_user\":false,\"organizational_user_status\":\"\",\"is_stock_item\":false,\"is_cancelable\":true,\"shipped_by_worker\":false,\"additional_services\":[],\"has_additional_service\":false,\"has_like_list\":false,\"is_offerable_v2\":false,\"is_dismissed\":false,\"meta_title\":\"Metamorphose
+      \u79D8\u5BC6\u306E\u8ABF\u9999\u5BA4 JSK \u9ED2\u7CFB \u901A\u5E38\u30B5\u30A4\u30BA
+      \u6700\u7D42\u5024\u4E0B\u3052\",\"meta_subtitle\":\"FREE SIZE\u30FBmetamorphose
+      temps de fille\u30FB\u672A\u4F7F\u7528\u306B\u8FD1\u3044\"},\"meta\":{}}\n"
+    headers:
+      CF-RAY:
+      - 9d08d7c55922b615-WAW
+      Cache-Control:
+      - private,no-store,no-cache,must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 19 Feb 2026 21:26:30 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - merCtx=""; HttpOnly
+      - __cf_bm=BN_8wkHXn9hlkGnficIJoBn0cwtvuTh8fsyRsa1rdnA-1771536390-1.0.1.1-fd80Yf8mxdkLooicrORjd8itDdXuBmAtsjs4nVpzy_UkSo3uIPD8_SzXMRa880nSnrh9C6P8ZyB6SWQ4hJqfjze9Ioivtx3GjvhbVHCsv38;
+        path=/; expires=Thu, 19-Feb-26 21:56:30 GMT; domain=.api.mercari.jp; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=.wE3Y63r828G7PxdKFE8fb8C9Taw35GQDAQy68qNTQ8-1771536390303-0.0.1.1-604800000;
+        path=/; domain=.api.mercari.jp; HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      pragma:
+      - no-cache
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-envoy-decorator-operation:
+      - diff-proxy-hs.mercari-bff-jp-prod.svc.cluster.local:10001/*
+      x-envoy-upstream-service-time:
+      - '67'
+      x-request-id:
+      - a91ffb30-522a-41f9-b0c8-eae4c78c328c
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1
