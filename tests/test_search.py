@@ -160,7 +160,7 @@ async def test_search_no_price_item(m):
 @pytest.mark.vcr
 async def test_search_auction(m):
     res = await m.search("metamorphose")
-    item = res.items[3]
+    item = res.items[8]
     assert item.id_ == "m16944912747"
 
     auction = item.auction

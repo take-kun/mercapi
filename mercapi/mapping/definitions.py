@@ -80,6 +80,10 @@ class Extractors:
         return lambda x: [map_to_class(i, model) for i in x[key]] if key in x else None
 
     @staticmethod
+    def get_datetime(key: str) -> ExtractorDef[datetime]:
+        return Extractors.get_datetime_from_timestamp(key)
+
+    @staticmethod
     def get_datetime_from_iso(key: str) -> ExtractorDef[datetime]:
         return Extractors.get_with(key, lambda x: datetime.fromisoformat(x))
 

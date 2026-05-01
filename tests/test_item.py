@@ -95,17 +95,15 @@ async def test_item_not_found(m):
 @pytest.mark.asyncio
 @pytest.mark.vcr
 async def test_item_auction(m):
-    res = await m.item("m16944912747")
+    res = await m.item("m51544155922")
     assert res is not None
     auction = res.auction_info
     assert auction is not None
-    assert auction.id_ == "19862621"
-    assert int(datetime.timestamp(auction.start_time)) == 1771463740
-    assert int(datetime.timestamp(auction.end_time)) == 1771588328
-    assert auction.bid_deadline_duration_seconds == 54105
-    assert auction.bid_total_duration_seconds == 86400
-    assert auction.total_bids == 2
-    assert auction.initial_price == 25000
-    assert auction.highest_bid == 25200
-    assert auction.state == "STATE_ONGOING"
-    assert auction.auction_type == "AUCTION_TYPE_NORMAL"
+    assert auction.id_ == "24316796"
+    assert int(datetime.timestamp(auction.start_time)) == 1777622400
+    assert int(datetime.timestamp(auction.expected_end_time)) == 1777636800
+    assert auction.total_bids == 0
+    assert auction.initial_price == 18000
+    assert auction.highest_bid == 18000
+    assert auction.state == "STATE_NO_BID"
+    assert auction.auction_type == "AUCTION_TYPE_FLASH"
