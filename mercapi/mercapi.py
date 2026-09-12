@@ -9,6 +9,7 @@ from httpx import Request
 from mercapi.mapping import map_to_class
 from mercapi.models import SearchResults, Item, Profile, Items
 from mercapi.models.base import ResponseModel
+from mercapi.models.product import Product
 from mercapi.requests import SearchRequestData
 from mercapi.util import jwt
 
@@ -223,6 +224,33 @@ class Mercapi:
                 "limit": 30,
                 "with_auction": True,
                 "status": "on_sale,trading,sold_out",
+            },
+            headers=self._headers,
+        )
+        return self._sign_request(req)
+
+    async def product(self, product_id: str) -> Optional[Product]:
+        """
+        Fetch details of a single listing published on Mercari Shops.
+        Use this method if Item.item_type is "ITEM_TYPE_BEYOND".
+
+        :param product_id: ID of a product
+        :return: all available product properties
+        """
+        res = await self._client.send(self._product(product_id))
+        if res.status_code == 404:
+            return None
+
+        body = res.json()
+        return map_to_class(body, Product)
+
+    def _product(self, product_id: str) -> Request:
+        req = Request(
+            "GET",
+            f"https://api.mercari.jp/v1/marketplaces/shops/products/{product_id}",
+            params={
+                "view": "FULL",
+                "imageType": "JPEG",
             },
             headers=self._headers,
         )
