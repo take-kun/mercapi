@@ -85,7 +85,12 @@ class Extractors:
 
     @staticmethod
     def get_datetime_from_iso(key: str) -> ExtractorDef[datetime]:
-        return Extractors.get_with(key, lambda x: datetime.fromisoformat(x))
+        return Extractors.get_with(
+            key,
+            lambda x: datetime.fromisoformat(
+                str(x).replace("Z", "+00:00")
+            ),  # for 3.10 compatibility
+        )
 
     @staticmethod
     def get_datetime_from_timestamp(key: str) -> ExtractorDef[datetime]:
