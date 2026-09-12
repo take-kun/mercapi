@@ -1,0 +1,59 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IldLbHVMUy1Id2ZqTDBFZFhvTmZpeXVXUm1lMkdiVXZwVDhZcUFjZFQzOE0iLCJ5IjoiUlQ3SGFNem1kZjNmVVdheU9tcWkzcWpTbXlPM3FQSE5udFV0SmJWZkp3WSJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3NzQ1Njg0OTIsImp0aSI6IjAzZTc0NGVmLTkzOGItOTU5Ny0xZDMyLTFlZjQ1MzI5ZGU5MyIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjEvbWFya2V0cGxhY2VzL3Nob3BzL3Byb2R1Y3RzL3VVNEFoaW5yNnJHTkZMTllRcGE5RTc_dmlldz1GVUxMJmltYWdlVHlwZT1KUEVHIiwiaHRtIjoiR0VUIiwidXVpZCI6ImJhNWU2NWYxLTQ5OGUtNTFlYy1kZmVjLWFmMTRhOWEyZjkyMyJ9.UnxHZOlgQEixnueKbJ-RHISAFPEWBq5Ld9Cw2yrG_PR_NEWw8IAf-mGdzHNk3efWw1GRY-8zfZh23aHWnnePmQ
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/125.0.0.0 Safari/537.3
+      x-platform:
+      - web
+    method: GET
+    uri: https://api.mercari.jp/v1/marketplaces/shops/products/uU4Ahinr6rGNFLNYQpa9E7?view=FULL&imageType=JPEG
+  response:
+    content: "{\"name\":\"uU4Ahinr6rGNFLNYQpa9E7\",\"displayName\":\"\u3010PS2\u3011Beatmania
+      \u2161DX 16 EMPRESS + PREMIUM BEST \u30BD\u30D5\u30C8\u306E\u307F \u30D3\u30FC\u30C8\u30DE\u30CB\u30A2\",\"productTags\":[\"sold_out\"],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/5VX9LCnEfBdm3hvv97sAXT.jpg@jpg\",\"price\":\"6000\",\"createTime\":\"2025-04-15T14:09:35Z\",\"updateTime\":\"2025-11-10T01:27:53Z\",\"attributes\":[],\"isBlockedShop\":false,\"productDetail\":{\"shop\":{\"name\":\"wkkCxHU3Rx8WqyZ77YgMaF\",\"displayName\":\"\u76F4\u6C5F\u5802\",\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/bj8nXES3x7KFcGRJqeZrD6.jpg@jpg\",\"shopStats\":{\"shopId\":\"wkkCxHU3Rx8WqyZ77YgMaF\",\"score\":5,\"reviewCount\":\"13218\"},\"allowDirectMessage\":true,\"shopItems\":[{\"productId\":\"2JNjPJcJbwq5wwaQoiyLxY\",\"displayName\":\"\u3010Switch\u3011\u30A2\u30D1\u30B7\u30FC
+      \u9CF4\u795E\u5B66\u5712\u4E03\u4E0D\u601D\u8B70\",\"productTags\":[],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/2JNcuRYCz6PH8q2Hug9kT7.jpg@jpg\",\"price\":\"2800\"},{\"productId\":\"2JNjPF5EQxKCjTJ6o6u5YM\",\"displayName\":\"\u3010Switch\u3011\u30A2\u30F3\u30B8\u30A7\u30EA\u30FC\u30AF
+      \u30EB\u30DF\u30CA\u30E9\u30A4\u30BA\",\"productTags\":[],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/2JNcuGoK2rKEKyHLMK9SQU.jpg@jpg\",\"price\":\"4900\"},{\"productId\":\"2JNjPCF3yyG4zDfrzsEepu\",\"displayName\":\"\u3010Switch\u3011\u30D0\u30FC\u30C1\u30E3\u30EB\u30AC\u30FC\u30EB@\u30EF\u30FC\u30EB\u30C9\u30A8\u30F3\u30C9
+      VIRTUAL GIRL @ WORLD'S END\",\"productTags\":[],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/2JNctw45zbB8x4RUqQ87CY.jpg@jpg\",\"price\":\"3000\"},{\"productId\":\"2JNjP7f7QN2JknWiaxH7az\",\"displayName\":\"\u3010PS2\u3011\u6A5F\u52D5\u6226\u58EB\u30AC\u30F3\u30C0\u30E0
+      \u30AE\u30EC\u30F3\u306E\u91CE\u671B \u30A2\u30AF\u30B7\u30BA\u306E\u8105\u5A01V\",\"productTags\":[],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/2JNcsEkipzGLfvQAyGezve.jpg@jpg\",\"price\":\"16500\"},{\"productId\":\"2JNjLXbuUiweyEVYX6Mt9J\",\"displayName\":\"\u3010PS4\u3011\u30EF\u30A4\u30D7\u30A2\u30A6\u30C8
+      WipEout Omega Collection\",\"productTags\":[],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/2JNbCKjyv5kzQHPsPf5vYX.jpg@jpg\",\"price\":\"4800\"},{\"productId\":\"2JNjLP5PhDBJCvcbLbAmmq\",\"displayName\":\"\u3010PS4\u3011\u30A4\u30B0\u30B8\u30B9\u30C8\u30A2\u30FC\u30AB\u30A4\u30F4
+      \u65B0\u54C1\u672A\u958B\u5C01\",\"productTags\":[],\"thumbnail\":\"https://assets.mercari-shops-static.com/-/small/plain/2JNW2C5R9QJJ8umBSVUjmT.jpg@jpg\",\"price\":\"1000\"}],\"isInboundXb\":false,\"badges\":[{\"badgeType\":\"SHOP_BADGE_TYPE_OFFICIAL\",\"status\":\"SHOP_BADGE_STATUS_GRANTED\"}],\"hasApprovedBrandScreening\":false,\"alwaysShowStock\":false,\"isOwner\":false},\"photos\":[\"https://assets.mercari-shops-static.com/-/large/plain/5VX9LCnEfBdm3hvv97sAXT.jpg@jpg\",\"https://assets.mercari-shops-static.com/-/large/plain/ksZGwqpDmyFfYZTGDcWDTK.jpg@jpg\",\"https://assets.mercari-shops-static.com/-/large/plain/DaTyMLx7at6i2qZ94kZ6bB.jpg@jpg\"],\"description\":\"\u52D5\u4F5C\u78BA\u8A8D\u6E08\u307F\u3002\u30BD\u30D5\u30C8\u306E\u307F\\n\\n\u7DE9\u885D\u6750\u306A\u3057\u306E\u68B1\u5305\u3068\u306A\u308A\u307E\u3059(\u5E0C\u671B\u3055\u308C\u3066\u3082\u5165\u308C\u308B\u4E8B\u306F\u51FA\u6765\u307E\u305B\u3093)\\n\\n\u4E2D\u53E4\u54C1\u306E\u70BA\u30D7\u30ED\u30C0\u30AF\u30C8\u30B3\u30FC\u30C9\u7B49\u306F\u5168\u3066\u4F7F\u7528\u6E08\u307F\u3068\u304A\u8003\u3048\u4E0B\u3055\u3044\u3002\\n\\n\u540C\u68B1\u3092\u5E0C\u671B\u3055\u308C\u308B\u65B9\u306F+1\u54C1\u306B\u3064\u304D200\u5186\u304A\u5024\u5F15\u304D\u3055\u305B\u3066\u9802\u304D\u307E\u3059\u306E\u3067\u3001\u8CFC\u5165\u524D\u306B\u8CEA\u554F\u306B\u3066\u304A\u9858\u3044\u3057\u307E\u3059\u3002\\n(\u4F46\u3057\u3001\u304A\u5024\u5F15\u306F+3\u54C1\u307E\u3067\u3068\u306A\u308A\u307E\u3059)\\n\\n\u57FA\u672C\u7684\u306B\u306F\u7121\u8A00\u53D6\u5F15\u3067\u53D6\u5F15\u30E1\u30C3\u30BB\u30FC\u30B8\u306F\u4F55\u304B\u30C8\u30E9\u30D6\u30EB\u3084\u8981\u671B\u304C\u3042\u3063\u305F\u5834\u5408\u306E\u307F\u5BFE\u5FDC\u3057\u307E\u3059\u3002\\n\\n#\u76F4\u6C5F\u5802\",\"categories\":[{\"categoryId\":\"7145\",\"displayName\":\"\u30BD\u30D5\u30C8\",\"parentId\":\"7136\",\"rootId\":\"1328\",\"hasChild\":false},{\"categoryId\":\"7136\",\"displayName\":\"\u30D7\u30EC\u30A4\u30B9\u30C6\u30FC\u30B7\u30E7\u30F32(PS2)\",\"parentId\":\"7135\",\"rootId\":\"1328\",\"hasChild\":true},{\"categoryId\":\"7135\",\"displayName\":\"\u305D\u306E\u4ED6\u6A5F\u7A2E\",\"parentId\":\"76\",\"rootId\":\"1328\",\"hasChild\":true},{\"categoryId\":\"76\",\"displayName\":\"\u30C6\u30EC\u30D3\u30B2\u30FC\u30E0\",\"parentId\":\"1328\",\"rootId\":\"1328\",\"hasChild\":true},{\"categoryId\":\"1328\",\"displayName\":\"\u30B2\u30FC\u30E0\u30FB\u304A\u3082\u3061\u3083\u30FB\u30B0\u30C3\u30BA\",\"parentId\":\"1328\",\"rootId\":\"1328\",\"hasChild\":true}],\"brand\":{\"brandId\":\"3267\",\"displayName\":\"PlayStation2\"},\"condition\":{\"displayName\":\"\u3084\u3084\u50B7\u3084\u6C5A\u308C\u3042\u308A\",\"description\":\"\u76EE\u306B\u3064\u304F\u50B7\u3084\u6C5A\u308C\u304C\u3042\u308B\"},\"shippingMethod\":{\"shippingMethodId\":\"6\",\"displayName\":\"\u30AF\u30ED\u30CD\u30B3\u30E4\u30DE\u30C8\",\"isAnonymous\":false},\"shippingPayer\":{\"shippingPayerId\":\"1\",\"displayName\":\"\u9001\u6599\u8FBC\u307F(\u51FA\u54C1\u8005\u8CA0\u62C5)\",\"code\":\"SELLER\"},\"shippingDuration\":{\"shippingDurationId\":\"2\",\"displayName\":\"2\u301C3\u65E5\u3067\u767A\u9001\",\"minDays\":2,\"maxDays\":3},\"shippingFromArea\":{\"shippingAreaCode\":\"jp33\",\"displayName\":\"\u5CA1\u5C71\u770C\"},\"promotions\":[],\"productStats\":{\"productId\":\"uU4Ahinr6rGNFLNYQpa9E7\",\"score\":0,\"reviewCount\":0,\"likesCount\":5},\"timeSaleDetails\":null,\"variants\":[{\"variantId\":\"VmcgXM63ZjRAQdzxi4X8Ja\",\"displayName\":\"\",\"quantity\":\"0\",\"size\":\"\",\"attributes\":[]}],\"shippingFeeConfig\":null,\"variationGrouping\":null,\"buyerPromotion\":null,\"followPromotion\":null,\"lastPurchasedDateTime\":null,\"realCardReward\":null,\"mercardCampaign\":null,\"seoMetadata\":null,\"productPreOrder\":null}}\n"
+    headers:
+      CF-RAY:
+      - 9e2a01b60e653452-WAW
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 26 Mar 2026 23:41:32 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=uOFY1m7Osf_2aahQS1PHl0Quh2HE9pmUVDOJhwTNRIo-1774568492-1.0.1.1-QpfDMhoXCTgYzFiGpGQIaL.hlKIS1EyvlAmPQzZ3ObjIkroJEjWK_xVh4MKBmsT_44jdxa6bZd6rgSeE6jq7BZ2X.Cdc2C7alMHe0nXRd98;
+        path=/; expires=Fri, 27-Mar-26 00:11:32 GMT; domain=.api.mercari.jp; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=FV1FXspIchnW65PHhe0yUdkvXtFijiWhWXE_iZHEuBc-1774568492787-0.0.1.1-604800000;
+        path=/; domain=.api.mercari.jp; HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      content-language:
+      - ja
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-request-id:
+      - acf74d69-c3c9-4122-a798-29a7f34eaa2a
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1

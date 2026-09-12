@@ -1,0 +1,65 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IjRQR3liVjV4LV9pckJrc1NyME5VZVdaSkFiU2o5RFd0ZVRibUpPMmktWVUiLCJ5IjoibVRQQ25NcmU0OV82SmFjajlUVmhDY3RDU2dRLWZMWHM0bHlSM0RBbVhvMCJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3Nzc2MzI1MjcsImp0aSI6IjMyYTViYWNjLWJkZjQtNjc0Ny0wMDlhLTFmZDBkMDg0ZWI4ZSIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvaXRlbXMvZ2V0P2lkPW01MTU0NDE1NTkyMiZpbmNsdWRlX2l0ZW1fYXR0cmlidXRlcz10cnVlJmluY2x1ZGVfcHJvZHVjdF9wYWdlX2NvbXBvbmVudD10cnVlJmluY2x1ZGVfbm9uX3VpX2l0ZW1fYXR0cmlidXRlcz10cnVlJmluY2x1ZGVfZG9uYXRpb249dHJ1ZSZpbmNsdWRlX2l0ZW1fYXR0cmlidXRlc19zZWN0aW9ucz10cnVlJmluY2x1ZGVfYXVjdGlvbj10cnVlJmNvdW50cnlfY29kZT1KUCIsImh0bSI6IkdFVCIsInV1aWQiOiJiOGQ1OWUyMC00NWJiLWQwNWMtMGI1Ny1kOGFlMjdjNDk3MGUifQ.P7LnTR2eMuvBfUJccseNHePVMtpoJjPCZLp3ylZVyR6pn33MFjuJ8UM3hiX_0zeLcHO4xf9MH7pXNwAtSroFOg
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/125.0.0.0 Safari/537.3
+      x-platform:
+      - web
+    method: GET
+    uri: https://api.mercari.jp/items/get?id=m51544155922&include_item_attributes=true&include_product_page_component=true&include_non_ui_item_attributes=true&include_donation=true&include_item_attributes_sections=true&include_auction=true&country_code=JP
+  response:
+    content: "{\"result\":\"OK\",\"data\":{\"id\":\"m51544155922\",\"seller\":{\"id\":450814041,\"name\":\"\u307E\u308D\u3042\u3086\",\"photo_url\":\"https://static.mercdn.net/members/resized/webp/450814041.jpg?1701754823\",\"photo_thumbnail_url\":\"https://static.mercdn.net/thumb/members/webp/450814041.jpg?1701754823\",\"register_sms_confirmation\":\"yes\",\"register_sms_confirmation_at\":\"2018-11-30
+      19:59:37\",\"created\":1543575577,\"num_sell_items\":245,\"ratings\":{\"good\":290,\"normal\":1,\"bad\":1},\"num_ratings\":292,\"score\":289,\"is_official\":false,\"quick_shipper\":false,\"is_followable\":true,\"is_blocked\":false,\"is_inactive\":false,\"star_rating_score\":5},\"status\":\"on_sale\",\"name\":\"\u30BB\u30FC\u30EB\uFF01\u30E1\u30BF\u30E2\u30EB\u30D5\u30A9\u30FC\u30BC*CandybottleJSK*\u8D64\u7CFB\",\"price\":18000,\"description\":\"\u8D64\u3044\u74F6\u306E\u30D7\u30EA\u30F3\u30C8\u304C\u7279\u5FB4\u7684\u306AMetamorphose\u306E\u30B8\u30E3\u30F3\u30D1\u30FC\u30B9\u30AB\u30FC\u30C8\u3002\\n\\n-
+      \u30D6\u30E9\u30F3\u30C9: Metamorphose\\n- \u5546\u54C1\u540D: Candy Bottle
+      \u30B7\u30E7\u30FC\u30C8\u30B8\u30E3\u30F3\u30D1\u30FC\u30B9\u30AB\u30FC\u30C8\\n-
+      \u4FA1\u683C: 24,800\u5186\\n- \u8272: \u8D64\\n- \u30C7\u30B6\u30A4\u30F3:
+      \u74F6\u306E\u30D7\u30EA\u30F3\u30C8\\n- \u88C5\u98FE: \u30EC\u30FC\u30B9\u4ED8\u304D\\n\\n\u3054\u89A7\u3044\u305F\u3060\u304D\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3059\u3002\\n\\n#\u30ED\u30EA\u30A3\u30BF\\n#\u30AF\u30E9\u30ED\u30EA\\n#\u30A2\u30F3\u30B8\u30A7\u30EA\u30C3\u30AF\u30D7\u30EA\u30C6\u30A3\\n#\u30D9\u30A4\u30D3\u30FC\u30B6\u30B9\u30BF\u30FC\u30BA\u30B7\u30E3\u30A4\u30F3\u30D6\u30E9\u30A4\u30C8\\n#\u30A4\u30CE\u30BB\u30F3\u30C8\u30EF\u30FC\u30EB\u30C9\\n#\u30A8\u30DF\u30EA\u30FC\u30C6\u30F3\u30D7\u30EB\u30AD\u30E5\u30FC\u30C8\\n#\u30D4\u30F3\u30AF\u30CF\u30A6\u30B9\\n#\u30CF\u30ED\u30A6\u30A3\u30F3\\n#\u30B3\u30B9\u30D7\u30EC\\n#\u30E1\u30EB\u30AB\u30EA\u3067\u30CF\u30ED\u30A6\u30A3\u30F3\",\"photos\":[\"https://static.mercdn.net/item/detail/orig/photos/m51544155922_1.jpg?1750949482\",\"https://static.mercdn.net/item/detail/orig/photos/m51544155922_2.jpg?1750949482\",\"https://static.mercdn.net/item/detail/orig/photos/m51544155922_3.jpg?1750949482\",\"https://static.mercdn.net/item/detail/orig/photos/m51544155922_4.jpg?1750949482\",\"https://static.mercdn.net/item/detail/orig/photos/m51544155922_5.jpg?1750949482\",\"https://static.mercdn.net/item/detail/orig/photos/m51544155922_6.jpg?1750949482\"],\"photo_paths\":[\"photos/m51544155922_1.jpg\",\"photos/m51544155922_2.jpg\",\"photos/m51544155922_3.jpg\",\"photos/m51544155922_4.jpg\",\"photos/m51544155922_5.jpg\",\"photos/m51544155922_6.jpg\"],\"thumbnails\":[\"https://static.mercdn.net/thumb/item/jpeg/m51544155922_1.jpg?1750949482\"],\"item_category\":{\"id\":6935,\"name\":\"\u30B3\u30B9\u30D7\u30EC\u8863\u88C5\",\"display_order\":1,\"parent_category_id\":300,\"parent_category_name\":\"\u30B3\u30B9\u30C1\u30E5\u30FC\u30E0\u30FB\u30B3\u30B9\u30D7\u30EC\",\"root_category_id\":6386,\"root_category_name\":\"\u30DB\u30D3\u30FC\u30FB\u697D\u5668\u30FB\u30A2\u30FC\u30C8\"},\"item_category_ntiers\":{\"id\":6941,\"name\":\"\u30B4\u30B9\u30ED\u30EA\u30FB\u30ED\u30EA\u30FC\u30BF\",\"display_order\":1,\"parent_category_id\":6935,\"parent_category_name\":\"\u30B3\u30B9\u30D7\u30EC\u8863\u88C5\",\"root_category_id\":6386,\"root_category_name\":\"\u30DB\u30D3\u30FC\u30FB\u697D\u5668\u30FB\u30A2\u30FC\u30C8\",\"brand_group_id\":1},\"parent_categories_ntiers\":[{\"id\":6386,\"name\":\"\u30DB\u30D3\u30FC\u30FB\u697D\u5668\u30FB\u30A2\u30FC\u30C8\",\"display_order\":0},{\"id\":300,\"name\":\"\u30B3\u30B9\u30C1\u30E5\u30FC\u30E0\u30FB\u30B3\u30B9\u30D7\u30EC\",\"display_order\":0},{\"id\":6935,\"name\":\"\u30B3\u30B9\u30D7\u30EC\u8863\u88C5\",\"display_order\":0}],\"item_condition\":{\"id\":1,\"name\":\"\u65B0\u54C1\u3001\u672A\u4F7F\u7528\",\"subname\":\"\u65B0\u54C1\u3067\u8CFC\u5165\u3057\u3001\u4E00\u5EA6\u3082\u4F7F\u7528\u3057\u3066\u3044\u306A\u3044\"},\"item_brand\":{\"id\":49895,\"name\":\"Metamorphose\",\"sub_name\":\"Metamorphose\"},\"colors\":[],\"shipping_payer\":{\"id\":2,\"name\":\"\u9001\u6599\u8FBC\u307F(\u51FA\u54C1\u8005\u8CA0\u62C5)\",\"code\":\"seller\"},\"shipping_method\":{\"id\":14,\"name\":\"\u3089\u304F\u3089\u304F\u30E1\u30EB\u30AB\u30EA\u4FBF\",\"is_deprecated\":\"no\"},\"shipping_from_area\":{\"id\":25,\"name\":\"\u6ECB\u8CC0\u770C\"},\"shipping_duration\":{\"id\":3,\"name\":\"4~7\u65E5\u3067\u767A\u9001\",\"min_days\":4,\"max_days\":7},\"shipping_class\":{\"id\":0,\"fee\":0,\"icon_id\":0,\"pickup_fee\":0,\"shipping_fee\":0,\"total_fee\":0,\"is_pickup\":false},\"num_likes\":48,\"num_comments\":0,\"registered_prices_count\":0,\"comments\":[],\"updated\":1776935164,\"created\":1750949482,\"pager_id\":5673314429,\"liked\":false,\"checksum\":\"09a61710c0f32ce72307203451269ff5\",\"is_dynamic_shipping_fee\":false,\"application_attributes\":{},\"is_shop_item\":\"no\",\"hash_tags\":[\"\u30ED\u30EA\u30A3\u30BF\",\"\u30AF\u30E9\u30ED\u30EA\",\"\u30A2\u30F3\u30B8\u30A7\u30EA\u30C3\u30AF\u30D7\u30EA\u30C6\u30A3\",\"\u30D9\u30A4\u30D3\u30FC\u30B6\u30B9\u30BF\u30FC\u30BA\u30B7\u30E3\u30A4\u30F3\u30D6\u30E9\u30A4\u30C8\",\"\u30A4\u30CE\u30BB\u30F3\u30C8\u30EF\u30FC\u30EB\u30C9\",\"\u30A8\u30DF\u30EA\u30FC\u30C6\u30F3\u30D7\u30EB\u30AD\u30E5\u30FC\u30C8\",\"\u30D4\u30F3\u30AF\u30CF\u30A6\u30B9\",\"\u30CF\u30ED\u30A6\u30A3\u30F3\",\"\u30B3\u30B9\u30D7\u30EC\",\"\u30E1\u30EB\u30AB\u30EA\u3067\u30CF\u30ED\u30A6\u30A3\u30F3\"],\"is_anonymous_shipping\":true,\"is_web_visible\":true,\"is_offerable\":false,\"is_organizational_user\":false,\"organizational_user_status\":\"\",\"is_stock_item\":false,\"is_cancelable\":true,\"shipped_by_worker\":false,\"additional_services\":[],\"has_additional_service\":false,\"has_like_list\":false,\"is_offerable_v2\":false,\"item_attributes\":[{\"id\":\"f7f186cc-a16e-474b-a7a9-ee179b5565c0\",\"text\":\"photo_description\",\"values\":[{\"id\":\"\",\"text\":\"\"},{\"id\":\"\",\"text\":\"\"},{\"id\":\"\",\"text\":\"\"},{\"id\":\"\",\"text\":\"\"},{\"id\":\"\",\"text\":\"\"},{\"id\":\"\",\"text\":\"\"}],\"deep_facet_filterable\":false,\"show_on_ui\":false},{\"id\":\"b6b9be89-648c-4af9-b3fe-1b77de4833d1\",\"text\":\"\u30D6\u30E9\u30F3\u30C9\",\"values\":[{\"id\":\"823346b5-e9b1-5ec6-8c6f-b4bad30454da\",\"text\":\"Metamorphose\"}],\"deep_facet_filterable\":false,\"show_on_ui\":false}],\"is_dismissed\":false,\"photo_descriptions\":[\"\",\"\",\"\",\"\",\"\",\"\"],\"auction_info\":{\"id\":\"24316796\",\"start_time\":1777622400,\"expected_end_time\":1777636800,\"total_bids\":0,\"initial_price\":18000,\"highest_bid\":18000,\"state\":\"STATE_NO_BID\",\"auction_type\":\"AUCTION_TYPE_FLASH\"},\"meta_title\":\"\u30BB\u30FC\u30EB\uFF01\u30E1\u30BF\u30E2\u30EB\u30D5\u30A9\u30FC\u30BC*CandybottleJSK*\u8D64\u7CFB\",\"meta_subtitle\":\"Metamorphose\u30FB\u65B0\u54C1\u3001\u672A\u4F7F\u7528\",\"is_degraded\":false},\"meta\":{}}\n"
+    headers:
+      CF-RAY:
+      - 9f4e37413ecab19d-WAW
+      Cache-Control:
+      - private,no-store,no-cache,must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 01 May 2026 10:48:47 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - merCtx=""; HttpOnly
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      pragma:
+      - no-cache
+      set-cookie:
+      - __cf_bm=gx4f91ndsreOrVrbQzsMiAzpNyE1Xd2rzVhNqF1zOOY-1777632527.559379-1.0.1.1-0tm5ikqXC0nJQ5mht2sp6Wp_Ej89LYxpzm7AMChf7s1Y6ohRubdepKnHME3tCD2kpF7cJ4iw8WR696hqRwUW08WD.LoX3khr6TH30YmUAIjJVjXws9ssznlSKEtJls_n;
+        HttpOnly; Secure; Path=/; Domain=api.mercari.jp; Expires=Fri, 01 May 2026
+        11:18:47 GMT
+      - _cfuvid=ChEif6LzHqrWsA_z7eWLFVpUqpFbarHx70tkiud7oTI-1777632527.559379-1.0.1.1-tBbF1.dVHNs0mACwuXci.z84J6sujaaHdLF5cSmktg8;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.mercari.jp
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-envoy-decorator-operation:
+      - diff-proxy-hs.mercari-bff-jp-prod.svc.cluster.local:10001/*
+      x-envoy-upstream-service-time:
+      - '109'
+      x-request-id:
+      - 9c1a632c-a480-4df5-957f-cf274a224764
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1

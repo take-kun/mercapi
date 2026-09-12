@@ -3,13 +3,13 @@ import uuid
 from typing import Optional, List
 
 import httpx
-from httpx._types import ProxiesTypes
 from ecdsa import SigningKey, NIST256p
 from httpx import Request
 
 from mercapi.mapping import map_to_class
 from mercapi.models import SearchResults, Item, Profile, Items
 from mercapi.models.base import ResponseModel
+from mercapi.models.product import Product
 from mercapi.requests import SearchRequestData
 from mercapi.util import jwt
 
@@ -27,13 +27,13 @@ class Mercapi:
     def __init__(
         self,
         *,
-        proxies: Optional[ProxiesTypes] = None,
         user_agent: Optional[str] = None,
+        httpx_client: Optional[httpx.AsyncClient] = None,
     ):
         """initialize
 
-        :param proxies: Once the proxy is configured, the IP address of the access source can be changed. (e.g. {"http://": "http://example.com:1234", "https://": "http://example.com:1234"})
-        :param user_agent: User-Agent
+        :param user_agent: Custom User-Agent HTTP header sent in outgoing requests
+        :param httpx_client: User-provided httpx client, new httpx.AsyncClient will be created if not provided
         """
         if not user_agent:
             user_agent = (
@@ -48,7 +48,7 @@ class Mercapi:
 
         self._uuid = str(uuid.UUID(int=random.getrandbits(128)))
         self._key = SigningKey.generate(NIST256p)
-        self._client = httpx.AsyncClient(proxies=proxies)
+        self._client = httpx_client or httpx.AsyncClient()
         ResponseModel.set_mercapi(self)
 
     def _sign_request(self, request: Request) -> Request:
@@ -164,7 +164,16 @@ class Mercapi:
         req = Request(
             "GET",
             "https://api.mercari.jp/items/get",
-            params={"id": id_},
+            params={
+                "id": id_,
+                "include_item_attributes": True,
+                "include_product_page_component": True,
+                "include_non_ui_item_attributes": True,
+                "include_donation": True,
+                "include_item_attributes_sections": True,
+                "include_auction": True,
+                "country_code": "JP",
+            },
             headers=self._headers,
         )
         return self._sign_request(req)
@@ -213,7 +222,35 @@ class Mercapi:
             params={
                 "seller_id": profile_id,
                 "limit": 30,
+                "with_auction": True,
                 "status": "on_sale,trading,sold_out",
+            },
+            headers=self._headers,
+        )
+        return self._sign_request(req)
+
+    async def product(self, product_id: str) -> Optional[Product]:
+        """
+        Fetch details of a single listing published on Mercari Shops.
+        Use this method if Item.item_type is "ITEM_TYPE_BEYOND".
+
+        :param product_id: ID of a product
+        :return: all available product properties
+        """
+        res = await self._client.send(self._product(product_id))
+        if res.status_code == 404:
+            return None
+
+        body = res.json()
+        return map_to_class(body, Product)
+
+    def _product(self, product_id: str) -> Request:
+        req = Request(
+            "GET",
+            f"https://api.mercari.jp/v1/marketplaces/shops/products/{product_id}",
+            params={
+                "view": "FULL",
+                "imageType": "JPEG",
             },
             headers=self._headers,
         )

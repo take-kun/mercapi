@@ -1,0 +1,124 @@
+POST https://api.mercari.jp/client_events/v1/event
+Content-Type: application/json
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+X-Platform: web
+DPoP: eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IkpvRnFtVjQ5RTlFdWwyZlotSC01bjdiR2VQVXZlekdCSEt4ZUtxVVlSNHc9IiwieSI6IlRRRWo4bjJwTXdjb1BfQndzTTRkSm84MzN6T3liWmFnZXNmSmFzSEYyN0E9In0sInR5cCI6ImRwb3Arand0In0.eyJpYXQiOjE2NTc0MDUzNTUsImp0aSI6IjE5NjE0YzdlLWRkOGYtYzI0Ni03MTY4LTk1NjM3NzYyMGQwNCIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvY2xpZW50X2V2ZW50cy92MS9ldmVudCIsImh0bSI6IlBPU1QiLCJ1dWlkIjoiMWYxODcyMGUtYTRkYS1lM2JmLTM2M2ItNzVjYzJkYWVkZjkyIn0.xT2go-dep_duWgRFjhb096N8DlHUaddu52X-B4kZqpxxlzexRMVs13SYv5wACh3H-jK7x1dVg4Qa7_R2H9bh-A
+
+{
+  "events": [
+    {
+      "context": {
+        "eventTime": "2022-07-09T:22:24:35.386Z",
+        "service": 3,
+        "deviceType": 3,
+        "user": {
+          "uuid": "1f18720e-a4da-e3bf-363b-75cc2daedf92"
+        }
+      },
+      "protoEvent": {
+        "categories": [],
+        "brands": [],
+        "conditions": [],
+        "impressions": [],
+        "id": {
+          "type": 11,
+          "location": {
+            "screen": "search"
+          }
+        }
+      }
+    },
+    {
+      "context": {
+        "eventTime": "2022-07-09T22:24:36.386Z",
+        "service": 3,
+        "deviceType": 3,
+        "user": {
+          "uuid": "1f18720e-a4da-e3bf-363b-75cc2daedf92"
+        }
+      },
+      "protoEvent": {
+        "categories": [],
+        "brands": [],
+        "conditions": [],
+        "impressions": [],
+        "id": {
+          "type": 10
+        },
+        "experiment": {
+          "id": "EDGE-2140_clarify_target_user_segments_of_mercari_lens"
+        }
+      }
+    },
+    {
+      "context": {
+        "eventTime": "2022-07-09T22:24:37.386Z",
+        "service": 3,
+        "deviceType": 3,
+        "user": {
+          "uuid": "1f18720e-a4da-e3bf-363b-75cc2daedf92"
+        }
+      },
+      "protoEvent": {
+        "categories": [],
+        "brands": [],
+        "conditions": [],
+        "impressions": [],
+        "id": {
+          "type": 11,
+          "location": {
+            "screen": "search"
+          }
+        }
+      }
+    }
+  ],
+  "time": "2022-07-09T22:24:35.386Z",
+  "uid": "1657405475386"
+}
+
+###
+
+POST https://api.mercari.jp/v2/entities:search
+Content-Type: application/json
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+DPoP: eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IkN4N0JmbmdhRThFUE5PR3dIZG9VMFpjSmdmQ01BQ2VSRG9NdUwteEpYUWciLCJ5IjoiTG01SEZCQVJhLTdWb2ZURlR5aUxxODRUaEdkQXo0bGU2YWhpaTdxMXQ3WSJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE2NTc1Nzc3MTksImp0aSI6ImRlZGFkZmMzLTBhYjktNGRjNy02NjEwLTdkMGEwODUyMTVmNiIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiI3MDUwNTA2ZC04ZThmLTM0YTctNmNlNS05OTFlMGU3OGMxNmUifQ.xbyvs6y1mHRghG68WNOpRae1aM2xzB1DFn093NqfTWKoUw3KBoLXsDiltx_kYCmsZ56hCxh1nFpNvzfIJi2jsA
+X-Platform: web
+
+{
+  "userId": "",
+  "pageSize": 120,
+  "pageToken": "",
+  "searchSessionId": "131cd8b54c52ca0e0428d9e698f2f658",
+  "indexRouting": "INDEX_ROUTING_UNSPECIFIED",
+  "thumbnailTypes": [],
+  "searchCondition": {
+    "keyword": "sharpnel",
+    "excludeKeyword": "",
+    "sort": "SORT_SCORE",
+    "order": "ORDER_DESC",
+    "status": [],
+    "sizeId": [],
+    "categoryId": [],
+    "brandId": [],
+    "sellerId": [],
+    "priceMin": 0,
+    "priceMax": 0,
+    "itemConditionId": [],
+    "shippingPayerId": [],
+    "shippingFromArea": [],
+    "shippingMethod": [],
+    "colorId": [],
+    "hasCoupon": false,
+    "attributes": [],
+    "itemTypes": [],
+    "skuIds": []
+  },
+  "defaultDatasets": [],
+  "serviceFrom": "suruga"
+}
+
+###
+
+eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IkpkU3JVUWNzZGpjZXIwYjdnbmUyOUtKNF9fRWUxNTZDQUVJRThpSVdIM2M9IiwieSI6Ii0xeVNpWEhLQkJJdXhaYWtPWTVwUnZETE5RRGZFejdSQzJVdmJzLVlraGc9In0sInR5cCI6ImRwb3Arand0In0.eyJpYXQiOjE2NTc1NzMyNzQsImp0aSI6IjBlM2NjMzY2LWFiOGQtN2M2My1jM2FlLTRjYjI4MTY5YjhjOSIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiJmOTY0MzIxZi0zYzRlLWZiYjItMGQ5Zi03ZmMyYzZjNTg4NmYifQ.SRlOI-N3jbc1TzONrbNc7-5sM-GHuHQ705v_dxcQpY1o8gPy4BPdkg7fC4dQHIj_4_LWh1L4lDY9HWb0xSPOnA
+eyJ0eXAiOiJkcG9wK2p3dCIsImFsZyI6IkVTMjU2IiwiandrIjp7ImNydiI6IlAtMjU2Iiwia3R5IjoiRUMiLCJ4IjoiYnFxaHRSTVNVUl82a3dvdElvN1QwUm83YlQ4R1ZNYUtGVHpicFp4MnI0OCIsInkiOiJNeXAzZkNnbnFtTF9XdEp0X1hHM05tZGNzT25qRFplVUNuNnowMlEydjM4In19.eyJpYXQiOjE2NTc1NzA2MzIsImp0aSI6IjM5YWM0NDYxLTQzODYtNDU3Ny1iZmQ4LWViNTRjN2E0MDI1ZCIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiI2OWNkZTUxOS0xODFmLTQyOGItOTc0Yy0xZDBjNjMwZmZjMGMifQ._bhBMwny-uxE2o6nXmOAUKKVpaTbCxOwLrzTC4YI1nChr2NBvmvKWE_9IF1HZeftdbCXD3D0ZRbvJJLjJ3ptQQ

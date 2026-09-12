@@ -58,4 +58,72 @@ interactions:
       - 99899f32-243a-4ace-9ed2-442b563b46f9
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: '{"userId": "", "config": {"responseToggles": ["QUERY_SUGGESTION_WEB_1"]},
+      "pageSize": 120, "pageToken": "", "searchSessionId": "f298312cc7ad497c8382697535a24116",
+      "source": "BaseSerp", "indexRouting": "INDEX_ROUTING_UNSPECIFIED", "thumbnailTypes":
+      [], "searchCondition": {"keyword": "beatmaniaIIDX RED TRAXX", "excludeKeyword":
+      "", "sort": "SORT_SCORE", "order": "ORDER_DESC", "status": [], "sizeId": [],
+      "categoryId": [], "brandId": [], "sellerId": [], "priceMin": 0, "priceMax":
+      0, "itemConditionId": [], "shippingPayerId": [], "shippingFromArea": [], "shippingMethod":
+      [], "colorId": [], "hasCoupon": false, "attributes": [], "itemTypes": [], "skuIds":
+      [], "shopIds": [], "excludeShippingMethodIds": []}, "serviceFrom": "suruga",
+      "withItemBrand": true, "withItemSize": false, "withItemPromotions": true, "withItemSizes":
+      true, "withShopname": false, "useDynamicAttribute": true, "withSuggestedItems":
+      true, "withOfferPricePromotion": true, "withProductSuggest": true, "withParentProducts":
+      false, "withProductArticles": true, "withSearchConditionId": false, "withAuction":
+      true, "laplaceDeviceUuid": "bf1bf1a230d44a0ead2ab864b3a9a6ef"}'
+    headers:
+      content-length:
+      - '1138'
+      content-type:
+      - application/json
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6InBkRHh2V3lFYk4wZmVIY0xyUHlZVmVHcGJHUXJYTk9tZzdVaHRUaWNuMHciLCJ5IjoiX255eG03ekVkamNRelhmVUZOejZvZ01HX09KWmNzekVKc2JKWmtLMy1lSSJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3NzE3OTAzNjQsImp0aSI6Ijc0ZjBhMzZmLWViOTEtYzI5Mi1kYTQ4LWFiODU2NmYzZGFjNiIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvdjIvZW50aXRpZXM6c2VhcmNoIiwiaHRtIjoiUE9TVCIsInV1aWQiOiIzYWI1MGVlMS00YzZkLWFkNDYtM2FiMC1hMjA1ZTU4OGJiNWUifQ.zpg652dCiAmcdnzfz1vqc5ZJz76weccg2MeD8XIOyER8ADCz4iweId-5M6HSlNkGpeZMNb7QBvXp08Q4shvcSA
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/125.0.0.0 Safari/537.3
+      x-platform:
+      - web
+    method: POST
+    uri: https://api.mercari.jp/v2/entities:search
+  response:
+    content: '{"meta":{"nextPageToken":"","previousPageToken":"","numFound":"0","properties":[]},"items":[],"components":[],"searchCondition":{"keyword":"beatmaniaIIDX
+      RED TRAXX","excludeKeyword":"","sort":"SORT_SCORE","order":"ORDER_DESC","status":[],"sizeId":[],"categoryId":[],"brandId":[],"sellerId":[],"priceMin":0,"priceMax":0,"itemConditionId":[],"shippingPayerId":[],"shippingFromArea":[],"shippingMethod":[],"colorId":[],"hasCoupon":false,"createdAfterDate":"0","createdBeforeDate":"0","attributes":[],"itemTypes":[],"skuIds":[],"shopIds":[],"promotionValidAt":null,"excludeShippingMethodIds":[]},"searchConditionId":""}
+
+      '
+    headers:
+      CF-RAY:
+      - 9d21104fccf857b7-WAW
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 22 Feb 2026 19:59:24 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=6xvY4wrz51usdtEpNO0yZgSM981465AlZ1O8s0izfgg-1771790364-1.0.1.1-Ryb9fatP1BEGCfWqSst_sAyURsPBXX4U69OxAlYSBq.zNCfhYvFVrYRYerdOUcVXZ6ifveZKpEbFtrzwLy4oWFQZmyyepmdTrLDxVNXtsiM;
+        path=/; expires=Sun, 22-Feb-26 20:29:24 GMT; domain=.api.mercari.jp; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=6HgPh15I1uaBRs5bt4jbxwKeOOTlo3h5flhAUhr4aT8-1771790364537-0.0.1.1-604800000;
+        path=/; domain=.api.mercari.jp; HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-request-id:
+      - a1805803-8cf6-47d3-b0b2-59b35aa169f5
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1

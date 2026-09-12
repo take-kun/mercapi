@@ -2,7 +2,7 @@ import logging
 import uuid
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 
 from mercapi.requests import RequestData
 
@@ -48,10 +48,10 @@ class SearchRequestData(RequestData):
         status: List["SearchRequestData.Status"] = field(default_factory=list)
         sort_by: "SearchRequestData.SortBy" = 1
         sort_order: "SearchRequestData.SortOrder" = 1
-        exclude: str = ""
+        exclude: Optional[str] = None
 
     search_conditions: SearchConditions
-    page_token: str = ""
+    page_token: Optional[str] = None
 
     _allowed_sorting = [
         (SortBy.SORT_SCORE, SortOrder.ORDER_DESC),
@@ -79,13 +79,20 @@ class SearchRequestData(RequestData):
 
         return {
             "userId": "",
+            "config": {
+                "responseToggles": [
+                    "QUERY_SUGGESTION_WEB_1",
+                ],
+            },
             "pageSize": 120,
-            "pageToken": self.page_token,
+            "pageToken": self.page_token or "",
             "searchSessionId": uuid.uuid4().hex,
+            "source": "BaseSerp",
             "indexRouting": "INDEX_ROUTING_UNSPECIFIED",
             "thumbnailTypes": [],
             "searchCondition": {
                 "keyword": self.search_conditions.query,
+                "excludeKeyword": self.search_conditions.exclude or "",
                 "sort": self.search_conditions.sort_by.name,
                 "order": self.search_conditions.sort_order.name,
                 "status": status,
@@ -104,8 +111,22 @@ class SearchRequestData(RequestData):
                 "attributes": [],
                 "itemTypes": [],
                 "skuIds": [],
-                "excludeKeyword": self.search_conditions.exclude,
+                "shopIds": [],
+                "excludeShippingMethodIds": [],
             },
-            "defaultDatasets": [],
             "serviceFrom": "suruga",
+            "withItemBrand": True,
+            "withItemSize": False,
+            "withItemPromotions": True,
+            "withItemSizes": True,
+            "withShopname": False,
+            "useDynamicAttribute": True,
+            "withSuggestedItems": True,
+            "withOfferPricePromotion": True,
+            "withProductSuggest": True,
+            "withParentProducts": False,
+            "withProductArticles": True,
+            "withSearchConditionId": False,
+            "withAuction": True,
+            "laplaceDeviceUuid": uuid.uuid4().hex,
         }

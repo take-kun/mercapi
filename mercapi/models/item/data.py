@@ -97,3 +97,17 @@ class Comment(ResponseModel):
     message: str
     user: User
     created: datetime
+
+
+@dataclass
+class AuctionInfo(ResponseModel):
+    id_: str
+    start_time: datetime
+    expected_end_time: datetime
+    bid_deadline_duration_seconds: int
+    bid_total_duration_seconds: int
+    total_bids: int
+    initial_price: int
+    highest_bid: int
+    state: str
+    auction_type: str

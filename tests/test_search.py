@@ -72,11 +72,11 @@ async def test_search_with_min_price_and_max_price_filter(m):
 @pytest.mark.asyncio
 @pytest.mark.vcr
 async def test_search_fetch_full_item_from_result(m):
-    res = await m.search("完全網羅は無理でしたMix", categories=[75])
-    item = res.items[0]
+    res = await m.search("既出技術", categories=[9879])
+    item = res.items[1]
 
     full_item = await item.full_item()
-    assert full_item.id_ == "m94786104879"
+    assert full_item.id_ == "m70744543636"
 
 
 @pytest.mark.asyncio
@@ -154,3 +154,17 @@ async def test_search_no_price_item(m):
     assert item.is_no_price
     assert item.price == 9999999
     assert item.real_price is None
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_search_auction(m):
+    res = await m.search("metamorphose")
+    item = res.items[8]
+    assert item.id_ == "m16944912747"
+
+    auction = item.auction
+    assert auction is not None
+    assert auction.highest_bid == 25200
+    assert auction.total_bid == 2
+    assert int(datetime.timestamp(auction.bid_deadline)) == 1771588328
