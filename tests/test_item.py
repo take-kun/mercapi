@@ -2,6 +2,8 @@ from datetime import datetime
 
 import pytest
 
+from mercapi.util.errors import APIError
+
 
 @pytest.mark.asyncio
 @pytest.mark.vcr
@@ -90,6 +92,24 @@ async def test_item_with_comments(m):
 async def test_item_not_found(m):
     res = await m.item("m00000000000")
     assert res is None
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_item_deleted(m):
+    res = await m.item("m70744543636")
+    assert res is None
+
+
+@pytest.mark.asyncio
+@pytest.mark.vcr
+async def test_item_invalid_id(m):
+    with pytest.raises(APIError) as exc_info:
+        await m.item("invalid")
+
+    assert exc_info.value.status_code == 400
+    assert exc_info.value.code == "InvalidArgument"
+    assert exc_info.value.is_not_found is False
 
 
 @pytest.mark.asyncio

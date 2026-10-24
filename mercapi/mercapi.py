@@ -1,6 +1,6 @@
 import random
 import uuid
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 
 import httpx
 from ecdsa import SigningKey, NIST256p
@@ -12,6 +12,7 @@ from mercapi.models.base import ResponseModel
 from mercapi.models.product import Product
 from mercapi.requests import SearchRequestData
 from mercapi.util import jwt
+from mercapi.util.errors import APIError
 
 
 class Mercapi:
@@ -50,6 +51,49 @@ class Mercapi:
         self._key = SigningKey.generate(NIST256p)
         self._client = httpx_client or httpx.AsyncClient()
         ResponseModel.set_mercapi(self)
+
+    @staticmethod
+    def _parse_error_body(body: Any) -> List[Dict[str, Any]]:
+        if not isinstance(body, dict):
+            return []
+
+        errors = body.get("errors")
+        if isinstance(errors, list):
+            return errors
+
+        if "code" in body:
+            return [{"code": str(body["code"]), "message": body.get("message")}]
+
+        return []
+
+    def _error_from_response(self, res: httpx.Response) -> APIError:
+        try:
+            body = res.json()
+        except ValueError:
+            body = None
+
+        return APIError(res.status_code, self._parse_error_body(body))
+
+    def _check_response(self, res: httpx.Response, *, missing_ok: bool = False) -> bool:
+        """Validate the response, raising APIError for error responses.
+
+        When `missing_ok` is set, responses describing a missing or removed
+        entity are not raised but reported through the returned flag instead.
+
+        Deleted listings are reported with HTTP 403 and an
+        `InvisibleItemException` error, so the status code alone is not enough
+        to tell them apart from entities that were never there.
+
+        :return: True if the entity is missing and `missing_ok` is set
+        """
+        if res.is_success:
+            return False
+
+        error = self._error_from_response(res)
+        if missing_ok and error.is_not_found:
+            return True
+
+        raise error
 
     def _sign_request(self, request: Request) -> Request:
         request.headers["DPoP"] = jwt.generate_dpop(
@@ -132,6 +176,7 @@ class Mercapi:
 
     async def _search_impl(self, request: SearchRequestData) -> SearchResults:
         res = await self._client.send(self._search(request))
+        self._check_response(res)
         body = res.json()
         res = map_to_class(body, SearchResults)
         res._request = request
@@ -151,10 +196,11 @@ class Mercapi:
         This method reflects the action of loading single item view.
 
         :param id_: id of a listing (item)
-        :return: all available listing (item) properties
+        :return: all available listing (item) properties,
+            or None if the listing does not exist or has been deleted
         """
         res = await self._client.send(self._item(id_))
-        if res.status_code == 404:
+        if self._check_response(res, missing_ok=True):
             return None
 
         body = res.json()
@@ -186,7 +232,7 @@ class Mercapi:
         :return: all available seller (profile) properties
         """
         res = await self._client.send(self._profile(id_))
-        if res.status_code == 404:
+        if self._check_response(res, missing_ok=True):
             return None
 
         body = res.json()
@@ -209,7 +255,7 @@ class Mercapi:
         :return: list of items sold by specified seller
         """
         res = await self._client.send(self._items(profile_id))
-        if res.status_code == 404:
+        if self._check_response(res, missing_ok=True):
             return None
 
         body = res.json()
@@ -238,7 +284,7 @@ class Mercapi:
         :return: all available product properties
         """
         res = await self._client.send(self._product(product_id))
-        if res.status_code == 404:
+        if self._check_response(res, missing_ok=True):
             return None
 
         body = res.json()
