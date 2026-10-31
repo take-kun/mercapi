@@ -14,12 +14,6 @@ class IncorrectRequestError(MercapiError):
 
 
 class APIError(MercapiError):
-    """Raised when the Mercari API responds with an error instead of data.
-
-    The code and message reported by the API are preserved in the
-    `code` and `message` attributes so that callers can log or inspect them.
-    """
-
     NOT_FOUND_CODES = frozenset(
         {
             "RecordNotFoundException",

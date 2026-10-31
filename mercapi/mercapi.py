@@ -75,17 +75,6 @@ class Mercapi:
         return APIError(res.status_code, self._parse_error_body(body))
 
     def _check_response(self, res: httpx.Response, *, missing_ok: bool = False) -> bool:
-        """Validate the response, raising APIError for error responses.
-
-        When `missing_ok` is set, responses describing a missing or removed
-        entity are not raised but reported through the returned flag instead.
-
-        Deleted listings are reported with HTTP 403 and an
-        `InvisibleItemException` error, so the status code alone is not enough
-        to tell them apart from entities that were never there.
-
-        :return: True if the entity is missing and `missing_ok` is set
-        """
         if res.is_success:
             return False
 
