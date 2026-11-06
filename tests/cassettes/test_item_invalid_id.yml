@@ -14,8 +14,7 @@ interactions:
     method: GET
     uri: https://api.mercari.jp/items/get?id=invalid&include_item_attributes=true&include_product_page_component=true&include_non_ui_item_attributes=true&include_donation=true&include_item_attributes_sections=true&include_auction=true&country_code=JP
   response:
-    body:
-      string: "{\"result\":\"error\",\"errors\":[{\"code\":\"InvalidArgument\",\"message\":\"\u5165\u529B\u3055\u308C\u305F\u30C7\u30FC\u30BF\u304C\u6B63\u3057\u304F\u3042\u308A\u307E\u305B\u3093\u3002\"}],\"meta\":{}}"
+    content: "{\"result\":\"error\",\"errors\":[{\"code\":\"InvalidArgument\",\"message\":\"\u5165\u529B\u3055\u308C\u305F\u30C7\u30FC\u30BF\u304C\u6B63\u3057\u304F\u3042\u308A\u307E\u305B\u3093\u3002\"}],\"meta\":{}}"
     headers:
       cache-control:
       - private,no-store,no-cache,must-revalidate
@@ -55,7 +54,6 @@ interactions:
       - '0'
       x-request-id:
       - 76ab0261-40f3-40df-9055-89c99c3da942
-    status:
-      code: 400
-      message: Bad Request
+    status_code: 400
+    http_version: HTTP/1.1
 version: 1

@@ -14,8 +14,7 @@ interactions:
     method: GET
     uri: https://api.mercari.jp/items/get?id=m70744543636&include_item_attributes=true&include_product_page_component=true&include_non_ui_item_attributes=true&include_donation=true&include_item_attributes_sections=true&include_auction=true&country_code=JP
   response:
-    body:
-      string: "{\"result\":\"error\",\"errors\":[{\"code\":\"InvisibleItemException\",\"message\":\"\u8A72\u5F53\u3059\u308B\u5546\u54C1\u306F\u524A\u9664\u3055\u308C\u3066\u3044\u307E\u3059\u3002\"}],\"meta\":{}}"
+    content: "{\"result\":\"error\",\"errors\":[{\"code\":\"InvisibleItemException\",\"message\":\"\u8A72\u5F53\u3059\u308B\u5546\u54C1\u306F\u524A\u9664\u3055\u308C\u3066\u3044\u307E\u3059\u3002\"}],\"meta\":{}}"
     headers:
       cache-control:
       - private,no-store,no-cache,must-revalidate
@@ -55,7 +54,6 @@ interactions:
       - '77'
       x-request-id:
       - d0facdd2-7305-42a5-b308-b5c668b51c96
-    status:
-      code: 403
-      message: Forbidden
+    status_code: 403
+    http_version: HTTP/1.1
 version: 1
