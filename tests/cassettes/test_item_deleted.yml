@@ -1,0 +1,59 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      dpop:
+      - eyJhbGciOiJFUzI1NiIsImp3ayI6eyJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IktsdjM2bGFmVXI1WmtJb0ZqVzAwSTkzVEh3SUZyNXVDRWZ2Mk5NbmVCSVkiLCJ5IjoidU1HNWtFMFVMZ01uUVNaR3luYkltTWhWUTR6SUNkYWtONzAyRDU1MWp2NCJ9LCJ0eXAiOiJkcG9wK2p3dCJ9.eyJpYXQiOjE3OTI4MjEzMTAsImp0aSI6IjBlMGI2MjgyLTcyYjYtM2JjOC0zOTFmLWYwM2UzYjg1YzBkNiIsImh0dSI6Imh0dHBzOi8vYXBpLm1lcmNhcmkuanAvaXRlbXMvZ2V0P2lkPW03MDc0NDU0MzYzNiZpbmNsdWRlX2l0ZW1fYXR0cmlidXRlcz10cnVlJmluY2x1ZGVfcHJvZHVjdF9wYWdlX2NvbXBvbmVudD10cnVlJmluY2x1ZGVfbm9uX3VpX2l0ZW1fYXR0cmlidXRlcz10cnVlJmluY2x1ZGVfZG9uYXRpb249dHJ1ZSZpbmNsdWRlX2l0ZW1fYXR0cmlidXRlc19zZWN0aW9ucz10cnVlJmluY2x1ZGVfYXVjdGlvbj10cnVlJmNvdW50cnlfY29kZT1KUCIsImh0bSI6IkdFVCIsInV1aWQiOiI1NWY2MzgzYS0yZGNiLThmYzUtNTk4Ny05MDFhNmFlNDVmMGIifQ.9PajZ-O-oVgQQ9W6VxQbp0UooW4Y29v3rtSVHyQBwHapWjMY70wO6UhuABaCcsXuKxJhv1tVaD-rfnnwuefEAw
+      host:
+      - api.mercari.jp
+      user-agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/125.0.0.0 Safari/537.3
+      x-platform:
+      - web
+    method: GET
+    uri: https://api.mercari.jp/items/get?id=m70744543636&include_item_attributes=true&include_product_page_component=true&include_non_ui_item_attributes=true&include_donation=true&include_item_attributes_sections=true&include_auction=true&country_code=JP
+  response:
+    content: "{\"result\":\"error\",\"errors\":[{\"code\":\"InvisibleItemException\",\"message\":\"\u8A72\u5F53\u3059\u308B\u5546\u54C1\u306F\u524A\u9664\u3055\u308C\u3066\u3044\u307E\u3059\u3002\"}],\"meta\":{}}"
+    headers:
+      cache-control:
+      - private,no-store,no-cache,must-revalidate
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a4f6bb267e5ee37f-NRT
+      connection:
+      - keep-alive
+      content-type:
+      - application/json
+      date:
+      - Sat, 24 Oct 2026 05:55:10 GMT
+      pragma:
+      - no-cache
+      server:
+      - cloudflare
+      set-cookie:
+      - merCtx=""; HttpOnly
+      - __cf_bm=8ORLzpkdWQP5nMnZRieroCtO_YkZUmLXQLfa54l2u3w-1792821310.4726229-1.0.1.1-e0r6Cd9Mx47zmAfHTDrkoDZESEjIX9IzQi0Da4E4AlhjE9DUttfHyET.pRsFMBC1oXlRfnwgeXGTbJHX_Al8ki9oOi5drUUG_o6QCnp5N5K4hZK987PznYxt9dkMLCwB;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.mercari.jp; Expires=Sat,
+        24 Oct 2026 06:25:10 GMT
+      - _cfuvid=Orl4y9ewp_tW9zGyudrdViSbUmnhi3q1r7av4_sP9Ak-1792821310.4726229-1.0.1.1-fcCxA5beQJDvL3oBa3Gw02mG4RLUgVKsEoyw0HZqZ3M;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.mercari.jp
+      strict-transport-security:
+      - max-age=31536000
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-envoy-decorator-operation:
+      - api-server-hs.mercari-bff-jp-prod.svc.cluster.local:10001/*
+      x-envoy-upstream-service-time:
+      - '77'
+      x-request-id:
+      - d0facdd2-7305-42a5-b308-b5c668b51c96
+    status_code: 403
+    http_version: HTTP/1.1
+version: 1
